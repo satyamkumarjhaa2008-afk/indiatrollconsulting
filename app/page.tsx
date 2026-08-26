@@ -1,4 +1,5 @@
 import HeroCarousel from '@/components/hero-carousel'
+import SiteFooter from '@/components/site-footer'
 import SiteNavbar from '@/components/site-navbar'
 
 export default function Home() {
@@ -6,6 +7,7 @@ export default function Home() {
     <main id="home" className="min-h-screen bg-background">
       <SiteNavbar />
       <HeroCarousel />
+      <SiteFooter />
     </main>
   )
 }
