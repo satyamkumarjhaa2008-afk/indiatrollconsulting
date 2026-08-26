@@ -1,0 +1,40 @@
+For social-icons use 
+<i class="fab fa-facebook-f"></i>
+
+<SOCIAL-ICONS>
+
+fa-facebook
+fa-linkedin
+fa-instagram
+fa-twitter
+
+<Partnering
+
+Who We Work With>
+
+fa-broadcast-tower
+fa-users
+fa-flag
+fa-university
+fa-building
+fa-hands-helping
+
+<Have a requirement related to surveys, research, or consulting?
+
+Our team will connect with you.>
+
+fa-user
+fa-envelope
+fa-text-height
+
+
+<Footer>
+
+fa-map
+fa-phone
+flaticon-music
+flaticon-gmail
+flaticon-world
+fa-check
+
+fa-angle-right
