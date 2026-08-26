@@ -40,9 +40,24 @@ export function SiteNavbar() {
                 onMouseEnter={() => hasMenu && setOpenMenu(link)}
                 onMouseLeave={() => hasMenu && setOpenMenu(null)}
               >
-                <a href={`#${link.toLowerCase().replace(' ', '-')}`} className="nav-link">
+                <a
+                  href={`#${link.toLowerCase().replace(' ', '-')}`}
+                  className="nav-link"
+                  onClick={(event) => {
+                    if (hasMenu) {
+                      event.preventDefault()
+                      setOpenMenu(openMenu === link ? null : link)
+                    }
+                  }}
+                  aria-haspopup={hasMenu ? 'menu' : undefined}
+                  aria-expanded={hasMenu ? openMenu === link : undefined}
+                >
                   {link}
-                  {hasMenu && <ChevronDown aria-hidden="true" size={14} strokeWidth={1.7} />}
+                  {hasMenu && (
+                    <span className={`nav-chevron ${openMenu === link ? 'is-open' : ''}`}>
+                      <ChevronDown aria-hidden="true" size={14} strokeWidth={1.7} />
+                    </span>
+                  )}
                 </a>
                 {hasMenu && openMenu === link && (
                   <div className="dropdown" role="menu">
@@ -73,8 +88,23 @@ export function SiteNavbar() {
           {links.map((link) => {
             const hasMenu = link in menus
             return <div key={link} className="mobile-item">
-              <a href={`#${link.toLowerCase().replace(' ', '-')}`} onClick={() => setMobileOpen(false)}>{link}{hasMenu && <ChevronDown aria-hidden="true" size={14} />}</a>
-              {hasMenu && <div className="mobile-submenu">{menus[link as keyof typeof menus].map((item) => <a href="#" key={item} onClick={() => setMobileOpen(false)}>{item}</a>)}</div>}
+              <a
+                href={`#${link.toLowerCase().replace(' ', '-')}`}
+                onClick={(event) => {
+                  if (hasMenu) {
+                    event.preventDefault()
+                    setOpenMenu(openMenu === link ? null : link)
+                  } else {
+                    setMobileOpen(false)
+                  }
+                }}
+                aria-haspopup={hasMenu ? 'menu' : undefined}
+                aria-expanded={hasMenu ? openMenu === link : undefined}
+              >
+                <span>{link}</span>
+                {hasMenu && (openMenu === link ? <X aria-hidden="true" size={16} /> : <ChevronDown aria-hidden="true" size={16} />)}
+              </a>
+              {hasMenu && openMenu === link && <div className="mobile-submenu">{menus[link as keyof typeof menus].map((item) => <a href="#" key={item} onClick={() => setMobileOpen(false)}><ArrowRight aria-hidden="true" size={13} />{item}</a>)}</div>}
             </div>
           })}
         </div>
