@@ -44,9 +44,9 @@ export default function SiteFooter() {
           <ul>
             <li><span className="footer-contact-item"><i className="fa fa-map" aria-hidden="true" />Office No. 22, 4th Floor, Solitaire Business Hub, Balewadi High Street, Baner, Pune – 411045</span></li>
             <li><a href="tel:+912045219327"><i className="fa fa-phone" aria-hidden="true" />020-45219327</a></li>
-            <li><a href="tel:+918484986359"><i className="flaticon-music" aria-hidden="true" />+91-8484986359</a></li>
-            <li><a href="mailto:info@rudraresearch.in"><i className="flaticon-gmail" aria-hidden="true" />info@rudraresearch.in</a></li>
-            <li><a href="https://www.rudraresearch.in"><i className="flaticon-world" aria-hidden="true" />www.rudraresearch.in</a></li>
+            <li><a href="tel:+918484986359"><i className="fa fa-music" aria-hidden="true" />+91-8484986359</a></li>
+            <li><a href="mailto:info@rudraresearch.in"><i className="fa fa-gmail" aria-hidden="true" />info@rudraresearch.in</a></li>
+            <li><a href="https://www.rudraresearch.in"><i className="fa fa-world" aria-hidden="true" />www.rudraresearch.in</a></li>
           </ul>
         </nav>
         <nav className="footer-section footer-reveal footer-reveal-3" aria-label="Services"><h3>Services</h3><ul>{services.map((service) => <li key={service}><a href="#services"><i className="fa fa-check" aria-hidden="true" />{service}</a></li>)}</ul></nav>
