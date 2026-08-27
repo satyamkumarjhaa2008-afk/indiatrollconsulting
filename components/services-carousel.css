@@ -1,0 +1,584 @@
+/* =========================================================
+   SERVICE CAROUSEL
+   ========================================================= */
+
+.service-carousel {
+  width: 100%;
+  position: relative;
+  padding: 0 0 70px;
+  overflow: hidden;
+}
+
+
+/* =========================================================
+   VIEWPORT
+   ========================================================= */
+
+.service-carousel__viewport {
+  width: 100%;
+  overflow: hidden;
+}
+
+
+/* =========================================================
+   TRACK
+   ========================================================= */
+
+.service-carousel__track {
+  display: flex;
+  width: 100%;
+  transition: transform 0.8s cubic-bezier(0.65, 0, 0.35, 1);
+  will-change: transform;
+}
+
+
+/* =========================================================
+   SLIDES
+
+   Desktop:
+   3 cards visible
+
+   Tablet/Laptop:
+   2 cards visible
+
+   Mobile:
+   1 card visible
+   ========================================================= */
+
+.service-carousel__slide {
+  flex: 0 0 33.333333%;
+  width: 33.333333%;
+  box-sizing: border-box;
+  padding: 0 26px;
+}
+
+
+/* =========================================================
+   CARD
+   ========================================================= */
+
+.service-card {
+  width: 100%;
+  position: relative;
+  background: #ffffff;
+  border-radius: 7px;
+  overflow: hidden;
+
+  min-height: 535px;
+
+  box-shadow:
+    0 8px 25px rgba(0, 0, 0, 0.08);
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+
+/* Small white strip above image */
+.service-card__top-strip {
+  height: 28px;
+  width: 100%;
+  background: #ffffff;
+
+  position: relative;
+  z-index: 5;
+}
+
+
+/* =========================================================
+   IMAGE
+   ========================================================= */
+
+.service-card__image-wrapper {
+  width: 100%;
+  height: 282px;
+  overflow: hidden;
+  position: relative;
+  z-index: 4;
+}
+
+.service-card__image {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+  object-position: center;
+
+  transition: transform 0.6s ease;
+}
+
+
+/* Slight image movement on hover */
+.service-card:hover .service-card__image {
+  transform: scale(1.025);
+}
+
+
+/* =========================================================
+   CARD BODY
+   ========================================================= */
+
+.service-card__body {
+  position: relative;
+
+  min-height: 225px;
+
+  background: #ffffff;
+
+  overflow: hidden;
+
+  isolation: isolate;
+}
+
+
+/* =========================================================
+   BLACK FILL ANIMATION
+
+   Starts exactly at the bottom edge of image.
+
+   Animation:
+   0%   -> no black
+   42%  -> completely filled
+   62%  -> bounce back
+   78%  -> almost filled
+   100% -> completely filled
+   ========================================================= */
+
+.service-card__black-fill {
+  position: absolute;
+
+  left: 0;
+  right: 0;
+
+  top: 0;
+
+  height: 100%;
+
+  background: #050505;
+
+  transform: translateY(101%);
+
+  z-index: 1;
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   CARD CONTENT
+   ========================================================= */
+
+.service-card__content {
+  position: relative;
+
+  z-index: 3;
+
+  min-height: 225px;
+
+  padding: 30px 35px 25px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  text-align: center;
+
+  transition: color 0.2s ease;
+}
+
+
+/* =========================================================
+   TITLE
+   ========================================================= */
+
+.service-card__content h3 {
+  margin: 0;
+
+  max-width: 95%;
+
+  font-family: "Montserrat", sans-serif;
+
+  font-size: 25px;
+  line-height: 1.55;
+  font-weight: 700;
+
+  color: #050505;
+
+  transition:
+    color 0.3s ease,
+    transform 0.3s ease;
+}
+
+
+/* =========================================================
+   DIVIDER
+   ========================================================= */
+
+.service-card__divider {
+  width: 100%;
+  height: 1px;
+
+  margin-top: 25px;
+  margin-bottom: 22px;
+
+  background: #dedede;
+
+  transition:
+    background 0.3s ease,
+    transform 0.3s ease;
+}
+
+
+/* =========================================================
+   READ MORE
+   ========================================================= */
+
+.service-card__read-more {
+  margin-top: auto;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 2px;
+
+  text-decoration: none;
+
+  font-family: "Montserrat", sans-serif;
+
+  font-size: 21px;
+  line-height: 1.2;
+  font-weight: 700;
+
+  color: #ff7058;
+
+  transition:
+    color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.service-card__read-more span {
+  font-size: 28px;
+  line-height: 15px;
+}
+
+
+/* =========================================================
+   HOVER FILL
+   ========================================================= */
+
+.service-card:hover .service-card__black-fill {
+  animation: serviceBlackBounce 0.95s cubic-bezier(0.25, 0.8, 0.25, 1)
+    forwards;
+}
+
+
+/*
+ * Text changes after black arrives.
+ */
+.service-card:hover .service-card__content h3 {
+  color: #ffffff;
+}
+
+.service-card:hover .service-card__divider {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.service-card:hover .service-card__read-more {
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   BOUNCING BLACK ANIMATION
+   ========================================================= */
+
+@keyframes serviceBlackBounce {
+  0% {
+    transform: translateY(101%);
+  }
+
+  38% {
+    transform: translateY(0);
+  }
+
+  /*
+   * First bounce:
+   * black moves back upward.
+   */
+  58% {
+    transform: translateY(23%);
+  }
+
+  /*
+   * Second bounce:
+   * comes down again.
+   */
+  76% {
+    transform: translateY(5%);
+  }
+
+  /*
+   * Final settle.
+   */
+  89% {
+    transform: translateY(1%);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+
+/* =========================================================
+   INDICATORS
+   ========================================================= */
+
+.service-carousel__indicators {
+  position: absolute;
+
+  bottom: 18px;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  display: flex;
+  align-items: center;
+
+  gap: 20px;
+
+  z-index: 20;
+}
+
+
+/* Indicator button */
+.service-carousel__indicator {
+  width: 13px;
+  height: 13px;
+
+  padding: 0;
+
+  border-radius: 50%;
+
+  border: 2px solid #ffffff;
+
+  background: #bdbdbd;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+
+/* Active indicator */
+.service-carousel__indicator--active {
+  background: #ffffff;
+
+  transform: scale(1.1);
+
+  box-shadow:
+    0 0 0 2px rgba(0, 0, 0, 0.15);
+}
+
+
+/* Hover */
+.service-carousel__indicator:hover {
+  transform: scale(1.25);
+}
+
+
+/* =========================================================
+   LARGE DESKTOP
+   ========================================================= */
+
+@media (min-width: 1500px) {
+  .service-carousel__slide {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  .service-card {
+    min-height: 535px;
+  }
+
+  .service-card__image-wrapper {
+    height: 282px;
+  }
+
+  .service-card__content h3 {
+    font-size: 25px;
+  }
+}
+
+
+/* =========================================================
+   LAPTOP / TABLET
+   768px - 1199px
+
+   TWO CARDS
+   ========================================================= */
+
+@media (min-width: 768px) and (max-width: 1199px) {
+  .service-carousel__slide {
+    flex: 0 0 50%;
+    width: 50%;
+
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  .service-card {
+    min-height: 510px;
+  }
+
+  .service-card__image-wrapper {
+    height: 250px;
+  }
+
+  .service-card__content {
+    padding: 28px 28px 24px;
+  }
+
+  .service-card__content h3 {
+    font-size: 21px;
+    line-height: 1.45;
+  }
+
+  .service-card__read-more {
+    font-size: 19px;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+   Below 767px
+
+   ONE CARD
+   ========================================================= */
+
+@media (max-width: 767px) {
+  .service-carousel {
+    padding-bottom: 60px;
+  }
+
+  .service-carousel__slide {
+    flex: 0 0 100%;
+    width: 100%;
+
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  .service-card {
+    min-height: auto;
+
+    border-radius: 6px;
+  }
+
+  .service-card__top-strip {
+    height: 20px;
+  }
+
+  .service-card__image-wrapper {
+    height: auto;
+
+    aspect-ratio: 16 / 9;
+  }
+
+  .service-card__content {
+    min-height: 205px;
+
+    padding:
+      27px
+      24px
+      24px;
+  }
+
+  .service-card__content h3 {
+    max-width: 100%;
+
+    font-size: 20px;
+    line-height: 1.45;
+  }
+
+  .service-card__divider {
+    margin-top: 20px;
+    margin-bottom: 18px;
+  }
+
+  .service-card__read-more {
+    font-size: 18px;
+  }
+
+  .service-card__read-more span {
+    font-size: 25px;
+  }
+
+  .service-carousel__indicators {
+    bottom: 12px;
+
+    gap: 12px;
+  }
+
+  .service-carousel__indicator {
+    width: 10px;
+    height: 10px;
+  }
+}
+
+
+/* =========================================================
+   VERY SMALL PHONES
+   ========================================================= */
+
+@media (max-width: 420px) {
+  .service-carousel__slide {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .service-card__content {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .service-card__content h3 {
+    font-size: 18px;
+  }
+
+  .service-card__read-more {
+    font-size: 17px;
+  }
+}
+
+
+/* =========================================================
+   ACCESSIBILITY
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .service-carousel__track,
+  .service-card,
+  .service-card__image,
+  .service-card__content h3,
+  .service-card__divider,
+  .service-card__read-more,
+  .service-carousel__indicator {
+    transition: none;
+  }
+
+  .service-card:hover .service-card__black-fill {
+    animation: none;
+
+    transform: translateY(0);
+  }
+}

@@ -1,0 +1,313 @@
+
+
+
+
+
+.services-sidebar {
+  width: 470px;
+  flex-shrink: 0;
+
+  background: #ffffff;
+
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.04);
+
+  font-family: 'Montserrat', sans-serif;
+}
+
+
+/* ================================
+   INDIVIDUAL ITEM
+================================ */
+
+.service-item {
+  position: relative;
+
+  width: 100%;
+  min-height: 120px;
+
+  padding: 28px 100px 28px 42px;
+
+  display: flex;
+  align-items: center;
+
+  border: none;
+  border-bottom: 1px solid #e1e1e1;
+
+  background: #ffffff;
+
+  cursor: pointer;
+
+  text-align: left;
+
+  overflow: hidden;
+
+  font-family: 'Montserrat', sans-serif;
+}
+
+
+/* Orange animated background */
+
+.service-item::before {
+  content: '';
+
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 0;
+  height: 100%;
+
+  background: #ff7058;
+
+  z-index: 0;
+
+  transition: width 0.65s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+
+/* Hover animation */
+
+.service-item:hover::before {
+  width: 100%;
+}
+
+
+/* Active item stays orange */
+
+.service-item.active::before {
+  width: 100%;
+}
+
+
+/* ================================
+   SERVICE TITLE
+================================ */
+
+.service-title {
+  position: relative;
+  z-index: 2;
+
+  font-size: 25px;
+  line-height: 1.45;
+
+  font-weight: 600;
+
+  color: #050505;
+
+  transition:
+    color 0.35s ease,
+    transform 0.35s ease;
+}
+
+
+/* Active / hovered text */
+
+.service-item:hover .service-title,
+.service-item.active .service-title {
+  color: #ffffff;
+}
+
+
+/* Slight movement on hover */
+
+.service-item:hover .service-title {
+  transform: translateX(3px);
+}
+
+
+/* ================================
+   ARROW CIRCLE
+================================ */
+
+.service-arrow {
+  position: absolute;
+
+  right: 22px;
+  top: 50%;
+
+  width: 62px;
+  height: 62px;
+
+  transform: translateY(-50%);
+
+  border-radius: 50%;
+
+  background: #ffffff;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  z-index: 3;
+
+  opacity: 0;
+
+  transition:
+    opacity 1s ease,
+    transform 0.45s ease;
+}
+
+
+/* Arrow appears on hover */
+
+.service-item:hover .service-arrow {
+  opacity: 1;
+  transform: translateY(-50%) scale(1);
+}
+
+
+/* Arrow stays visible for active */
+
+.service-item.active .service-arrow {
+  opacity: 1;
+  transform: translateY(-50%) scale(1);
+}
+
+
+/* ================================
+   ARROW
+================================ */
+
+.arrow-line {
+  position: absolute;
+
+  width: 25px;
+  height: 2px;
+
+  background: #00b85c;
+
+  left: 17px;
+}
+
+.arrow-head {
+  position: absolute;
+
+  width: 12px;
+  height: 12px;
+
+  border-top: 2px solid #00b85c;
+  border-right: 2px solid #00b85c;
+
+  transform: rotate(45deg);
+
+  right: 16px;
+}
+
+
+/* ================================
+   ARROW HOVER MOVEMENT
+================================ */
+
+.service-item:hover .service-arrow {
+  animation: arrowFade 1s ease forwards;
+}
+
+@keyframes arrowFade {
+  0% {
+    opacity: 0;
+    transform: translateY(-50%) translateX(-8px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(-50%) translateX(0);
+  }
+}
+
+
+/* ================================
+   ACTIVE ITEM
+================================ */
+
+.service-item.active {
+  color: white;
+}
+
+
+/* ================================
+   RESPONSIVE
+================================ */
+
+@media (max-width: 1200px) {
+
+  .services-section {
+    gap: 35px;
+  }
+
+  .services-sidebar {
+    width: 400px;
+  }
+
+  .service-title {
+    font-size: 22px;
+  }
+
+}
+
+
+/* Tablet */
+
+@media (max-width: 900px) {
+
+  .services-section {
+    flex-direction: column;
+  }
+
+  .service-content {
+    width: 100%;
+  }
+
+  .services-sidebar {
+    width: 100%;
+  }
+
+  .service-item {
+    min-height: 100px;
+  }
+
+}
+
+
+/* Mobile */
+
+@media (max-width: 600px) {
+
+  .services-section {
+    padding: 20px 16px;
+    gap: 25px;
+  }
+
+  .service-description {
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  .service-item {
+    min-height: 90px;
+
+    padding: 22px 85px 22px 24px;
+  }
+
+  .service-title {
+    font-size: 18px;
+    line-height: 1.4;
+  }
+
+  .service-arrow {
+    width: 50px;
+    height: 50px;
+
+    right: 16px;
+  }
+
+  .arrow-line {
+    width: 20px;
+    left: 14px;
+  }
+
+  .arrow-head {
+    right: 13px;
+  }
+
+}

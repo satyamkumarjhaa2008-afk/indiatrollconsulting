@@ -235,7 +235,7 @@
 .footer-cta { display: inline-flex; align-items: center; gap: 10px; padding-bottom: 8px; border-bottom: 1px solid var(--footer-cyan); color: var(--footer-ink); font-size: 12px; font-weight: 600; text-decoration: none; transition: color .2s ease, gap .2s ease; }
 .footer-cta:hover, .footer-cta:focus-visible { gap: 15px; color: var(--footer-cyan); }
 .footer-columns { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 28px; }
-.footer-section h3 { margin: 0 0 22px; color: var(--footer-ink); font-size: 12px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+.footer-section h3 { margin: 0 0 12px; color: var(--footer-ink); font-size: 12px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; padding-left: 5px; }
 .footer-section ul { display: flex; flex-direction: column; gap: 12px; margin: 0; padding: 0; list-style: none; }
 .footer-section a { display: inline-flex; align-items: flex-start; gap: 0; color: var(--footer-muted); font-size: 11px; line-height: 1.5; text-decoration: none; transition: color .2s ease, gap 1s ease; }
 .footer-section a i { width: 0; overflow: hidden; color: var(--footer-cyan); opacity: 0; transition: width 1s ease, opacity 1s ease; }
@@ -287,8 +287,9 @@
 .footer-read-more:hover { color: #00bd70; }
 .footer-section h3 { margin-bottom: 30px; color: #00bd70; font-size: 24px; letter-spacing: .01em; }
 .footer-section ul { gap: 17px; }
+.footer-section ul li { display: flex; gap: 6px; font-weight: 600; }
+.footer-section ul li i {padding-top: 5px; }
 .footer-section a, .footer-contact-item { color: #a6aabd; font-size: 15px; line-height: 1.65; }
-.footer-section a i, .footer-contact-item i { flex: 0 0 25px; width: 25px; color: #a6aabd; opacity: 1; overflow: visible; }
 .footer-section a:hover, .footer-section a:focus-visible { color: #00bd70; gap: 7px; }
 .footer-section a:hover i, .footer-section a:focus-visible i { width: 25px; color: #00bd70; }
 .footer-contact-item { display: flex; align-items: flex-start; }

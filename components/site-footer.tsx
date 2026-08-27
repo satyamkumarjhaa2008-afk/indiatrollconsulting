@@ -44,12 +44,12 @@ export default function SiteFooter() {
           <ul>
             <li><span className="footer-contact-item"><i className="fa fa-map" aria-hidden="true" />Office No. 22, 4th Floor, Solitaire Business Hub, Balewadi High Street, Baner, Pune – 411045</span></li>
             <li><a href="tel:+912045219327"><i className="fa fa-phone" aria-hidden="true" />020-45219327</a></li>
-            <li><a href="tel:+918484986359"><i className="fa fa-music" aria-hidden="true" />+91-8484986359</a></li>
+            <li><i className="fa fa-music" aria-hidden="true" /><a href="tel:+918484986359">+91-8484986359</a></li>
             <li><a href="mailto:info@rudraresearch.in"><i className="fa fa-gmail" aria-hidden="true" />info@rudraresearch.in</a></li>
             <li><a href="https://www.rudraresearch.in"><i className="fa fa-world" aria-hidden="true" />www.rudraresearch.in</a></li>
           </ul>
         </nav>
-        <nav className="footer-section footer-reveal footer-reveal-3" aria-label="Services"><h3>Services</h3><ul>{services.map((service) => <li key={service}><a href="#services"><i className="fa fa-check" aria-hidden="true" />{service}</a></li>)}</ul></nav>
+        <nav className="footer-section footer-reveal footer-reveal-3" aria-label="Services"><h3>Services</h3><ul>{services.map((service) => <li key={service}><i className="fa fa-check" aria-hidden="true" /><a href="#services">{service}</a></li>)}</ul></nav>
         <nav className="footer-section footer-reveal footer-reveal-4" aria-label="Quick links"><h3>Quick Links</h3><ul>{quickLinks.map((link) => <li key={link}><a href="#home"><i className="fa fa-angle-right" aria-hidden="true" />{link}</a></li>)}</ul></nav>
       </div>
       <div className="footer-bottom footer-reveal footer-reveal-4"><p>@ Website Designed and Managed By Web Biz Solutions</p><p><a href="#privacy">Privacy Policy</a><span> - </span><a href="#terms">Terms &amp; Conditions</a></p></div>
