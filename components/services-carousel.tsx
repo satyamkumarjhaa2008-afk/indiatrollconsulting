@@ -128,7 +128,7 @@ export default function ServiceCarousel() {
 
     const interval = window.setInterval(() => {
       setCurrentIndex((previousIndex) => previousIndex + 1);
-    }, 3000);
+    }, 2500);
 
     return () => {
       window.clearInterval(interval);
@@ -183,7 +183,7 @@ export default function ServiceCarousel() {
 
            
             transition: enableTransition
-              ? "transform 0.55s ease-in-out"
+              ? "transform 1s ease-in-out"
               : "none",
           }}
         >

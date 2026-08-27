@@ -2,7 +2,32 @@
 
 import { useEffect, useRef, useState } from 'react'
 
-const services = ['Survey & Insights', 'Ground Intelligence', 'Political Strategy & Consulting', 'Communication & Image Management', 'Market Research & Business Insights', 'Governance & Project Monitoring (PMC)']
+const services = [
+  {
+    name: 'Survey & Insights',
+    href: '/services/survey-insights',
+  },
+  {
+    name: 'Ground Intelligence',
+    href: '/services/ground-intelligence',
+  },
+  {
+    name: 'Political Strategy & Consulting',
+    href: '/services/political-strategy-consulting',
+  },
+  {
+    name: 'Communication & Image Management',
+    href: '/services/communication-image-management',
+  },
+  {
+    name: 'Market Research & Business Insights',
+    href: '/services/market-research-business-insights',
+  },
+  {
+    name: 'Governance & Project Monitoring (PMC)',
+    href: '/services/governance-project-monitoring',
+  },
+]
 const quickLinks = ['About Us', 'Our Team', 'Television', 'Careers', 'Contact']
 const socials = [
   { label: 'Facebook', icon: 'fab fa-facebook-f' },
@@ -49,7 +74,7 @@ export default function SiteFooter() {
             <li><a href="https://www.rudraresearch.in"><i className="fa fa-world" aria-hidden="true" />www.rudraresearch.in</a></li>
           </ul>
         </nav>
-        <nav className="footer-section footer-reveal footer-reveal-3" aria-label="Services"><h3>Services</h3><ul>{services.map((service) => <li key={service}><i className="fa fa-check" aria-hidden="true" /><a href="#services">{service}</a></li>)}</ul></nav>
+        <nav className="footer-section footer-reveal footer-reveal-3" aria-label="Services"><h3>Services</h3><ul>{services.map((service) => <li key={service.name}><i className="fa fa-check" aria-hidden="true" /><a href={service.href}>{service.name}</a></li>)}</ul></nav>
         <nav className="footer-section footer-reveal footer-reveal-4" aria-label="Quick links"><h3>Quick Links</h3><ul>{quickLinks.map((link) => <li key={link}><a href="#home"><i className="fa fa-angle-right" aria-hidden="true" />{link}</a></li>)}</ul></nav>
       </div>
       <div className="footer-bottom footer-reveal footer-reveal-4"><p>@ Website Designed and Managed By Web Biz Solutions</p><p><a href="#privacy">Privacy Policy</a><span> - </span><a href="#terms">Terms &amp; Conditions</a></p></div>
