@@ -248,7 +248,7 @@
 .footer-contact a:hover, .footer-contact a:focus-visible { color: var(--footer-cyan); }
 .footer-socials { display: flex; gap: 10px; margin-left: auto; }
 .footer-socials a { display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; border: 1px solid var(--footer-line); border-radius: 50%; color: var(--footer-muted); font-size: 12px; text-decoration: none; transition: color .2s ease, border-color .2s ease, transform .2s ease; }
-.footer-socials a:hover, .footer-socials a:focus-visible { border-color: var(--footer-cyan); color: var(--footer-cyan); transform: translateY(-3px); }
+.footer-socials a:hover, .footer-socials a:focus-visible { border-color: var(--footer-cyan); color: var(--footer-cyan);  }
 .footer-bottom { display: flex; justify-content: space-between; gap: 16px; max-width: 1280px; margin: 0 auto; padding: 22px 32px; color: #708386; font-size: 10px; letter-spacing: .03em; }
 .footer-bottom p { margin: 0; }
 .footer-reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
@@ -298,8 +298,68 @@
 .footer-section:nth-child(2) a { align-items: center; }
 .footer-section:nth-child(3) a i { font-size: 14px; }
 .footer-intro-socials { margin-top: 34px; margin-left: 0; }
-.footer-intro-socials a { width: 64px; height: 64px; background: rgb(255 255 255 / 10%); border: 0; color: #a6aabd; font-size: 18px; }
-.footer-intro-socials a:hover { background: #00bd70; color: #050505; transform: translateY(-4px); }
+.footer-intro-socials a { width: 50px; height: 50px; background: rgb(255 255 255 / 10%); border: 0; color: #a6aabd; font-size: 18px; }
+
+.footer-intro-socials a {
+  position: relative;
+  overflow: hidden;
+
+  width: 50px;
+  height: 50px;
+
+  background: rgb(255 255 255 / 10%);
+  border: 0;
+  border-radius: 50%;
+
+  color: #a6aabd;
+  font-size: 18px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: color 0.3s ease;
+}
+
+/* Green circle starts from the center */
+.footer-intro-socials a::before {
+  content: "";
+  position: absolute;
+
+  width: 100%;
+  height: 100%;
+
+  border-radius: 50%;
+  background: #00bd70;
+
+  top: 50%;
+  left: 50%;
+
+  transform: translate(-50%, -50%) scale(0);
+
+  transform-origin: center;
+
+  transition: transform 0.5s linear;
+
+  z-index: 0;
+}
+
+/* Fill the icon from the center */
+.footer-intro-socials a:hover::before {
+  transform: translate(-50%, -50%) scale(1.5);
+}
+
+/* Keep the actual icon above the green fill */
+.footer-intro-socials a i {
+  position: relative;
+  z-index: 1;
+
+  transition: color 0.3s ease;
+}
+
+.footer-intro-socials a:hover i {
+  color: white;
+}
 .footer-bottom { position: relative; z-index: 1; max-width: 1440px; padding: 28px 6vw; border-top: 1px solid rgb(255 255 255 / 17%); color: #a6aabd; font-size: 15px; }
 .footer-bottom a { color: inherit; text-decoration: none; }
 .footer-bottom a:hover { color: #00bd70; }

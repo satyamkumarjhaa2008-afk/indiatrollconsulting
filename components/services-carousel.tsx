@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
+
 import "./services-carousel.css";
 
 type Service = {
@@ -61,35 +62,37 @@ function getVisibleCards(): number {
 
 export default function ServiceCarousel() {
   const [visibleCards, setVisibleCards] = useState(3);
-  const [currentPage, setCurrentPage] = useState(0);
+
+
+  const repeatedServices = useMemo(() => {
+    return [
+      ...services,
+      ...services,
+      ...services,
+      ...services,
+      ...services,
+    ];
+  }, []);
+
+  const [currentIndex, setCurrentIndex] = useState(
+    services.length + visibleCards
+  );
+
   const [isPaused, setIsPaused] = useState(false);
 
-  /*
-   * Number of carousel positions.
-   *
-   * Desktop:
-   * 6 cards / 3 visible = 2 pages
-   *
-   * Tablet:
-   * 6 cards / 2 visible = 3 pages
-   *
-   * Mobile:
-   * 6 cards / 1 visible = 6 pages
-   */
-  const totalPages = useMemo(() => {
-    return Math.ceil(services.length / visibleCards);
-  }, [visibleCards]);
 
-  /*
-   * Detect screen-size changes.
-   */
+  const [enableTransition, setEnableTransition] = useState(true);
+
   useEffect(() => {
     const handleResize = () => {
       const newVisibleCards = getVisibleCards();
 
       setVisibleCards((previousVisibleCards) => {
         if (previousVisibleCards !== newVisibleCards) {
-          setCurrentPage(0);
+   
+          setEnableTransition(false);
+
+          setCurrentIndex(services.length + newVisibleCards);
         }
 
         return newVisibleCards;
@@ -105,36 +108,66 @@ export default function ServiceCarousel() {
     };
   }, []);
 
-  /*
-   * Automatic sliding every 3 seconds.
-   */
   useEffect(() => {
-    if (isPaused || totalPages <= 1) {
+    if (!enableTransition) {
+      const timeout = window.setTimeout(() => {
+        setEnableTransition(true);
+      }, 50);
+
+      return () => {
+        window.clearTimeout(timeout);
+      };
+    }
+  }, [enableTransition]);
+
+
+  useEffect(() => {
+    if (isPaused) {
       return;
     }
 
     const interval = window.setInterval(() => {
-      setCurrentPage((previousPage) => {
-        return (previousPage + 1) % totalPages;
-      });
+      setCurrentIndex((previousIndex) => previousIndex + 1);
     }, 3000);
 
     return () => {
       window.clearInterval(interval);
     };
-  }, [isPaused, totalPages]);
+  }, [isPaused]);
 
-  /*
-   * Go to a specific carousel page.
-   */
-  const handleIndicatorClick = (page: number) => {
-    setCurrentPage(page);
-  };
+  
+  useEffect(() => {
 
-  /*
-   * Every carousel page occupies 100% of the viewport.
-   */
-  const translateX = currentPage * 100;
+    const resetPoint = services.length * 3;
+
+    if (currentIndex >= resetPoint) {
+      
+      setEnableTransition(false);
+
+    
+      setCurrentIndex((previousIndex) => {
+        return previousIndex - services.length;
+      });
+    }
+  }, [currentIndex]);
+
+  
+  useEffect(() => {
+    if (!enableTransition) {
+      const animationFrame = window.requestAnimationFrame(() => {
+        setEnableTransition(true);
+      });
+
+      return () => {
+        window.cancelAnimationFrame(animationFrame);
+      };
+    }
+  }, [enableTransition]);
+
+  
+  const cardWidth = 100 / visibleCards;
+
+  const translateX = currentIndex * cardWidth;
 
   return (
     <section className="service-carousel">
@@ -147,19 +180,23 @@ export default function ServiceCarousel() {
           className="service-carousel__track"
           style={{
             transform: `translate3d(-${translateX}%, 0, 0)`,
+
+           
+            transition: enableTransition
+              ? "transform 0.55s ease-in-out"
+              : "none",
           }}
         >
-          {services.map((service) => (
+          {repeatedServices.map((service, index) => (
             <div
               className="service-carousel__slide"
-              key={service.title}
+              key={`${service.title}-${index}`}
+              style={{
+                flex: `0 0 ${cardWidth}%`,
+                maxWidth: `${cardWidth}%`,
+              }}
             >
               <article className="service-card">
-                {/* Top white strip */}
-                <div className="service-card__top">
-                  <div className="service-card__top-fill" />
-                </div>
-
                 {/* Image */}
                 <div className="service-card__image-wrapper">
                   <img
@@ -171,10 +208,6 @@ export default function ServiceCarousel() {
 
                 {/* Bottom section */}
                 <div className="service-card__body">
-                  {/* Black animated background */}
-                  <div className="service-card__black-fill" />
-
-                  {/* Text/content */}
                   <div className="service-card__content">
                     <h3>{service.title}</h3>
 
@@ -184,15 +217,11 @@ export default function ServiceCarousel() {
                       href={service.href}
                       className="service-card__read-more"
                     >
-                      <span className="service-card__arrow">
-                        ‹
-                      </span>
+                      <span className="service-card__arrow">‹</span>
 
                       <span>Read More</span>
 
-                      <span className="service-card__arrow">
-                        ›
-                      </span>
+                      <span className="service-card__arrow">›</span>
                     </Link>
                   </div>
                 </div>
@@ -200,26 +229,6 @@ export default function ServiceCarousel() {
             </div>
           ))}
         </div>
-      </div>
-
-      {/* Carousel indicators */}
-      <div className="service-carousel__indicators">
-        {Array.from({ length: totalPages }).map((_, index) => (
-          <button
-            key={index}
-            type="button"
-            className={`service-carousel__indicator ${
-              currentPage === index
-                ? "service-carousel__indicator--active"
-                : ""
-            }`}
-            aria-label={`Go to service group ${index + 1}`}
-            aria-current={
-              currentPage === index ? "true" : undefined
-            }
-            onClick={() => handleIndicatorClick(index)}
-          />
-        ))}
       </div>
     </section>
   );
