@@ -226,9 +226,8 @@ export default async function Services({
             className="service-sidebar"
             aria-label="Services navigation"
           >
-            <div className="service-sidebar-inner">
               <SideNavbar />
-            </div>
+          
           </aside>
 
         </div>

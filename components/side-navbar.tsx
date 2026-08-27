@@ -67,10 +67,10 @@ export default function ServicesSidebar() {
   return (
     <section className="services-section">
 
-        <div className="services-content">
+   
 
       {/* RIGHT SIDEBAR */}
-      <div className="services-sidebar">
+    
 
         {services.map((service) => {
           const isActive = activeService === service.id
@@ -92,8 +92,8 @@ export default function ServicesSidebar() {
           )
         })}
 
-      </div>
-      </div>
+  
+     
 
     </section>
   )
