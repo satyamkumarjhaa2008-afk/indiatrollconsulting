@@ -4,7 +4,8 @@ import { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { ChevronDown, Menu, X, ArrowRight } from 'lucide-react'
-
+import ServiceCarousel from './services-carousel'
+import SideNavbar from './side-navbar'
 const services = [
   {
     name: 'Survey & Insights',

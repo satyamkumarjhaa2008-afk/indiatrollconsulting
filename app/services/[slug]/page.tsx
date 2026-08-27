@@ -1,13 +1,19 @@
-import React from "react";
 import "./services.css";
-import SiteNavbar from "../../../components/site-navbar";
+import Link from "next/link";
 import { notFound } from "next/navigation";
+
+import SiteNavbar from "../../../components/site-navbar";
 import SiteFooter from "../../../components/site-footer";
+import ServiceCarousel from "../../../components/services-carousel";
+import SideNavbar from "../../../components/side-navbar";
+
 const serviceData = [
   {
     name: "Survey & Insights",
     image: "/assets/our-services/survey-insights.png",
     href: "/services/survey-insights",
+    intro:
+      "We track what is happening on the ground - issues, perception, and feedback- and convert it into actionable inputs for timely decisions.",
     "How We Work":
       "We begin by defining the research objectives and designing structured questionnaires with inputs from psychologists and subject experts. Our trained field teams collect responses through face-to-face interactions and our survey application. Depending on the study, we use appropriate sampling methods, followed by rigorous validation, data processing, analysis, and interpretation.",
     "Key Work Areas": [
@@ -27,7 +33,7 @@ const serviceData = [
     image: "/assets/our-services/ground-intelligence.png",
     href: "/services/ground-intelligence",
     intro:
-      "Ground intelligence involves gathering real-time information from the field to understand the dynamics of political and social landscapes.",
+      "We track what is happening on the ground - issues, perception, and feedback- and convert it into actionable inputs for timely decisions.",
     "How We Work":
       "Our field teams maintain regular contact with local stakeholders, voters, party workers, and community networks to capture developments as they happen. Information is systematically recorded, cross-checked, and analyzed to identify changes in sentiment, emerging issues, local concerns, and competitor activity, helping clients respond before situations become critical.",
     "Key Work Areas": [
@@ -37,6 +43,8 @@ const serviceData = [
       "Feedback from voters and party workers",
       "Impact assessment of campaigns and decisions",
       "Performance tracking of representatives",
+      "Leadership and governance report cards",
+      "Influencer and local network mapping",
     ],
     Outcome:
       "Early visibility of issues and clear direction for timely action.",
@@ -140,46 +148,99 @@ export default async function Services({
     <>
       <SiteNavbar />
 
-      <main className="service-page">
-        <section className="service-hero">
-          <div className="service-hero-content">
-            <h1>{service.name}</h1>
+      <main className="service-page" id="service-top">
+        <div className="service-layout">
 
-            {service.intro && <p>{service.intro}</p>}
-          </div>
+          {/* LEFT SIDE */}
+          <section className="service-content">
+            <div className="service-content-inner">
 
-          <div className="service-hero-image">
-            <img src={service.image} alt={service.name} />
-          </div>
+              {/* INTRO */}
+              {service.intro && (
+                <section className="service-intro">
+                  <p>{service.intro}</p>
+                </section>
+              )}
+
+              {/* MAIN IMAGE */}
+              <section className="service-image-section">
+                <div className="service-image-wrapper">
+                  <img
+                    src={service.image}
+                    alt={service.name}
+                    className="service-main-image"
+                  />
+                </div>
+              </section>
+
+              {/* HOW WE WORK */}
+              <section className="service-work service-section">
+                <h2>How We Work</h2>
+
+                <p>{service["How We Work"]}</p>
+              </section>
+
+              {/* KEY WORK AREAS */}
+              <section className="service-key-areas service-section">
+                <h2>Key Work Areas</h2>
+
+                <ul className="service-work-list">
+                  {service["Key Work Areas"].map((area, index) => (
+                    <li key={index}>
+                      <span
+                        className="service-list-icon"
+                        aria-hidden="true"
+                      >
+                        <span />
+                      </span>
+
+                      <span className="service-list-text">
+                        {area}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </section>
+
+              {/* OUTCOME */}
+              <section className="service-outcome service-section">
+                <p>
+                  <strong>Outcome:</strong>{" "}
+                  {service.Outcome}
+                </p>
+              </section>
+
+            </div>
+          </section>
+
+          {/* RIGHT SIDE */}
+          {/* 
+            IMPORTANT:
+            This sidebar is intentionally kept inside the same
+            service-layout flow.
+
+            Do NOT use position: fixed or position: sticky
+            for this sidebar.
+          */}
+          <aside
+            className="service-sidebar"
+            aria-label="Services navigation"
+          >
+            <div className="service-sidebar-inner">
+              <SideNavbar />
+            </div>
+          </aside>
+
+        </div>
+
+        {/* SERVICE CAROUSEL */}
+        <section className="service-carousel-section">
+          <ServiceCarousel />
         </section>
 
-        <section className="service-content">
-          <div className="service-work">
-            <h2>How We Work</h2>
-
-            <p>{service["How We Work"]}</p>
-          </div>
-
-          <div className="service-key-areas">
-            <h2>Key Work Areas</h2>
-
-            <ul>
-              {service["Key Work Areas"].map((area, index) => (
-                <li key={index}>{area}</li>
-              ))}
-            </ul>
-          </div>
-
-          <div className="service-outcome">
-            <h2>Outcome</h2>
-
-            <p>{service.Outcome}</p>
-          </div>
-        </section>
+        {/* FOOTER */}
         <SiteFooter />
       </main>
     </>
   );
-} 
-
-
+}
