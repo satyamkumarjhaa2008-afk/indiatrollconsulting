@@ -1,3 +1,4 @@
+
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
@@ -88,43 +89,43 @@ export default function SiteFooter() {
   }, [])
 
   useEffect(() => {
-  window.googleTranslateElementInit = () => {
-    if (
-      window.google?.translate?.TranslateElement &&
-      document.getElementById('google_translate_element')
-    ) {
-      new window.google.translate.TranslateElement(
-        {
-          pageLanguage: 'en',
-          includedLanguages: 'hi,mr',
-          autoDisplay: false,
-        },
-        'google_translate_element'
-      )
+    window.googleTranslateElementInit = () => {
+      if (
+        window.google?.translate?.TranslateElement &&
+        document.getElementById('google_translate_element')
+      ) {
+        new window.google.translate.TranslateElement(
+          {
+            pageLanguage: 'en',
+            includedLanguages: 'en,hi,mr',
+            autoDisplay: false,
+          },
+          'google_translate_element'
+        )
+      }
     }
-  }
 
-  const existingScript = document.querySelector(
-    'script[src*="translate.google.com/translate_a/element.js"]'
-  )
+    const existingScript = document.querySelector(
+      'script[src*="translate.google.com/translate_a/element.js"]'
+    )
 
-  if (!existingScript) {
-    const script = document.createElement('script')
+    if (!existingScript) {
+      const script = document.createElement('script')
 
-    script.src =
-      'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit'
+      script.src =
+        'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit'
 
-    script.async = true
+      script.async = true
 
-    document.body.appendChild(script)
-  } else if (window.google?.translate?.TranslateElement) {
-    window.googleTranslateElementInit()
-  }
+      document.body.appendChild(script)
+    } else if (window.google?.translate?.TranslateElement) {
+      window.googleTranslateElementInit()
+    }
 
-  return () => {
-    delete window.googleTranslateElementInit
-  }
-}, [])
+    return () => {
+      delete window.googleTranslateElementInit
+    }
+  }, [])
 
   return (
     <footer
@@ -208,7 +209,11 @@ export default function SiteFooter() {
             </li>
 
             <li>
-              <a href="https://www.rudraresearch.in">
+              <a
+                href="https://www.rudraresearch.in"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <i className="fa fa-globe" aria-hidden="true" />
                 www.rudraresearch.in
               </a>
@@ -263,7 +268,9 @@ export default function SiteFooter() {
         </p>
 
         <p>
-          <a href="#privacy">Privacy Policy</a>
+          <a href="#privacy">
+            Privacy Policy
+          </a>
 
           <span> - </span>
 
@@ -284,6 +291,8 @@ export default function SiteFooter() {
       <a
         className="footer-whatsapp"
         href="https://wa.me/918484986359"
+        target="_blank"
+        rel="noopener noreferrer"
         aria-label="Chat on WhatsApp"
       >
         <i
@@ -305,3 +314,4 @@ export default function SiteFooter() {
     </footer>
   )
 }
+
