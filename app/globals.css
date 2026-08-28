@@ -596,3 +596,53 @@
   }
 
 }
+/* ================================
+   GOOGLE TRANSLATE
+================================ */
+
+.footer-language{width:100%;display:flex;justify-content:center;align-items:center;padding:30px 20px 35px;position:relative;z-index:10}
+
+.google-translate{display:flex;justify-content:center;align-items:center;min-height:45px}
+
+.google-translate .goog-te-gadget{font-family:inherit!important;font-size:0!important;color:transparent!important;display:flex!important;align-items:center!important}
+
+.google-translate .goog-te-gadget>span{display:none!important}
+
+.google-translate .goog-te-combo{margin:0!important;width:235px!important;height:46px!important;padding:0 38px 0 12px!important;border:1px solid #d5d5d5!important;border-radius:0!important;background:#fff!important;color:#111!important;font-family:Arial,sans-serif!important;font-size:16px!important;line-height:46px!important;outline:none!important;cursor:pointer!important;appearance:auto!important;-webkit-appearance:auto!important}
+
+.google-translate .goog-te-combo:hover{border-color:#aaa!important}
+
+.google-translate .goog-te-combo:focus{border-color:#888!important;outline:none!important}
+
+.google-translate .goog-te-combo option{background:#fff!important;color:#111!important;font-size:15px!important}
+
+body>.skiptranslate{display:none!important}
+
+body{top:0!important}
+
+.goog-te-banner-frame{display:none!important}
+
+.goog-te-balloon-frame{display:none!important}
+
+#goog-gt-tt{display:none!important}
+
+.goog-tooltip{display:none!important}
+
+.goog-text-highlight{background:none!important;box-shadow:none!important}
+
+
+/* ================================
+   TRANSLATOR RESPONSIVE
+================================ */
+
+@media(max-width:768px){
+  .footer-language{padding:25px 15px 30px}
+
+  .google-translate .goog-te-combo{width:220px!important;height:44px!important;font-size:15px!important}
+}
+
+@media(max-width:480px){
+  .footer-language{padding:22px 15px 28px}
+
+  .google-translate .goog-te-combo{width:210px!important;height:42px!important;font-size:14px!important}
+}
