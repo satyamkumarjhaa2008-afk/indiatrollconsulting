@@ -630,7 +630,1070 @@ body{top:0!important}
 
 .goog-text-highlight{background:none!important;box-shadow:none!important}
 
+/* =========================================================
+   IMPACT SECTION
+   ========================================================= */
 
+.impact-section {
+  width: 100%;
+  background: #ffffff;
+  padding: 72px 0 82px;
+  overflow: hidden;
+  font-family: "Montserrat", sans-serif;
+}
+
+.impact-container {
+  width: min(100% - 80px, 1740px);
+  margin: 0 auto;
+  font-family: "Montserrat", sans-serif;
+}
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.impact-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+}
+
+.impact-title {
+  margin: 0;
+  font-family: "Montserrat", sans-serif;
+  font-size: 48px;
+  line-height: 1.12;
+  font-weight: 700;
+  letter-spacing: -1.2px;
+  color: #050505;
+
+  opacity: 0;
+  transform: translateY(30px);
+
+  transition:
+    opacity 0.8s linear,
+    transform 0.8s linear;
+}
+
+.impact-title-line {
+  width: 85px;
+  height: 3px;
+  margin-top: 22px;
+  background: #d9d7d5;
+
+  opacity: 0;
+  transform: translateY(20px);
+
+  transition:
+    opacity 0.7s linear 0.12s,
+    transform 0.7s linear 0.12s;
+}
+
+.impact-description {
+  max-width: 1200px;
+  margin: 36px auto 0;
+
+  font-family: "Montserrat", sans-serif;
+  font-size: 24px;
+  line-height: 1.45;
+  font-weight: 400;
+  color: #6c6c6c;
+  letter-spacing: -0.2px;
+
+  opacity: 0;
+  transform: translateY(25px);
+
+  transition:
+    opacity 0.8s linear 0.2s,
+    transform 0.8s linear 0.2s;
+}
+
+/* =========================================================
+   HEADER ACTIVE STATE
+   ========================================================= */
+
+.impact-visible .impact-title,
+.impact-visible .impact-title-line,
+.impact-visible .impact-description {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* =========================================================
+   IMPACT GRID
+   ========================================================= */
+
+.impact-grid {
+  width: 100%;
+  margin-top: 72px;
+
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  column-gap: 55px;
+
+  font-family: "Montserrat", sans-serif;
+}
+
+/* =========================================================
+   IMPACT CARD
+   ========================================================= */
+
+.impact-card {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+
+  font-family: "Montserrat", sans-serif;
+
+  opacity: 0;
+  transform: translateY(35px);
+
+  transition:
+    opacity 0.8s linear var(--impact-delay),
+    transform 0.8s linear var(--impact-delay);
+}
+
+.impact-visible .impact-card {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* =========================================================
+   ICON
+   ========================================================= */
+
+.impact-icon-wrapper {
+  flex: 0 0 auto;
+  width: 88px;
+  height: 88px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.impact-icon {
+  display: block;
+  width: 82px;
+  height: 82px;
+  object-fit: contain;
+}
+
+/* =========================================================
+   CARD CONTENT
+   ========================================================= */
+
+.impact-content {
+  min-width: 0;
+  margin-left: 25px;
+  font-family: "Montserrat", sans-serif;
+}
+
+/* =========================================================
+   NUMBER
+   ========================================================= */
+
+.impact-number {
+  margin: 0;
+
+  font-family: "Montserrat", sans-serif;
+  font-size: 52px;
+  line-height: 0.95;
+  font-weight: 700;
+  letter-spacing: -1.8px;
+  color: #050505;
+
+  white-space: nowrap;
+}
+
+/* =========================================================
+   LABEL
+   ========================================================= */
+
+.impact-label {
+  margin-top: 12px;
+
+  max-width: 245px;
+
+  font-family: "Montserrat", sans-serif;
+  font-size: 25px;
+  line-height: 1.15;
+  font-weight: 600;
+  letter-spacing: -0.45px;
+  color: #080808;
+}
+
+/* =========================================================
+   LARGE LAPTOP
+   ========================================================= */
+
+@media (max-width: 1500px) {
+  .impact-container {
+    width: min(100% - 70px, 1380px);
+  }
+
+  .impact-grid {
+    column-gap: 35px;
+  }
+
+  .impact-icon-wrapper {
+    width: 76px;
+    height: 76px;
+  }
+
+  .impact-icon {
+    width: 72px;
+    height: 72px;
+  }
+
+  .impact-content {
+    margin-left: 20px;
+  }
+
+  .impact-number {
+    font-size: 46px;
+  }
+
+  .impact-label {
+    font-size: 21px;
+  }
+}
+
+/* =========================================================
+   TABLET / SMALL LAPTOP
+   ========================================================= */
+
+@media (max-width: 1100px) {
+  .impact-section {
+    padding: 60px 0 70px;
+  }
+
+  .impact-container {
+    width: min(100% - 50px, 950px);
+  }
+
+  .impact-title {
+    font-size: 40px;
+  }
+
+  .impact-description {
+    margin-top: 28px;
+    font-size: 20px;
+  }
+
+  .impact-grid {
+    margin-top: 55px;
+
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    row-gap: 45px;
+    column-gap: 35px;
+  }
+
+  .impact-icon-wrapper {
+    width: 78px;
+    height: 78px;
+  }
+
+  .impact-icon {
+    width: 72px;
+    height: 72px;
+  }
+
+  .impact-number {
+    font-size: 43px;
+  }
+
+  .impact-label {
+    font-size: 20px;
+  }
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 767px) {
+  .impact-section {
+    padding: 34px 0 42px;
+  }
+
+  .impact-container {
+    width: calc(100% - 32px);
+    margin: 0 auto;
+  }
+
+  /* ---------------- Header ---------------- */
+
+  .impact-title {
+    font-size: 18px;
+    line-height: 1.2;
+    letter-spacing: -0.4px;
+
+    transform: translateY(18px);
+  }
+
+  .impact-title-line {
+    width: 35px;
+    height: 1.5px;
+    margin-top: 9px;
+
+    transform: translateY(12px);
+  }
+
+  .impact-description {
+    max-width: 300px;
+    margin-top: 15px;
+
+    font-size: 8px;
+    line-height: 1.45;
+    letter-spacing: 0;
+
+    transform: translateY(15px);
+  }
+
+  /* ---------------- Grid ---------------- */
+
+  .impact-grid {
+    margin-top: 30px;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 18px;
+  }
+
+  /* ---------------- Cards ---------------- */
+
+  .impact-card {
+    width: 100%;
+    min-height: 42px;
+
+    transform: translateY(20px);
+  }
+
+  /* ---------------- Icons ---------------- */
+
+  .impact-icon-wrapper {
+    width: 38px;
+    height: 38px;
+  }
+
+  .impact-icon {
+    width: 35px;
+    height: 35px;
+  }
+
+  /* ---------------- Content ---------------- */
+
+  .impact-content {
+    margin-left: 10px;
+  }
+
+  .impact-number {
+    font-size: 17px;
+    line-height: 1;
+    letter-spacing: -0.5px;
+  }
+
+  .impact-label {
+    margin-top: 3px;
+
+    max-width: 220px;
+
+    font-size: 7px;
+    line-height: 1.15;
+    letter-spacing: 0;
+  }
+}
+
+/* =========================================================
+   VERY SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 380px) {
+  .impact-section {
+    padding-top: 28px;
+    padding-bottom: 35px;
+  }
+
+  .impact-container {
+    width: calc(100% - 26px);
+  }
+
+  .impact-title {
+    font-size: 17px;
+  }
+
+  .impact-description {
+    max-width: 280px;
+    font-size: 7px;
+  }
+
+  .impact-grid {
+    margin-top: 26px;
+    gap: 16px;
+  }
+
+  .impact-icon-wrapper {
+    width: 34px;
+    height: 34px;
+  }
+
+  .impact-icon {
+    width: 31px;
+    height: 31px;
+  }
+
+  .impact-number {
+    font-size: 16px;
+  }
+
+  .impact-label {
+    font-size: 6.5px;
+  }
+}
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .impact-title,
+  .impact-title-line,
+  .impact-description,
+  .impact-card {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+/* ============================================================
+   UNIVERSAL IMAGE VIEWER / LIGHTBOX
+   ============================================================ */
+
+.image-viewer-gallery {
+  position: relative;
+}
+
+/* Prevent page scrolling while viewer is open */
+body.image-viewer-open {
+  overflow: hidden !important;
+}
+
+/* ============================================================
+   OVERLAY
+   ============================================================ */
+
+.image-viewer-overlay {
+  position: fixed;
+  inset: 0;
+
+  width: 100vw;
+  height: 100vh;
+
+  z-index: 999999;
+
+  background: rgba(0, 0, 0, 0.91);
+
+  color: #ffffff;
+
+  overflow: hidden;
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  animation: imageViewerFadeIn 0.18s ease-out;
+}
+
+@keyframes imageViewerFadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* ============================================================
+   TOP BAR
+   ============================================================ */
+
+.image-viewer-topbar {
+  position: absolute;
+
+  top: 0;
+  left: 0;
+  right: 0;
+
+  height: 65px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 19px 0 8px;
+
+  z-index: 20;
+
+  background: rgba(0, 0, 0, 0.28);
+}
+
+/* ============================================================
+   COUNTER
+   ============================================================ */
+
+.image-viewer-counter {
+  display: flex;
+  align-items: center;
+
+  height: 100%;
+
+  color: #eeeeee;
+
+  font-size: 20px;
+  font-weight: 400;
+
+  letter-spacing: 0.2px;
+
+  white-space: nowrap;
+}
+
+.image-viewer-counter-separator {
+  margin: 0 5px;
+
+  color: #d5d5d5;
+}
+
+/* ============================================================
+   TOP ACTIONS
+   ============================================================ */
+
+.image-viewer-actions {
+  display: flex;
+  align-items: center;
+
+  height: 100%;
+}
+
+.image-viewer-action {
+  width: 56px;
+  height: 65px;
+
+  padding: 0;
+
+  border: 0;
+
+  background: transparent;
+
+  color: #eeeeee;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.18s ease,
+    color 0.18s ease,
+    opacity 0.18s ease;
+
+  appearance: none;
+}
+
+.image-viewer-action:hover {
+  background: rgba(255, 255, 255, 0.09);
+  color: #ffffff;
+}
+
+.image-viewer-action:active {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.image-viewer-action svg {
+  width: 23px;
+  height: 23px;
+
+  fill: currentColor;
+
+  display: block;
+}
+
+.image-viewer-action.is-active {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.image-viewer-close {
+  margin-left: 3px;
+}
+
+.image-viewer-close svg {
+  width: 29px;
+  height: 29px;
+}
+
+/* ============================================================
+   IMAGE STAGE
+   ============================================================ */
+
+.image-viewer-stage {
+  position: absolute;
+
+  left: 80px;
+  right: 80px;
+
+  top: 65px;
+  bottom: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+
+  z-index: 3;
+
+  cursor: default;
+}
+
+/* ============================================================
+   MAIN IMAGE
+   ============================================================ */
+
+.image-viewer-main-image {
+  display: block;
+
+  max-width: 100%;
+  max-height: 100%;
+
+  width: auto;
+  height: auto;
+
+  object-fit: contain;
+
+  user-select: none;
+  -webkit-user-select: none;
+
+  -webkit-user-drag: none;
+
+  animation: imageViewerImageIn 0.22s ease-out;
+
+  box-shadow: none;
+}
+
+@keyframes imageViewerImageIn {
+  from {
+    opacity: 0.55;
+    transform: scale(0.985);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ============================================================
+   LEFT / RIGHT NAVIGATION
+   ============================================================ */
+
+.image-viewer-nav {
+  position: absolute;
+
+  top: 50%;
+
+  width: 70px;
+  height: 100px;
+
+  transform: translateY(-50%);
+
+  border: 0;
+
+  padding: 0;
+
+  background: transparent;
+
+  color: #eeeeee;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  z-index: 15;
+
+  cursor: pointer;
+
+  opacity: 0.92;
+
+  transition:
+    background-color 0.18s ease,
+    opacity 0.18s ease,
+    transform 0.18s ease;
+}
+
+.image-viewer-nav:hover {
+  opacity: 1;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.image-viewer-nav:active {
+  opacity: 0.7;
+}
+
+.image-viewer-nav svg {
+  width: 37px;
+  height: 37px;
+
+  display: block;
+}
+
+.image-viewer-prev {
+  left: 0;
+}
+
+.image-viewer-next {
+  right: 0;
+}
+
+/* ============================================================
+   THUMBNAIL PANEL
+   ============================================================ */
+
+.image-viewer-thumbnails-panel {
+  position: absolute;
+
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  min-height: 125px;
+
+  padding: 15px 70px;
+
+  z-index: 25;
+
+  background: rgba(0, 0, 0, 0.82);
+
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+
+  animation: imageViewerThumbnailsIn 0.2s ease-out;
+}
+
+@keyframes imageViewerThumbnailsIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.image-viewer-thumbnails {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 12px;
+
+  overflow-x: auto;
+
+  padding: 3px 0 7px;
+
+  scrollbar-width: thin;
+}
+
+.image-viewer-thumbnail {
+  position: relative;
+
+  flex: 0 0 100px;
+
+  width: 100px;
+  height: 75px;
+
+  padding: 0;
+
+  border: 2px solid transparent;
+
+  border-radius: 2px;
+
+  overflow: hidden;
+
+  background: #111111;
+
+  cursor: pointer;
+
+  opacity: 0.72;
+
+  transition:
+    opacity 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.image-viewer-thumbnail:hover {
+  opacity: 1;
+  transform: translateY(-2px);
+}
+
+.image-viewer-thumbnail.is-selected {
+  border-color: #ffffff;
+  opacity: 1;
+}
+
+.image-viewer-thumbnail img {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+}
+
+/* ============================================================
+   FOCUS ACCESSIBILITY
+   ============================================================ */
+
+.image-viewer-action:focus-visible,
+.image-viewer-nav:focus-visible,
+.image-viewer-thumbnail:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: -2px;
+}
+
+/* ============================================================
+   TABLET
+   ============================================================ */
+
+@media (max-width: 900px) {
+  .image-viewer-topbar {
+    height: 58px;
+
+    padding-left: 12px;
+    padding-right: 8px;
+  }
+
+  .image-viewer-counter {
+    font-size: 17px;
+  }
+
+  .image-viewer-action {
+    width: 49px;
+    height: 58px;
+  }
+
+  .image-viewer-action svg {
+    width: 21px;
+    height: 21px;
+  }
+
+  .image-viewer-close svg {
+    width: 27px;
+    height: 27px;
+  }
+
+  .image-viewer-stage {
+    top: 58px;
+    left: 60px;
+    right: 60px;
+  }
+
+  .image-viewer-nav {
+    width: 55px;
+    height: 80px;
+  }
+
+  .image-viewer-nav svg {
+    width: 31px;
+    height: 31px;
+  }
+
+  .image-viewer-thumbnails-panel {
+    min-height: 110px;
+    padding: 12px 40px;
+  }
+
+  .image-viewer-thumbnail {
+    flex-basis: 85px;
+    width: 85px;
+    height: 64px;
+  }
+}
+
+/* ============================================================
+   MOBILE
+   ============================================================ */
+
+@media (max-width: 600px) {
+  .image-viewer-overlay {
+    background: rgba(0, 0, 0, 0.95);
+  }
+
+  /* -----------------------------------------------
+     MOBILE TOP BAR
+     ----------------------------------------------- */
+
+  .image-viewer-topbar {
+    height: 54px;
+
+    padding: 0 4px 0 10px;
+  }
+
+  .image-viewer-counter {
+    font-size: 15px;
+  }
+
+  .image-viewer-counter-separator {
+    margin: 0 4px;
+  }
+
+  .image-viewer-actions {
+    gap: 0;
+  }
+
+  .image-viewer-action {
+    width: 41px;
+    height: 54px;
+  }
+
+  .image-viewer-action svg {
+    width: 19px;
+    height: 19px;
+  }
+
+  .image-viewer-close svg {
+    width: 25px;
+    height: 25px;
+  }
+
+  /* -----------------------------------------------
+     IMAGE
+     ----------------------------------------------- */
+
+  .image-viewer-stage {
+    top: 54px;
+    bottom: 0;
+
+    left: 0;
+    right: 0;
+
+    padding: 15px 8px 20px;
+  }
+
+  .image-viewer-main-image {
+    max-width: 100%;
+    max-height: 100%;
+
+    object-fit: contain;
+  }
+
+  /* -----------------------------------------------
+     MOBILE ARROWS
+     ----------------------------------------------- */
+
+  .image-viewer-nav {
+    top: 50%;
+
+    width: 42px;
+    height: 75px;
+
+    background: rgba(0, 0, 0, 0.15);
+  }
+
+  .image-viewer-nav svg {
+    width: 27px;
+    height: 27px;
+  }
+
+  .image-viewer-prev {
+    left: 0;
+  }
+
+  .image-viewer-next {
+    right: 0;
+  }
+
+  /* -----------------------------------------------
+     THUMBNAILS
+     ----------------------------------------------- */
+
+  .image-viewer-thumbnails-panel {
+    min-height: 95px;
+
+    padding: 10px 12px;
+  }
+
+  .image-viewer-thumbnails {
+    justify-content: flex-start;
+
+    gap: 8px;
+  }
+
+  .image-viewer-thumbnail {
+    flex: 0 0 72px;
+
+    width: 72px;
+    height: 55px;
+  }
+}
+
+/* ============================================================
+   VERY SMALL MOBILE
+   ============================================================ */
+
+@media (max-width: 380px) {
+  .image-viewer-counter {
+    font-size: 13px;
+  }
+
+  .image-viewer-action {
+    width: 37px;
+  }
+
+  .image-viewer-action svg {
+    width: 17px;
+    height: 17px;
+  }
+
+  .image-viewer-close svg {
+    width: 23px;
+    height: 23px;
+  }
+
+  .image-viewer-stage {
+    padding-left: 4px;
+    padding-right: 4px;
+  }
+
+  .image-viewer-nav {
+    width: 36px;
+  }
+}
+
+/* ============================================================
+   REDUCED MOTION
+   ============================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  .image-viewer-overlay,
+  .image-viewer-main-image,
+  .image-viewer-thumbnails-panel {
+    animation: none;
+  }
+
+  .image-viewer-action,
+  .image-viewer-nav,
+  .image-viewer-thumbnail {
+    transition: none;
+  }
+}
 /* ================================
    TRANSLATOR RESPONSIVE
 ================================ */

@@ -1,15 +1,11 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React from "react";
 import SiteNavbar from "@/components/site-navbar";
 import SiteFooter from "@/components/site-footer";
 import Image from "next/image";
-import {
-  Maximize2,
-  X,
-  ChevronLeft,
-  ChevronRight,
-} from "lucide-react";
+import { Maximize2 } from "lucide-react";
+import ImageViewer from "@/components/View";
 import "./press-release.css";
 
 interface Newspaper {
@@ -71,85 +67,15 @@ const newspapers: Newspaper[] = [
 ];
 
 const PressRelease = () => {
-  const [selectedImage, setSelectedImage] = useState<number | null>(null);
-
-  const openLightbox = (index: number) => {
-    setSelectedImage(index);
-  };
-
-  const closeLightbox = () => {
-    setSelectedImage(null);
-  };
-
-  const showPrevious = () => {
-    setSelectedImage((current) => {
-      if (current === null) return null;
-
-      return current === 0
-        ? newspapers.length - 1
-        : current - 1;
-    });
-  };
-
-  const showNext = () => {
-    setSelectedImage((current) => {
-      if (current === null) return null;
-
-      return current === newspapers.length - 1
-        ? 0
-        : current + 1;
-    });
-  };
-
-  /*
-   * Keyboard controls for the lightbox.
-   */
-  useEffect(() => {
-    const handleKeyDown = (event: KeyboardEvent) => {
-      if (selectedImage === null) return;
-
-      if (event.key === "Escape") {
-        closeLightbox();
-      }
-
-      if (event.key === "ArrowLeft") {
-        showPrevious();
-      }
-
-      if (event.key === "ArrowRight") {
-        showNext();
-      }
-    };
-
-    window.addEventListener("keydown", handleKeyDown);
-
-    return () => {
-      window.removeEventListener("keydown", handleKeyDown);
-    };
-  }, [selectedImage]);
-
-  /*
-   * Prevent background scrolling when lightbox is open.
-   */
-  useEffect(() => {
-    if (selectedImage !== null) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
-
-    return () => {
-      document.body.style.overflow = "";
-    };
-  }, [selectedImage]);
-
   return (
     <>
       <main className="press-release-page">
-<SiteNavbar/>
-        {/* =========================
+        <SiteNavbar />
+
+        {/* =====================================================
             PAGE HEADER
-        ========================== */}
+            ===================================================== */}
+
         <section className="press-release-header">
           <div className="press-release-header-content">
             <span className="press-release-small-title">
@@ -167,40 +93,61 @@ const PressRelease = () => {
           </div>
         </section>
 
-        {/* =========================
+        {/* =====================================================
             NEWSPAPER GALLERY
-        ========================== */}
+
+            ImageViewer wraps the entire gallery so that all
+            newspapers belong to the same image collection.
+            ===================================================== */}
+
         <section className="newspaper-gallery-section">
+          <ImageViewer>
+            <div className="newspaper-gallery">
+              {newspapers.map((newspaper, index) => (
+                <article
+                  key={newspaper.id}
+                  className={newspaper.className}
+                >
+                  <div className="newspaper-image-wrapper">
 
-          <div className="newspaper-gallery">
+                    {/* =========================================
+                        NEWSPAPER IMAGE
+                        ========================================= */}
 
-            {newspapers.map((newspaper, index) => (
-              <article
-                key={newspaper.id}
-                className={newspaper.className}
-              >
-                <div className="newspaper-image-wrapper">
+                    <Image
+                      src={newspaper.src}
+                      alt={newspaper.alt}
+                      fill
+                      sizes="(max-width: 768px) 80vw, 35vw"
+                      className="newspaper-image"
+                      priority={index < 3}
+                    />
 
-                  <Image
-                    src={newspaper.src}
-                    alt={newspaper.alt}
-                    fill
-                    sizes="(max-width: 768px) 80vw, 35vw"
-                    className="newspaper-image"
-                    priority={index < 3}
-                  />
+                    {/* =========================================
+                        MAXIMIZE BUTTON
 
-                  {/* =========================
-                      ORANGE HOVER OVERLAY
-                  ========================== */}
-                  <div className="newspaper-hover-overlay">
+                        This is the original Lucide Maximize2
+                        button.
+
+                        Clicking it triggers the image itself,
+                        which is detected by ImageViewer.
+                        ========================================= */}
+
                     <button
                       type="button"
                       className="newspaper-maximize"
                       aria-label={`Open ${newspaper.alt}`}
                       onClick={(event) => {
                         event.stopPropagation();
-                        openLightbox(index);
+
+                        const imageElement =
+                          event.currentTarget.parentElement?.querySelector(
+                            ".newspaper-image"
+                          ) as HTMLImageElement | null;
+
+                        if (imageElement) {
+                          imageElement.click();
+                        }
                       }}
                     >
                       <Maximize2
@@ -209,102 +156,16 @@ const PressRelease = () => {
                       />
                     </button>
                   </div>
-
-                </div>
-              </article>
-            ))}
-
-          </div>
-
+                </article>
+              ))}
+            </div>
+          </ImageViewer>
         </section>
-
       </main>
 
-      {/* =========================
-          LIGHTBOX
-      ========================== */}
-      {selectedImage !== null && (
-        <div
-          className="newspaper-lightbox"
-          role="dialog"
-          aria-modal="true"
-          aria-label="Newspaper image viewer"
-          onClick={closeLightbox}
-        >
-
-          {/* =========================
-              TOP CONTROLS
-          ========================== */}
-          <div
-            className="lightbox-top-bar"
-            onClick={(event) => event.stopPropagation()}
-          >
-            <span className="lightbox-counter">
-              {selectedImage + 1} / {newspapers.length}
-            </span>
-
-            <button
-              type="button"
-              className="lightbox-close"
-              aria-label="Close image viewer"
-              onClick={closeLightbox}
-            >
-              <X size={30} />
-            </button>
-          </div>
-
-          {/* =========================
-              PREVIOUS BUTTON
-          ========================== */}
-          <button
-            type="button"
-            className="lightbox-navigation lightbox-prev"
-            aria-label="Previous newspaper"
-            onClick={(event) => {
-              event.stopPropagation();
-              showPrevious();
-            }}
-          >
-            <ChevronLeft size={42} />
-          </button>
-
-          {/* =========================
-              IMAGE
-          ========================== */}
-          <div
-            className="lightbox-image-container"
-            onClick={(event) => event.stopPropagation()}
-          >
-            <Image
-              src={newspapers[selectedImage].src}
-              alt={newspapers[selectedImage].alt}
-              fill
-              sizes="95vw"
-              className="lightbox-image"
-              priority
-            />
-          </div>
-
-          {/* =========================
-              NEXT BUTTON
-          ========================== */}
-          <button
-            type="button"
-            className="lightbox-navigation lightbox-next"
-            aria-label="Next newspaper"
-            onClick={(event) => {
-              event.stopPropagation();
-              showNext();
-            }}
-          >
-            <ChevronRight size={42} />
-          </button>
-
-        </div>
-      )}
-      <SiteFooter/>
+      <SiteFooter />
     </>
   );
 };
 
-export default PressRelease;        
+export default PressRelease;

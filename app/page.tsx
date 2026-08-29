@@ -4,6 +4,7 @@ import SiteNavbar from '@/components/site-navbar'
 import SideNavbar from '@/components/side-navbar'
 import ServicesCarousel from '@/components/services-carousel'
 import ContactForm from '@/components/contactform'
+import Impact from '@/components/impact'
 export default function Home() {
   return (
     <main id="home" className="min-h-screen bg-background">
@@ -11,6 +12,7 @@ export default function Home() {
       <HeroCarousel />
 < SideNavbar />
       <ServicesCarousel />
+      <Impact />
       <ContactForm />
       <SiteFooter />
     </main>

@@ -1,6 +1,6 @@
 /* =========================================================
    PRESS RELEASE PAGE
-========================================================= */
+   ========================================================= */
 
 .press-release-page {
   width: 100%;
@@ -12,7 +12,7 @@
 
 /* =========================================================
    HEADER
-========================================================= */
+   ========================================================= */
 
 .press-release-header {
   width: 100%;
@@ -29,16 +29,21 @@
 .press-release-small-title {
   display: inline-block;
   margin-bottom: 12px;
+
   color: #ff6b4a;
+
   font-size: 14px;
   font-weight: 700;
+
   letter-spacing: 3px;
   text-transform: uppercase;
 }
 
 .press-release-title {
   margin: 0;
+
   color: #111;
+
   font-size: clamp(42px, 5vw, 72px);
   font-weight: 700;
   line-height: 1.05;
@@ -46,8 +51,11 @@
 
 .press-release-description {
   max-width: 650px;
+
   margin: 20px auto 0;
+
   color: #666;
+
   font-size: 17px;
   line-height: 1.7;
 }
@@ -55,7 +63,7 @@
 
 /* =========================================================
    NEWSPAPER GALLERY SECTION
-========================================================= */
+   ========================================================= */
 
 .newspaper-gallery-section {
   width: 100%;
@@ -64,38 +72,57 @@
 
 .newspaper-gallery {
   position: relative;
+
   width: 100%;
   max-width: 1600px;
+
   height: 980px;
+
   margin: 0 auto;
 }
 
 
 /* =========================================================
    NEWSPAPER CARD
-========================================================= */
+   ========================================================= */
 
 .newspaper {
   position: absolute;
+
   overflow: visible;
+
   width: 430px;
   height: 560px;
+
   margin: 0;
   padding: 0;
+
   transform-origin: center center;
+
   transition:
     transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
     z-index 0s linear 0.05s;
+
   z-index: 1;
 }
 
+
+/* =========================================================
+   IMAGE WRAPPER
+   ========================================================= */
+
 .newspaper-image-wrapper {
   position: relative;
+
   width: 100%;
   height: 100%;
+
   overflow: hidden;
+
   background: #f4f4f4;
+
   border-radius: 5px;
+
   box-shadow:
     0 18px 40px rgba(0, 0, 0, 0.13),
     0 5px 12px rgba(0, 0, 0, 0.08);
@@ -104,11 +131,14 @@
 
 /* =========================================================
    NEWSPAPER IMAGE
-========================================================= */
+   ========================================================= */
 
 .newspaper-image {
   object-fit: cover;
   object-position: center;
+
+  cursor: zoom-in;
+
   transition:
     transform 0.7s cubic-bezier(0.22, 1, 0.36, 1),
     filter 0.5s ease;
@@ -117,68 +147,84 @@
 
 /* =========================================================
    SCATTERED POSITIONS
-========================================================= */
+   ========================================================= */
 
 .newspaper-1 {
   top: 20px;
   left: 3%;
+
   transform: rotate(-7deg);
+
   z-index: 3;
 }
 
 .newspaper-2 {
   top: 105px;
   left: 29%;
+
   transform: rotate(4deg);
+
   z-index: 5;
 }
 
 .newspaper-3 {
   top: 0;
   right: 3%;
+
   transform: rotate(-5deg);
+
   z-index: 2;
 }
 
 .newspaper-4 {
   top: 470px;
   left: 8%;
+
   transform: rotate(5deg);
+
   z-index: 4;
 }
 
 .newspaper-5 {
   top: 510px;
   left: 37%;
+
   transform: rotate(-4deg);
+
   z-index: 6;
 }
 
 .newspaper-6 {
   top: 430px;
   right: 8%;
+
   transform: rotate(7deg);
+
   z-index: 3;
 }
 
 .newspaper-7 {
   top: 700px;
   left: 18%;
+
   transform: rotate(-6deg);
+
   z-index: 2;
 }
 
 .newspaper-8 {
   top: 720px;
   right: 20%;
+
   transform: rotate(5deg);
+
   z-index: 4;
 }
 
 
 /* =========================================================
-   HOVER EFFECT
-========================================================= */
+   HOVER
+   ========================================================= */
 
 .newspaper:hover {
   z-index: 50;
@@ -190,291 +236,140 @@
 
 
 /* =========================================================
-   ORANGE OVERLAY
-   LEFT -> RIGHT
-========================================================= */
+   ORANGE HOVER OVERLAY
+   LEFT → RIGHT ANIMATION
+   ========================================================= */
 
-.newspaper-hover-overlay {
+.newspaper-image-wrapper::before {
+  content: "";
+
   position: absolute;
+
   inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+
+  z-index: 5;
+
   background: rgba(255, 107, 74, 0.86);
+
   opacity: 0;
+
   clip-path: inset(0 100% 0 0);
+
+  pointer-events: none;
+
   transition:
     clip-path 0.55s cubic-bezier(0.77, 0, 0.18, 1),
     opacity 0.15s ease;
-  z-index: 2;
 }
 
 
 /*
-   When hovering:
-   The orange overlay starts at the left
-   and fills toward the right.
+   When the newspaper is hovered, the orange layer
+   starts from the LEFT and fills towards the RIGHT.
 */
 
-.newspaper:hover .newspaper-hover-overlay {
+.newspaper:hover .newspaper-image-wrapper::before {
   opacity: 1;
+
   clip-path: inset(0 0 0 0);
-}
-
-
-/*
-   Slight darkening of the newspaper while
-   the orange overlay is visible.
-*/
-
-.newspaper:hover .newspaper-image {
-  filter: brightness(0.78);
-}
-
-
-/* =========================================================
-   MAXIMIZE BUTTON
-========================================================= */
-
-.newspaper-maximize {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 82px;
-  height: 82px;
-  margin: 0;
-  padding: 0;
-  border: 2px solid rgba(255, 255, 255, 0.95);
-  border-radius: 50%;
-  background: transparent;
-  color: #fff;
-  cursor: pointer;
-  opacity: 0;
-  transform: scale(0.45);
-  transition:
-    opacity 0.35s ease 0.2s,
-    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1) 0.2s,
-    background 0.25s ease;
-}
-
-.newspaper:hover .newspaper-maximize {
-  opacity: 1;
-  transform: scale(1);
-}
-
-.newspaper-maximize:hover {
-  background: #fff;
-  color: #ff6b4a;
-  transform: scale(1.08);
-}
-
-.newspaper-maximize:active {
-  transform: scale(0.96);
 }
 
 
 /* =========================================================
    MAXIMIZE ICON
-========================================================= */
+   =========================================================
 
-.newspaper-maximize svg {
-  width: 40px;
-  height: 40px;
-  stroke-width: 1.8;
-}
+   This recreates the previous maximize button using CSS.
 
+   We use ::after because the orange overlay already uses
+   ::before.
 
-/* =========================================================
-   LIGHTBOX
-========================================================= */
+   pointer-events: none is VERY IMPORTANT here.
+   It allows the click to pass through to the actual image,
+   which is picked up by ImageViewer.
+   ========================================================= */
 
-.newspaper-lightbox {
-  position: fixed;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
-  padding: 70px 100px;
-  background: rgba(0, 0, 0, 0.78);
-  backdrop-filter: blur(3px);
-  -webkit-backdrop-filter: blur(3px);
-  z-index: 9999;
-  animation: lightboxFadeIn 0.3s ease forwards;
-}
+.newspaper-image-wrapper::after {
+  content: "";
 
-
-/* =========================================================
-   LIGHTBOX IMAGE CONTAINER
-========================================================= */
-
-.lightbox-image-container {
-  position: relative;
-  width: min(1100px, 88vw);
-  height: min(82vh, 800px);
-  overflow: hidden;
-  background: black;
-  box-shadow: 0 25px 80px rgba(0, 0, 0, 0.45);
-  animation: lightboxImageIn 0.4s cubic-bezier(0.22, 1, 0.36, 1)
-    forwards;
-}
-
-
-/* =========================================================
-   LIGHTBOX IMAGE
-========================================================= */
-
-.lightbox-image {
-  object-fit: contain;
-  width: 100%;
-  height: 100%;
-}
-
-
-/* =========================================================
-   LIGHTBOX TOP BAR
-========================================================= */
-
-.lightbox-top-bar {
   position: absolute;
-  top: 22px;
-  right: 25px;
-  left: 25px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  z-index: 10;
-  pointer-events: none;
-}
 
-.lightbox-counter {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 58px;
-  height: 38px;
-  padding: 0 13px;
-  border: 1px solid rgba(255, 255, 255, 0.35);
-  border-radius: 20px;
-  background: rgba(0, 0, 0, 0.35);
-  color: #fff;
-  font-size: 14px;
-  font-weight: 600;
-  letter-spacing: 1px;
-  pointer-events: auto;
-}
-
-
-/* =========================================================
-   CLOSE BUTTON
-========================================================= */
-
-.lightbox-close {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 52px;
-  height: 52px;
-  padding: 0;
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  border-radius: 50%;
-  background: rgba(0, 0, 0, 0.35);
-  color: #fff;
-  cursor: pointer;
-  pointer-events: auto;
-  transition:
-    background 0.25s ease,
-    transform 0.25s ease,
-    border-color 0.25s ease;
-}
-
-.lightbox-close:hover {
-  background: #ff6b4a;
-  border-color: #ff6b4a;
-  transform: rotate(90deg);
-}
-
-
-/* =========================================================
-   LIGHTBOX NAVIGATION
-========================================================= */
-
-.lightbox-navigation {
-  position: absolute;
   top: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 62px;
-  height: 62px;
-  padding: 0;
-  border: 1px solid rgba(255, 255, 255, 0.5);
+  left: 50%;
+
+  width: 82px;
+  height: 82px;
+
+  transform:
+    translate(-50%, -50%)
+    scale(0.45);
+
+  border: 2px solid rgba(255, 255, 255, 0.95);
+
   border-radius: 50%;
-  background: rgba(0, 0, 0, 0.4);
-  color: #fff;
-  cursor: pointer;
-  transform: translateY(-50%);
-  z-index: 20;
+
+  background:
+    linear-gradient(
+      45deg,
+      transparent 43%,
+      #fff 43%,
+      #fff 48%,
+      transparent 48%
+    ),
+    linear-gradient(
+      -45deg,
+      transparent 43%,
+      #fff 43%,
+      #fff 48%,
+      transparent 48%
+    );
+
+  background-size: 18px 18px;
+
+  background-position:
+    13px 13px,
+    49px 49px;
+
+  background-repeat: no-repeat;
+
+  opacity: 0;
+
+  pointer-events: none;
+
+  z-index: 10;
+
   transition:
-    background 0.25s ease,
-    border-color 0.25s ease,
-    transform 0.25s ease;
-}
-
-.lightbox-navigation:hover {
-  background: #ff6b4a;
-  border-color: #ff6b4a;
-}
-
-.lightbox-prev {
-  left: 25px;
-}
-
-.lightbox-next {
-  right: 25px;
-}
-
-.lightbox-prev:hover {
-  transform: translate(-4px, -50%);
-}
-
-.lightbox-next:hover {
-  transform: translate(4px, -50%);
+    opacity 0.35s ease 0.2s,
+    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1) 0.2s,
+    background-color 0.25s ease;
 }
 
 
 /* =========================================================
-   LIGHTBOX ANIMATIONS
-========================================================= */
+   SHOW MAXIMIZE ICON ON HOVER
+   ========================================================= */
 
-@keyframes lightboxFadeIn {
-  from {
-    opacity: 0;
-  }
+.newspaper:hover .newspaper-image-wrapper::after {
+  opacity: 1;
 
-  to {
-    opacity: 1;
-  }
+  transform:
+    translate(-50%, -50%)
+    scale(1);
 }
 
-@keyframes lightboxImageIn {
-  from {
-    opacity: 0;
-    transform: scale(0.94);
-  }
 
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
+/* =========================================================
+   MAXIMIZE ICON HOVER
+   ========================================================= */
+
+.newspaper:hover .newspaper-image-wrapper:hover::after {
+  background-color: rgba(255, 255, 255, 0.05);
 }
 
 
 /* =========================================================
    TABLET
-========================================================= */
+   ========================================================= */
 
 @media (max-width: 1200px) {
   .newspaper-gallery {
@@ -523,16 +418,22 @@
     right: 15%;
   }
 
-  .lightbox-image-container {
-    width: 85vw;
-    height: 80vh;
+  .newspaper-image-wrapper::after {
+    width: 74px;
+    height: 74px;
+
+    background-size: 16px 16px;
+
+    background-position:
+      12px 12px,
+      44px 44px;
   }
 }
 
 
 /* =========================================================
    TABLET / SMALL LAPTOP
-========================================================= */
+   ========================================================= */
 
 @media (max-width: 900px) {
   .press-release-header {
@@ -546,17 +447,24 @@
 
   .newspaper-gallery {
     height: auto;
+
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+
     gap: 45px 25px;
+
     padding: 25px 15px 70px;
   }
 
   .newspaper {
     position: relative;
+
     top: auto !important;
     right: auto !important;
     left: auto !important;
+
     width: 100%;
     height: 500px;
   }
@@ -593,24 +501,22 @@
     transform: rotate(4deg);
   }
 
-  .lightbox-navigation {
-    width: 54px;
-    height: 54px;
-  }
+  .newspaper-image-wrapper::after {
+    width: 70px;
+    height: 70px;
 
-  .lightbox-prev {
-    left: 15px;
-  }
+    background-size: 15px 15px;
 
-  .lightbox-next {
-    right: 15px;
+    background-position:
+      11px 11px,
+      42px 42px;
   }
 }
 
 
 /* =========================================================
    MOBILE
-========================================================= */
+   ========================================================= */
 
 @media (max-width: 600px) {
   .press-release-header {
@@ -628,6 +534,7 @@
 
   .press-release-description {
     margin-top: 15px;
+
     font-size: 15px;
     line-height: 1.6;
   }
@@ -638,14 +545,18 @@
 
   .newspaper-gallery {
     display: flex;
+
     flex-direction: column;
+
     gap: 55px;
+
     padding: 20px 10px 50px;
   }
 
   .newspaper {
     width: 100%;
     height: auto;
+
     aspect-ratio: 0.77;
   }
 
@@ -660,59 +571,26 @@
     transform: rotate(0deg);
   }
 
-  .newspaper-maximize {
+  /*
+     Mobile maximize button
+  */
+
+  .newspaper-image-wrapper::after {
     width: 68px;
     height: 68px;
-  }
 
-  .newspaper-maximize svg {
-    width: 32px;
-    height: 32px;
-  }
+    background-size: 14px 14px;
 
-  .newspaper-lightbox {
-    padding: 70px 15px 40px;
-  }
-
-  .lightbox-image-container {
-    width: 94vw;
-    height: 75vh;
-  }
-
-  .lightbox-top-bar {
-    top: 15px;
-    right: 15px;
-    left: 15px;
-  }
-
-  .lightbox-close {
-    width: 45px;
-    height: 45px;
-  }
-
-  .lightbox-navigation {
-    width: 46px;
-    height: 46px;
-  }
-
-  .lightbox-navigation svg {
-    width: 28px;
-    height: 28px;
-  }
-
-  .lightbox-prev {
-    left: 8px;
-  }
-
-  .lightbox-next {
-    right: 8px;
+    background-position:
+      10px 10px,
+      41px 41px;
   }
 }
 
 
 /* =========================================================
    VERY SMALL MOBILE
-========================================================= */
+   ========================================================= */
 
 @media (max-width: 380px) {
   .press-release-title {
@@ -723,26 +601,28 @@
     gap: 40px;
   }
 
-  .lightbox-image-container {
-    height: 70vh;
+  .newspaper-image-wrapper::after {
+    width: 62px;
+    height: 62px;
+
+    background-size: 13px 13px;
+
+    background-position:
+      9px 9px,
+      37px 37px;
   }
 }
 
 
 /* =========================================================
    REDUCED MOTION
-========================================================= */
+   ========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
   .newspaper,
   .newspaper-image,
-  .newspaper-hover-overlay,
-  .newspaper-maximize,
-  .lightbox-close,
-  .lightbox-navigation,
-  .newspaper-lightbox,
-  .lightbox-image-container {
+  .newspaper-image-wrapper::before,
+  .newspaper-image-wrapper::after {
     transition: none !important;
-    animation: none !important;
   }
 }
