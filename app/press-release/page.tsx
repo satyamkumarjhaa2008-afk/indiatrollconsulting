@@ -1,4 +1,3 @@
-
 "use client";
 
 import React, { useEffect, useRef } from "react";
@@ -293,16 +292,16 @@ const scatterTargets = [
 const mobileDepthPositions = [
   {
     x: -75,
-    y: 80,
-    z: -900,
-    rotationX: 24,
-    rotationY: -28,
-    rotationZ: -9,
-    scale: 0.72,
+    y: 45,
+    z: -950,
+    rotationX: 26,
+    rotationY: -32,
+    rotationZ: -8,
+    scale: 0.7,
   },
   {
-    x: 85,
-    y: 70,
+    x: 75,
+    y: 40,
     z: -1050,
     rotationX: -28,
     rotationY: 30,
@@ -310,56 +309,56 @@ const mobileDepthPositions = [
     scale: 0.68,
   },
   {
-    x: -70,
-    y: 100,
-    z: -950,
-    rotationX: 32,
-    rotationY: 25,
-    rotationZ: -7,
-    scale: 0.7,
-  },
-  {
-    x: 80,
-    y: 90,
-    z: -1100,
-    rotationX: -25,
-    rotationY: -32,
-    rotationZ: 10,
-    scale: 0.68,
-  },
-  {
-    x: -90,
-    y: 70,
+    x: -65,
+    y: 55,
     z: -1000,
-    rotationX: 27,
-    rotationY: -26,
-    rotationZ: -8,
+    rotationX: 30,
+    rotationY: 27,
+    rotationZ: -7,
     scale: 0.69,
   },
   {
-    x: 75,
-    y: 100,
-    z: -1150,
-    rotationX: -30,
-    rotationY: 28,
+    x: 70,
+    y: 45,
+    z: -1100,
+    rotationX: -27,
+    rotationY: -31,
     rotationZ: 9,
     scale: 0.67,
   },
   {
+    x: -80,
+    y: 40,
+    z: -1020,
+    rotationX: 28,
+    rotationY: -29,
+    rotationZ: -8,
+    scale: 0.69,
+  },
+  {
+    x: 70,
+    y: 50,
+    z: -1150,
+    rotationX: -29,
+    rotationY: 30,
+    rotationZ: 8,
+    scale: 0.67,
+  },
+  {
     x: -65,
-    y: 80,
+    y: 45,
     z: -980,
-    rotationX: 24,
-    rotationY: 34,
-    rotationZ: -10,
+    rotationX: 25,
+    rotationY: 32,
+    rotationZ: -9,
     scale: 0.7,
   },
   {
-    x: 85,
-    y: 90,
+    x: 75,
+    y: 50,
     z: -1080,
     rotationX: -28,
-    rotationY: -30,
+    rotationY: -29,
     rotationZ: 8,
     scale: 0.68,
   },
@@ -392,8 +391,13 @@ const waitForImages = async (images: HTMLImageElement[]) => {
           const handleLoad = () => resolve();
           const handleError = () => resolve();
 
-          image.addEventListener("load", handleLoad, { once: true });
-          image.addEventListener("error", handleError, { once: true });
+          image.addEventListener("load", handleLoad, {
+            once: true,
+          });
+
+          image.addEventListener("error", handleError, {
+            once: true,
+          });
         });
       }
 
@@ -440,8 +444,11 @@ const calculateDesktopLayout = (
       width = height * aspectRatio;
     }
 
-    const absoluteMaxWidth = galleryWidth - safeMargin * 2;
-    const absoluteMaxHeight = galleryHeight - safeMargin * 2;
+    const absoluteMaxWidth =
+      galleryWidth - safeMargin * 2;
+
+    const absoluteMaxHeight =
+      galleryHeight - safeMargin * 2;
 
     if (width > absoluteMaxWidth) {
       width = absoluteMaxWidth;
@@ -462,13 +469,21 @@ const calculateDesktopLayout = (
     let centerX = galleryWidth * target.x;
     let centerY = galleryHeight * target.y;
 
-    const minCenterX = safeMargin + rotated.width / 2;
-    const maxCenterX =
-      galleryWidth - safeMargin - rotated.width / 2;
+    const minCenterX =
+      safeMargin + rotated.width / 2;
 
-    const minCenterY = safeMargin + rotated.height / 2;
+    const maxCenterX =
+      galleryWidth -
+      safeMargin -
+      rotated.width / 2;
+
+    const minCenterY =
+      safeMargin + rotated.height / 2;
+
     const maxCenterY =
-      galleryHeight - safeMargin - rotated.height / 2;
+      galleryHeight -
+      safeMargin -
+      rotated.height / 2;
 
     centerX = clamp(
       centerX,
@@ -494,10 +509,14 @@ const calculateDesktopLayout = (
 
 const PressRelease = () => {
   const pageRef = useRef<HTMLElement | null>(null);
-  const newspaperSectionRef = useRef<HTMLElement | null>(null);
+  const newspaperSectionRef =
+    useRef<HTMLElement | null>(null);
 
   useEffect(() => {
-    if (!pageRef.current || !newspaperSectionRef.current) {
+    if (
+      !pageRef.current ||
+      !newspaperSectionRef.current
+    ) {
       return;
     }
 
@@ -525,7 +544,9 @@ const PressRelease = () => {
         }
 
         let destroyed = false;
-        let innerCleanup: (() => void) | undefined;
+        let innerCleanup:
+          | (() => void)
+          | undefined;
 
         gsap.set(gallery, {
           perspective: 1800,
@@ -551,8 +572,11 @@ const PressRelease = () => {
           );
 
           layout.forEach((item, index) => {
-            const newspaper = newspaperElements[index];
-            const start = desktopStartPositions[index];
+            const newspaper =
+              newspaperElements[index];
+
+            const start =
+              desktopStartPositions[index];
 
             gsap.set(newspaper, {
               width: item.width,
@@ -571,7 +595,9 @@ const PressRelease = () => {
         };
 
         const setup = async () => {
-          await waitForImages(newspaperElements);
+          await waitForImages(
+            newspaperElements
+          );
 
           if (destroyed) {
             return;
@@ -592,27 +618,30 @@ const PressRelease = () => {
             },
           });
 
-          newspaperElements.forEach((newspaper, index) => {
-            const finalRotation =
-              scatterTargets[index]?.rotation ?? 0;
+          newspaperElements.forEach(
+            (newspaper, index) => {
+              const finalRotation =
+                scatterTargets[index]
+                  ?.rotation ?? 0;
 
-            timeline.to(
-              newspaper,
-              {
-                opacity: 1,
-                x: 0,
-                y: 0,
-                z: 0,
-                rotationX: 0,
-                rotationY: 0,
-                rotationZ: finalRotation,
-                scale: 1,
-                duration: 0.7,
-                ease: "power4.out",
-              },
-              index * 0.055
-            );
-          });
+              timeline.to(
+                newspaper,
+                {
+                  opacity: 1,
+                  x: 0,
+                  y: 0,
+                  z: 0,
+                  rotationX: 0,
+                  rotationY: 0,
+                  rotationZ: finalRotation,
+                  scale: 1,
+                  duration: 0.7,
+                  ease: "power4.out",
+                },
+                index * 0.055
+              );
+            }
+          );
 
           timeline.to(newspaperElements, {
             x: 0,
@@ -621,7 +650,8 @@ const PressRelease = () => {
             rotationX: 0,
             rotationY: 0,
             rotationZ: (index: number) =>
-              scatterTargets[index]?.rotation ?? 0,
+              scatterTargets[index]
+                ?.rotation ?? 0,
             scale: 1,
             duration: 0.15,
             ease: "power3.out",
@@ -635,26 +665,29 @@ const PressRelease = () => {
             }
           );
 
-          newspaperElements.forEach((newspaper, index) => {
-            const end = desktopEndPositions[index];
+          newspaperElements.forEach(
+            (newspaper, index) => {
+              const end =
+                desktopEndPositions[index];
 
-            timeline.to(
-              newspaper,
-              {
-                opacity: 0,
-                x: end.x,
-                y: end.y,
-                z: end.z,
-                rotationX: end.rotationX,
-                rotationY: end.rotationY,
-                rotationZ: end.rotationZ,
-                scale: 1,
-                duration: 0.48,
-                ease: "power3.in",
-              },
-              1.45 + index * 0.025
-            );
-          });
+              timeline.to(
+                newspaper,
+                {
+                  opacity: 0,
+                  x: end.x,
+                  y: end.y,
+                  z: end.z,
+                  rotationX: end.rotationX,
+                  rotationY: end.rotationY,
+                  rotationZ: end.rotationZ,
+                  scale: 1,
+                  duration: 0.48,
+                  ease: "power3.in",
+                },
+                1.45 + index * 0.025
+              );
+            }
+          );
 
           let resizeTimer:
             | ReturnType<typeof setTimeout>
@@ -675,7 +708,10 @@ const PressRelease = () => {
             }, 120);
           };
 
-          window.addEventListener("resize", handleResize);
+          window.addEventListener(
+            "resize",
+            handleResize
+          );
 
           innerCleanup = () => {
             destroyed = true;
@@ -703,7 +739,8 @@ const PressRelease = () => {
       });
 
       mm.add("(max-width: 767px)", () => {
-        const section = newspaperSectionRef.current;
+        const section =
+          newspaperSectionRef.current;
 
         if (!section) {
           return;
@@ -718,19 +755,29 @@ const PressRelease = () => {
             section.querySelectorAll(".newspaper")
           );
 
-        if (!gallery || newspaperElements.length === 0) {
+        if (
+          !gallery ||
+          newspaperElements.length === 0
+        ) {
           return;
         }
 
         let destroyed = false;
-        const triggers: ScrollTrigger[] = [];
+        const mobileTriggers: ScrollTrigger[] =
+          [];
 
         const setupMobile = async () => {
-          await waitForImages(newspaperElements);
+          await waitForImages(
+            newspaperElements
+          );
 
           if (destroyed) {
             return;
           }
+
+          gallery.style.gap = "28px";
+          gallery.style.paddingTop = "4px";
+          gallery.style.paddingBottom = "20px";
 
           gsap.set(gallery, {
             perspective: 1200,
@@ -739,96 +786,12 @@ const PressRelease = () => {
           });
 
           gsap.set(newspaperElements, {
-            opacity: 0,
             transformStyle: "preserve-3d",
             transformOrigin: "center center",
+            backfaceVisibility: "hidden",
             force3D: true,
-            clearProps: "rotate",
+            opacity: 0,
           });
-
-          newspaperElements.forEach((newspaper, index) => {
-            const depth =
-              mobileDepthPositions[index] ??
-              mobileDepthPositions[
-                mobileDepthPositions.length - 1
-              ];
-
-            gsap.set(newspaper, {
-              opacity: 0,
-              x: depth.x,
-              y: depth.y,
-              z: depth.z,
-              rotationX: depth.rotationX,
-              rotationY: depth.rotationY,
-              rotationZ: depth.rotationZ,
-              scale: depth.scale,
-              transformStyle: "preserve-3d",
-              force3D: true,
-            });
-
-            const trigger = ScrollTrigger.create({
-              trigger: newspaper,
-              start: "top 92%",
-              end: "top 35%",
-              scrub: 1.1,
-              invalidateOnRefresh: true,
-              onUpdate: (self) => {
-                const progress = self.progress;
-
-                const eased =
-                  progress < 0.5
-                    ? 2 * progress * progress
-                    : 1 -
-                      Math.pow(
-                        -2 * progress + 2,
-                        2
-                      ) / 2;
-
-                gsap.set(newspaper, {
-                  opacity: eased,
-                  x: gsap.utils.interpolate(
-                    depth.x,
-                    0,
-                    eased
-                  ),
-                  y: gsap.utils.interpolate(
-                    depth.y,
-                    0,
-                    eased
-                  ),
-                  z: gsap.utils.interpolate(
-                    depth.z,
-                    0,
-                    eased
-                  ),
-                  rotationX: gsap.utils.interpolate(
-                    depth.rotationX,
-                    0,
-                    eased
-                  ),
-                  rotationY: gsap.utils.interpolate(
-                    depth.rotationY,
-                    0,
-                    eased
-                  ),
-                  rotationZ: gsap.utils.interpolate(
-                    depth.rotationZ,
-                    0,
-                    eased
-                  ),
-                  scale: gsap.utils.interpolate(
-                    depth.scale,
-                    1,
-                    eased
-                  ),
-                });
-              },
-            });
-
-            triggers.push(trigger);
-          });
-
-          ScrollTrigger.refresh();
 
           newspaperElements.forEach(
             (newspaper, index) => {
@@ -838,46 +801,123 @@ const PressRelease = () => {
                   mobileDepthPositions.length - 1
                 ];
 
-              const entrance = gsap.timeline({
-                scrollTrigger: {
-                  trigger: newspaper,
-                  start: "top 98%",
-                  end: "top 82%",
-                  scrub: 0.8,
-                  invalidateOnRefresh: true,
-                },
+              gsap.set(newspaper, {
+                opacity: 0,
+                x: depth.x,
+                y: depth.y,
+                z: depth.z,
+                rotationX: depth.rotationX,
+                rotationY: depth.rotationY,
+                rotationZ: depth.rotationZ,
+                scale: depth.scale,
               });
 
-              entrance.fromTo(
-                newspaper,
-                {
-                  opacity: 0,
-                  x: depth.x,
-                  y: depth.y,
-                  z: depth.z,
-                  rotationX: depth.rotationX,
-                  rotationY: depth.rotationY,
-                  rotationZ: depth.rotationZ,
-                  scale: depth.scale,
-                },
-                {
-                  opacity: 1,
-                  x: 0,
-                  y: 0,
-                  z: 0,
-                  rotationX: 0,
-                  rotationY: 0,
-                  rotationZ: 0,
-                  scale: 1,
-                  ease: "power4.out",
-                }
-              );
+              const trigger =
+                ScrollTrigger.create({
+                  trigger: newspaper,
+                  start: "top 92%",
+                  end: "top 38%",
+                  scrub: 0.9,
+                  invalidateOnRefresh: true,
+                  onUpdate: (self) => {
+                    const progress =
+                      gsap.parseEase(
+                        "power3.out"
+                      )(self.progress);
 
-              if (entrance.scrollTrigger) {
-                triggers.push(entrance.scrollTrigger);
-              }
+                    gsap.set(newspaper, {
+                      opacity:
+                        gsap.utils.interpolate(
+                          0,
+                          1,
+                          progress
+                        ),
+                      x:
+                        gsap.utils.interpolate(
+                          depth.x,
+                          0,
+                          progress
+                        ),
+                      y:
+                        gsap.utils.interpolate(
+                          depth.y,
+                          0,
+                          progress
+                        ),
+                      z:
+                        gsap.utils.interpolate(
+                          depth.z,
+                          0,
+                          progress
+                        ),
+                      rotationX:
+                        gsap.utils.interpolate(
+                          depth.rotationX,
+                          0,
+                          progress
+                        ),
+                      rotationY:
+                        gsap.utils.interpolate(
+                          depth.rotationY,
+                          0,
+                          progress
+                        ),
+                      rotationZ:
+                        gsap.utils.interpolate(
+                          depth.rotationZ,
+                          0,
+                          progress
+                        ),
+                      scale:
+                        gsap.utils.interpolate(
+                          depth.scale,
+                          1,
+                          progress
+                        ),
+                    });
+                  },
+                });
+
+              mobileTriggers.push(trigger);
+
+              const settleTrigger =
+                ScrollTrigger.create({
+                  trigger: newspaper,
+                  start: "top 38%",
+                  end: "bottom top",
+                  onEnter: () => {
+                    gsap.set(newspaper, {
+                      opacity: 1,
+                      x: 0,
+                      y: 0,
+                      z: 0,
+                      rotationX: 0,
+                      rotationY: 0,
+                      rotationZ: 0,
+                      scale: 1,
+                    });
+                  },
+                  onEnterBack: () => {
+                    gsap.set(newspaper, {
+                      opacity: 1,
+                      x: 0,
+                      y: 0,
+                      z: 0,
+                      rotationX: 0,
+                      rotationY: 0,
+                      rotationZ: 0,
+                      scale: 1,
+                    });
+                  },
+                });
+
+              mobileTriggers.push(
+                settleTrigger
+              );
             }
           );
+
+          ScrollTrigger.refresh();
         };
 
         setupMobile();
@@ -885,15 +925,25 @@ const PressRelease = () => {
         return () => {
           destroyed = true;
 
-          triggers.forEach((trigger) => {
-            trigger.kill();
-          });
+          mobileTriggers.forEach(
+            (trigger) => trigger.kill()
+          );
 
-          gsap.killTweensOf(newspaperElements);
+          gsap.killTweensOf(
+            newspaperElements
+          );
 
-          gsap.set(newspaperElements, {
-            clearProps: "all",
-          });
+          newspaperElements.forEach(
+            (newspaper) => {
+              gsap.set(newspaper, {
+                clearProps: "all",
+              });
+            }
+          );
+
+          gallery.style.gap = "";
+          gallery.style.paddingTop = "";
+          gallery.style.paddingBottom = "";
 
           gsap.set(gallery, {
             clearProps: "all",
@@ -922,13 +972,9 @@ const PressRelease = () => {
           aria-hidden="true"
         >
           <div className="background-grid" />
-
           <div className="background-glow glow-one" />
-
           <div className="background-glow glow-two" />
-
           <div className="background-glow glow-three" />
-
           <div className="background-noise" />
         </div>
 
@@ -980,9 +1026,9 @@ const PressRelease = () => {
               className="press-release-description"
               variants={headerItem}
             >
-              Our latest insights, research and media
-              coverage across leading newspapers and
-              publications.
+              Our latest insights, research and
+              media coverage across leading
+              newspapers and publications.
             </motion.p>
 
             <motion.div
@@ -1023,7 +1069,6 @@ const PressRelease = () => {
 
         <section className="press-release-end">
           <div className="end-line" />
-
           <p>MORE STORIES</p>
 
           <h2>
@@ -1061,4 +1106,3 @@ const PressRelease = () => {
 };
 
 export default PressRelease;
-
