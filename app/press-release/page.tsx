@@ -1,4 +1,3 @@
-
 "use client";
 
 import React, { useEffect, useRef } from "react";
@@ -290,54 +289,78 @@ const scatterTargets = [
   },
 ];
 
-const mobileStartPositions = [
+const mobileDepthPositions = [
   {
-    x: -42,
-    y: 24,
-    rotation: -5,
-    scale: 0.96,
+    x: -75,
+    y: 45,
+    z: -950,
+    rotationX: 26,
+    rotationY: -32,
+    rotationZ: -8,
+    scale: 0.7,
   },
   {
-    x: 44,
-    y: 20,
-    rotation: 5,
-    scale: 0.96,
+    x: 75,
+    y: 40,
+    z: -1050,
+    rotationX: -28,
+    rotationY: 30,
+    rotationZ: 8,
+    scale: 0.68,
   },
   {
-    x: -38,
-    y: 28,
-    rotation: -4,
-    scale: 0.97,
+    x: -65,
+    y: 55,
+    z: -1000,
+    rotationX: 30,
+    rotationY: 27,
+    rotationZ: -7,
+    scale: 0.69,
   },
   {
-    x: 42,
-    y: 22,
-    rotation: 5,
-    scale: 0.96,
+    x: 70,
+    y: 45,
+    z: -1100,
+    rotationX: -27,
+    rotationY: -31,
+    rotationZ: 9,
+    scale: 0.67,
   },
   {
-    x: -44,
-    y: 26,
-    rotation: -5,
-    scale: 0.96,
+    x: -80,
+    y: 40,
+    z: -1020,
+    rotationX: 28,
+    rotationY: -29,
+    rotationZ: -8,
+    scale: 0.69,
   },
   {
-    x: 40,
-    y: 24,
-    rotation: 4,
-    scale: 0.97,
+    x: 70,
+    y: 50,
+    z: -1150,
+    rotationX: -29,
+    rotationY: 30,
+    rotationZ: 8,
+    scale: 0.67,
   },
   {
-    x: -38,
-    y: 22,
-    rotation: -5,
-    scale: 0.96,
+    x: -65,
+    y: 45,
+    z: -980,
+    rotationX: 25,
+    rotationY: 32,
+    rotationZ: -9,
+    scale: 0.7,
   },
   {
-    x: 42,
-    y: 25,
-    rotation: 5,
-    scale: 0.96,
+    x: 75,
+    y: 50,
+    z: -1080,
+    rotationX: -28,
+    rotationY: -29,
+    rotationZ: 8,
+    scale: 0.68,
   },
 ];
 
@@ -356,17 +379,11 @@ const getRotatedBounds = (
   };
 };
 
-const clamp = (
-  value: number,
-  min: number,
-  max: number
-) => {
+const clamp = (value: number, min: number, max: number) => {
   return Math.min(Math.max(value, min), max);
 };
 
-const waitForImages = async (
-  images: HTMLImageElement[]
-) => {
+const waitForImages = async (images: HTMLImageElement[]) => {
   await Promise.all(
     images.map(async (image) => {
       if (!image.complete) {
@@ -414,14 +431,10 @@ const calculateDesktopLayout = (
 
     const naturalWidth = image.naturalWidth || 1;
     const naturalHeight = image.naturalHeight || 1;
-    const aspectRatio =
-      naturalWidth / naturalHeight;
+    const aspectRatio = naturalWidth / naturalHeight;
 
-    const maxWidth =
-      galleryWidth * target.maxWidth;
-
-    const maxHeight =
-      galleryHeight * target.maxHeight;
+    const maxWidth = galleryWidth * target.maxWidth;
+    const maxHeight = galleryHeight * target.maxHeight;
 
     let width = maxWidth;
     let height = width / aspectRatio;
@@ -453,11 +466,8 @@ const calculateDesktopLayout = (
       target.rotation
     );
 
-    let centerX =
-      galleryWidth * target.x;
-
-    let centerY =
-      galleryHeight * target.y;
+    let centerX = galleryWidth * target.x;
+    let centerY = galleryHeight * target.y;
 
     const minCenterX =
       safeMargin + rotated.width / 2;
@@ -498,9 +508,7 @@ const calculateDesktopLayout = (
 };
 
 const PressRelease = () => {
-  const pageRef =
-    useRef<HTMLElement | null>(null);
-
+  const pageRef = useRef<HTMLElement | null>(null);
   const newspaperSectionRef =
     useRef<HTMLElement | null>(null);
 
@@ -516,27 +524,22 @@ const PressRelease = () => {
       const mm = gsap.matchMedia();
 
       mm.add("(min-width: 768px)", () => {
-        const section =
-          newspaperSectionRef.current;
+        const section = newspaperSectionRef.current;
 
         if (!section) {
           return;
         }
 
-        const gallery =
-          section.querySelector(
-            ".newspaper-gallery"
-          ) as HTMLElement | null;
+        const gallery = section.querySelector(
+          ".newspaper-gallery"
+        ) as HTMLElement | null;
 
         const newspaperElements =
           gsap.utils.toArray<HTMLImageElement>(
             section.querySelectorAll(".newspaper")
           );
 
-        if (
-          !gallery ||
-          newspaperElements.length === 0
-        ) {
+        if (!gallery || newspaperElements.length === 0) {
           return;
         }
 
@@ -563,11 +566,10 @@ const PressRelease = () => {
             return;
           }
 
-          const layout =
-            calculateDesktopLayout(
-              gallery,
-              newspaperElements
-            );
+          const layout = calculateDesktopLayout(
+            gallery,
+            newspaperElements
+          );
 
           layout.forEach((item, index) => {
             const newspaper =
@@ -703,7 +705,7 @@ const PressRelease = () => {
 
               applySafeLayout();
               ScrollTrigger.refresh();
-            }, 150);
+            }, 120);
           };
 
           window.addEventListener(
@@ -744,10 +746,9 @@ const PressRelease = () => {
           return;
         }
 
-        const gallery =
-          section.querySelector(
-            ".newspaper-gallery"
-          ) as HTMLElement | null;
+        const gallery = section.querySelector(
+          ".newspaper-gallery"
+        ) as HTMLElement | null;
 
         const newspaperElements =
           gsap.utils.toArray<HTMLImageElement>(
@@ -762,6 +763,8 @@ const PressRelease = () => {
         }
 
         let destroyed = false;
+        const mobileTriggers: ScrollTrigger[] =
+          [];
 
         const setupMobile = async () => {
           await waitForImages(
@@ -772,56 +775,145 @@ const PressRelease = () => {
             return;
           }
 
+          gallery.style.gap = "28px";
+          gallery.style.paddingTop = "4px";
+          gallery.style.paddingBottom = "20px";
+
           gsap.set(gallery, {
-            clearProps:
-              "perspective,perspectiveOrigin,transformStyle",
+            perspective: 1200,
+            perspectiveOrigin: "50% 50%",
+            transformStyle: "preserve-3d",
           });
 
           gsap.set(newspaperElements, {
-            opacity: 0,
-            x: 0,
-            y: 0,
-            z: 0,
-            rotationX: 0,
-            rotationY: 0,
-            rotationZ: 0,
-            scale: 1,
-            force3D: true,
+            transformStyle: "preserve-3d",
             transformOrigin: "center center",
+            backfaceVisibility: "hidden",
+            force3D: true,
+            opacity: 0,
           });
 
           newspaperElements.forEach(
             (newspaper, index) => {
-              const start =
-                mobileStartPositions[index] ??
-                mobileStartPositions[
-                  mobileStartPositions.length - 1
+              const depth =
+                mobileDepthPositions[index] ??
+                mobileDepthPositions[
+                  mobileDepthPositions.length - 1
                 ];
 
               gsap.set(newspaper, {
                 opacity: 0,
-                x: start.x,
-                y: start.y,
-                rotationZ: start.rotation,
-                scale: start.scale,
+                x: depth.x,
+                y: depth.y,
+                z: depth.z,
+                rotationX: depth.rotationX,
+                rotationY: depth.rotationY,
+                rotationZ: depth.rotationZ,
+                scale: depth.scale,
               });
 
-              gsap.to(newspaper, {
-                opacity: 1,
-                x: 0,
-                y: 0,
-                rotationZ: 0,
-                scale: 1,
-                duration: 0.75,
-                ease: "power3.out",
-                overwrite: true,
-                scrollTrigger: {
+              const trigger =
+                ScrollTrigger.create({
                   trigger: newspaper,
-                  start: "top 88%",
-                  toggleActions:
-                    "play none none reverse",
-                },
-              });
+                  start: "top 92%",
+                  end: "top 38%",
+                  scrub: 0.9,
+                  invalidateOnRefresh: true,
+                  onUpdate: (self) => {
+                    const progress =
+                      gsap.parseEase(
+                        "power3.out"
+                      )(self.progress);
+
+                    gsap.set(newspaper, {
+                      opacity:
+                        gsap.utils.interpolate(
+                          0,
+                          1,
+                          progress
+                        ),
+                      x:
+                        gsap.utils.interpolate(
+                          depth.x,
+                          0,
+                          progress
+                        ),
+                      y:
+                        gsap.utils.interpolate(
+                          depth.y,
+                          0,
+                          progress
+                        ),
+                      z:
+                        gsap.utils.interpolate(
+                          depth.z,
+                          0,
+                          progress
+                        ),
+                      rotationX:
+                        gsap.utils.interpolate(
+                          depth.rotationX,
+                          0,
+                          progress
+                        ),
+                      rotationY:
+                        gsap.utils.interpolate(
+                          depth.rotationY,
+                          0,
+                          progress
+                        ),
+                      rotationZ:
+                        gsap.utils.interpolate(
+                          depth.rotationZ,
+                          0,
+                          progress
+                        ),
+                      scale:
+                        gsap.utils.interpolate(
+                          depth.scale,
+                          1,
+                          progress
+                        ),
+                    });
+                  },
+                });
+
+              mobileTriggers.push(trigger);
+
+              const settleTrigger =
+                ScrollTrigger.create({
+                  trigger: newspaper,
+                  start: "top 38%",
+                  end: "bottom top",
+                  onEnter: () => {
+                    gsap.set(newspaper, {
+                      opacity: 1,
+                      x: 0,
+                      y: 0,
+                      z: 0,
+                      rotationX: 0,
+                      rotationY: 0,
+                      rotationZ: 0,
+                      scale: 1,
+                    });
+                  },
+                  onEnterBack: () => {
+                    gsap.set(newspaper, {
+                      opacity: 1,
+                      x: 0,
+                      y: 0,
+                      z: 0,
+                      rotationX: 0,
+                      rotationY: 0,
+                      rotationZ: 0,
+                      scale: 1,
+                    });
+                  },
+                });
+
+              mobileTriggers.push(
+                settleTrigger
+              );
             }
           );
 
@@ -832,6 +924,10 @@ const PressRelease = () => {
 
         return () => {
           destroyed = true;
+
+          mobileTriggers.forEach(
+            (trigger) => trigger.kill()
+          );
 
           gsap.killTweensOf(
             newspaperElements
@@ -844,6 +940,10 @@ const PressRelease = () => {
               });
             }
           );
+
+          gallery.style.gap = "";
+          gallery.style.paddingTop = "";
+          gallery.style.paddingBottom = "";
 
           gsap.set(gallery, {
             clearProps: "all",
@@ -1006,4 +1106,3 @@ const PressRelease = () => {
 };
 
 export default PressRelease;
-
