@@ -1,0 +1,873 @@
+/* ============================================================
+   BASE
+============================================================ */
+
+* {
+  box-sizing: border-box;
+}
+
+.responsive-page {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  background: #080808;
+  color: #f5f5f0;
+  font-family:
+    Inter,
+    Arial,
+    Helvetica,
+    sans-serif;
+}
+
+.responsive-page::selection {
+  background: #f5f5f0;
+  color: #080808;
+}
+
+/* ============================================================
+   BACKGROUND
+============================================================ */
+
+.responsive-background {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.responsive-grid {
+  position: absolute;
+  inset: 0;
+  opacity: 0.08;
+
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.2) 1px, transparent 1px),
+    linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.2) 1px,
+      transparent 1px
+    );
+
+  background-size: 80px 80px;
+
+  mask-image: linear-gradient(
+    to bottom,
+    black,
+    transparent 80%
+  );
+}
+
+.responsive-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.15;
+}
+
+.orb-one {
+  width: 400px;
+  height: 400px;
+  top: 5%;
+  left: -150px;
+  background: #ffffff;
+}
+
+.orb-two {
+  width: 350px;
+  height: 350px;
+  top: 35%;
+  right: -150px;
+  background: #8b8b8b;
+}
+
+/* ============================================================
+   TOP BAR
+============================================================ */
+
+.responsive-topbar {
+  position: relative;
+  z-index: 10;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 100%;
+  padding: 28px 5vw;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.responsive-logo {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+}
+
+.responsive-mode {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+}
+
+.mode-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #f5f5f0;
+}
+
+.responsive-mode.is-mobile .mode-dot {
+  background: #999;
+}
+
+/* ============================================================
+   HERO
+============================================================ */
+
+.responsive-hero {
+  position: relative;
+  z-index: 2;
+
+  min-height: 92vh;
+  padding: 13vh 8vw 10vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.responsive-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+
+  margin-bottom: 40px;
+
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+}
+
+.responsive-eyebrow span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 30px;
+  height: 30px;
+
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+
+  font-size: 10px;
+}
+
+.responsive-title {
+  max-width: 1100px;
+
+  margin: 0;
+
+  font-size: clamp(70px, 10vw, 160px);
+  font-weight: 500;
+  line-height: 0.88;
+  letter-spacing: -0.065em;
+}
+
+.responsive-title-line {
+  display: block;
+  will-change: transform, opacity;
+}
+
+.responsive-title em {
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 400;
+}
+
+.responsive-intro {
+  max-width: 540px;
+
+  margin-top: 60px;
+
+  font-size: 17px;
+  line-height: 1.7;
+  color: rgba(245, 245, 240, 0.58);
+}
+
+.responsive-intro code {
+  padding: 4px 7px;
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.05);
+
+  color: #f5f5f0;
+  font-family: monospace;
+  font-size: 0.9em;
+}
+
+.responsive-scroll-hint {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+
+  margin-top: 100px;
+
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  color: rgba(245, 245, 240, 0.45);
+}
+
+.scroll-line {
+  width: 45px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.5);
+}
+
+/* ============================================================
+   EXPLANATION
+============================================================ */
+
+.responsive-explanation {
+  position: relative;
+  z-index: 2;
+
+  display: grid;
+  grid-template-columns: 0.35fr 1fr;
+  gap: 5vw;
+
+  padding: 14vh 8vw;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.explanation-label {
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  color: rgba(245, 245, 240, 0.4);
+}
+
+.explanation-content {
+  max-width: 900px;
+}
+
+.explanation-content h2 {
+  margin: 0;
+
+  font-size: clamp(50px, 7vw, 100px);
+  font-weight: 400;
+  line-height: 0.95;
+  letter-spacing: -0.05em;
+}
+
+.explanation-content h2 span {
+  font-family: Georgia, "Times New Roman", serif;
+  font-style: italic;
+}
+
+.explanation-content > p {
+  max-width: 620px;
+
+  margin: 55px 0;
+
+  font-size: 18px;
+  line-height: 1.7;
+  color: rgba(245, 245, 240, 0.55);
+}
+
+/* ============================================================
+   CODE CARD
+============================================================ */
+
+.code-card {
+  overflow: hidden;
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 4px;
+
+  background: rgba(255, 255, 255, 0.035);
+}
+
+.code-header {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+
+  height: 48px;
+  padding: 0 18px;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.code-header > span {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.code-header small {
+  margin-left: auto;
+
+  font-family: monospace;
+  font-size: 9px;
+  color: rgba(255, 255, 255, 0.35);
+}
+
+.code-card pre {
+  overflow-x: auto;
+
+  margin: 0;
+  padding: 30px;
+
+  font-family: "SFMono-Regular", Consolas, monospace;
+  font-size: 14px;
+  line-height: 1.8;
+  color: rgba(245, 245, 240, 0.75);
+}
+
+/* ============================================================
+   CARDS SECTION
+============================================================ */
+
+.responsive-cards-section {
+  position: relative;
+  z-index: 2;
+
+  padding: 10vh 8vw 16vh;
+}
+
+.cards-heading {
+  display: flex;
+  justify-content: space-between;
+
+  margin-bottom: 40px;
+  padding-bottom: 20px;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  color: rgba(245, 245, 240, 0.4);
+}
+
+.responsive-cards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.responsive-card {
+  position: relative;
+
+  min-height: 500px;
+  padding: 30px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  overflow: hidden;
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 5px;
+
+  background: rgba(255, 255, 255, 0.035);
+
+  transform-style: preserve-3d;
+  will-change: transform, opacity;
+
+  transition:
+    background 0.4s ease,
+    border-color 0.4s ease;
+}
+
+.responsive-card:hover {
+  background: rgba(255, 255, 255, 0.07);
+  border-color: rgba(255, 255, 255, 0.28);
+}
+
+.responsive-card:nth-child(2) {
+  margin-top: 100px;
+}
+
+.responsive-card:nth-child(3) {
+  margin-top: -40px;
+}
+
+.responsive-card:nth-child(4) {
+  margin-top: 60px;
+}
+
+.responsive-card-number {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.responsive-card-content {
+  position: relative;
+  z-index: 2;
+}
+
+.responsive-card-tag {
+  display: inline-block;
+
+  margin-bottom: 25px;
+  padding: 7px 10px;
+
+  border: 1px solid rgba(255, 255, 255, 0.15);
+
+  font-size: 8px;
+  letter-spacing: 0.14em;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.responsive-card h3 {
+  margin: 0 0 20px;
+
+  font-size: clamp(34px, 4vw, 60px);
+  font-weight: 400;
+  line-height: 0.95;
+  letter-spacing: -0.045em;
+}
+
+.responsive-card p {
+  max-width: 430px;
+
+  margin: 0;
+
+  font-size: 14px;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.48);
+}
+
+.card-arrow {
+  margin-top: 40px;
+
+  font-size: 25px;
+
+  transition: transform 0.4s ease;
+}
+
+.responsive-card:hover .card-arrow {
+  transform: translate(5px, -5px);
+}
+
+/* ============================================================
+   COMPARISON
+============================================================ */
+
+.comparison-section {
+  position: relative;
+  z-index: 2;
+
+  padding: 15vh 8vw;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.comparison-title > span {
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.comparison-title h2 {
+  margin: 35px 0 100px;
+
+  font-size: clamp(55px, 8vw, 120px);
+  font-weight: 400;
+  line-height: 0.9;
+  letter-spacing: -0.06em;
+}
+
+.comparison-title em {
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 400;
+}
+
+.comparison-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.comparison-panel {
+  padding: 25px;
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.comparison-panel-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding-bottom: 20px;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
+  font-size: 8px;
+  letter-spacing: 0.15em;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.comparison-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 32px;
+  height: 32px;
+
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+
+  color: #f5f5f0;
+}
+
+.comparison-visual {
+  position: relative;
+
+  height: 430px;
+  margin: 25px 0;
+
+  overflow: hidden;
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.visual-card {
+  position: absolute;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 180px;
+  height: 110px;
+
+  border: 1px solid rgba(255, 255, 255, 0.2);
+
+  background: #111;
+
+  font-size: 9px;
+  letter-spacing: 0.15em;
+}
+
+.desktop-visual .card-a {
+  top: 80px;
+  left: 20%;
+  transform: rotate(-10deg);
+}
+
+.desktop-visual .card-b {
+  top: 170px;
+  right: 15%;
+  transform: rotate(8deg) scale(0.9);
+}
+
+.desktop-visual .card-c {
+  bottom: 45px;
+  left: 35%;
+  transform: rotate(-4deg) scale(0.75);
+}
+
+.mobile-visual {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 12px;
+
+  padding: 30px;
+}
+
+.mobile-visual .visual-card {
+  position: relative;
+
+  width: 100%;
+  height: 80px;
+
+  flex-shrink: 0;
+}
+
+.comparison-description h3 {
+  margin: 0 0 10px;
+
+  font-size: 26px;
+  font-weight: 400;
+}
+
+.comparison-description p {
+  max-width: 400px;
+
+  margin: 0;
+
+  font-size: 13px;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+/* ============================================================
+   FOOTER
+============================================================ */
+
+.responsive-footer {
+  position: relative;
+  z-index: 2;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+
+  padding: 35px 8vw;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+
+  font-size: 9px;
+  letter-spacing: 0.16em;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.footer-center {
+  text-align: center;
+  line-height: 1.6;
+}
+
+.responsive-footer > :last-child {
+  text-align: right;
+}
+
+/* ============================================================
+   TABLET
+============================================================ */
+
+@media (max-width: 900px) and (min-width: 768px) {
+  .responsive-hero {
+    padding-left: 6vw;
+    padding-right: 6vw;
+  }
+
+  .responsive-explanation,
+  .responsive-cards-section,
+  .comparison-section {
+    padding-left: 6vw;
+    padding-right: 6vw;
+  }
+
+  .responsive-card {
+    min-height: 420px;
+  }
+}
+
+/* ============================================================
+   MOBILE
+============================================================ */
+
+@media (max-width: 767px) {
+  .responsive-page {
+    overflow-x: hidden;
+  }
+
+  .responsive-topbar {
+    padding: 20px 22px;
+  }
+
+  .responsive-logo {
+    font-size: 10px;
+  }
+
+  .responsive-mode {
+    font-size: 8px;
+  }
+
+  .responsive-hero {
+    min-height: 88vh;
+    padding: 12vh 22px 8vh;
+  }
+
+  .responsive-eyebrow {
+    margin-bottom: 30px;
+
+    font-size: 9px;
+    letter-spacing: 0.14em;
+  }
+
+  .responsive-title {
+    font-size: clamp(52px, 15vw, 78px);
+    line-height: 0.9;
+    letter-spacing: -0.055em;
+  }
+
+  .responsive-intro {
+    margin-top: 35px;
+
+    font-size: 14px;
+    line-height: 1.65;
+  }
+
+  .responsive-scroll-hint {
+    margin-top: 55px;
+  }
+
+  /* ----------------------------------------------------------
+     EXPLANATION
+  ---------------------------------------------------------- */
+
+  .responsive-explanation {
+    display: block;
+
+    padding: 90px 22px;
+  }
+
+  .explanation-label {
+    margin-bottom: 35px;
+  }
+
+  .explanation-content h2 {
+    font-size: 56px;
+  }
+
+  .explanation-content > p {
+    margin: 35px 0;
+
+    font-size: 15px;
+  }
+
+  .code-card pre {
+    padding: 22px;
+
+    font-size: 11px;
+    line-height: 1.7;
+  }
+
+  /* ----------------------------------------------------------
+     CARDS
+  ---------------------------------------------------------- */
+
+  .responsive-cards-section {
+    padding: 80px 22px 110px;
+  }
+
+  .cards-heading {
+    margin-bottom: 25px;
+  }
+
+  .responsive-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .responsive-card,
+  .responsive-card:nth-child(2),
+  .responsive-card:nth-child(3),
+  .responsive-card:nth-child(4) {
+    min-height: 400px;
+
+    margin-top: 0;
+
+    padding: 24px;
+  }
+
+  .responsive-card h3 {
+    font-size: 40px;
+  }
+
+  .responsive-card p {
+    font-size: 13px;
+  }
+
+  /* ----------------------------------------------------------
+     COMPARISON
+  ---------------------------------------------------------- */
+
+  .comparison-section {
+    padding: 90px 22px;
+  }
+
+  .comparison-title h2 {
+    margin: 30px 0 55px;
+
+    font-size: 55px;
+  }
+
+  .comparison-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .comparison-panel {
+    padding: 18px;
+  }
+
+  .comparison-visual {
+    height: 320px;
+  }
+
+  /* ----------------------------------------------------------
+     FOOTER
+  ---------------------------------------------------------- */
+
+  .responsive-footer {
+    grid-template-columns: 1fr 1fr;
+
+    padding: 25px 22px;
+
+    gap: 20px;
+  }
+
+  .footer-center {
+    display: none;
+  }
+
+  .responsive-footer > :last-child {
+    text-align: right;
+  }
+
+  /* ----------------------------------------------------------
+     MOBILE BACKGROUND
+  ---------------------------------------------------------- */
+
+  .responsive-grid {
+    background-size: 50px 50px;
+  }
+
+  .responsive-orb {
+    filter: blur(80px);
+    opacity: 0.1;
+  }
+
+  .orb-one {
+    width: 220px;
+    height: 220px;
+    left: -120px;
+  }
+
+  .orb-two {
+    width: 200px;
+    height: 200px;
+    right: -120px;
+  }
+}
+
+/* ============================================================
+   REDUCED MOTION
+============================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  .responsive-page *,
+  .responsive-page *::before,
+  .responsive-page *::after {
+    scroll-behavior: auto !important;
+  }
+
+  .responsive-orb {
+    animation: none !important;
+  }
+}
