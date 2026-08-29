@@ -300,33 +300,7 @@ export default function ContactForm() {
       </div>
 
 
-      {/* ============================================================
-          WHATSAPP FLOATING BUTTON
-          ============================================================ */}
 
-      <a
-        href="https://wa.me/"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="contact-whatsapp"
-        aria-label="Contact us on WhatsApp"
-      >
-        <MessageCircle className="contact-whatsapp-icon" />
-      </a>
-
-
-      {/* ============================================================
-          SCROLL TO TOP BUTTON
-          ============================================================ */}
-
-      <button
-        type="button"
-        onClick={handleScrollTop}
-        className="contact-scroll-top"
-        aria-label="Scroll to top"
-      >
-        <ChevronUp className="contact-scroll-top-icon" />
-      </button>
 
     </section>
   );
