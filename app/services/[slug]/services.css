@@ -1,588 +1,675 @@
-.service-page{
-  width:100%;
-  min-height:100vh;
-  background:#fff;
-  color:#111;
-  overflow:hidden;
-  font-family:"Montserrat",sans-serif;
+
+/* =========================================================
+   SERVICE PAGE
+========================================================= */
+
+.service-page {
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+  background: #fff;
+  color: #111;
+  font-family: "Montserrat", sans-serif;
 }
 
-.service-layout{
-  width:100%;
-  height:auto;
-  display:flex;
-  align-items:flex-start;
+
+/* =========================================================
+   MAIN LAYOUT
+========================================================= */
+
+.service-layout {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
 }
 
-.service-content{
-  width:70%;
-  height:auto;
-  overflow:visible;
-  scroll-behavior:smooth;
-  scrollbar-width:none;
+
+/* =========================================================
+   SERVICE CONTENT
+========================================================= */
+
+.service-content {
+  width: 70%;
+  height: auto;
+  overflow: visible;
 }
 
-.service-content::-webkit-scrollbar{
-  display:none;
+.service-content-inner {
+  width: 100%;
+  padding: 20px 40px;
 }
 
-.service-content-inner{
-  width:100%;
-  padding:20px 40px;
+
+/* =========================================================
+   INTRO
+========================================================= */
+
+.service-intro {
+  width: 100%;
+  max-width: 1050px;
+  margin: 0 0 25px;
 }
 
-.service-intro{
-  width:100%;
-  max-width:1050px;
-  margin:0 0 25px;
+.service-intro p {
+  margin: 0;
+  color: #666;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.7;
 }
 
-.service-intro p{
-  margin:0;
-  font-size:20px;
-  line-height:1.7;
-  font-weight:400;
-  color:#666;
+
+/* =========================================================
+   MAIN IMAGE
+========================================================= */
+
+.service-image-section {
+  width: 100%;
+  margin-bottom: 40px;
 }
 
-.service-image-section{
-  width:100%;
-  margin-bottom:40px;
+.service-image-wrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 7px;
 }
 
-.service-image-wrapper{
-  width:100%;
-  overflow:hidden;
-  border-radius:7px;
+.service-main-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
 }
 
-.service-main-image{
-  display:block;
-  object-fit:cover;
-  transition:transform .6s ease;
+
+/* =========================================================
+   COMMON CONTENT SECTIONS
+========================================================= */
+
+.service-section {
+  width: 100%;
+  margin-bottom: 42px;
 }
 
-.service-image-wrapper:hover .service-main-image{
-  transform:scale(1.025);
+.service-section h2 {
+  margin: 0 0 14px;
+  color: #111;
+  font-size: 27px;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.5px;
 }
 
-.service-section{
-  width:100%;
-  margin-bottom:42px;
+
+/* =========================================================
+   HOW WE WORK
+========================================================= */
+
+.service-work p {
+  max-width: 1100px;
+  margin: 0;
+  color: #696969;
+  font-size: 20px;
+  line-height: 1.65;
 }
 
-.service-section h2{
-  margin:0 0 14px;
-  font-size:27px;
-  line-height:1.2;
-  font-weight:600;
-  letter-spacing:-.5px;
-  color:#111;
+
+/* =========================================================
+   KEY WORK AREAS
+========================================================= */
+
+.service-key-areas {
+  margin-top: 42px;
 }
 
-.service-work p{
-  max-width:1100px;
-  margin:0;
-  font-size:20px;
-  line-height:1.65;
-  color:#696969;
+.service-work-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  perspective: 1000px;
 }
 
-.service-key-areas{
-  margin-top:42px;
+.service-work-list li {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  min-height: 32px;
+  transform-style: preserve-3d;
 }
 
-.service-work-list{
-  margin:0;
-  padding:0;
-  list-style:none;
-  display:flex;
-  flex-direction:column;
-  gap:14px;
+.service-list-icon {
+  display: flex;
+  flex: 0 0 20px;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #00c86b;
+  border-radius: 50%;
 }
 
-.service-work-list li{
-  display:flex;
-  align-items:center;
-  gap:18px;
-  min-height:32px;
+.service-list-icon::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  border: 1.5px solid #00c86b;
+  border-radius: 50%;
 }
 
-.service-list-icon{
-  width:20px;
-  height:20px;
-  flex:0 0 20px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  border:2px solid #00c86b;
-  border-radius:50%;
+.service-list-icon span {
+  display: none;
 }
 
-.service-list-icon::before{
-  content:"";
-  width:10px;
-  height:10px;
-  border:1.5px solid #00c86b;
-  border-radius:50%;
+.service-list-text {
+  color: #696969;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.5;
 }
 
-.service-list-icon span{
-  display:none;
+
+/* =========================================================
+   OUTCOME
+========================================================= */
+
+.service-outcome {
+  width: 100%;
 }
 
-.service-list-text{
-  font-size:20px;
-  line-height:1.5;
-  font-weight:600;
-  color:#696969;
+.service-outcome p {
+  margin: 0;
+  color: #696969;
+  font-size: 21px;
+  line-height: 1.7;
 }
 
-.service-outcome{
-
+.service-outcome strong {
+  color: #666;
+  font-weight: 700;
 }
 
-.service-outcome p{
-  margin:0;
-  font-size:21px;
-  line-height:1.7;
-  color:#696969;
+
+/* =========================================================
+   SIDEBAR
+========================================================= */
+
+.service-sidebar {
+  flex: 0 0 30%;
+  width: 30%;
+  padding: 28px 3.2% 20px 0;
+  background: #fff;
 }
 
-.service-outcome strong{
-  font-weight:700;
-  color:#666;
+.service-sidebar-inner {
+  width: 100%;
+  height: auto;
+  background: #fdfdfd;
+  box-shadow: 0 0 0 1px #eee;
 }
 
-.service-carousel-section{
-  width:100%;
-margin : auto;
+.service-sidebar-header {
+  padding: 36px 38px;
+  border-bottom: 1px solid #e5e5e5;
+  background: #fff;
 }
 
-.service-sidebar{
-  width:30%;
-  flex:0 0 30%;
-  padding:28px 3.2% 20px 0;
-  position:static;
-  background:#fff;
+.service-sidebar-header h2 {
+  margin: 0;
+  color: #111;
+  font-size: 25px;
+  font-weight: 600;
+  line-height: 1.25;
 }
 
-.service-sidebar-inner{
-  width:100%;
-  height:auto;
-  background:#fdfdfd;
-  box-shadow:0 0 0 1px #eee;
+
+/* =========================================================
+   SERVICE NAVIGATION
+========================================================= */
+
+.service-navigation {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
-.service-sidebar-header{
-  padding:36px 38px;
-  border-bottom:1px solid #e5e5e5;
-  background:#fff;
+.service-nav-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  min-height: 115px;
+  padding: 25px 72px 25px 38px;
+  border-bottom: 1px solid #e5e5e5;
+  background: #fff;
+  color: #111;
+  text-decoration: none;
 }
 
-.service-sidebar-header h2{
-  margin:0;
-  font-size:25px;
-  line-height:1.25;
-  font-weight:600;
-  color:#111;
+.service-nav-item:last-child {
+  border-bottom: none;
 }
 
-.service-navigation{
-  width:100%;
-  display:flex;
-  flex-direction:column;
-}
-
-.service-nav-item{
-  position:relative;
-  min-height:115px;
-  padding:25px 72px 25px 38px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:20px;
-  border-bottom:1px solid #e5e5e5;
-  text-decoration:none;
-  background:#fff;
-  color:#111;
-  transition:background .3s ease,color .3s ease;
-}
-
-.service-nav-item:last-child{
-  border-bottom:none;
-}
-
-.service-nav-name{
-  font-size:22px;
-  line-height:1.35;
-  font-weight:500;
+.service-nav-name {
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 1.35;
 }
 
 .service-nav-item:hover,
-.service-nav-item.active{
-  background:#ff6b52;
-  color:#fff;
+.service-nav-item.active {
+  background: #ff6b52;
+  color: #fff;
 }
 
-.service-nav-arrow{
-  position:absolute;
-  right:24px;
-  top:50%;
-  width:60px;
-  height:60px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  transform:translateY(-50%);
-  border-radius:50%;
-  background:#fff;
-  color:#00a85a;
+.service-nav-arrow {
+  position: absolute;
+  top: 50%;
+  right: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: #fff;
+  color: #00a85a;
+  transform: translateY(-50%);
 }
 
-.service-nav-arrow span{
-  font-size:32px;
-  line-height:1;
-  font-weight:400;
-  transform:translateY(-2px);
+.service-nav-arrow span {
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 1;
+  transform: translateY(-2px);
 }
 
-.service-scroll-top{
-  position:fixed;
-  right:18px;
-  bottom:74px;
-  width:62px;
-  height:62px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  border:1px solid #777;
-  border-radius:6px;
-  background:#fff;
-  color:#bbb;
-  text-decoration:none;
-  z-index:20;
-  transition:background .3s ease,color .3s ease;
+
+/* =========================================================
+   SERVICE CAROUSEL
+========================================================= */
+
+.service-carousel-section {
+  width: 100%;
+  margin: 0 auto;
 }
 
-.service-scroll-top:hover{
-  background:#111;
-  color:#fff;
+
+/* =========================================================
+   SCROLL TO TOP
+========================================================= */
+
+.service-scroll-top {
+  position: fixed;
+  right: 18px;
+  bottom: 74px;
+  z-index: 20;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 62px;
+  height: 62px;
+
+  border: 1px solid #777;
+  border-radius: 6px;
+
+  background: #fff;
+  color: #bbb;
+  text-decoration: none;
 }
 
-.service-scroll-top span{
-  font-size:30px;
-  line-height:1;
-  font-weight:600;
-  transform:translateY(5px);
+.service-scroll-top span {
+  font-size: 30px;
+  font-weight: 600;
+  line-height: 1;
+  transform: translateY(5px);
 }
 
-.service-whatsapp{
-  position:fixed;
-  left:30px;
-  bottom:38px;
-  width:66px;
-  height:66px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  border-radius:50%;
-  background:#42c95d;
-  z-index:30;
-  box-shadow:0 5px 20px rgba(0,0,0,.08);
-  transition:transform .3s ease;
+
+/* =========================================================
+   WHATSAPP BUTTON
+========================================================= */
+
+.service-whatsapp {
+  position: fixed;
+  left: 30px;
+  bottom: 38px;
+  z-index: 30;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 66px;
+  height: 66px;
+
+  border-radius: 50%;
+  background: #42c95d;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
 }
 
-.service-whatsapp:hover{
-  transform:scale(1.08);
+.service-whatsapp svg {
+  width: 38px;
+  height: 38px;
+  fill: #fff;
 }
 
-.service-whatsapp svg{
-  width:38px;
-  height:38px;
-  fill:#fff;
-}
 
-@media(max-width:1200px){
+/* =========================================================
+   LARGE TABLET / SMALL DESKTOP
+========================================================= */
 
-  .service-content{
-    width:68%;
+@media (max-width: 1200px) {
+  .service-content {
+    width: 68%;
   }
 
-  .service-sidebar{
-    width:32%;
-    flex-basis:32%;
+  .service-sidebar {
+    flex-basis: 32%;
+    width: 32%;
   }
 
-  .service-content-inner{
-    padding-left:5%;
-    padding-right:5%;
+  .service-content-inner {
+    padding-right: 5%;
+    padding-left: 5%;
   }
 
   .service-work p,
   .service-list-text,
-  .service-outcome p{
-    font-size:19px;
+  .service-outcome p {
+    font-size: 19px;
   }
 
-  .service-nav-item{
-    padding-left:28px;
-    padding-right:65px;
+  .service-nav-item {
+    padding-right: 65px;
+    padding-left: 28px;
   }
 
-  .service-nav-name{
-    font-size:19px;
+  .service-nav-name {
+    font-size: 19px;
   }
 
-  .service-nav-arrow{
-    width:52px;
-    height:52px;
-    right:18px;
-  }
-}
-
-@media(max-width:900px){
-
-  .service-layout{
-    height:auto;
-    display:flex;
-    flex-direction:column;
-  }
-
-  .service-content{
-    width:100%;
-    height:auto;
-    overflow:visible;
-  }
-
-  .service-content-inner{
-    padding:45px 6% 70px;
-  }
-
-  .service-sidebar{
-    width:100%;
-    height:auto;
-    flex:0 0 auto;
-    position:static;
-    padding:0 6% 60px;
-    order:2;
-  }
-
-  .service-sidebar-inner{
-    width:100%;
-  }
-
-  .service-sidebar-header{
-    padding:28px 30px;
-  }
-
-  .service-sidebar-header h2{
-    font-size:24px;
-  }
-
-  .service-nav-item{
-    min-height:95px;
-    padding:22px 80px 22px 30px;
-  }
-
-  .service-nav-name{
-    font-size:19px;
-  }
-
-  .service-carousel-section{
-    margin-left:0;
-    width:100%;
-  }
-
-  .service-scroll-top{
-    right:20px;
-    bottom:25px;
-    width:52px;
-    height:52px;
-  }
-
-  .service-whatsapp{
-    left:20px;
-    bottom:25px;
-    width:58px;
-    height:58px;
+  .service-nav-arrow {
+    right: 18px;
+    width: 52px;
+    height: 52px;
   }
 }
 
-@media(max-width:600px){
 
-  .service-content-inner{
-    padding:35px 20px 55px;
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+  .service-layout {
+    flex-direction: column;
   }
 
-  .service-intro{
-    margin-bottom:28px;
+  .service-content {
+    width: 100%;
   }
 
-  .service-intro p{
-    font-size:17px;
-    line-height:1.65;
+  .service-content-inner {
+    padding: 45px 6% 70px;
   }
 
-  .service-image-section{
-    margin-bottom:42px;
+  .service-sidebar {
+    order: 2;
+    width: 100%;
+    flex: 0 0 auto;
+    padding: 0 6% 60px;
   }
 
-  .service-image-wrapper{
-    height:320px;
-    border-radius:5px;
+  .service-sidebar-inner {
+    width: 100%;
   }
 
-  .service-section{
-    margin-bottom:35px;
+  .service-sidebar-header {
+    padding: 28px 30px;
   }
 
-  .service-section h2{
-    font-size:27px;
-    margin-bottom:15px;
+  .service-sidebar-header h2 {
+    font-size: 24px;
   }
 
-  .service-work p{
-    font-size:16px;
-    line-height:1.7;
+  .service-nav-item {
+    min-height: 95px;
+    padding: 22px 80px 22px 30px;
   }
 
-  .service-key-areas{
-    margin-top:35px;
+  .service-nav-name {
+    font-size: 19px;
   }
 
-  .service-work-list{
-    gap:13px;
+  .service-carousel-section {
+    width: 100%;
+    margin-left: 0;
   }
 
-  .service-work-list li{
-    gap:13px;
-    align-items:flex-start;
+  .service-scroll-top {
+    right: 20px;
+    bottom: 25px;
+    width: 52px;
+    height: 52px;
   }
 
-  .service-list-icon{
-    width:18px;
-    height:18px;
-    flex-basis:18px;
-    margin-top:4px;
-  }
-
-  .service-list-icon::before{
-    width:8px;
-    height:8px;
-  }
-
-  .service-list-text{
-    font-size:16px;
-    line-height:1.5;
-  }
-
-  .service-outcome{
-    margin-top:38px;
-    margin-bottom:55px;
-  }
-
-  .service-outcome p{
-    font-size:16px;
-    line-height:1.7;
-  }
-
-  .service-carousel-section{
-    margin-top:0;
-  }
-
-  .service-sidebar{
-    padding:0 20px 45px;
-  }
-
-  .service-sidebar-header{
-    padding:24px 22px;
-  }
-
-  .service-sidebar-header h2{
-    font-size:21px;
-  }
-
-  .service-nav-item{
-    min-height:82px;
-    padding:19px 68px 19px 22px;
-  }
-
-  .service-nav-name{
-    font-size:16px;
-    line-height:1.35;
-  }
-
-  .service-nav-arrow{
-    right:15px;
-    width:45px;
-    height:45px;
-  }
-
-  .service-nav-arrow span{
-    font-size:25px;
-  }
-
-  .service-scroll-top{
-    right:15px;
-    bottom:20px;
-    width:46px;
-    height:46px;
-  }
-
-  .service-scroll-top span{
-    font-size:25px;
-  }
-
-  .service-whatsapp{
-    left:15px;
-    bottom:20px;
-    width:52px;
-    height:52px;
-  }
-
-  .service-whatsapp svg{
-    width:30px;
-    height:30px;
+  .service-whatsapp {
+    left: 20px;
+    bottom: 25px;
+    width: 58px;
+    height: 58px;
   }
 }
 
-@media(max-width:400px){
 
-  .service-content-inner{
-    padding-left:16px;
-    padding-right:16px;
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+  .service-content-inner {
+    padding: 35px 20px 55px;
   }
 
-  .service-intro p{
-    font-size:16px;
+  .service-intro {
+    margin-bottom: 28px;
   }
 
-  .service-image-wrapper{
-    height:270px;
+  .service-intro p {
+    font-size: 17px;
+    line-height: 1.65;
   }
 
-  .service-section h2{
-    font-size:25px;
+  .service-image-section {
+    margin-bottom: 42px;
+  }
+
+  .service-image-wrapper {
+    height: 320px;
+    border-radius: 5px;
+  }
+
+  .service-main-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .service-section {
+    margin-bottom: 35px;
+  }
+
+  .service-section h2 {
+    margin-bottom: 15px;
+    font-size: 27px;
+  }
+
+  .service-work p {
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  .service-key-areas {
+    margin-top: 35px;
+  }
+
+  .service-work-list {
+    gap: 13px;
+  }
+
+  .service-work-list li {
+    align-items: flex-start;
+    gap: 13px;
+  }
+
+  .service-list-icon {
+    flex-basis: 18px;
+    width: 18px;
+    height: 18px;
+    margin-top: 4px;
+  }
+
+  .service-list-icon::before {
+    width: 8px;
+    height: 8px;
+  }
+
+  .service-list-text {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  .service-outcome {
+    margin-top: 38px;
+    margin-bottom: 55px;
+  }
+
+  .service-outcome p {
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  .service-carousel-section {
+    margin-top: 0;
+  }
+
+  .service-sidebar {
+    padding: 0 20px 45px;
+  }
+
+  .service-sidebar-header {
+    padding: 24px 22px;
+  }
+
+  .service-sidebar-header h2 {
+    font-size: 21px;
+  }
+
+  .service-nav-item {
+    min-height: 82px;
+    padding: 19px 68px 19px 22px;
+  }
+
+  .service-nav-name {
+    font-size: 16px;
+    line-height: 1.35;
+  }
+
+  .service-nav-arrow {
+    right: 15px;
+    width: 45px;
+    height: 45px;
+  }
+
+  .service-nav-arrow span {
+    font-size: 25px;
+  }
+
+  .service-scroll-top {
+    right: 15px;
+    bottom: 20px;
+    width: 46px;
+    height: 46px;
+  }
+
+  .service-scroll-top span {
+    font-size: 25px;
+  }
+
+  .service-whatsapp {
+    left: 15px;
+    bottom: 20px;
+    width: 52px;
+    height: 52px;
+  }
+
+  .service-whatsapp svg {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 400px) {
+  .service-content-inner {
+    padding-right: 16px;
+    padding-left: 16px;
+  }
+
+  .service-intro p {
+    font-size: 16px;
+  }
+
+  .service-image-wrapper {
+    height: 270px;
+  }
+
+  .service-section h2 {
+    font-size: 25px;
   }
 
   .service-work p,
   .service-list-text,
-  .service-outcome p{
-    font-size:15px;
+  .service-outcome p {
+    font-size: 15px;
   }
 
-  .service-sidebar{
-    padding-left:16px;
-    padding-right:16px;
+  .service-sidebar {
+    padding-right: 16px;
+    padding-left: 16px;
   }
 
-  .service-nav-item{
-    padding-left:18px;
-    padding-right:60px;
+  .service-nav-item {
+    padding-right: 60px;
+    padding-left: 18px;
   }
 
-  .service-nav-name{
-    font-size:15px;
+  .service-nav-name {
+    font-size: 15px;
   }
 }
+
+
+/* =========================================================
+   ACCESSIBILITY
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .service-page *,
+  .service-page *::before,
+  .service-page *::after {
+    scroll-behavior: auto !important;
+  }
+}
+

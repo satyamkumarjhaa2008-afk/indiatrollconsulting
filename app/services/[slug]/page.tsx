@@ -1,6 +1,11 @@
+
+"use client";
+
 import "./services.css";
+
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { motion } from "motion/react";
 
 import SiteNavbar from "../../../components/site-navbar";
 import SiteFooter from "../../../components/site-footer";
@@ -127,6 +132,131 @@ const serviceData = [
   },
 ];
 
+/* ---------------------------------------------------------
+   MOTION VARIANTS
+--------------------------------------------------------- */
+
+const pageVariants = {
+  hidden: {
+    opacity: 0,
+  },
+  visible: {
+    opacity: 1,
+    transition: {
+      duration: 0.7,
+      ease: "easeOut",
+      staggerChildren: 0.12,
+    },
+  },
+};
+
+const contentVariants = {
+  hidden: {
+    opacity: 0,
+    y: 70,
+    rotateX: 8,
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    rotateX: 0,
+    transition: {
+      duration: 0.8,
+      ease: [0.22, 1, 0.36, 1],
+    },
+  },
+};
+
+const headingVariants = {
+  hidden: {
+    opacity: 0,
+    y: 50,
+    rotateX: 25,
+    transformPerspective: 1000,
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    rotateX: 0,
+    transition: {
+      duration: 0.8,
+      ease: [0.16, 1, 0.3, 1],
+    },
+  },
+};
+
+const listContainerVariants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.08,
+      delayChildren: 0.1,
+    },
+  },
+};
+
+const listItemVariants = {
+  hidden: {
+    opacity: 0,
+    x: -50,
+    rotateY: -12,
+    scale: 0.94,
+  },
+  visible: {
+    opacity: 1,
+    x: 0,
+    rotateY: 0,
+    scale: 1,
+    transition: {
+      duration: 0.55,
+      ease: [0.22, 1, 0.36, 1],
+    },
+  },
+};
+
+const sidebarVariants = {
+  hidden: {
+    opacity: 0,
+    x: 80,
+    rotateY: -18,
+  },
+  visible: {
+    opacity: 1,
+    x: 0,
+    rotateY: 0,
+    transition: {
+      duration: 0.9,
+      delay: 0.25,
+      ease: [0.22, 1, 0.36, 1],
+    },
+  },
+};
+
+const imageVariants = {
+  hidden: {
+    opacity: 0,
+    scale: 0.8,
+    rotateX: 12,
+    rotateY: -10,
+    y: 80,
+  },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    rotateX: 0,
+    rotateY: 0,
+    y: 0,
+    transition: {
+      duration: 1.1,
+      ease: [0.16, 1, 0.3, 1],
+    },
+  },
+};
+
+/* ---------------------------------------------------------
+   PAGE
+--------------------------------------------------------- */
+
 export default async function Services({
   params,
 }: {
@@ -146,100 +276,513 @@ export default async function Services({
 
   return (
     <>
-      <SiteNavbar />
+      {/* -------------------------------------------------
+          NAVBAR
+      ------------------------------------------------- */}
 
-      <main className="service-page" id="service-top">
+      <motion.div
+        initial={{
+          opacity: 0,
+          y: -40,
+        }}
+        animate={{
+          opacity: 1,
+          y: 0,
+        }}
+        transition={{
+          duration: 0.7,
+          ease: [0.22, 1, 0.36, 1],
+        }}
+      >
+        <SiteNavbar />
+      </motion.div>
+
+      <motion.main
+        className="service-page"
+        id="service-top"
+        variants={pageVariants}
+        initial="hidden"
+        animate="visible"
+        style={{
+          perspective: 1400,
+        }}
+      >
         <div className="service-layout">
 
-          {/* LEFT SIDE */}
-          <section className="service-content">
+          {/* =================================================
+              LEFT SIDE
+          ================================================= */}
+
+          <motion.section
+            className="service-content"
+            variants={contentVariants}
+            style={{
+              transformStyle: "preserve-3d",
+            }}
+          >
             <div className="service-content-inner">
 
-              {/* INTRO */}
+              {/* -------------------------------------------------
+                  INTRO
+              ------------------------------------------------- */}
+
               {service.intro && (
-                <section className="service-intro">
-                  <p>{service.intro}</p>
-                </section>
+                <motion.section
+                  className="service-intro"
+                  variants={contentVariants}
+                  whileHover={{
+                    y: -5,
+                    rotateX: 1.5,
+                    transition: {
+                      duration: 0.3,
+                    },
+                  }}
+                  style={{
+                    transformStyle: "preserve-3d",
+                  }}
+                >
+                  <motion.p
+                    initial={{
+                      opacity: 0,
+                      y: 25,
+                    }}
+                    whileInView={{
+                      opacity: 1,
+                      y: 0,
+                    }}
+                    viewport={{
+                      once: true,
+                      amount: 0.4,
+                    }}
+                    transition={{
+                      duration: 0.7,
+                      ease: "easeOut",
+                    }}
+                  >
+                    {service.intro}
+                  </motion.p>
+                </motion.section>
               )}
 
-              {/* MAIN IMAGE */}
-              <section className="service-image-section">
-                <div className="service-image-wrapper">
-                  <img
+              {/* -------------------------------------------------
+                  MAIN IMAGE
+              ------------------------------------------------- */}
+
+              <motion.section
+                className="service-image-section"
+                variants={imageVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{
+                  once: true,
+                  amount: 0.25,
+                }}
+                style={{
+                  perspective: 1400,
+                }}
+              >
+                <motion.div
+                  className="service-image-wrapper"
+                  whileHover={{
+                    scale: 1.025,
+                    rotateX: 2,
+                    rotateY: -2,
+                    z: 30,
+                    transition: {
+                      duration: 0.5,
+                      ease: [0.22, 1, 0.36, 1],
+                    },
+                  }}
+                  whileTap={{
+                    scale: 0.985,
+                  }}
+                  style={{
+                    transformStyle: "preserve-3d",
+                  }}
+                >
+                  <motion.img
                     src={service.image}
                     alt={service.name}
                     className="service-main-image"
+                    initial={{
+                      scale: 1.12,
+                    }}
+                    whileInView={{
+                      scale: 1,
+                    }}
+                    viewport={{
+                      once: true,
+                      amount: 0.25,
+                    }}
+                    transition={{
+                      duration: 1.4,
+                      ease: [0.16, 1, 0.3, 1],
+                    }}
                   />
-                </div>
-              </section>
 
-              {/* HOW WE WORK */}
-              <section className="service-work service-section">
-                <h2>How We Work</h2>
+                  {/* 3D shine layer */}
+                  <motion.div
+                    aria-hidden="true"
+                    style={{
+                      position: "absolute",
+                      inset: 0,
+                      pointerEvents: "none",
+                      background:
+                        "linear-gradient(115deg, transparent 20%, rgba(255,255,255,0.18) 45%, transparent 70%)",
+                      transform: "translateX(-120%)",
+                    }}
+                    whileHover={{
+                      x: "220%",
+                      transition: {
+                        duration: 1.1,
+                        ease: "easeInOut",
+                      },
+                    }}
+                  />
+                </motion.div>
+              </motion.section>
 
-                <p>{service["How We Work"]}</p>
-              </section>
+              {/* -------------------------------------------------
+                  HOW WE WORK
+              ------------------------------------------------- */}
 
-              {/* KEY WORK AREAS */}
-              <section className="service-key-areas service-section">
-                <h2>Key Work Areas</h2>
+              <motion.section
+                className="service-work service-section"
+                variants={contentVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{
+                  once: true,
+                  amount: 0.25,
+                }}
+                style={{
+                  transformStyle: "preserve-3d",
+                }}
+              >
+                <motion.h2
+                  variants={headingVariants}
+                  whileHover={{
+                    x: 8,
+                    rotateY: -4,
+                    transition: {
+                      duration: 0.3,
+                    },
+                  }}
+                >
+                  How We Work
+                </motion.h2>
 
-                <ul className="service-work-list">
+                <motion.p
+                  initial={{
+                    opacity: 0,
+                    y: 35,
+                  }}
+                  whileInView={{
+                    opacity: 1,
+                    y: 0,
+                  }}
+                  viewport={{
+                    once: true,
+                    amount: 0.35,
+                  }}
+                  transition={{
+                    duration: 0.8,
+                    delay: 0.15,
+                    ease: [0.22, 1, 0.36, 1],
+                  }}
+                >
+                  {service["How We Work"]}
+                </motion.p>
+              </motion.section>
+
+              {/* -------------------------------------------------
+                  KEY WORK AREAS
+              ------------------------------------------------- */}
+
+              <motion.section
+                className="service-key-areas service-section"
+                variants={contentVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{
+                  once: true,
+                  amount: 0.2,
+                }}
+                style={{
+                  transformStyle: "preserve-3d",
+                }}
+              >
+                <motion.h2 variants={headingVariants}>
+                  Key Work Areas
+                </motion.h2>
+
+                <motion.ul
+                  className="service-work-list"
+                  variants={listContainerVariants}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{
+                    once: true,
+                    amount: 0.2,
+                  }}
+                  style={{
+                    perspective: 1000,
+                  }}
+                >
                   {service["Key Work Areas"].map((area, index) => (
-                    <li key={index}>
-                      <span
+                    <motion.li
+                      key={index}
+                      variants={listItemVariants}
+                      whileHover={{
+                        x: 12,
+                        scale: 1.025,
+                        rotateY: -3,
+                        z: 20,
+                        transition: {
+                          duration: 0.25,
+                          ease: "easeOut",
+                        },
+                      }}
+                      whileTap={{
+                        scale: 0.98,
+                      }}
+                      style={{
+                        transformStyle: "preserve-3d",
+                      }}
+                    >
+                      <motion.span
                         className="service-list-icon"
                         aria-hidden="true"
+                        whileHover={{
+                          rotate: 180,
+                          scale: 1.15,
+                          transition: {
+                            duration: 0.45,
+                            ease: "easeOut",
+                          },
+                        }}
                       >
-                        <span />
-                      </span>
+                        <motion.span
+                          initial={{
+                            scale: 0,
+                          }}
+                          whileInView={{
+                            scale: 1,
+                          }}
+                          viewport={{
+                            once: true,
+                          }}
+                          transition={{
+                            duration: 0.4,
+                            delay: index * 0.05,
+                            type: "spring",
+                            stiffness: 250,
+                            damping: 15,
+                          }}
+                        />
+                      </motion.span>
 
-                      <span className="service-list-text">
+                      <motion.span
+                        className="service-list-text"
+                        initial={{
+                          opacity: 0,
+                        }}
+                        whileInView={{
+                          opacity: 1,
+                        }}
+                        viewport={{
+                          once: true,
+                        }}
+                        transition={{
+                          duration: 0.4,
+                          delay: index * 0.05,
+                        }}
+                      >
                         {area}
-                      </span>
-                    </li>
+                      </motion.span>
+                    </motion.li>
                   ))}
-                </ul>
-              </section>
+                </motion.ul>
+              </motion.section>
 
-              {/* OUTCOME */}
-              <section className="service-outcome service-section">
-                <p>
-                  <strong>Outcome:</strong>{" "}
+              {/* -------------------------------------------------
+                  OUTCOME
+              ------------------------------------------------- */}
+
+              <motion.section
+                className="service-outcome service-section"
+                initial={{
+                  opacity: 0,
+                  y: 80,
+                  scale: 0.92,
+                  rotateX: 12,
+                }}
+                whileInView={{
+                  opacity: 1,
+                  y: 0,
+                  scale: 1,
+                  rotateX: 0,
+                }}
+                viewport={{
+                  once: true,
+                  amount: 0.3,
+                }}
+                transition={{
+                  duration: 0.9,
+                  ease: [0.16, 1, 0.3, 1],
+                }}
+                whileHover={{
+                  y: -8,
+                  scale: 1.015,
+                  rotateX: 2,
+                  rotateY: -2,
+                  transition: {
+                    duration: 0.35,
+                  },
+                }}
+                style={{
+                  transformStyle: "preserve-3d",
+                }}
+              >
+                <motion.p>
+                  <motion.strong
+                    initial={{
+                      opacity: 0,
+                      x: -20,
+                    }}
+                    whileInView={{
+                      opacity: 1,
+                      x: 0,
+                    }}
+                    viewport={{
+                      once: true,
+                    }}
+                    transition={{
+                      duration: 0.5,
+                    }}
+                  >
+                    Outcome:
+                  </motion.strong>{" "}
                   {service.Outcome}
-                </p>
-              </section>
+                </motion.p>
+              </motion.section>
 
             </div>
-          </section>
+          </motion.section>
 
-          {/* RIGHT SIDE */}
-          {/* 
-            IMPORTANT:
-            This sidebar is intentionally kept inside the same
-            service-layout flow.
+          {/* =================================================
+              RIGHT SIDEBAR
+          ================================================= */}
 
-            Do NOT use position: fixed or position: sticky
-            for this sidebar.
-          */}
-          <aside
+          <motion.aside
             className="service-sidebar"
             aria-label="Services navigation"
+            variants={sidebarVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{
+              once: true,
+              amount: 0.2,
+            }}
+            style={{
+              transformStyle: "preserve-3d",
+            }}
           >
+            <motion.div
+              whileHover={{
+                rotateY: -3,
+                x: -5,
+                transition: {
+                  duration: 0.35,
+                },
+              }}
+              style={{
+                transformStyle: "preserve-3d",
+              }}
+            >
               <SideNavbar />
-          
-          </aside>
-
+            </motion.div>
+          </motion.aside>
         </div>
 
-        {/* SERVICE CAROUSEL */}
-        <section className="service-carousel-section">
-          <ServiceCarousel />
-        </section>
+        {/* =================================================
+            SERVICE CAROUSEL
+        ================================================= */}
 
-        {/* FOOTER */}
-        <SiteFooter />
-      </main>
+        <motion.section
+          className="service-carousel-section"
+          initial={{
+            opacity: 0,
+            y: 100,
+            scale: 0.94,
+          }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+            scale: 1,
+          }}
+          viewport={{
+            once: true,
+            amount: 0.15,
+          }}
+          transition={{
+            duration: 1,
+            ease: [0.16, 1, 0.3, 1],
+          }}
+          style={{
+            perspective: 1200,
+          }}
+        >
+          <motion.div
+            initial={{
+              rotateX: 8,
+            }}
+            whileInView={{
+              rotateX: 0,
+            }}
+            viewport={{
+              once: true,
+            }}
+            transition={{
+              duration: 0.8,
+            }}
+            whileHover={{
+              y: -6,
+              transition: {
+                duration: 0.3,
+              },
+            }}
+          >
+            <ServiceCarousel />
+          </motion.div>
+        </motion.section>
+
+        {/* =================================================
+            FOOTER
+        ================================================= */}
+
+        <motion.div
+          initial={{
+            opacity: 0,
+            y: 80,
+          }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+          }}
+          viewport={{
+            once: true,
+            amount: 0.1,
+          }}
+          transition={{
+            duration: 0.9,
+            ease: [0.22, 1, 0.36, 1],
+          }}
+        >
+          <SiteFooter />
+        </motion.div>
+      </motion.main>
     </>
   );
 }
+

@@ -1,7 +1,11 @@
+
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
+import { AnimatePresence, motion, Variants } from "framer-motion";
+
 import "./about.css";
+
 import ImaggeViewer from "@/components/View";
 import ContactForm from "@/components/contactform";
 import SiteNavbar from "@/components/site-navbar";
@@ -51,16 +55,397 @@ const strategicItems: StrategicItem[] = [
   },
 ];
 
+/* =========================================================
+   FRAMER MOTION VARIANTS
+   ========================================================= */
+
+const fadeUp: Variants = {
+  hidden: {
+    opacity: 0,
+    y: 55,
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.8,
+      ease: [0.22, 1, 0.36, 1],
+    },
+  },
+};
+
+const fadeUpSoft: Variants = {
+  hidden: {
+    opacity: 0,
+    y: 30,
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.7,
+      ease: [0.22, 1, 0.36, 1],
+    },
+  },
+};
+
+const strategicContainer: Variants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.13,
+      delayChildren: 0.05,
+    },
+  },
+};
+
+const strategicItem: Variants = {
+  hidden: {
+    opacity: 0,
+    y: 55,
+    scale: 0.97,
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: {
+      duration: 0.75,
+      ease: [0.22, 1, 0.36, 1],
+    },
+  },
+};
+
+const lifeContainer: Variants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.12,
+      delayChildren: 0.05,
+    },
+  },
+};
+
+const imageReveal: Variants = {
+  hidden: {
+    opacity: 0,
+    y: 55,
+    scale: 0.96,
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: {
+      duration: 0.85,
+      ease: [0.22, 1, 0.36, 1],
+    },
+  },
+};
+
+const modalOverlay: Variants = {
+  hidden: {
+    opacity: 0,
+  },
+  visible: {
+    opacity: 1,
+    transition: {
+      duration: 0.25,
+      ease: "easeOut",
+    },
+  },
+  exit: {
+    opacity: 0,
+    transition: {
+      duration: 0.2,
+      ease: "easeIn",
+    },
+  },
+};
+
+const modalContent: Variants = {
+  hidden: {
+    opacity: 0,
+    y: 35,
+    scale: 0.94,
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: {
+      duration: 0.4,
+      ease: [0.22, 1, 0.36, 1],
+    },
+  },
+  exit: {
+    opacity: 0,
+    y: 25,
+    scale: 0.96,
+    transition: {
+      duration: 0.25,
+      ease: [0.4, 0, 1, 1],
+    },
+  },
+};
+
+/* =========================================================
+   STRATEGIC CARD COMPONENT
+   ========================================================= */
+
+interface StrategicCardProps {
+  item: StrategicItem;
+}
+
+const StrategicCard = ({ item }: StrategicCardProps) => {
+  return (
+    <motion.div
+      className={`strategic-item strategic-item-${item.id}`}
+      variants={strategicItem}
+      whileHover="hover"
+    >
+      {/* ICON */}
+      <motion.div
+        className="strategic-icon-wrapper"
+        variants={{
+          hidden: {
+            opacity: 0,
+            scale: 0.7,
+            rotate: -8,
+          },
+          visible: {
+            opacity: 1,
+            scale: 1,
+            rotate: 0,
+            transition: {
+              duration: 0.65,
+              ease: [0.22, 1, 0.36, 1],
+            },
+          },
+        }}
+      >
+        <motion.div
+          className="strategic-icon-circle"
+          variants={{
+            hover: {
+              scale: 1.08,
+              backgroundColor: "#00b86b",
+              boxShadow: "0 14px 35px rgba(0, 184, 107, 0.24)",
+              transition: {
+                duration: 0.3,
+                ease: "easeOut",
+              },
+            },
+          }}
+        >
+          <motion.img
+            src={item.icon}
+            alt=""
+            className="strategic-icon"
+            variants={{
+              hover: {
+                scale: 1.08,
+                rotate: 3,
+                transition: {
+                  duration: 0.3,
+                  ease: "easeOut",
+                },
+              },
+            }}
+          />
+        </motion.div>
+      </motion.div>
+
+      {/* NUMBER */}
+      <motion.div
+        className="strategic-number"
+        whileHover={{
+          scale: 1.08,
+          transition: {
+            duration: 0.25,
+          },
+        }}
+      >
+        <span>{item.id}</span>
+      </motion.div>
+
+      {/* CARD */}
+      <motion.div
+        className="strategic-card"
+        variants={{
+          hover: {
+            y: -7,
+            boxShadow: "0 24px 48px rgba(0, 0, 0, 0.13)",
+            transition: {
+              duration: 0.35,
+              ease: [0.22, 1, 0.36, 1],
+            },
+          },
+        }}
+      >
+        <h3>{item.title}</h3>
+
+        <p>{item.description}</p>
+      </motion.div>
+    </motion.div>
+  );
+};
+
+/* =========================================================
+   CURVED ARROW COMPONENT
+   ========================================================= */
+
+const StrategicArrow = ({
+  className,
+}: {
+  className: string;
+}) => {
+  return (
+    <motion.div
+      className={`strategic-arrow ${className}`}
+      initial={{
+        opacity: 0,
+        scale: 0.7,
+      }}
+      whileInView={{
+        opacity: 1,
+        scale: 1,
+      }}
+      viewport={{
+        once: true,
+        amount: 0.4,
+      }}
+      transition={{
+        duration: 0.7,
+        ease: [0.22, 1, 0.36, 1],
+        delay: 0.3,
+      }}
+    >
+      <svg
+        viewBox="0 0 180 90"
+        preserveAspectRatio="none"
+        aria-hidden="true"
+      >
+        <motion.path
+          d="M5 58 C55 8, 125 8, 172 62"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="3"
+          strokeDasharray="8 7"
+          initial={{
+            pathLength: 0,
+            opacity: 0,
+          }}
+          whileInView={{
+            pathLength: 1,
+            opacity: 1,
+          }}
+          viewport={{
+            once: true,
+            amount: 0.5,
+          }}
+          transition={{
+            duration: 1.1,
+            ease: "easeInOut",
+            delay: 0.15,
+          }}
+        />
+
+        <motion.path
+          d="M158 52 L173 64 L157 68"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="3"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          initial={{
+            pathLength: 0,
+            opacity: 0,
+          }}
+          whileInView={{
+            pathLength: 1,
+            opacity: 1,
+          }}
+          viewport={{
+            once: true,
+            amount: 0.5,
+          }}
+          transition={{
+            duration: 0.35,
+            ease: "easeOut",
+            delay: 1,
+          }}
+        />
+      </svg>
+    </motion.div>
+  );
+};
+
+/* =========================================================
+   LIFE IMAGE COMPONENT
+   ========================================================= */
+
+interface LifeImageProps {
+  src: string;
+  alt: string;
+  className: string;
+}
+
+const LifeImage = ({
+  src,
+  alt,
+  className,
+}: LifeImageProps) => {
+  return (
+    <motion.div
+      className={`life-rudra-image-card ${className}`}
+      variants={imageReveal}
+      whileHover={{
+        y: -8,
+        boxShadow: "0 20px 42px rgba(0, 0, 0, 0.38)",
+        transition: {
+          duration: 0.35,
+          ease: [0.22, 1, 0.36, 1],
+        },
+      }}
+    >
+      <motion.img
+        src={src}
+        alt={alt}
+        className="life-rudra-image"
+        initial={{
+          scale: 1.08,
+        }}
+        whileInView={{
+          scale: 1,
+        }}
+        viewport={{
+          once: true,
+          amount: 0.2,
+        }}
+        whileHover={{
+          scale: 1.055,
+          transition: {
+            duration: 0.65,
+            ease: [0.22, 1, 0.36, 1],
+          },
+        }}
+        transition={{
+          duration: 1,
+          ease: [0.22, 1, 0.36, 1],
+        }}
+      />
+    </motion.div>
+  );
+};
+
+/* =========================================================
+   PAGE
+   ========================================================= */
+
 const Page = () => {
-  const aboutAppRef = useRef<HTMLElement | null>(null);
-  const strategicRef = useRef<HTMLElement | null>(null);
-  const lifeRudraRef = useRef<HTMLElement | null>(null);
-
-  // =========================================================
-  // CONTACT MODAL STATE
-  // =========================================================
-
-  const [isContactModalOpen, setIsContactModalOpen] = useState(false);
+  const [isContactModalOpen, setIsContactModalOpen] =
+    useState(false);
 
   const openContactModal = () => {
     setIsContactModalOpen(true);
@@ -70,9 +455,9 @@ const Page = () => {
     setIsContactModalOpen(false);
   };
 
-  // =========================================================
-  // PREVENT BACKGROUND SCROLL WHEN MODAL IS OPEN
-  // =========================================================
+  /* =========================================================
+     PREVENT BACKGROUND SCROLL WHEN MODAL IS OPEN
+     ========================================================= */
 
   useEffect(() => {
     if (isContactModalOpen) {
@@ -86,530 +471,483 @@ const Page = () => {
     };
   }, [isContactModalOpen]);
 
-  // =========================================================
-  // CLOSE MODAL WITH ESCAPE KEY
-  // =========================================================
+  /* =========================================================
+     ESCAPE KEY
+     ========================================================= */
 
   useEffect(() => {
+    if (!isContactModalOpen) {
+      return;
+    }
+
     const handleEscape = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
-        setIsContactModalOpen(false);
+        closeContactModal();
       }
     };
 
-    if (isContactModalOpen) {
-      document.addEventListener("keydown", handleEscape);
-    }
+    document.addEventListener(
+      "keydown",
+      handleEscape
+    );
 
     return () => {
-      document.removeEventListener("keydown", handleEscape);
+      document.removeEventListener(
+        "keydown",
+        handleEscape
+      );
     };
   }, [isContactModalOpen]);
 
-  // =========================================================
-  // ABOUT APP INTERSECTION ANIMATION
-  // =========================================================
-
-  useEffect(() => {
-    const section = aboutAppRef.current;
-
-    if (!section) return;
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          section.classList.add("about-app-visible");
-          observer.unobserve(section);
-        }
-      },
-      {
-        threshold: 0.2,
-        rootMargin: "0px 0px -50px 0px",
-      }
-    );
-
-    observer.observe(section);
-
-    return () => {
-      observer.disconnect();
-    };
-  }, []);
-
-  // =========================================================
-  // STRATEGIC APPROACH INTERSECTION ANIMATION
-  // =========================================================
-
-  useEffect(() => {
-    const section = strategicRef.current;
-
-    if (!section) return;
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          section.classList.add("strategic-visible");
-          observer.unobserve(section);
-        }
-      },
-      {
-        threshold: 0.08,
-        rootMargin: "0px 0px -60px 0px",
-      }
-    );
-
-    observer.observe(section);
-
-    return () => {
-      observer.disconnect();
-    };
-  }, []);
-
-  // =========================================================
-  // LIFE @ RUDRA INTERSECTION ANIMATION
-  // =========================================================
-
-  useEffect(() => {
-    const section = lifeRudraRef.current;
-
-    if (!section) return;
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          section.classList.add("life-rudra-visible");
-          observer.unobserve(section);
-        }
-      },
-      {
-        threshold: 0.08,
-        rootMargin: "0px 0px -80px 0px",
-      }
-    );
-
-    observer.observe(section);
-
-    return () => {
-      observer.disconnect();
-    };
-  }, []);
-
   return (
     <>
-      {/* =========================================================
+      <SiteNavbar />
+
+      {/* =====================================================
           ABOUT APP SECTION
-          ========================================================= */}
-<SiteNavbar/>
-      <section
-        ref={aboutAppRef}
+          ===================================================== */}
+
+      <motion.section
         className="about-app-section"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{
+          once: true,
+          amount: 0.2,
+          margin: "0px 0px -50px 0px",
+        }}
       >
         <div className="about-app-container">
-
           {/* HAND / PHONE */}
 
-          <div className="about-hand-reveal">
-            <div className="about-hand-float">
-              <img
+          <motion.div
+            className="about-hand-reveal"
+            variants={{
+              hidden: {
+                opacity: 0,
+                y: 45,
+                scale: 0.92,
+              },
+              visible: {
+                opacity: 1,
+                y: 0,
+                scale: 1,
+                transition: {
+                  duration: 0.9,
+                  ease: [0.22, 1, 0.36, 1],
+                },
+              },
+            }}
+          >
+            <motion.div
+              className="about-hand-float"
+              animate={{
+                y: [-5, 5, -5],
+              }}
+              transition={{
+                duration: 3.5,
+                ease: "easeInOut",
+                repeat: Infinity,
+              }}
+            >
+              <motion.img
                 src="/hands.png"
                 alt="Hand holding phone"
                 className="about-hand-image"
+                initial={{
+                  rotate: -3,
+                }}
+                whileInView={{
+                  rotate: 0,
+                }}
+                viewport={{
+                  once: true,
+                }}
+                transition={{
+                  duration: 0.9,
+                  ease: [0.22, 1, 0.36, 1],
+                }}
               />
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
 
           {/* TEXT */}
 
-          <div className="about-app-text">
-            <p>
+          <motion.div
+            className="about-app-text"
+            variants={{
+              hidden: {
+                opacity: 0,
+                y: 35,
+              },
+              visible: {
+                opacity: 1,
+                y: 0,
+                transition: {
+                  duration: 0.8,
+                  delay: 0.2,
+                  ease: [0.22, 1, 0.36, 1],
+                },
+              },
+            }}
+          >
+            <motion.p>
               Our experts use an{" "}
-              <span>Exclusive App</span>
-            </p>
+              <motion.span
+                initial={{
+                  opacity: 0,
+                  x: 15,
+                }}
+                whileInView={{
+                  opacity: 1,
+                  x: 0,
+                }}
+                viewport={{
+                  once: true,
+                }}
+                transition={{
+                  duration: 0.6,
+                  delay: 0.4,
+                }}
+              >
+                Exclusive App
+              </motion.span>
+            </motion.p>
 
             <p>
               to conduct unbiased, accurate surveys.
             </p>
-          </div>
-
+          </motion.div>
         </div>
-      </section>
+      </motion.section>
 
-      {/* =========================================================
+      {/* =====================================================
           STRATEGIC APPROACH SECTION
-          ========================================================= */}
+          ===================================================== */}
 
-      <section
-        ref={strategicRef}
+      <motion.section
         className="strategic-approach-section"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{
+          once: true,
+          amount: 0.08,
+          margin: "0px 0px -60px 0px",
+        }}
       >
         <div className="strategic-approach-container">
-
           {/* HEADING */}
 
-          <div className="strategic-heading">
-
-            <div className="strategic-small-title">
+          <motion.div
+            className="strategic-heading"
+            variants={fadeUp}
+          >
+            <motion.div
+              className="strategic-small-title"
+              initial={{
+                opacity: 0,
+                y: 15,
+              }}
+              whileInView={{
+                opacity: 1,
+                y: 0,
+              }}
+              viewport={{
+                once: true,
+              }}
+              transition={{
+                duration: 0.5,
+              }}
+            >
               STRATEGIC
-            </div>
+            </motion.div>
 
-            <h2>
+            <motion.h2
+              initial={{
+                opacity: 0,
+                y: 20,
+              }}
+              whileInView={{
+                opacity: 1,
+                y: 0,
+              }}
+              viewport={{
+                once: true,
+              }}
+              transition={{
+                duration: 0.65,
+                delay: 0.1,
+                ease: [0.22, 1, 0.36, 1],
+              }}
+            >
               APPROACH
-            </h2>
+            </motion.h2>
 
-            <div className="strategic-heading-line"></div>
+            <motion.div
+              className="strategic-heading-line"
+              initial={{
+                scaleX: 0,
+                opacity: 0,
+              }}
+              whileInView={{
+                scaleX: 1,
+                opacity: 1,
+              }}
+              viewport={{
+                once: true,
+              }}
+              transition={{
+                duration: 0.65,
+                delay: 0.25,
+                ease: [0.22, 1, 0.36, 1],
+              }}
+            />
 
-            <p>
+            <motion.p
+              initial={{
+                opacity: 0,
+                y: 20,
+              }}
+              whileInView={{
+                opacity: 1,
+                y: 0,
+              }}
+              viewport={{
+                once: true,
+              }}
+              transition={{
+                duration: 0.7,
+                delay: 0.3,
+                ease: [0.22, 1, 0.36, 1],
+              }}
+            >
               Our work is driven by ground reality and practical
               decision-making. We focus on understanding what is
               happening on the ground and converting it into clear
               direction for action.
-            </p>
+            </motion.p>
+          </motion.div>
 
-          </div>
-
-          {/* =====================================================
+          {/* =================================================
               FIRST ROW
-              ===================================================== */}
+              ================================================= */}
 
-          <div
-            className="
-              strategic-timeline-row
-              strategic-row-one
-            "
+          <motion.div
+            className="strategic-timeline-row strategic-row-one"
+            variants={strategicContainer}
           >
-
             {/* HORIZONTAL LINE */}
 
-            <div className="strategic-horizontal-line">
-              <span className="line-dot line-dot-left"></span>
-              <span className="line-dot line-dot-right"></span>
-            </div>
+            <motion.div
+              className="strategic-horizontal-line"
+              initial={{
+                scaleX: 0,
+                transformOrigin: "left",
+              }}
+              whileInView={{
+                scaleX: 1,
+              }}
+              viewport={{
+                once: true,
+                amount: 0.3,
+              }}
+              transition={{
+                duration: 1.2,
+                ease: [0.22, 1, 0.36, 1],
+                delay: 0.2,
+              }}
+            >
+              <motion.span
+                className="line-dot line-dot-left"
+                initial={{
+                  scale: 0,
+                  opacity: 0,
+                }}
+                whileInView={{
+                  scale: 1,
+                  opacity: 1,
+                }}
+                viewport={{
+                  once: true,
+                }}
+                transition={{
+                  duration: 0.4,
+                  delay: 0.9,
+                }}
+              />
+
+              <motion.span
+                className="line-dot line-dot-right"
+                initial={{
+                  scale: 0,
+                  opacity: 0,
+                }}
+                whileInView={{
+                  scale: 1,
+                  opacity: 1,
+                }}
+                viewport={{
+                  once: true,
+                }}
+                transition={{
+                  duration: 0.4,
+                  delay: 1.1,
+                }}
+              />
+            </motion.div>
 
             {/* ARROW 01 → 02 */}
 
-            <div
-              className="
-                strategic-arrow
-                strategic-arrow-one
-              "
-            >
-              <svg
-                viewBox="0 0 180 90"
-                preserveAspectRatio="none"
-                aria-hidden="true"
-              >
-                <path
-                  d="M5 58 C55 8, 125 8, 172 62"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="3"
-                  strokeDasharray="8 7"
-                />
-
-                <path
-                  d="M158 52 L173 64 L157 68"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="3"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </div>
+            <StrategicArrow className="strategic-arrow-one" />
 
             {/* ARROW 02 → 03 */}
 
-            <div
-              className="
-                strategic-arrow
-                strategic-arrow-two
-              "
-            >
-              <svg
-                viewBox="0 0 180 90"
-                preserveAspectRatio="none"
-                aria-hidden="true"
-              >
-                <path
-                  d="M5 58 C55 8, 125 8, 172 62"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="3"
-                  strokeDasharray="8 7"
-                />
+            <StrategicArrow className="strategic-arrow-two" />
 
-                <path
-                  d="M158 52 L173 64 L157 68"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="3"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </div>
+            {/* ITEMS */}
 
-            {/* ITEM 01 */}
+            <StrategicCard item={strategicItems[0]} />
 
-            <div
-              className="
-                strategic-item
-                strategic-item-01
-              "
-            >
-              <div className="strategic-icon-wrapper">
-                <div className="strategic-icon-circle">
-                  <img
-                    src={strategicItems[0].icon}
-                    alt=""
-                    className="strategic-icon"
-                  />
-                </div>
-              </div>
+            <StrategicCard item={strategicItems[1]} />
 
-              <div className="strategic-number">
-                <span>01</span>
-              </div>
+            <StrategicCard item={strategicItems[2]} />
+          </motion.div>
 
-              <div className="strategic-card">
-                <h3>
-                  {strategicItems[0].title}
-                </h3>
-
-                <p>
-                  {strategicItems[0].description}
-                </p>
-              </div>
-            </div>
-
-            {/* ITEM 02 */}
-
-            <div
-              className="
-                strategic-item
-                strategic-item-02
-              "
-            >
-              <div className="strategic-icon-wrapper">
-                <div className="strategic-icon-circle">
-                  <img
-                    src={strategicItems[1].icon}
-                    alt=""
-                    className="strategic-icon"
-                  />
-                </div>
-              </div>
-
-              <div className="strategic-number">
-                <span>02</span>
-              </div>
-
-              <div className="strategic-card">
-                <h3>
-                  {strategicItems[1].title}
-                </h3>
-
-                <p>
-                  {strategicItems[1].description}
-                </p>
-              </div>
-            </div>
-
-            {/* ITEM 03 */}
-
-            <div
-              className="
-                strategic-item
-                strategic-item-03
-              "
-            >
-              <div className="strategic-icon-wrapper">
-                <div className="strategic-icon-circle">
-                  <img
-                    src={strategicItems[2].icon}
-                    alt=""
-                    className="strategic-icon"
-                  />
-                </div>
-              </div>
-
-              <div className="strategic-number">
-                <span>03</span>
-              </div>
-
-              <div className="strategic-card">
-                <h3>
-                  {strategicItems[2].title}
-                </h3>
-
-                <p>
-                  {strategicItems[2].description}
-                </p>
-              </div>
-            </div>
-
-          </div>
-
-          {/* =====================================================
+          {/* =================================================
               SECOND ROW
-              ===================================================== */}
+              ================================================= */}
 
-          <div
-            className="
-              strategic-timeline-row
-              strategic-row-two
-            "
+          <motion.div
+            className="strategic-timeline-row strategic-row-two"
+            variants={strategicContainer}
           >
-
             {/* HORIZONTAL LINE */}
 
-            <div className="strategic-horizontal-line">
-              <span className="line-dot line-dot-left"></span>
-              <span className="line-dot line-dot-right"></span>
-            </div>
+            <motion.div
+              className="strategic-horizontal-line"
+              initial={{
+                scaleX: 0,
+                transformOrigin: "left",
+              }}
+              whileInView={{
+                scaleX: 1,
+              }}
+              viewport={{
+                once: true,
+                amount: 0.3,
+              }}
+              transition={{
+                duration: 1,
+                ease: [0.22, 1, 0.36, 1],
+                delay: 0.15,
+              }}
+            >
+              <span className="line-dot line-dot-left" />
+              <span className="line-dot line-dot-right" />
+            </motion.div>
 
             {/* ARROW 04 → 05 */}
 
-            <div
-              className="
-                strategic-arrow
-                strategic-arrow-three
-              "
-            >
-              <svg
-                viewBox="0 0 180 90"
-                preserveAspectRatio="none"
-                aria-hidden="true"
-              >
-                <path
-                  d="M5 58 C55 8, 125 8, 172 62"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="3"
-                  strokeDasharray="8 7"
-                />
+            <StrategicArrow className="strategic-arrow-three" />
 
-                <path
-                  d="M158 52 L173 64 L157 68"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="3"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </div>
+            {/* ITEMS */}
 
-            {/* ITEM 04 */}
+            <StrategicCard item={strategicItems[3]} />
 
-            <div
-              className="
-                strategic-item
-                strategic-item-04
-              "
-            >
-              <div className="strategic-icon-wrapper">
-                <div className="strategic-icon-circle">
-                  <img
-                    src={strategicItems[3].icon}
-                    alt=""
-                    className="strategic-icon"
-                  />
-                </div>
-              </div>
-
-              <div className="strategic-number">
-                <span>04</span>
-              </div>
-
-              <div className="strategic-card">
-                <h3>
-                  {strategicItems[3].title}
-                </h3>
-
-                <p>
-                  {strategicItems[3].description}
-                </p>
-              </div>
-            </div>
-
-            {/* ITEM 05 */}
-
-            <div
-              className="
-                strategic-item
-                strategic-item-05
-              "
-            >
-              <div className="strategic-icon-wrapper">
-                <div className="strategic-icon-circle">
-                  <img
-                    src={strategicItems[4].icon}
-                    alt=""
-                    className="strategic-icon"
-                  />
-                </div>
-              </div>
-
-              <div className="strategic-number">
-                <span>05</span>
-              </div>
-
-              <div className="strategic-card">
-                <h3>
-                  {strategicItems[4].title}
-                </h3>
-
-                <p>
-                  {strategicItems[4].description}
-                </p>
-              </div>
-            </div>
-
-          </div>
-
+            <StrategicCard item={strategicItems[4]} />
+          </motion.div>
         </div>
-      </section>
+      </motion.section>
 
-      {/* =========================================================
+      {/* =====================================================
           LIFE @ RUDRA
-          ========================================================= */}
+          ===================================================== */}
 
-      <section
-        ref={lifeRudraRef}
+      <motion.section
         className="life-rudra-section"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{
+          once: true,
+          amount: 0.08,
+          margin: "0px 0px -80px 0px",
+        }}
       >
-        <div className="life-rudra-container">
+        <motion.div
+          className="life-rudra-container"
+          variants={lifeContainer}
+        >
+          {/* HEADER */}
 
-          {/* =====================================================
-              LIFE @ RUDRA HEADER
-              ===================================================== */}
-
-          <div
-            className="
-              life-rudra-header
-              life-rudra-reveal
-            "
+          <motion.div
+            className="life-rudra-header life-rudra-reveal"
+            variants={fadeUp}
           >
-            <div className="life-rudra-label">
+            <motion.div
+              className="life-rudra-label"
+              initial={{
+                opacity: 0,
+                x: -25,
+              }}
+              whileInView={{
+                opacity: 1,
+                x: 0,
+              }}
+              viewport={{
+                once: true,
+              }}
+              transition={{
+                duration: 0.6,
+              }}
+            >
               Life@Rudra
-            </div>
+            </motion.div>
 
-            <h2>
+            <motion.h2
+              initial={{
+                opacity: 0,
+                y: 25,
+              }}
+              whileInView={{
+                opacity: 1,
+                y: 0,
+              }}
+              viewport={{
+                once: true,
+              }}
+              transition={{
+                duration: 0.8,
+                delay: 0.1,
+                ease: [0.22, 1, 0.36, 1],
+              }}
+            >
               Deeply committed to our people.
-            </h2>
+            </motion.h2>
 
-            <div className="life-rudra-heading-line"></div>
-          </div>
+            <motion.div
+              className="life-rudra-heading-line"
+              initial={{
+                scaleX: 0,
+                transformOrigin: "left",
+              }}
+              whileInView={{
+                scaleX: 1,
+              }}
+              viewport={{
+                once: true,
+              }}
+              transition={{
+                duration: 0.7,
+                delay: 0.3,
+              }}
+            />
+          </motion.div>
 
-          {/* =====================================================
-              DESCRIPTION
-              ===================================================== */}
+          {/* DESCRIPTION */}
 
-          <div
-            className="
-              life-rudra-description
-              life-rudra-reveal
-            "
+          <motion.div
+            className="life-rudra-description life-rudra-reveal"
+            variants={fadeUpSoft}
           >
             <p>
               We firmly believe in being considerate towards one
@@ -620,180 +958,213 @@ const Page = () => {
               through commendations, recognitions, and by building
               human connections.
             </p>
-          </div>
+          </motion.div>
 
-          {/* =====================================================
-              IMAGE GALLERY
-              ===================================================== */}
+          {/* IMAGE GALLERY */}
 
           <ImaggeViewer>
-            <div className="life-rudra-gallery">
+            <motion.div
+              className="life-rudra-gallery"
+              variants={lifeContainer}
+            >
+              <LifeImage
+                src="/assets/ImgForAbout/Img1.jpeg"
+                alt="Rudra Group annual conference"
+                className="life-rudra-image-card-1"
+              />
 
-              {/* IMAGE 1 */}
+              <LifeImage
+                src="/assets/ImgForAbout/Img2.jpeg"
+                alt="Rudra Group team activity"
+                className="life-rudra-image-card-2"
+              />
 
-              <div
-                className="
-                  life-rudra-image-card
-                  life-rudra-reveal
-                  life-rudra-image-card-1
-                "
-              >
-                <img
-                  src="/assets/ImgForAbout/Img1.jpeg"
-                  alt="Rudra Group annual conference"
-                  className="life-rudra-image"
-                />
-              </div>
-
-              {/* IMAGE 2 */}
-
-              <div
-                className="
-                  life-rudra-image-card
-                  life-rudra-reveal
-                  life-rudra-image-card-2
-                "
-              >
-                <img
-                  src="/assets/ImgForAbout/Img2.jpeg"
-                  alt="Rudra Group team activity"
-                  className="life-rudra-image"
-                />
-              </div>
-
-              {/* IMAGE 3 */}
-
-              <div
-                className="
-                  life-rudra-image-card
-                  life-rudra-reveal
-                  life-rudra-image-card-3
-                "
-              >
-                <img
-                  src="/assets/ImgForAbout/Img3.jpeg"
-                  alt="Rudra Group team celebration"
-                  className="life-rudra-image"
-                />
-              </div>
-
-            </div>
+              <LifeImage
+                src="/assets/ImgForAbout/Img3.jpeg"
+                alt="Rudra Group team celebration"
+                className="life-rudra-image-card-3"
+              />
+            </motion.div>
           </ImaggeViewer>
 
-          {/* =====================================================
-              CTA SECTION
-              ===================================================== */}
+          {/* CTA */}
 
-          <div className="life-rudra-cta-area">
+          <motion.div
+            className="life-rudra-cta-area"
+            variants={lifeContainer}
+          >
+            {/* PARTNER */}
 
-            {/* =================================================
-                PARTNER WITH US
-                ================================================= */}
-
-            <div
-              className="
-                life-rudra-cta
-                life-rudra-cta-left
-                life-rudra-reveal
-              "
+            <motion.div
+              className="life-rudra-cta life-rudra-cta-left"
+              variants={fadeUp}
             >
-              <h3>
+              <motion.h3 variants={fadeUpSoft}>
                 Partner with us
-              </h3>
+              </motion.h3>
 
-              <button
+              <motion.button
                 type="button"
                 className="life-rudra-touch-button"
                 aria-label="Get in touch for partnership"
                 onClick={openContactModal}
+                whileHover={{
+                  y: -5,
+                  scale: 1.02,
+                  backgroundColor: "#00c875",
+                  color: "#ffffff",
+                  boxShadow:
+                    "0 14px 32px rgba(0, 200, 117, 0.2)",
+                  transition: {
+                    duration: 0.25,
+                  },
+                }}
+                whileTap={{
+                  scale: 0.97,
+                  y: 0,
+                }}
               >
-                <span className="life-rudra-button-arrow">
+                <motion.span
+                  className="life-rudra-button-arrow"
+                  whileHover={{
+                    x: 6,
+                  }}
+                >
                   →
-                </span>
+                </motion.span>
 
-                <span>
-                  Get in touch
-                </span>
-              </button>
-            </div>
+                <span>Get in touch</span>
+              </motion.button>
+            </motion.div>
 
-            {/* =================================================
-                JOIN OUR TEAM
-                ================================================= */}
+            {/* JOIN */}
 
-            <div
-              className="
-                life-rudra-cta
-                life-rudra-cta-right
-                life-rudra-reveal
-              "
+            <motion.div
+              className="life-rudra-cta life-rudra-cta-right"
+              variants={fadeUp}
             >
-              <h3>
+              <motion.h3 variants={fadeUpSoft}>
                 Join our team
-              </h3>
+              </motion.h3>
 
-              <button
+              <motion.button
                 type="button"
                 className="life-rudra-touch-button"
                 aria-label="Get in touch to join our team"
                 onClick={openContactModal}
+                whileHover={{
+                  y: -5,
+                  scale: 1.02,
+                  backgroundColor: "#00c875",
+                  color: "#ffffff",
+                  boxShadow:
+                    "0 14px 32px rgba(0, 200, 117, 0.2)",
+                  transition: {
+                    duration: 0.25,
+                  },
+                }}
+                whileTap={{
+                  scale: 0.97,
+                  y: 0,
+                }}
               >
-                <span className="life-rudra-button-arrow">
+                <motion.span
+                  className="life-rudra-button-arrow"
+                  whileHover={{
+                    x: 6,
+                  }}
+                >
                   →
-                </span>
+                </motion.span>
 
-                <span>
-                  Get in touch
-                </span>
-              </button>
-            </div>
+                <span>Get in touch</span>
+              </motion.button>
+            </motion.div>
+          </motion.div>
+        </motion.div>
+      </motion.section>
 
-          </div>
-
-        </div>
-      </section>
-
-      {/* =========================================================
+      {/* =====================================================
           CONTACT FORM MODAL
-          ========================================================= */}
+          ===================================================== */}
 
-      {isContactModalOpen && (
-        <div
-          className="about-contact-modal-overlay"
-          role="dialog"
-          aria-modal="true"
-          aria-label="Contact form"
-          onMouseDown={(event) => {
-            if (event.target === event.currentTarget) {
-              closeContactModal();
-            }
-          }}
-        >
-          <div className="about-contact-modal">
-
-            {/* CLOSE BUTTON */}
-
-            <button
-              type="button"
-              className="about-contact-modal-close"
-              onClick={closeContactModal}
-              aria-label="Close contact form"
+      <AnimatePresence>
+        {isContactModalOpen && (
+          <motion.div
+            className="about-contact-modal-overlay"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Contact form"
+            variants={modalOverlay}
+            initial="hidden"
+            animate="visible"
+            exit="exit"
+            onMouseDown={(event) => {
+              if (
+                event.target === event.currentTarget
+              ) {
+                closeContactModal();
+              }
+            }}
+          >
+            <motion.div
+              className="about-contact-modal"
+              variants={modalContent}
+              initial="hidden"
+              animate="visible"
+              exit="exit"
+              onMouseDown={(event) => {
+                event.stopPropagation();
+              }}
             >
-              <span></span>
-              <span></span>
-            </button>
+              {/* CLOSE BUTTON */}
 
-            {/* CONTACT FORM */}
+              <motion.button
+                type="button"
+                className="about-contact-modal-close"
+                onClick={closeContactModal}
+                aria-label="Close contact form"
+                whileHover={{
+                  rotate: 90,
+                  scale: 1.08,
+                  backgroundColor: "#ff6b51",
+                }}
+                whileTap={{
+                  scale: 0.9,
+                  rotate: 90,
+                }}
+              >
+                <span />
+                <span />
+              </motion.button>
 
-            <div className="about-contact-modal-content">
-              <ContactForm />
-            </div>
+              {/* CONTACT FORM */}
 
-          </div>
-        </div>
-      )}
+              <motion.div
+                className="about-contact-modal-content"
+                initial={{
+                  opacity: 0,
+                  y: 15,
+                }}
+                animate={{
+                  opacity: 1,
+                  y: 0,
+                }}
+                transition={{
+                  duration: 0.45,
+                  delay: 0.15,
+                  ease: [0.22, 1, 0.36, 1],
+                }}
+              >
+                <ContactForm />
+              </motion.div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
   );
 };
 
 export default Page;
+

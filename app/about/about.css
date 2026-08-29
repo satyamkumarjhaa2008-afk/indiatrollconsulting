@@ -2,6 +2,12 @@
    ABOUT PAGE
    CLEAN / DEDUPLICATED / RESPONSIVE CSS
    Font: Montserrat
+
+   Animation architecture:
+   - Framer Motion handles entrance/reveal animations
+   - Framer Motion handles hover/tap interactions
+   - Framer Motion handles modal open/close
+   - CSS handles layout, responsiveness and visual styling
    ============================================================ */
 
 /* ============================================================
@@ -47,12 +53,6 @@
   width: 100%;
   align-items: center;
   justify-content: center;
-  opacity: 0;
-  transform: translateY(15px);
-}
-
-.about-app-section.about-app-visible .about-hand-reveal {
-  animation: aboutHandReveal 0.8s ease-out forwards;
 }
 
 /* ------------------------------------------------------------
@@ -63,11 +63,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  animation: none;
-}
-
-.about-app-section.about-app-visible .about-hand-float {
-  animation: aboutHandFloat 3.2s ease-in-out 0.8s infinite;
 }
 
 /* ------------------------------------------------------------
@@ -93,12 +88,6 @@
   margin-top: 28px;
   padding: 0 20px;
   text-align: center;
-  opacity: 0;
-  transform: translateY(15px);
-}
-
-.about-app-section.about-app-visible .about-app-text {
-  animation: aboutTextReveal 0.8s ease-out 0.15s forwards;
 }
 
 .about-app-text p {
@@ -125,44 +114,6 @@
 /* ------------------------------------------------------------
    ABOUT APP ANIMATIONS
    ------------------------------------------------------------ */
-
-@keyframes aboutHandReveal {
-  from {
-    opacity: 0;
-    transform: translateY(15px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes aboutTextReveal {
-  from {
-    opacity: 0;
-    transform: translateY(15px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes aboutHandFloat {
-  0% {
-    transform: translateY(-5px);
-  }
-
-  50% {
-    transform: translateY(5px);
-  }
-
-  100% {
-    transform: translateY(-5px);
-  }
-}
 
 /* ============================================================
    ABOUT APP — LARGE DESKTOP
@@ -489,34 +440,17 @@
   justify-content: center;
   border-radius: 50%;
   background: var(--strategic-coral);
-  transition:
-    background-color 0.35s ease,
-    transform 0.35s ease,
-    box-shadow 0.35s ease;
 }
 
 .strategic-icon {
   width: 88px;
   height: 88px;
   object-fit: contain;
-  transition:
-    transform 0.35s ease,
-    filter 0.35s ease;
 }
 
 /* ------------------------------------------------------------
    ICON HOVER
    ------------------------------------------------------------ */
-
-.strategic-item:hover .strategic-icon-circle {
-  background: var(--strategic-green);
-  box-shadow: 0 12px 30px rgba(0, 184, 107, 0.22);
-  transform: scale(1.06);
-}
-
-.strategic-item:hover .strategic-icon {
-  transform: scale(1.05);
-}
 
 /* ------------------------------------------------------------
    VERTICAL DOTTED CONNECTION
@@ -610,9 +544,6 @@
   background: #fff;
   box-shadow: 0 18px 38px rgba(0, 0, 0, 0.09);
   text-align: center;
-  transition:
-    transform 0.35s ease,
-    box-shadow 0.35s ease;
 }
 
 .strategic-card::before {
@@ -626,11 +557,6 @@
   border-bottom: 36px solid #fff;
   border-left: 37px solid transparent;
   transform: translateX(-50%);
-}
-
-.strategic-item:hover .strategic-card {
-  box-shadow: 0 22px 45px rgba(0, 0, 0, 0.11);
-  transform: translateY(-5px);
 }
 
 .strategic-card h3 {
@@ -705,15 +631,6 @@
    STRATEGIC SCROLL REVEAL
    ------------------------------------------------------------ */
 
-.strategic-approach-section .strategic-heading,
-.strategic-approach-section .strategic-item {
-  opacity: 0;
-  transform: translateY(45px);
-  transition:
-    opacity 0.8s ease,
-    transform 0.8s ease;
-}
-
 .strategic-approach-section .strategic-heading {
   transition-delay: 0.05s;
 }
@@ -736,12 +653,6 @@
 
 .strategic-approach-section .strategic-item-05 {
   transition-delay: 0.55s;
-}
-
-.strategic-approach-section.strategic-visible .strategic-heading,
-.strategic-approach-section.strategic-visible .strategic-item {
-  opacity: 1;
-  transform: translateY(0);
 }
 
 /* ============================================================
@@ -1321,10 +1232,6 @@
   border-radius: 7px;
   background: #181818;
   cursor: zoom-in;
-
-  transition:
-    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
-    box-shadow 0.45s ease;
 }
 
 .life-rudra-image-card > * {
@@ -1346,33 +1253,17 @@
   object-fit: cover;
   object-position: center;
   cursor: zoom-in;
-
-  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 /* ------------------------------------------------------------
    IMAGE HOVER ANIMATION
    ------------------------------------------------------------ */
 
-.life-rudra-image-card:hover {
-  transform: translateY(-7px);
-  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
-}
-
-.life-rudra-image-card:hover img,
-.life-rudra-image-card:hover .life-rudra-image {
-  transform: scale(1.035);
-}
-
 /*
    Remove the entrance-animation delay while hovering.
    This makes hover feel immediate after the reveal animation
    has completed.
 */
-
-.life-rudra-visible .life-rudra-image-card:hover {
-  transition-delay: 0s;
-}
 
 /* ============================================================
    CTA AREA
@@ -1436,12 +1327,6 @@
   font-weight: 700;
   line-height: 1;
   cursor: pointer;
-
-  transition:
-    transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
-    background 0.3s ease,
-    color 0.3s ease,
-    box-shadow 0.3s ease;
 }
 
 /* ------------------------------------------------------------
@@ -1457,88 +1342,24 @@
   font-weight: 700;
   line-height: 1;
   transform: translateY(-1px);
-
-  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 /* ------------------------------------------------------------
    BUTTON HOVER
    ------------------------------------------------------------ */
 
-.life-rudra-touch-button:hover {
-  background: #00c875;
-  color: #fff;
-  box-shadow: 0 12px 30px rgba(0, 200, 117, 0.18);
-  transform: translateY(-3px);
-}
-
-.life-rudra-touch-button:hover .life-rudra-button-arrow {
-  transform: translateX(5px) translateY(-1px);
-}
-
 /* ------------------------------------------------------------
    BUTTON ACTIVE / FOCUS
    ------------------------------------------------------------ */
-
-.life-rudra-touch-button:active {
-  transform: translateY(0) scale(0.98);
-}
 
 .life-rudra-touch-button:focus-visible {
   outline: 2px solid #fff;
   outline-offset: 5px;
 }
 
-/* ============================================================
-   LIFE @ RUDRA — SCROLL REVEAL
-   ============================================================ */
-
-.life-rudra-reveal {
-  opacity: 0;
-  transform: translate3d(0, 65px, 0);
-  will-change: opacity, transform;
-
-  transition:
-    opacity 0.85s ease,
-    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.life-rudra-visible .life-rudra-reveal {
-  opacity: 1;
-  transform: translate3d(0, 0, 0);
-}
-
 /* ------------------------------------------------------------
    REVEAL DELAYS
    ------------------------------------------------------------ */
-
-.life-rudra-visible .life-rudra-header {
-  transition-delay: 0.05s;
-}
-
-.life-rudra-visible .life-rudra-description {
-  transition-delay: 0.18s;
-}
-
-.life-rudra-visible .life-rudra-image-card-1 {
-  transition-delay: 0.3s;
-}
-
-.life-rudra-visible .life-rudra-image-card-2 {
-  transition-delay: 0.42s;
-}
-
-.life-rudra-visible .life-rudra-image-card-3 {
-  transition-delay: 0.54s;
-}
-
-.life-rudra-visible .life-rudra-cta-left {
-  transition-delay: 0.68s;
-}
-
-.life-rudra-visible .life-rudra-cta-right {
-  transition-delay: 0.8s;
-}
 
 /* ============================================================
    LIFE @ RUDRA — LARGE DESKTOP
@@ -1776,16 +1597,6 @@
      layouts so the cards remain stable while scrolling.
   */
 
-  .life-rudra-image-card:hover {
-    box-shadow: none;
-    transform: none;
-  }
-
-  .life-rudra-image-card:hover img,
-  .life-rudra-image-card:hover .life-rudra-image {
-    transform: none;
-  }
-
   /* CTA */
 
   .life-rudra-cta-area {
@@ -1829,26 +1640,10 @@
   .life-rudra-button-arrow {
     font-size: 21px;
   }
-
-  .life-rudra-touch-button:hover {
-    box-shadow: none;
-    transform: none;
-  }
 }
 
-/* ============================================================
-   LIFE @ RUDRA — MOBILE REVEAL
-   ============================================================ */
-
 @media (max-width: 700px) {
-  .life-rudra-reveal {
-    transform: translate3d(0, 45px, 0);
-    transition-duration: 0.75s;
-  }
-
-  .life-rudra-visible .life-rudra-reveal {
-    transform: translate3d(0, 0, 0);
-  }
+  
 }
 
 /* ============================================================
@@ -1977,8 +1772,6 @@
   padding: 30px;
 
   background: rgba(0, 0, 0, 0.72);
-
-  animation: aboutModalOverlayIn 0.25s ease forwards;
 }
 
 .about-contact-modal {
@@ -1994,8 +1787,6 @@
   border-radius: 10px;
 
   box-shadow: 0 30px 80px rgba(0, 0, 0, 0.35);
-
-  animation: aboutModalIn 0.3s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
 /* =========================================================
@@ -2023,15 +1814,6 @@
 
   background: #111;
   cursor: pointer;
-
-  transition:
-    background 0.2s ease,
-    transform 0.2s ease;
-}
-
-.about-contact-modal-close:hover {
-  background: #ff6b51;
-  transform: rotate(90deg);
 }
 
 .about-contact-modal-close span {
@@ -2137,32 +1919,6 @@
 .about-contact-modal-content .contact-whatsapp,
 .about-contact-modal-content .contact-scroll-top {
   display: none;
-}
-
-/* =========================================================
-   MODAL ANIMATIONS
-   ========================================================= */
-
-@keyframes aboutModalOverlayIn {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes aboutModalIn {
-  from {
-    opacity: 0;
-    transform: translateY(30px) scale(0.96);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
 }
 
 /* =========================================================
@@ -2328,68 +2084,5 @@
 
   .about-contact-modal-close span {
     width: 14px;
-  }
-}
-
-/* =========================================================
-   REDUCED MOTION
-   ========================================================= */
-
-@media (prefers-reduced-motion: reduce) {
-  .about-contact-modal-overlay,
-  .about-contact-modal,
-  .about-contact-modal-close {
-    animation: none;
-    transition: none;
-  }
-}
-
-/* ============================================================
-   REDUCED MOTION
-   ============================================================ */
-
-@media (prefers-reduced-motion: reduce) {
-  .about-hand-reveal,
-  .about-hand-float,
-  .about-app-text,
-  .strategic-approach-section .strategic-heading,
-  .strategic-approach-section .strategic-item,
-  .life-rudra-reveal,
-  .life-rudra-image-card,
-  .life-rudra-image-card img,
-  .life-rudra-touch-button,
-  .life-rudra-button-arrow,
-  .strategic-icon-circle,
-  .strategic-icon,
-  .strategic-card {
-    animation: none !important;
-    transition: none !important;
-  }
-
-  .about-hand-reveal,
-  .about-hand-float,
-  .about-app-text,
-  .life-rudra-reveal {
-    opacity: 1 !important;
-    transform: none !important;
-  }
-
-  .strategic-approach-section .strategic-heading,
-  .strategic-approach-section .strategic-item {
-    opacity: 1;
-    transform: none;
-  }
-
-  .life-rudra-image-card:hover,
-  .life-rudra-touch-button:hover,
-  .strategic-item:hover .strategic-card,
-  .strategic-item:hover .strategic-icon-circle {
-    transform: none;
-  }
-
-  .life-rudra-image-card:hover img,
-  .life-rudra-image-card:hover .life-rudra-image,
-  .strategic-item:hover .strategic-icon {
-    transform: none;
   }
 }
