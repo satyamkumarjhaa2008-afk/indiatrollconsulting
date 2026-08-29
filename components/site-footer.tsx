@@ -264,7 +264,7 @@ export default function SiteFooter() {
 
       <div className="footer-bottom footer-reveal footer-reveal-4">
         <p>
-          @ Website Designed and Managed By Web Biz Solutions
+          @ Website Designed and Managed By Satyam Kumar Jha
         </p>
 
         <p>

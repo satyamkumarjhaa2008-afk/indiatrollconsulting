@@ -4,6 +4,7 @@ import React, { useEffect, useRef, useState } from "react";
 import "./about.css";
 import ImaggeViewer from "@/components/View";
 import ContactForm from "@/components/contactform";
+import SiteNavbar from "@/components/site-navbar";
 
 interface StrategicItem {
   id: string;
@@ -197,7 +198,7 @@ const Page = () => {
       {/* =========================================================
           ABOUT APP SECTION
           ========================================================= */}
-
+<SiteNavbar/>
       <section
         ref={aboutAppRef}
         className="about-app-section"

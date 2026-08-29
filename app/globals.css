@@ -180,12 +180,12 @@
 }
 
 .site-header { position: relative; z-index: 20; background: var(--background); border-bottom: 1px solid #e7e7e7; }
-.navbar { max-width: 1280px; height: 78px; margin: 0 auto; padding: 0 25px; display: flex; align-items: center; justify-content: space-between; overflow: hidden; }
+.navbar { max-width: 1280px; height: 78px; margin: 0 auto; padding: 0 25px; display: flex; align-items: center; justify-content: space-between; }
 .brand { display: flex; align-items: center; }
-.brand img { width: 224px; height: auto; }
+.brand img { width: 224px; height: auto;margin-top: 7px; }
 .desktop-nav { display: flex; align-items: stretch; gap: 8px; height: 100%; }
 .nav-item { position: relative; display: flex; align-items: center; }
-.nav-link { display: inline-flex; align-items: center; gap: 6px; padding: 10px 13px; color: #111827; font-family: 'Montserrat', sans-serif; font-size: 13px; font-weight: 600; letter-spacing: .02em; text-decoration: none; transition: color .2s ease; }
+.nav-link { display: inline-flex; align-items: center; gap: 6px; padding: 10px 13px; color: #111827; font-family: 'Montserrat', sans-serif; font-size: 14px; font-weight: 700; letter-spacing: .02em; text-decoration: none; transition: color .2s ease; }
 .nav-link:hover, .nav-link[aria-expanded="true"] { color: #00a9c7; }
 .nav-chevron { display: inline-flex; transition: transform .25s ease; }
 .nav-chevron.is-open { transform: rotate(180deg); }
@@ -402,8 +402,8 @@
   .mobile-submenu a { display: flex; align-items: center; gap: 8px; padding: 9px 0; color: #374151; font-size: 12px; line-height: 1.4; text-decoration: none; transition: color .2s ease; }
   .mobile-submenu a svg { color: #00a9c7; }
   .drawer-contact { margin-top: auto; padding: 20px; background: #f5fbfc; border-top: 1px solid #e1e1e1; }
-  .drawer-contact span { color: #111; font-size: 12px; font-weight: 700; }
-  .drawer-contact p { margin: 10px 0 16px; color: #6b6b6b; font-size: 11px; line-height: 1.7; }
+  .drawer-contact span { color: #111; font-size: 15px; font-weight: 700; font-family: 'Montserrat', sans-serif; }
+  .drawer-contact p { margin: 10px 0 16px; color: #100e0e; font-size: 13px; line-height: 1.7; font-family: 'Montserrat', sans-serif;  }
   .socials { display: flex; gap: 13px; color: #111; }
   .socials a { transition: color .2s ease; }
   .socials a:hover { color: #00b8d9; }
