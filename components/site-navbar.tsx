@@ -76,7 +76,7 @@ export function SiteNavbar() {
           aria-label="IndiaTroll home"
         >
           <Image
-            src="/india-troll-logo.svg"
+            src="/india-troll-logo.jpeg"
             alt="IndiaTroll"
             width={152}
             height={48}

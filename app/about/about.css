@@ -4,7 +4,6 @@
    Font: Montserrat
    ============================================================ */
 
-
 /* ============================================================
    GLOBAL ABOUT-PAGE FONT
    ============================================================ */
@@ -14,7 +13,6 @@
 .life-rudra-section {
   font-family: "Montserrat", sans-serif;
 }
-
 
 /* ============================================================
    ============================================================
@@ -40,7 +38,6 @@
   padding: 55px 0 70px;
 }
 
-
 /* ------------------------------------------------------------
    HAND / PHONE — REVEAL
    ------------------------------------------------------------ */
@@ -58,7 +55,6 @@
   animation: aboutHandReveal 0.8s ease-out forwards;
 }
 
-
 /* ------------------------------------------------------------
    HAND — FLOAT
    ------------------------------------------------------------ */
@@ -74,7 +70,6 @@
   animation: aboutHandFloat 3.2s ease-in-out 0.8s infinite;
 }
 
-
 /* ------------------------------------------------------------
    HAND IMAGE
    ------------------------------------------------------------ */
@@ -86,7 +81,6 @@
   max-width: 100%;
   object-fit: contain;
 }
-
 
 /* ------------------------------------------------------------
    TEXT
@@ -127,7 +121,6 @@
   font-weight: 700;
   white-space: nowrap;
 }
-
 
 /* ------------------------------------------------------------
    ABOUT APP ANIMATIONS
@@ -171,7 +164,6 @@
   }
 }
 
-
 /* ============================================================
    ABOUT APP — LARGE DESKTOP
    ============================================================ */
@@ -195,7 +187,6 @@
     font-size: 52px;
   }
 }
-
 
 /* ============================================================
    ABOUT APP — LAPTOP
@@ -222,7 +213,6 @@
   }
 }
 
-
 /* ============================================================
    ABOUT APP — TABLET
    ============================================================ */
@@ -248,7 +238,6 @@
     line-height: 1.2;
   }
 }
-
 
 /* ============================================================
    ABOUT APP — MOBILE
@@ -282,7 +271,6 @@
   }
 }
 
-
 /* ============================================================
    ============================================================
    STRATEGIC APPROACH
@@ -302,10 +290,7 @@
   overflow: hidden;
   padding: 105px 0 130px;
   background:
-    linear-gradient(
-      rgba(248, 250, 250, 0.93),
-      rgba(248, 250, 250, 0.93)
-    ),
+    linear-gradient(rgba(248, 250, 250, 0.93), rgba(248, 250, 250, 0.93)),
     url("/assets/hero/bg.png");
   background-position: center;
   background-size: cover;
@@ -339,7 +324,6 @@
   margin: 0 auto;
   padding: 0 45px;
 }
-
 
 /* ------------------------------------------------------------
    HEADING
@@ -384,7 +368,6 @@
   line-height: 1.55;
 }
 
-
 /* ------------------------------------------------------------
    TIMELINE ROWS
    ------------------------------------------------------------ */
@@ -409,7 +392,6 @@
   column-gap: 40px;
 }
 
-
 /* ------------------------------------------------------------
    HORIZONTAL DOTTED LINE
    ------------------------------------------------------------ */
@@ -422,14 +404,13 @@
   width: 100%;
   height: 4px;
   opacity: 0.9;
-  background-image:
-    repeating-linear-gradient(
-      to right,
-      var(--strategic-green) 0,
-      var(--strategic-green) 4px,
-      transparent 4px,
-      transparent 12px
-    );
+  background-image: repeating-linear-gradient(
+    to right,
+    var(--strategic-green) 0,
+    var(--strategic-green) 4px,
+    transparent 4px,
+    transparent 12px
+  );
 }
 
 .strategic-horizontal-line::after {
@@ -440,16 +421,15 @@
   height: 4px;
   content: "";
   opacity: 0.85;
-  background-image:
-    repeating-linear-gradient(
-      to right,
-      transparent 0,
-      transparent 8px,
-      var(--strategic-blue) 8px,
-      var(--strategic-blue) 12px,
-      transparent 12px,
-      transparent 22px
-    );
+  background-image: repeating-linear-gradient(
+    to right,
+    transparent 0,
+    transparent 8px,
+    var(--strategic-blue) 8px,
+    var(--strategic-blue) 12px,
+    transparent 12px,
+    transparent 22px
+  );
 }
 
 .line-dot {
@@ -459,12 +439,11 @@
   width: 14px;
   height: 14px;
   border-radius: 50%;
-  background:
-    linear-gradient(
-      135deg,
-      var(--strategic-green),
-      var(--strategic-blue)
-    );
+  background: linear-gradient(
+    135deg,
+    var(--strategic-green),
+    var(--strategic-blue)
+  );
   transform: translateY(-50%);
 }
 
@@ -475,7 +454,6 @@
 .line-dot-right {
   right: -7px;
 }
-
 
 /* ------------------------------------------------------------
    STRATEGIC ITEM
@@ -488,7 +466,6 @@
   flex-direction: column;
   align-items: center;
 }
-
 
 /* ------------------------------------------------------------
    ICON
@@ -527,7 +504,6 @@
     filter 0.35s ease;
 }
 
-
 /* ------------------------------------------------------------
    ICON HOVER
    ------------------------------------------------------------ */
@@ -541,7 +517,6 @@
 .strategic-item:hover .strategic-icon {
   transform: scale(1.05);
 }
-
 
 /* ------------------------------------------------------------
    VERTICAL DOTTED CONNECTION
@@ -560,29 +535,26 @@
 }
 
 .strategic-icon-wrapper::after {
-  background-image:
-    repeating-linear-gradient(
-      to bottom,
-      var(--strategic-green) 0,
-      var(--strategic-green) 4px,
-      transparent 4px,
-      transparent 12px
-    );
+  background-image: repeating-linear-gradient(
+    to bottom,
+    var(--strategic-green) 0,
+    var(--strategic-green) 4px,
+    transparent 4px,
+    transparent 12px
+  );
 }
 
 .strategic-icon-wrapper::before {
-  background-image:
-    repeating-linear-gradient(
-      to bottom,
-      transparent 0,
-      transparent 8px,
-      var(--strategic-blue) 8px,
-      var(--strategic-blue) 12px,
-      transparent 12px,
-      transparent 22px
-    );
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent 0,
+    transparent 8px,
+    var(--strategic-blue) 8px,
+    var(--strategic-blue) 12px,
+    transparent 12px,
+    transparent 22px
+  );
 }
-
 
 /* ------------------------------------------------------------
    NUMBER
@@ -622,7 +594,6 @@
   font-weight: 800;
   line-height: 1;
 }
-
 
 /* ------------------------------------------------------------
    CARD
@@ -680,7 +651,6 @@
   line-height: 1.72;
 }
 
-
 /* ------------------------------------------------------------
    CURVED ARROWS
    ------------------------------------------------------------ */
@@ -715,7 +685,6 @@
   left: calc(50% - 95px);
 }
 
-
 /* ------------------------------------------------------------
    SECOND ROW
    ------------------------------------------------------------ */
@@ -731,7 +700,6 @@
 .strategic-row-two .strategic-card p {
   font-size: 21px;
 }
-
 
 /* ------------------------------------------------------------
    STRATEGIC SCROLL REVEAL
@@ -776,7 +744,6 @@
   transform: translateY(0);
 }
 
-
 /* ============================================================
    STRATEGIC — LARGE DESKTOP
    ============================================================ */
@@ -804,7 +771,6 @@
     font-size: 22px;
   }
 }
-
 
 /* ============================================================
    STRATEGIC — LAPTOP
@@ -886,7 +852,6 @@
   }
 }
 
-
 /* ============================================================
    STRATEGIC — TABLET
    ============================================================ */
@@ -952,7 +917,6 @@
   }
 }
 
-
 /* ============================================================
    STRATEGIC — MOBILE
    ============================================================ */
@@ -960,11 +924,10 @@
 @media (max-width: 600px) {
   .strategic-approach-section {
     padding: 50px 0 70px;
-    background:
-      linear-gradient(
-        rgba(248, 250, 250, 0.95),
-        rgba(248, 250, 250, 0.95)
-      );
+    background: linear-gradient(
+      rgba(248, 250, 250, 0.95),
+      rgba(248, 250, 250, 0.95)
+    );
   }
 
   .strategic-approach-container {
@@ -1019,14 +982,13 @@
     width: 3px;
     height: auto;
     transform: translateX(-50%);
-    background-image:
-      repeating-linear-gradient(
-        to bottom,
-        var(--strategic-green) 0,
-        var(--strategic-green) 4px,
-        transparent 4px,
-        transparent 12px
-      );
+    background-image: repeating-linear-gradient(
+      to bottom,
+      var(--strategic-green) 0,
+      var(--strategic-green) 4px,
+      transparent 4px,
+      transparent 12px
+    );
   }
 
   .strategic-horizontal-line::after {
@@ -1034,16 +996,15 @@
     left: 0;
     width: 3px;
     height: 100%;
-    background-image:
-      repeating-linear-gradient(
-        to bottom,
-        transparent 0,
-        transparent 8px,
-        var(--strategic-blue) 8px,
-        var(--strategic-blue) 12px,
-        transparent 12px,
-        transparent 22px
-      );
+    background-image: repeating-linear-gradient(
+      to bottom,
+      transparent 0,
+      transparent 8px,
+      var(--strategic-blue) 8px,
+      var(--strategic-blue) 12px,
+      transparent 12px,
+      transparent 22px
+    );
   }
 
   .line-dot {
@@ -1162,7 +1123,6 @@
   }
 }
 
-
 /* ============================================================
    STRATEGIC — VERY SMALL PHONES
    ============================================================ */
@@ -1223,7 +1183,6 @@
   }
 }
 
-
 /* ============================================================
    ============================================================
    LIFE @ RUDRA
@@ -1270,7 +1229,6 @@
   padding: 70px 3.75% 90px;
 }
 
-
 /* ------------------------------------------------------------
    HEADER
    ------------------------------------------------------------ */
@@ -1308,7 +1266,6 @@
   background: #fff;
 }
 
-
 /* ------------------------------------------------------------
    DESCRIPTION
    ------------------------------------------------------------ */
@@ -1329,7 +1286,6 @@
   letter-spacing: -0.15px;
 }
 
-
 /* ============================================================
    LIFE @ RUDRA — IMAGE GALLERY
    ============================================================ */
@@ -1347,7 +1303,6 @@
   gap: 42px;
   margin-top: 82px;
 }
-
 
 /* ------------------------------------------------------------
    IMAGE CARD
@@ -1377,7 +1332,6 @@
   max-width: 100%;
 }
 
-
 /* ------------------------------------------------------------
    IMAGE
    ------------------------------------------------------------ */
@@ -1393,10 +1347,8 @@
   object-position: center;
   cursor: zoom-in;
 
-  transition:
-    transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
 }
-
 
 /* ------------------------------------------------------------
    IMAGE HOVER ANIMATION
@@ -1412,7 +1364,6 @@
   transform: scale(1.035);
 }
 
-
 /*
    Remove the entrance-animation delay while hovering.
    This makes hover feel immediate after the reveal animation
@@ -1422,7 +1373,6 @@
 .life-rudra-visible .life-rudra-image-card:hover {
   transition-delay: 0s;
 }
-
 
 /* ============================================================
    CTA AREA
@@ -1448,7 +1398,6 @@
   align-items: flex-start;
 }
 
-
 /* ------------------------------------------------------------
    CTA HEADINGS
    ------------------------------------------------------------ */
@@ -1462,7 +1411,6 @@
   line-height: 1.15;
   letter-spacing: -1.1px;
 }
-
 
 /* ------------------------------------------------------------
    GET IN TOUCH BUTTON
@@ -1496,7 +1444,6 @@
     box-shadow 0.3s ease;
 }
 
-
 /* ------------------------------------------------------------
    BUTTON ARROW
    ------------------------------------------------------------ */
@@ -1511,10 +1458,8 @@
   line-height: 1;
   transform: translateY(-1px);
 
-  transition:
-    transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
 }
-
 
 /* ------------------------------------------------------------
    BUTTON HOVER
@@ -1531,7 +1476,6 @@
   transform: translateX(5px) translateY(-1px);
 }
 
-
 /* ------------------------------------------------------------
    BUTTON ACTIVE / FOCUS
    ------------------------------------------------------------ */
@@ -1544,7 +1488,6 @@
   outline: 2px solid #fff;
   outline-offset: 5px;
 }
-
 
 /* ============================================================
    LIFE @ RUDRA — SCROLL REVEAL
@@ -1565,7 +1508,6 @@
   transform: translate3d(0, 0, 0);
 }
 
-
 /* ------------------------------------------------------------
    REVEAL DELAYS
    ------------------------------------------------------------ */
@@ -1579,7 +1521,7 @@
 }
 
 .life-rudra-visible .life-rudra-image-card-1 {
-  transition-delay: 0.30s;
+  transition-delay: 0.3s;
 }
 
 .life-rudra-visible .life-rudra-image-card-2 {
@@ -1595,9 +1537,8 @@
 }
 
 .life-rudra-visible .life-rudra-cta-right {
-  transition-delay: 0.80s;
+  transition-delay: 0.8s;
 }
-
 
 /* ============================================================
    LIFE @ RUDRA — LARGE DESKTOP
@@ -1644,7 +1585,6 @@
     font-size: 24px;
   }
 }
-
 
 /* ============================================================
    LIFE @ RUDRA — LAPTOP
@@ -1704,7 +1644,6 @@
   }
 }
 
-
 /* ============================================================
    LIFE @ RUDRA — TABLET
    ============================================================ */
@@ -1762,7 +1701,6 @@
     font-size: 19px;
   }
 }
-
 
 /* ============================================================
    LIFE @ RUDRA — MOBILE
@@ -1898,7 +1836,6 @@
   }
 }
 
-
 /* ============================================================
    LIFE @ RUDRA — MOBILE REVEAL
    ============================================================ */
@@ -1913,7 +1850,6 @@
     transform: translate3d(0, 0, 0);
   }
 }
-
 
 /* ============================================================
    LIFE @ RUDRA — SMALL MOBILE
@@ -1978,7 +1914,6 @@
     font-size: 20px;
   }
 }
-
 
 /* ============================================================
    LIFE @ RUDRA — VERY SMALL MOBILE
@@ -2058,11 +1993,9 @@
   background: #fff;
   border-radius: 10px;
 
-  box-shadow:
-    0 30px 80px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.35);
 
-  animation: aboutModalIn 0.3s cubic-bezier(0.22, 1, 0.36, 1)
-    forwards;
+  animation: aboutModalIn 0.3s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
 /* =========================================================
@@ -2370,10 +2303,8 @@
     padding: 10px;
   }
 
-  .about-contact-modal-content
-    .contact-form-input::placeholder,
-  .about-contact-modal-content
-    .contact-form-textarea::placeholder {
+  .about-contact-modal-content .contact-form-input::placeholder,
+  .about-contact-modal-content .contact-form-textarea::placeholder {
     font-size: 10px;
   }
 
@@ -2412,6 +2343,7 @@
     transition: none;
   }
 }
+
 /* ============================================================
    REDUCED MOTION
    ============================================================ */

@@ -290,7 +290,7 @@ export default function SiteFooter() {
 
       <a
         className="footer-whatsapp"
-        href="https://wa.me/918484986359"
+        href="https://wa.me/916204535975"
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Chat on WhatsApp"
