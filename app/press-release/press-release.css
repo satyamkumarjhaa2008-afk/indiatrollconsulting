@@ -1,3 +1,4 @@
+
 .press-release-page { position: relative; width: 100%; min-height: 100vh; overflow-x: hidden; background: #050505; color: #f5f5f0; isolation: isolate; font-family: "Montserrat", sans-serif; }
 .press-release-page *, .press-release-page *::before, .press-release-page *::after { box-sizing: border-box; }
 
@@ -61,15 +62,16 @@
 }
 
 @media (max-width: 767px) {
-.press-release-page { width: 100%; overflow-x: hidden; }
+.press-release-page { width: 100%; min-height: 100svh; overflow-x: hidden; }
 .press-release-background { position: fixed; inset: 0; }
-.background-grid { opacity: 0.055; background-size: 42px 42px; }
-.background-glow { filter: blur(85px); }
+.background-grid { opacity: 0.045; background-size: 42px 42px; }
+.background-glow { filter: blur(70px); }
 .glow-one { width: 300px; height: 300px; top: -170px; left: -160px; }
 .glow-two { width: 280px; height: 280px; top: 30%; right: -170px; }
 .glow-three { width: 320px; height: 320px; bottom: -230px; left: 15%; }
+.background-noise { opacity: 0.018; }
 
-.press-release-header { min-height: 68vh; padding: 90px 20px 45px; }
+.press-release-header { min-height: 68svh; padding: 90px 20px 45px; }
 .press-release-small-title { margin-bottom: 22px; font-size: 8px; letter-spacing: 0.2em; }
 .press-release-small-title::before, .press-release-small-title::after { width: 18px; }
 .press-release-title { font-size: clamp(48px,15vw,76px); line-height: 0.9; letter-spacing: -0.055em; }
@@ -81,15 +83,13 @@
 
 .gallery-label { position: relative; z-index: 100; width: 100%; height: auto; margin: 0 0 24px; padding: 0 0 12px; font-size: 6px; letter-spacing: 0.17em; }
 
-.newspaper-gallery { position: relative !important; width: 100% !important; max-width: none !important; height: auto !important; min-height: 0 !important; margin: 0 !important; padding: 0 !important; display: flex !important; flex-direction: column !important; align-items: center !important; justify-content: flex-start !important; gap: 0 !important; perspective: 1200px !important; perspective-origin: 50% 50% !important; transform-style: preserve-3d !important; overflow: visible !important; isolation: isolate; }
+.newspaper-gallery { position: relative; width: 100%; max-width: none; height: auto; min-height: 0; margin: 0; padding: 4px 0 20px; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; gap: 0; overflow: visible; transform: none; perspective: none; transform-style: flat; }
 
-.newspaper-gallery.mobile-linear-gallery { position: relative !important; width: 100% !important; height: auto !important; min-height: 0 !important; display: flex !important; flex-direction: column !important; align-items: center !important; justify-content: flex-start !important; gap: 0 !important; overflow: visible !important; perspective: 1200px !important; perspective-origin: 50% 50% !important; transform-style: preserve-3d !important; }
+.newspaper { position: relative; top: auto; right: auto; bottom: auto; left: auto; width: 98vw; max-width: 98vw; min-width: 0; height: auto; margin: 0 0 28px; padding: 0; display: block; flex: none; object-fit: contain; object-position: center center; transform-origin: center center; transform-style: flat; backface-visibility: hidden; -webkit-backface-visibility: hidden; will-change: transform, opacity; contain: layout paint; user-select: none; -webkit-user-drag: none; filter: none; }
 
-.newspaper { position: relative !important; top: auto !important; right: auto !important; bottom: auto !important; left: auto !important; width: 98vw !important; max-width: 98vw !important; min-width: 0 !important; height: auto !important; margin: 0 0 28px !important; padding: 0 !important; display: block !important; flex: none !important; object-fit: contain !important; object-position: center center !important; transform-origin: center center !important; transform-style: preserve-3d !important; backface-visibility: hidden !important; -webkit-backface-visibility: hidden !important; will-change: transform, opacity !important; rotate: none !important; translate: none !important; scale: none !important; }
+.newspaper-gallery .newspaper:last-child { margin-bottom: 0; }
 
-.newspaper-gallery .newspaper:last-child { margin-bottom: 0 !important; }
-
-.newspaper-gallery .newspaper:nth-child(1), .newspaper-gallery .newspaper:nth-child(2), .newspaper-gallery .newspaper:nth-child(3), .newspaper-gallery .newspaper:nth-child(4), .newspaper-gallery .newspaper:nth-child(5), .newspaper-gallery .newspaper:nth-child(6), .newspaper-gallery .newspaper:nth-child(7), .newspaper-gallery .newspaper:nth-child(8) { margin-top: 0 !important; }
+.newspaper-gallery .newspaper:nth-child(1), .newspaper-gallery .newspaper:nth-child(2), .newspaper-gallery .newspaper:nth-child(3), .newspaper-gallery .newspaper:nth-child(4), .newspaper-gallery .newspaper:nth-child(5), .newspaper-gallery .newspaper:nth-child(6), .newspaper-gallery .newspaper:nth-child(7), .newspaper-gallery .newspaper:nth-child(8) { margin-top: 0; }
 
 .newspaper-1 { z-index: 8; }
 .newspaper-2 { z-index: 7; }
@@ -100,40 +100,33 @@
 .newspaper-7 { z-index: 7; }
 .newspaper-8 { z-index: 8; }
 
-.newspaper-1, .newspaper-4, .newspaper-7 { filter: drop-shadow(0 25px 32px rgba(0,0,0,0.58)); }
-.newspaper-2, .newspaper-5, .newspaper-8 { filter: drop-shadow(0 22px 29px rgba(0,0,0,0.52)); }
-.newspaper-3, .newspaper-6 { filter: drop-shadow(0 27px 35px rgba(0,0,0,0.6)); }
-
-.press-release-end { min-height: 55vh; padding: 90px 20px 120px; }
+.press-release-end { min-height: 55svh; padding: 90px 20px 120px; }
 .end-line { height: 70px; margin-bottom: 30px; }
-.press-release-end p { font-size: 7px; font-family: "Montserrat", sans-serif; }
-.press-release-end h2 { font-size: clamp(55px,16vw,82px); font-family: "Montserrat", sans-serif; }
-.press-release-end h2 em { font-family: "Montserrat", sans-serif; font-style: italic; font-weight: 400; }
+.press-release-end p { font-size: 7px; }
+.press-release-end h2 { font-size: clamp(55px,16vw,82px); }
 }
 
 @media (max-width: 480px) {
-.press-release-header { min-height: 65vh; padding: 80px 17px 40px; }
+.press-release-header { min-height: 65svh; padding: 80px 17px 40px; }
 .press-release-title { font-size: 45px; }
 .press-release-description { font-size: 11.5px; max-width: 360px; }
 
 .newspaper-gallery-section { height: auto; min-height: 0; padding: 0 1vw 55px; }
 .gallery-label { margin-bottom: 22px; font-size: 5.5px; }
-.newspaper-gallery { height: auto !important; min-height: 0 !important; gap: 0 !important; }
-.newspaper-gallery.mobile-linear-gallery { height: auto !important; min-height: 0 !important; gap: 0 !important; }
-.newspaper { width: 98vw !important; max-width: 98vw !important; margin-bottom: 25px !important; }
-.newspaper-gallery .newspaper:last-child { margin-bottom: 0 !important; }
+.newspaper-gallery { height: auto; min-height: 0; padding-top: 4px; padding-bottom: 18px; gap: 0; }
+.newspaper { width: 98vw; max-width: 98vw; margin-bottom: 25px; }
+.newspaper-gallery .newspaper:last-child { margin-bottom: 0; }
 }
 
 @media (max-width: 380px) {
-.press-release-header { min-height: 63vh; padding: 75px 15px 35px; }
+.press-release-header { min-height: 63svh; padding: 75px 15px 35px; }
 .press-release-title { font-size: 41px; }
 .press-release-description { font-size: 11px; }
 
 .newspaper-gallery-section { height: auto; min-height: 0; padding: 0 1vw 50px; }
-.newspaper-gallery { height: auto !important; min-height: 0 !important; gap: 0 !important; }
-.newspaper-gallery.mobile-linear-gallery { height: auto !important; min-height: 0 !important; gap: 0 !important; }
-.newspaper { width: 98vw !important; max-width: 98vw !important; margin-bottom: 22px !important; }
-.newspaper-gallery .newspaper:last-child { margin-bottom: 0 !important; }
+.newspaper-gallery { height: auto; min-height: 0; padding-top: 4px; padding-bottom: 15px; gap: 0; }
+.newspaper { width: 98vw; max-width: 98vw; margin-bottom: 22px; }
+.newspaper-gallery .newspaper:last-child { margin-bottom: 0; }
 }
 
 .press-release-end { position: relative; z-index: 3; min-height: 65vh; padding: 110px 8vw 150px; text-align: center; background: linear-gradient(to bottom, transparent, rgba(255,255,255,0.012)); }
@@ -143,6 +136,7 @@
 .press-release-end h2 em { font-family: "Montserrat", sans-serif; font-weight: 400; font-style: italic; }
 
 @media (prefers-reduced-motion: reduce) {
-.newspaper { will-change: auto; transition: none !important; rotate: 0deg !important; }
+.newspaper { will-change: auto; transition: none !important; transform: none !important; }
 .background-glow { filter: none; }
 }
+
