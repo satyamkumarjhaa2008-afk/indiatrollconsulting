@@ -1,0 +1,384 @@
+.television-page {
+  width: 100%;
+  min-height: 100vh;
+  background: #050505;
+  color: #f5f5f0;
+  font-family: "Montserrat", sans-serif;
+  overflow-x: hidden;
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.television-header {
+  width: 100%;
+  padding: 100px 6vw 70px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.television-header-content {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.television-eyebrow {
+  display: inline-block;
+  margin-bottom: 18px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(245, 245, 240, 0.5);
+}
+
+.television-title {
+  margin: 0;
+  font-size: clamp(48px, 7vw, 100px);
+  line-height: 0.95;
+  font-weight: 700;
+  letter-spacing: -0.055em;
+}
+
+.television-description {
+  max-width: 650px;
+  margin: 28px 0 0;
+  font-size: 16px;
+  line-height: 1.7;
+  font-weight: 400;
+  color: rgba(245, 245, 240, 0.62);
+}
+
+
+/* =========================================================
+   SECTIONS
+   ========================================================= */
+
+.television-section {
+  width: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 75px 6vw;
+}
+
+.television-old-section {
+  padding-top: 20px;
+  padding-bottom: 100px;
+}
+
+.television-section-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 30px;
+  margin-bottom: 35px;
+}
+
+.television-section-header > div {
+  display: flex;
+  flex-direction: column;
+}
+
+.section-label {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(245, 245, 240, 0.42);
+}
+
+.television-section-header h2 {
+  margin: 0;
+  font-size: clamp(28px, 3vw, 44px);
+  line-height: 1;
+  font-weight: 600;
+  letter-spacing: -0.035em;
+}
+
+.video-count {
+  flex-shrink: 0;
+  padding-bottom: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(245, 245, 240, 0.4);
+}
+
+
+/* =========================================================
+   YOUTUBE GRID
+   ========================================================= */
+
+.youtube-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 42px 26px;
+  width: 100%;
+}
+
+
+/* =========================================================
+   VIDEO CARD
+   ========================================================= */
+
+.youtube-card {
+  width: 100%;
+  min-width: 0;
+  background: #0b0b0b;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  overflow: hidden;
+  transition:
+    transform 0.35s ease,
+    border-color 0.35s ease,
+    background-color 0.35s ease;
+}
+
+.youtube-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(255, 255, 255, 0.22);
+  background: #101010;
+}
+
+
+/* =========================================================
+   YOUTUBE FRAME
+   ========================================================= */
+
+.youtube-frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #000;
+  overflow: hidden;
+}
+
+.youtube-frame iframe {
+  position: absolute;
+  inset: 0;
+
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  border: 0;
+  margin: 0;
+  padding: 0;
+
+  background: #000;
+}
+
+
+/* =========================================================
+   CARD FOOTER
+   ========================================================= */
+
+.youtube-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  min-height: 48px;
+  padding: 0 17px;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.youtube-number {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: rgba(245, 245, 240, 0.42);
+}
+
+.youtube-type {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.17em;
+  text-transform: uppercase;
+  color: rgba(245, 245, 240, 0.45);
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 1100px) {
+
+  .television-header {
+    padding: 85px 5vw 60px;
+  }
+
+  .television-section {
+    padding: 65px 5vw;
+  }
+
+  .youtube-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 35px 22px;
+  }
+
+}
+
+
+/* =========================================================
+   SMALL TABLETS
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+  .television-header {
+    padding: 70px 5vw 50px;
+  }
+
+  .television-eyebrow {
+    margin-bottom: 14px;
+    font-size: 10px;
+  }
+
+  .television-title {
+    font-size: clamp(44px, 12vw, 70px);
+  }
+
+  .television-description {
+    max-width: 580px;
+    margin-top: 20px;
+    font-size: 14px;
+    line-height: 1.65;
+  }
+
+  .television-section {
+    padding: 55px 5vw;
+  }
+
+  .television-old-section {
+    padding-top: 10px;
+    padding-bottom: 70px;
+  }
+
+  .television-section-header {
+    margin-bottom: 27px;
+  }
+
+  .television-section-header h2 {
+    font-size: 30px;
+  }
+
+  .youtube-grid {
+    gap: 28px 18px;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+  .television-header {
+    padding: 55px 4vw 42px;
+  }
+
+  .television-eyebrow {
+    font-size: 9px;
+    letter-spacing: 0.18em;
+  }
+
+  .television-title {
+    font-size: clamp(42px, 14vw, 62px);
+    letter-spacing: -0.06em;
+  }
+
+  .television-description {
+    margin-top: 18px;
+    font-size: 13px;
+    line-height: 1.65;
+  }
+
+  .television-section {
+    padding: 45px 4vw;
+  }
+
+  .television-old-section {
+    padding-top: 5px;
+    padding-bottom: 60px;
+  }
+
+  .television-section-header {
+    align-items: flex-end;
+    margin-bottom: 23px;
+  }
+
+  .section-label {
+    margin-bottom: 8px;
+    font-size: 9px;
+  }
+
+  .television-section-header h2 {
+    font-size: 26px;
+  }
+
+  .video-count {
+    font-size: 9px;
+  }
+
+  .youtube-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .youtube-card:hover {
+    transform: none;
+  }
+
+  .youtube-card-footer {
+    min-height: 45px;
+    padding: 0 14px;
+  }
+
+  .youtube-number {
+    font-size: 10px;
+  }
+
+  .youtube-type {
+    font-size: 8px;
+  }
+
+}
+
+
+/* =========================================================
+   VERY SMALL PHONES
+   ========================================================= */
+
+@media (max-width: 380px) {
+
+  .television-header {
+    padding: 48px 4vw 38px;
+  }
+
+  .television-section {
+    padding: 40px 4vw;
+  }
+
+  .television-section-header h2 {
+    font-size: 24px;
+  }
+
+  .video-count {
+    font-size: 8px;
+  }
+
+  .youtube-grid {
+    gap: 24px;
+  }
+
+}
