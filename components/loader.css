@@ -18,7 +18,7 @@
   justify-content: center;
 
   overflow: hidden;
-
+pointer-events: none;
   background: #ffffff;
 
   isolation: isolate;

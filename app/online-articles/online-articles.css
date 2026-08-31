@@ -1,0 +1,903 @@
+/* ============================================================
+   ONLINE ARTICLES
+   ============================================================ */
+
+.online-articles-section {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background: #000;
+  color: #fff;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.online-articles-section *,
+.online-articles-section *::before,
+.online-articles-section *::after {
+  box-sizing: border-box;
+}
+
+
+/* ============================================================
+   MAIN CONTAINER
+   ============================================================ */
+
+.online-articles-container {
+  position: relative;
+  width: 100%;
+  max-width: 1800px;
+  margin: 0 auto;
+  padding: 30px 3.4% 100px;
+}
+
+
+/* ============================================================
+   FILTER NAVIGATION
+   ============================================================ */
+
+.online-articles-filter {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 58px;
+  width: 100%;
+  margin: 0 0 78px;
+  padding: 0;
+  z-index: 100;
+}
+
+
+/* ============================================================
+   FILTER BUTTON
+   ============================================================ */
+
+.online-filter-btn {
+  position: relative;
+  appearance: none;
+  -webkit-appearance: none;
+  border: none;
+  outline: none;
+  padding: 0;
+  margin: 0;
+  background: transparent;
+  color: #fff;
+  font-family: "Montserrat", sans-serif;
+  font-size: clamp(19px, 1.35vw, 27px);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.5px;
+  cursor: pointer;
+  z-index: 101;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+
+/* ============================================================
+   ACTIVE FILTER
+   ============================================================ */
+
+.online-filter-btn.active {
+  color: #f4b019;
+}
+
+
+/* ============================================================
+   FILTER HOVER
+   ============================================================ */
+
+.online-filter-btn:not(.active):hover {
+  color: #f4b019;
+  transform: translateY(-2px);
+}
+
+
+/* ============================================================
+   FILTER UNDERLINE
+   ============================================================ */
+
+.online-filter-btn::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -9px;
+  width: 0;
+  height: 2px;
+  background: #f4b019;
+  transition: width 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.online-filter-btn.active::after {
+  width: 100%;
+}
+
+
+/* ============================================================
+   ARTICLES GRID
+   ============================================================ */
+
+.online-articles-grid {
+  position: relative;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  column-gap: 2.45%;
+  row-gap: 55px;
+  align-items: start;
+}
+
+
+/* ============================================================
+   ARTICLE CARD
+   ============================================================ */
+
+.online-article-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-width: 0;
+  background: #fff;
+  border-radius: 7px;
+  overflow: hidden;
+  color: #000;
+  text-decoration: none;
+  opacity: 1;
+  transform: translate3d(0, 0, 0) scale(1);
+  will-change: transform;
+  cursor: pointer;
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.45s ease;
+}
+
+
+/* ============================================================
+   CARD HOVER
+   ============================================================ */
+
+@media (hover: hover) and (pointer: fine) {
+  .online-article-card:hover {
+    transform: translate3d(0, -7px, 0) scale(1);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  }
+}
+
+
+/* ============================================================
+   IMAGE WRAPPER
+   ============================================================ */
+
+.online-article-image-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: #111;
+  isolation: isolate;
+}
+
+
+/* ============================================================
+   ARTICLE IMAGE
+   ============================================================ */
+
+.online-article-image {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: translate3d(0, 0, 0) scale(1);
+  will-change: transform;
+  transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+
+/* ============================================================
+   IMAGE HOVER
+   ============================================================ */
+
+@media (hover: hover) and (pointer: fine) {
+  .online-article-card:hover .online-article-image {
+    transform: translate3d(0, 0, 0) scale(1.055);
+  }
+}
+
+
+/* ============================================================
+   IMAGE OVERLAY
+   ============================================================ */
+
+/*
+   IMPORTANT:
+
+   The gradient itself is LINEAR.
+
+   Top:
+   Yellow
+
+   Middle:
+   Golden
+
+   Bottom:
+   Dark Blue
+
+   The clip-path starts at the CENTER and expands toward
+   the top and bottom during hover.
+*/
+
+.online-article-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+ 
+  background: linear-gradient(
+    to bottom,
+    #f4b019 0%,
+    #d9950d 3%,
+    #123b67 100%
+  );
+  clip-path: inset(50% 0 50% 0);
+  -webkit-clip-path: inset(50% 0 50% 0);
+  pointer-events: none;
+  z-index: 5;
+  transition: clip-path 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: -webkit-clip-path 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+
+/* ============================================================
+   OVERLAY HOVER
+   ============================================================ */
+
+@media (hover: hover) and (pointer: fine) {
+  .online-article-card:hover .online-article-overlay {
+    clip-path: inset(0 0 0 0);
+    -webkit-clip-path: inset(0 0 0 0);
+  }
+}
+
+
+/* ============================================================
+   LINK / CHAIN ICON
+   ============================================================ */
+
+.online-article-link-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: clamp(55px, 4.6vw, 82px);
+  height: clamp(55px, 4.6vw, 82px);
+  color: #fff;
+  opacity: 0;
+  transform: scale(0.55) rotate(-12deg);
+  will-change: transform, opacity;
+  pointer-events: none;
+  transition:
+    opacity 0.35s ease 0.18s,
+    transform 0.5s cubic-bezier(0.22, 1, 0.36, 1) 0.18s;
+}
+
+
+/* ============================================================
+   ICON HOVER
+   ============================================================ */
+
+@media (hover: hover) and (pointer: fine) {
+  .online-article-card:hover .online-article-link-icon {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+
+/* ============================================================
+   LINK ICON SVG
+   ============================================================ */
+
+.online-article-link-icon svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  filter: drop-shadow(0 3px 7px rgba(0, 0, 0, 0.25));
+}
+
+
+/* ============================================================
+   INDIA TROLL LOGO
+   ============================================================ */
+
+.online-article-logo {
+  position: absolute;
+  left: 6px;
+  bottom: -3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 20;
+  pointer-events: none;
+}
+
+
+/* ============================================================
+   INDIA TROLL LOGO IMAGE
+   ============================================================ */
+
+.online-article-logo-image {
+  display: block;
+  width: auto;
+  height: 64px;
+  max-width: 115px;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.4));
+}
+
+
+/* ============================================================
+   CARD CONTENT
+   ============================================================ */
+
+.online-article-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 318px;
+  padding: 46px 42px 31px;
+  box-sizing: border-box;
+  background: #fff;
+}
+
+
+/* ============================================================
+   ARTICLE TITLE
+   ============================================================ */
+
+.online-article-title {
+  margin: 0;
+  padding: 0;
+  color: #000;
+  font-family: "Montserrat", sans-serif;
+  font-size: clamp(22px, 1.55vw, 31px);
+  font-weight: 700;
+  line-height: 1.38;
+  letter-spacing: -0.6px;
+  overflow-wrap: anywhere;
+}
+
+
+/* ============================================================
+   READ MORE
+   ============================================================ */
+
+.online-article-read-more {
+  display: flex;
+  align-items: center;
+  margin-top: auto;
+  padding-top: 38px;
+  color: #000;
+  font-family: "Montserrat", sans-serif;
+  font-size: clamp(16px, 1.15vw, 22px);
+  font-weight: 700;
+  line-height: 1;
+  user-select: none;
+  pointer-events: none;
+}
+
+
+/* ============================================================
+   ACCENT DOT
+   ============================================================ */
+
+.online-article-dot {
+  flex: 0 0 auto;
+  width: 11px;
+  height: 11px;
+  margin-right: 18px;
+  border-radius: 50%;
+  background: #f4b019;
+  transition: transform 0.3s ease;
+}
+
+
+@media (hover: hover) and (pointer: fine) {
+  .online-article-card:hover .online-article-dot {
+    transform: scale(1.3);
+  }
+}
+
+
+/* ============================================================
+   READ MORE TEXT
+   ============================================================ */
+
+.online-article-read-text {
+  transition: transform 0.35s ease;
+}
+
+
+@media (hover: hover) and (pointer: fine) {
+  .online-article-card:hover .online-article-read-text {
+    transform: translateX(3px);
+  }
+}
+
+
+/* ============================================================
+   PLUS
+   ============================================================ */
+
+.online-article-plus {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 17px;
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 0;
+  transform: rotate(0deg);
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+
+@media (hover: hover) and (pointer: fine) {
+  .online-article-card:hover .online-article-plus {
+    transform: rotate(90deg);
+  }
+}
+
+
+/* ============================================================
+   EMPTY STATE
+   ============================================================ */
+
+.online-articles-empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 300px;
+  color: #fff;
+  font-family: "Montserrat", sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.online-articles-empty p {
+  margin: 0;
+}
+
+
+/* ============================================================
+   LARGE DESKTOP
+   ============================================================ */
+
+@media (min-width: 1600px) {
+  .online-articles-container {
+    padding-left: 3.35%;
+    padding-right: 3.35%;
+  }
+
+  .online-articles-filter {
+    margin-bottom: 82px;
+  }
+
+  .online-article-content {
+    min-height: 330px;
+    padding: 48px 43px 32px;
+  }
+
+  .online-article-logo {
+    left: 17px;
+    bottom: 16px;
+  }
+
+  .online-article-logo-image {
+    height: 45px;
+    max-width: 125px;
+  }
+}
+
+
+/* ============================================================
+   1200px - 1400px
+   ============================================================ */
+
+@media (max-width: 1400px) {
+  .online-article-content {
+    min-height: 300px;
+    padding: 38px 34px 28px;
+  }
+
+  .online-article-title {
+    font-size: clamp(20px, 1.65vw, 27px);
+  }
+
+  .online-article-read-more {
+    font-size: 18px;
+  }
+}
+
+
+/* ============================================================
+   TABLET / SMALL DESKTOP
+   ============================================================ */
+
+@media (max-width: 1100px) {
+  .online-articles-container {
+    padding: 27px 4% 80px;
+  }
+
+  .online-articles-filter {
+    gap: 46px;
+    margin-bottom: 58px;
+  }
+
+  .online-articles-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 28px;
+    row-gap: 40px;
+  }
+
+  .online-article-content {
+    min-height: 285px;
+    padding: 34px 30px 27px;
+  }
+
+  .online-article-title {
+    font-size: clamp(20px, 2.15vw, 27px);
+    line-height: 1.38;
+  }
+
+  .online-article-read-more {
+    padding-top: 30px;
+    font-size: 17px;
+  }
+
+  .online-article-logo {
+    left: 13px;
+    bottom: 12px;
+  }
+
+  .online-article-logo-image {
+    height: 38px;
+    max-width: 105px;
+  }
+}
+
+
+/* ============================================================
+   TABLET
+   ============================================================ */
+
+@media (max-width: 768px) {
+  .online-articles-section {
+    min-height: auto;
+  }
+
+  .online-articles-container {
+    padding: 30px 24px 70px;
+  }
+
+
+  /* ----------------------------------------------------------
+     FILTER
+  ---------------------------------------------------------- */
+
+  .online-articles-filter {
+    gap: 31px;
+    margin-bottom: 45px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .online-articles-filter::-webkit-scrollbar {
+    display: none;
+  }
+
+  .online-filter-btn {
+    flex: 0 0 auto;
+    font-size: 17px;
+  }
+
+
+  /* ----------------------------------------------------------
+     GRID
+  ---------------------------------------------------------- */
+
+  .online-articles-grid {
+    grid-template-columns: 1fr;
+    gap: 34px;
+  }
+
+
+  /* ----------------------------------------------------------
+     CARD
+  ---------------------------------------------------------- */
+
+  .online-article-card {
+    transform: none;
+  }
+
+
+  /* ----------------------------------------------------------
+     IMAGE
+  ---------------------------------------------------------- */
+
+  .online-article-image-wrapper {
+    aspect-ratio: 16 / 10;
+  }
+
+
+  /* ----------------------------------------------------------
+     CONTENT
+  ---------------------------------------------------------- */
+
+  .online-article-content {
+    min-height: 0;
+    padding: 31px 27px 28px;
+  }
+
+  .online-article-title {
+    font-size: clamp(21px, 5.2vw, 27px);
+    line-height: 1.4;
+    letter-spacing: -0.4px;
+  }
+
+
+  /* ----------------------------------------------------------
+     READ MORE
+  ---------------------------------------------------------- */
+
+  .online-article-read-more {
+    margin-top: 31px;
+    padding-top: 0;
+    font-size: 17px;
+  }
+
+  .online-article-dot {
+    width: 9px;
+    height: 9px;
+    margin-right: 14px;
+  }
+
+  .online-article-plus {
+    margin-left: 14px;
+    font-size: 25px;
+  }
+
+
+  /* ----------------------------------------------------------
+     LOGO
+  ---------------------------------------------------------- */
+
+  .online-article-logo {
+    left: 13px;
+    bottom: 12px;
+  }
+
+  .online-article-logo-image {
+    height: 38px;
+    max-width: 105px;
+  }
+}
+
+
+/* ============================================================
+   MOBILE
+   ============================================================ */
+
+@media (max-width: 520px) {
+  .online-articles-container {
+    padding: 25px 17px 55px;
+  }
+
+
+  /* ----------------------------------------------------------
+     FILTER
+  ---------------------------------------------------------- */
+
+  .online-articles-filter {
+    gap: 27px;
+    margin-bottom: 34px;
+  }
+
+  .online-filter-btn {
+    font-size: 15px;
+    letter-spacing: -0.25px;
+  }
+
+  .online-filter-btn::after {
+    bottom: -7px;
+    height: 2px;
+  }
+
+
+  /* ----------------------------------------------------------
+     GRID
+  ---------------------------------------------------------- */
+
+  .online-articles-grid {
+    gap: 27px;
+  }
+
+
+  /* ----------------------------------------------------------
+     CARD
+  ---------------------------------------------------------- */
+
+  .online-article-card {
+    border-radius: 6px;
+  }
+
+
+  /* ----------------------------------------------------------
+     IMAGE
+  ---------------------------------------------------------- */
+
+  .online-article-image-wrapper {
+    aspect-ratio: 16 / 10;
+  }
+
+
+  /* ----------------------------------------------------------
+     CONTENT
+  ---------------------------------------------------------- */
+
+  .online-article-content {
+    padding: 25px 21px 23px;
+  }
+
+  .online-article-title {
+    font-size: 20px;
+    line-height: 1.42;
+  }
+
+
+  /* ----------------------------------------------------------
+     READ MORE
+  ---------------------------------------------------------- */
+
+  .online-article-read-more {
+    margin-top: 27px;
+    font-size: 15px;
+  }
+
+  .online-article-dot {
+    width: 8px;
+    height: 8px;
+    margin-right: 12px;
+  }
+
+  .online-article-plus {
+    margin-left: 12px;
+    font-size: 23px;
+  }
+
+
+  /* ----------------------------------------------------------
+     INDIA TROLL LOGO
+  ---------------------------------------------------------- */
+
+  .online-article-logo {
+    left: 10px;
+    bottom: 9px;
+  }
+
+  .online-article-logo-image {
+    height: 32px;
+    max-width: 90px;
+  }
+}
+
+
+/* ============================================================
+   SMALL MOBILE
+   ============================================================ */
+
+@media (max-width: 380px) {
+  .online-articles-container {
+    padding-left: 13px;
+    padding-right: 13px;
+  }
+
+  .online-articles-filter {
+    gap: 23px;
+  }
+
+  .online-filter-btn {
+    font-size: 14px;
+  }
+
+  .online-article-content {
+    padding: 23px 19px 21px;
+  }
+
+  .online-article-title {
+    font-size: 18px;
+  }
+
+  .online-article-read-more {
+    font-size: 14px;
+  }
+
+  .online-article-logo {
+    left: 9px;
+    bottom: 8px;
+  }
+
+  .online-article-logo-image {
+    height: 29px;
+    max-width: 82px;
+  }
+}
+
+
+/* ============================================================
+   TOUCH DEVICES
+   ============================================================ */
+
+@media (hover: none) and (pointer: coarse) {
+  .online-article-card {
+    transform: none !important;
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+  }
+
+  .online-article-image {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+
+  .online-article-overlay {
+    opacity: 1;
+    clip-path: inset(50% 0 50% 0);
+    -webkit-clip-path: inset(50% 0 50% 0);
+  }
+
+  .online-article-link-icon {
+    opacity: 0;
+  }
+}
+
+
+/* ============================================================
+   REDUCED MOTION
+   ============================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  .online-article-card,
+  .online-article-image,
+  .online-article-overlay,
+  .online-article-link-icon,
+  .online-article-dot,
+  .online-article-read-text,
+  .online-article-plus,
+  .online-filter-btn,
+  .online-filter-btn::after {
+    transition: none !important;
+  }
+
+  .online-article-card {
+    opacity: 1 !important;
+    transform: translate3d(0, 0, 0) scale(1) !important;
+  }
+
+  .online-article-image {
+    transform: translate3d(0, 0, 0) scale(1) !important;
+  }
+
+  .online-article-overlay {
+    opacity: 1 !important;
+    clip-path: inset(0 0 0 0) !important;
+    -webkit-clip-path: inset(0 0 0 0) !important;
+  }
+
+  .online-article-link-icon {
+    opacity: 1 !important;
+    transform: scale(1) rotate(0deg) !important;
+  }
+}
