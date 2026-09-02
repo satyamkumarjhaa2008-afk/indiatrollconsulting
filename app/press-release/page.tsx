@@ -3,7 +3,7 @@
 import React, { useEffect, useRef } from "react";
 import SiteNavbar from "@/components/site-navbar";
 import SiteFooter from "@/components/site-footer";
-import { motion } from "motion/react";
+import { motion, type Variants } from "motion/react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import ImageViewer from "@/components/View";
@@ -79,7 +79,7 @@ const headerContainer = {
   },
 };
 
-const headerItem = {
+const headerItem: Variants = {
   hidden: {
     opacity: 0,
     y: 50,
@@ -102,7 +102,7 @@ const desktopStartPositions = [
     y: -500,
     z: -1200,
     rotationX: 40,
-    rotationY: -45,
+  rotationY: -45,
     rotationZ: -18,
   },
   {
@@ -360,7 +360,7 @@ const mobileDepthPositions = [
     rotationX: -28,
     rotationY: -29,
     rotationZ: 8,
-    scale: 0.68,
+     scale: 0.68,
   },
 ];
 

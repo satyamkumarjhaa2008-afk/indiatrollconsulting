@@ -5,7 +5,7 @@ import "./services.css";
 
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { motion } from "motion/react";
+import { motion, type Variants } from "motion/react";
 
 import SiteNavbar from "../../../components/site-navbar";
 import SiteFooter from "../../../components/site-footer";
@@ -136,7 +136,7 @@ const serviceData = [
    MOTION VARIANTS
 --------------------------------------------------------- */
 
-const pageVariants = {
+const pageVariants: Variants = {
   hidden: {
     opacity: 0,
   },
@@ -150,7 +150,7 @@ const pageVariants = {
   },
 };
 
-const contentVariants = {
+const contentVariants: Variants = {
   hidden: {
     opacity: 0,
     y: 70,
@@ -167,7 +167,7 @@ const contentVariants = {
   },
 };
 
-const headingVariants = {
+const headingVariants: Variants = {
   hidden: {
     opacity: 0,
     y: 50,
@@ -185,7 +185,7 @@ const headingVariants = {
   },
 };
 
-const listContainerVariants = {
+const listContainerVariants: Variants = {
   hidden: {},
   visible: {
     transition: {
@@ -195,7 +195,7 @@ const listContainerVariants = {
   },
 };
 
-const listItemVariants = {
+const listItemVariants: Variants = {
   hidden: {
     opacity: 0,
     x: -50,
@@ -214,7 +214,7 @@ const listItemVariants = {
   },
 };
 
-const sidebarVariants = {
+const sidebarVariants: Variants = {
   hidden: {
     opacity: 0,
     x: 80,
@@ -232,7 +232,7 @@ const sidebarVariants = {
   },
 };
 
-const imageVariants = {
+const imageVariants: Variants = {
   hidden: {
     opacity: 0,
     scale: 0.8,

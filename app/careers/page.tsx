@@ -107,9 +107,9 @@ const CareersPage = () => {
 
             const isExpanded = expandedIndex === index;
 
-            const experience =
-              "Experience" in job
-                ? job["Experience"]
+            const experience: string[] =
+              "Experience" in job && Array.isArray(job.Experience)
+                ? job.Experience
                 : ["Freshers are welcome to apply"];
 
             return (

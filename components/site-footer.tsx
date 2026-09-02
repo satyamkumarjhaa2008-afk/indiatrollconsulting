@@ -1,7 +1,7 @@
-
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
+import Link from 'next/link'
 
 declare global {
   interface Window {
@@ -18,9 +18,14 @@ declare global {
         ) => void
       }
     }
+
     googleTranslateElementInit?: () => void
   }
 }
+
+/* =========================================================
+   #4 — REAL INTERNAL ROUTES INSTEAD OF "#" PLACEHOLDERS
+   ========================================================= */
 
 const services = [
   {
@@ -50,23 +55,65 @@ const services = [
 ]
 
 const quickLinks = [
-  'About Us',
-  'Our Team',
-  'Television',
-  'Careers',
-  'Contact',
+  {
+    name: 'About Us',
+    href: '/about-us',
+  },
+  {
+    name: 'Our Team',
+    href: '/our-team',
+  },
+  {
+    name: 'Television',
+    href: '/media/television',
+  },
+  {
+    name: 'Careers',
+    href: '/careers',
+  },
+  {
+    name: 'Contact',
+    href: '/contact-us',
+  },
 ]
 
+/* =========================================================
+   #4 — SOCIAL LINKS NO LONGER USE "#"
+   Replace these URLs with your exact company profiles
+   if your official social handles are different.
+   ========================================================= */
+
 const socials = [
-  { label: 'Facebook', icon: 'fab fa-facebook-f' },
-  { label: 'LinkedIn', icon: 'fab fa-linkedin' },
-  { label: 'Instagram', icon: 'fab fa-instagram' },
-  { label: 'Twitter', icon: 'fab fa-twitter' },
+  {
+    label: 'Facebook',
+    icon: 'fab fa-facebook-f',
+    href: 'https://www.facebook.com/',
+  },
+  {
+    label: 'LinkedIn',
+    icon: 'fab fa-linkedin-in',
+    href: 'https://www.linkedin.com/',
+  },
+  {
+    label: 'Instagram',
+    icon: 'fab fa-instagram',
+    href: 'https://www.instagram.com/',
+  },
+  {
+    label: 'Twitter',
+    icon: 'fab fa-twitter',
+    href: 'https://twitter.com/',
+  },
 ]
 
 export default function SiteFooter() {
   const footerRef = useRef<HTMLElement>(null)
+
   const [isVisible, setIsVisible] = useState(false)
+
+  /* =========================================================
+     FOOTER REVEAL ANIMATION
+     ========================================================= */
 
   useEffect(() => {
     const node = footerRef.current
@@ -80,13 +127,19 @@ export default function SiteFooter() {
           observer.disconnect()
         }
       },
-      { threshold: 0.1 }
+      {
+        threshold: 0.1,
+      }
     )
 
     observer.observe(node)
 
     return () => observer.disconnect()
   }, [])
+
+  /* =========================================================
+     GOOGLE TRANSLATE
+     ========================================================= */
 
   useEffect(() => {
     window.googleTranslateElementInit = () => {
@@ -127,31 +180,73 @@ export default function SiteFooter() {
     }
   }, [])
 
+  /* =========================================================
+     #4 — REAL BACK-TO-TOP ACTION
+     No "#home" placeholder required.
+     ========================================================= */
+
+  const handleBackToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    })
+  }
+
   return (
     <footer
       ref={footerRef}
       className={`site-footer${isVisible ? ' is-visible' : ''}`}
     >
-      <div className="footer-watermark" aria-hidden="true">
+      {/* =====================================================
+          FOOTER WATERMARK
+          ===================================================== */}
+
+      <div
+        className="footer-watermark"
+        aria-hidden="true"
+      >
         R
       </div>
 
       <div className="footer-main footer-reference-layout">
+
+        {/* ===================================================
+            INTRO
+            =================================================== */}
+
         <div className="footer-intro footer-reveal footer-reveal-1">
-          <img
-            className="footer-logo"
-            src="/assets/icons/logos/india-troll-logo.svg"
-            alt="IndiaTroll"
-          />
+
+          {/* =================================================
+              #1 — REMOVED WHITE FILTER FROM LOGO.
+              The original SVG colors will now remain visible.
+              ================================================= */}
+
+          <Link href="/" className="footer-logo-link">
+            <img
+              className="footer-logo"
+              src="/india-troll-logo-vector.svg"
+              alt="Rudra Research & Analytics"
+            />
+          </Link>
 
           <p className="footer-description">
-            IndiaTroll conducts opinion and exit polls for media and supports
-            political and governance decisions through ground surveys and
-            data-backed insights...
-            <a className="footer-read-more" href="#contact">
+          IndiaTroll Research & Analytics specialises in strategic research, ground-level intelligence, opinion analysis, market insights and data-driven solutions, helping organisations and decision-makers make smarter, evidence-based choices.
+
+            {/* ===============================================
+                #4 — REAL CONTACT ROUTE
+                =============================================== */}
+
+            <Link
+              className="footer-read-more"
+              href="/contact-us"
+            >
               Read More &gt;&gt;
-            </a>
+            </Link>
           </p>
+
+          {/* =================================================
+              SOCIAL MEDIA
+              ================================================= */}
 
           <div
             className="footer-socials footer-intro-socials"
@@ -160,8 +255,10 @@ export default function SiteFooter() {
             {socials.map((social) => (
               <a
                 key={social.label}
-                href="#"
+                href={social.href}
                 aria-label={social.label}
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 <i
                   className={social.icon}
@@ -172,6 +269,10 @@ export default function SiteFooter() {
           </div>
         </div>
 
+        {/* ===================================================
+            FIND US
+            =================================================== */}
+
         <nav
           className="footer-section footer-reveal footer-reveal-2"
           aria-label="Find us"
@@ -179,47 +280,71 @@ export default function SiteFooter() {
           <h3>Find Us</h3>
 
           <ul>
+
             <li>
               <span className="footer-contact-item">
-                <i className="fa fa-map" aria-hidden="true" />
-                Office No. 22, 4th Floor, Solitaire Business Hub, Balewadi
-                High Street, Baner, Pune – 411045
+                <i
+                  className="fa fa-map-marker-alt"
+                  aria-hidden="true"
+                />
+
+                <span>
+                 Office No. 305, 3rd Floor, Orion Business Centre,
+Baner Road, Baner, Pune – 411045, Maharashtra, India
+                </span>
               </span>
             </li>
 
             <li>
               <a href="tel:+912045219327">
-                <i className="fa fa-phone" aria-hidden="true" />
-                020-45219327
+                <i
+                  className="fa fa-phone"
+                  aria-hidden="true"
+                />
+                <span>020-45219327</span>
               </a>
             </li>
 
             <li>
-              <a href="tel:+918484986359">
-                <i className="fa fa-music" aria-hidden="true" />
-                +91-8484986359
+              <a href="tel:+918805757772">
+                <i
+                  className="fa fa-mobile-alt"
+                  aria-hidden="true"
+                />
+                <span>+91-8805757772</span>
               </a>
             </li>
 
             <li>
-              <a href="mailto:info@rudraresearch.in">
-                <i className="fa fa-envelope" aria-hidden="true" />
-                info@rudraresearch.in
+              <a href="mailto:info@indiatroll.in">
+                <i
+                  className="fa fa-envelope"
+                  aria-hidden="true"
+                />
+                <span>info@indiatroll.in</span>
               </a>
             </li>
 
             <li>
               <a
-                href="https://www.rudraresearch.in"
+                href="https://indiatroll.in"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <i className="fa fa-globe" aria-hidden="true" />
-                www.rudraresearch.in
+                <i
+                  className="fa fa-globe"
+                  aria-hidden="true"
+                />
+                <span>www.indiatroll.in</span>
               </a>
             </li>
+
           </ul>
         </nav>
+
+        {/* ===================================================
+            SERVICES
+            =================================================== */}
 
         <nav
           className="footer-section footer-reveal footer-reveal-3"
@@ -230,15 +355,29 @@ export default function SiteFooter() {
           <ul>
             {services.map((service) => (
               <li key={service.name}>
-                <i className="fa fa-check" aria-hidden="true" />
 
-                <a href={service.href}>
-                  {service.name}
-                </a>
+                {/* =================================================
+                    #6 — ICON IS ALWAYS VISIBLE.
+                    No width:0, opacity:0 or slide-in animation.
+                    ================================================= */}
+
+                <Link href={service.href}>
+                  <i
+                    className="fa fa-check"
+                    aria-hidden="true"
+                  />
+
+                  <span>{service.name}</span>
+                </Link>
+
               </li>
             ))}
           </ul>
         </nav>
+
+        {/* ===================================================
+            QUICK LINKS
+            =================================================== */}
 
         <nav
           className="footer-section footer-reveal footer-reveal-4"
@@ -248,45 +387,99 @@ export default function SiteFooter() {
 
           <ul>
             {quickLinks.map((link) => (
-              <li key={link}>
-                <a href="#home">
+              <li key={link.name}>
+
+                <Link href={link.href}>
+
+                  {/* =================================================
+                      #6 — ARROW ALWAYS EXISTS.
+                      It no longer appears only after hovering.
+                      ================================================= */}
+
                   <i
                     className="fa fa-angle-right"
                     aria-hidden="true"
                   />
-                  {link}
-                </a>
+
+                  <span>{link.name}</span>
+
+                </Link>
+
               </li>
             ))}
+
+            {/* =================================================
+                #5 — PRIVACY POLICY PAGE
+                ================================================= */}
+
+            <li>
+              <Link href="/privacy-policy">
+                <i
+                  className="fa fa-angle-right"
+                  aria-hidden="true"
+                />
+                <span>Privacy Policy</span>
+              </Link>
+            </li>
+
+            {/* =================================================
+                #5 — TERMS & CONDITIONS PAGE
+                ================================================= */}
+
+            <li>
+              <Link href="/terms-and-conditions">
+                <i
+                  className="fa fa-angle-right"
+                  aria-hidden="true"
+                />
+                <span>Terms &amp; Conditions</span>
+              </Link>
+            </li>
+
           </ul>
         </nav>
+
       </div>
 
-      <div className="footer-bottom footer-reveal footer-reveal-4">
-        <p>
-          @ Website Designed and Managed By Satyam Kumar Jha
-        </p>
+      {/* =====================================================
+          LANGUAGE TRANSLATOR
+          ===================================================== */}
 
-        <p>
-          <a href="#privacy">
-            Privacy Policy
-          </a>
-
-          <span> - </span>
-
-          <a href="#terms">
-            Terms &amp; Conditions
-          </a>
-        </p>
-      </div>
-
-      {/* Google Translate */}
       <div className="footer-language">
         <div
           id="google_translate_element"
           className="google-translate"
         />
       </div>
+
+      {/* =====================================================
+          BOTTOM BAR
+          ===================================================== */}
+
+      <div className="footer-bottom footer-reveal footer-reveal-4">
+
+        <p>
+          © {new Date().getFullYear()} IndiaTroll Research &amp; Analytics.
+          All Rights Reserved.
+        </p>
+
+        <p>
+          <Link href="/privacy-policy">
+            Privacy Policy
+          </Link>
+
+          <span> - </span>
+
+          <Link href="/terms-and-conditions">
+            Terms &amp; Conditions
+          </Link>
+        </p>
+
+      </div>
+
+      {/* =====================================================
+          WHATSAPP
+          ===================================================== */}
 
       <a
         className="footer-whatsapp"
@@ -301,17 +494,22 @@ export default function SiteFooter() {
         />
       </a>
 
-      <a
+      {/* =====================================================
+          #4 — BUTTON INSTEAD OF "#home"
+          ===================================================== */}
+
+      <button
+        type="button"
         className="footer-to-top"
-        href="#home"
+        onClick={handleBackToTop}
         aria-label="Back to top"
       >
         <i
           className="fa fa-angle-up"
           aria-hidden="true"
         />
-      </a>
+      </button>
+
     </footer>
   )
 }
-

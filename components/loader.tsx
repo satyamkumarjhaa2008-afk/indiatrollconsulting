@@ -1,13 +1,14 @@
 "use client";
+
 import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
 import "./loader.css";
 
-interface LoaderProps {
-  onComplete?: () => void;
-}
+import { useLoader } from "@/components/LoaderProvider";
 
-const Loader: React.FC<LoaderProps> = ({ onComplete }) => {
+const Loader = () => {
+  const { setIsLoading } = useLoader();
+
   const loaderRef = useRef<HTMLDivElement>(null);
   const svgContainerRef = useRef<HTMLDivElement>(null);
   const progressRef = useRef<HTMLDivElement>(null);
@@ -24,9 +25,14 @@ const Loader: React.FC<LoaderProps> = ({ onComplete }) => {
 
       try {
         /*
-         * Load the actual SVG from public/
+         * ============================================================
+         * LOAD SVG
+         * ============================================================
          */
-        const response = await fetch("/india-troll-logo-vector.svg");
+
+        const response = await fetch(
+          "/india-troll-logo-vector.svg"
+        );
 
         if (!response.ok) {
           throw new Error("Unable to load logo SVG");
@@ -37,11 +43,9 @@ const Loader: React.FC<LoaderProps> = ({ onComplete }) => {
         if (cancelled) return;
 
         /*
-         * Insert SVG into the DOM.
-         *
-         * This is important because GSAP needs access to the
-         * actual SVG paths rather than an <img>.
+         * Insert SVG into DOM
          */
+
         container.innerHTML = svgText;
 
         const svg = container.querySelector("svg");
@@ -50,11 +54,17 @@ const Loader: React.FC<LoaderProps> = ({ onComplete }) => {
 
         svg.classList.add("india-troll-svg");
 
+        /*
+         * ============================================================
+         * GSAP CONTEXT
+         * ============================================================
+         */
+
         animationContext = gsap.context(() => {
           /*
-           * ---------------------------------------------------
+           * ============================================================
            * GET SVG GROUPS
-           * ---------------------------------------------------
+           * ============================================================
            */
 
           const logoMark = svg.querySelector("#logo-mark");
@@ -64,9 +74,9 @@ const Loader: React.FC<LoaderProps> = ({ onComplete }) => {
           const logoOther = svg.querySelector("#logo-other");
 
           /*
-           * ---------------------------------------------------
+           * ============================================================
            * GET INDIVIDUAL PATHS
-           * ---------------------------------------------------
+           * ============================================================
            */
 
           const markPaths = logoMark
@@ -90,9 +100,9 @@ const Loader: React.FC<LoaderProps> = ({ onComplete }) => {
             : [];
 
           /*
-           * ---------------------------------------------------
+           * ============================================================
            * INITIAL STATE
-           * ---------------------------------------------------
+           * ============================================================
            */
 
           gsap.set(svg, {
@@ -100,10 +110,6 @@ const Loader: React.FC<LoaderProps> = ({ onComplete }) => {
             scale: 0.88,
             transformOrigin: "50% 50%",
           });
-
-          /*
-           * Everything starts invisible.
-           */
 
           gsap.set(
             [
@@ -117,10 +123,6 @@ const Loader: React.FC<LoaderProps> = ({ onComplete }) => {
               opacity: 0,
             }
           );
-
-          /*
-           * Give every path a slight starting scale.
-           */
 
           gsap.set(markPaths, {
             scale: 0.92,
@@ -142,9 +144,9 @@ const Loader: React.FC<LoaderProps> = ({ onComplete }) => {
           });
 
           /*
-           * ---------------------------------------------------
-           * TIMELINE
-           * ---------------------------------------------------
+           * ============================================================
+           * LOADER TIMELINE
+           * ============================================================
            */
 
           const tl = gsap.timeline({
@@ -152,28 +154,38 @@ const Loader: React.FC<LoaderProps> = ({ onComplete }) => {
               ease: "power3.out",
             },
 
-            onComplete: () => {
-              /*
-               * Final loader fade.
-               */
+            /*
+             * ========================================================
+             * IMPORTANT:
+             * Loader has completely finished.
+             * Tell the entire application.
+             * ========================================================
+             */
 
+            onComplete: () => {
               gsap.to(loader, {
                 opacity: 0,
                 duration: 0.7,
                 ease: "power2.inOut",
+
                 onComplete: () => {
-                  if (onComplete) {
-                    onComplete();
-                  }
+                  /*
+                   * Loader is now completely gone.
+                   *
+                   * This allows every page's GSAP
+                   * animation to start.
+                   */
+
+                  setIsLoading(false);
                 },
               });
             },
           });
 
           /*
-           * ---------------------------------------------------
+           * ============================================================
            * 0. INITIAL LOGO SCALE
-           * ---------------------------------------------------
+           * ============================================================
            */
 
           tl.to(svg, {
@@ -183,11 +195,9 @@ const Loader: React.FC<LoaderProps> = ({ onComplete }) => {
           });
 
           /*
-           * ---------------------------------------------------
+           * ============================================================
            * 1. IT / CIRCULAR MARK
-           * ---------------------------------------------------
-           *
-           * The left-side logo starts assembling.
+           * ============================================================
            */
 
           tl.to(
@@ -206,9 +216,9 @@ const Loader: React.FC<LoaderProps> = ({ onComplete }) => {
           );
 
           /*
-           * ---------------------------------------------------
+           * ============================================================
            * 2. GOLD ELEMENTS OF MARK
-           * ---------------------------------------------------
+           * ============================================================
            */
 
           const markGold = logoMark
@@ -232,9 +242,9 @@ const Loader: React.FC<LoaderProps> = ({ onComplete }) => {
           }
 
           /*
-           * ---------------------------------------------------
+           * ============================================================
            * 3. INDIA
-           * ---------------------------------------------------
+           * ============================================================
            */
 
           tl.to(
@@ -253,7 +263,9 @@ const Loader: React.FC<LoaderProps> = ({ onComplete }) => {
           );
 
           /*
-           * Gold INDIA elements get a little extra movement.
+           * ============================================================
+           * GOLD INDIA ELEMENTS
+           * ============================================================
            */
 
           const indiaGold = logoIndia
@@ -281,9 +293,9 @@ const Loader: React.FC<LoaderProps> = ({ onComplete }) => {
           }
 
           /*
-           * ---------------------------------------------------
+           * ============================================================
            * 4. TROLL
-           * ---------------------------------------------------
+           * ============================================================
            */
 
           tl.to(
@@ -302,9 +314,9 @@ const Loader: React.FC<LoaderProps> = ({ onComplete }) => {
           );
 
           /*
-           * ---------------------------------------------------
+           * ============================================================
            * 5. TROLL GOLD
-           * ---------------------------------------------------
+           * ============================================================
            */
 
           const trollGold = logoTroll
@@ -332,9 +344,9 @@ const Loader: React.FC<LoaderProps> = ({ onComplete }) => {
           }
 
           /*
-           * ---------------------------------------------------
+           * ============================================================
            * 6. TAGLINE
-           * ---------------------------------------------------
+           * ============================================================
            */
 
           tl.to(
@@ -350,9 +362,9 @@ const Loader: React.FC<LoaderProps> = ({ onComplete }) => {
           );
 
           /*
-           * ---------------------------------------------------
+           * ============================================================
            * 7. OTHER DETAILS
-           * ---------------------------------------------------
+           * ============================================================
            */
 
           if (otherPaths.length) {
@@ -369,9 +381,9 @@ const Loader: React.FC<LoaderProps> = ({ onComplete }) => {
           }
 
           /*
-           * ---------------------------------------------------
+           * ============================================================
            * 8. FINAL LOGO SCALE
-           * ---------------------------------------------------
+           * ============================================================
            */
 
           tl.to(
@@ -391,9 +403,9 @@ const Loader: React.FC<LoaderProps> = ({ onComplete }) => {
           });
 
           /*
-           * ---------------------------------------------------
+           * ============================================================
            * 9. PROGRESS BAR
-           * ---------------------------------------------------
+           * ============================================================
            */
 
           if (progressRef.current) {
@@ -447,17 +459,19 @@ const Loader: React.FC<LoaderProps> = ({ onComplete }) => {
         console.error("India Troll loader error:", error);
 
         /*
-         * If SVG loading fails, don't leave the user stuck
-         * on the loading screen.
+         * ============================================================
+         * FAILSAFE
+         * ============================================================
+         *
+         * If the SVG fails to load, don't keep the website stuck.
          */
 
         gsap.to(loader, {
           opacity: 0,
           duration: 0.4,
+
           onComplete: () => {
-            if (onComplete) {
-              onComplete();
-            }
+            setIsLoading(false);
           },
         });
       }
@@ -472,7 +486,7 @@ const Loader: React.FC<LoaderProps> = ({ onComplete }) => {
         animationContext.revert();
       }
     };
-  }, [onComplete]);
+  }, [setIsLoading]);
 
   return (
     <div

@@ -233,12 +233,8 @@
   align-items: center;
   justify-content: center;
  
-  background: linear-gradient(
-    to bottom,
-    #f4b019 0%,
-    #d9950d 3%,
-    #123b67 100%
-  );
+background-color: #111;
+filter: opacity(0.5);
   clip-path: inset(50% 0 50% 0);
   -webkit-clip-path: inset(50% 0 50% 0);
   pointer-events: none;
@@ -256,6 +252,7 @@
   .online-article-card:hover .online-article-overlay {
     clip-path: inset(0 0 0 0);
     -webkit-clip-path: inset(0 0 0 0);
+
   }
 }
 
@@ -272,12 +269,10 @@
   height: clamp(55px, 4.6vw, 82px);
   color: #fff;
   opacity: 0;
-  transform: scale(0.55) rotate(-12deg);
-  will-change: transform, opacity;
+  will-change: opacity;
   pointer-events: none;
   transition:
     opacity 0.35s ease 0.18s,
-    transform 0.5s cubic-bezier(0.22, 1, 0.36, 1) 0.18s;
 }
 
 

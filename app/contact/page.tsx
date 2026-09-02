@@ -1,147 +1,262 @@
-
 "use client";
 
-import React from "react";
-import { motion } from "motion/react";
-import "./contact.css";
+import React, { useLayoutEffect, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
+import "./contact.css";
 import ContactForm from "@/components/contactform";
 import SiteNavbar from "@/components/site-navbar";
 import SiteFooter from "@/components/site-footer";
+import { useLoader } from "@/components/LoaderProvider";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const Page = () => {
-  return (
-    <motion.div
-      className="contact-page"
-      initial="hidden"
-      animate="visible"
-      variants={{
-        hidden: {},
-        visible: {
-          transition: {
-            staggerChildren: 0.15,
-          },
+const { isLoading } = useLoader();
+
+const pageRef = useRef<HTMLDivElement>(null);
+const formRef = useRef<HTMLElement>(null);
+const mapSectionRef = useRef<HTMLElement>(null);
+const mapWrapperRef = useRef<HTMLDivElement>(null);
+
+useLayoutEffect(() => {
+// Do absolutely nothing while the global loader is active.
+if (isLoading) return;
+
+
+const ctx = gsap.context(() => {
+  const form = formRef.current;
+  const mapSection = mapSectionRef.current;
+  const mapWrapper = mapWrapperRef.current;
+
+  /*
+   * ============================================================
+   * CONTACT FORM
+   * ============================================================
+   *
+   * fromTo() prevents the browser from first displaying the
+   * element in its final state and then snapping it backwards.
+   */
+
+  if (form) {
+    gsap.fromTo(
+      form,
+      {
+        y: 70,
+        opacity: 0,
+        filter: "blur(10px)",
+      },
+      {
+        y: 0,
+        opacity: 1,
+        filter: "blur(0px)",
+        duration: 1.15,
+        ease: "power3.out",
+        clearProps: "filter",
+      }
+    );
+  }
+
+  /*
+   * ============================================================
+   * MAP SECTION REVEAL
+   * ============================================================
+   */
+
+  if (mapSection) {
+    gsap.fromTo(
+      mapSection,
+      {
+        y: 100,
+        opacity: 0,
+      },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 1.2,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: mapSection,
+          start: "top 85%",
+          once: true,
         },
-      }}
+      }
+    );
+  }
+
+  /*
+   * ============================================================
+   * MAP CLIP-PATH REVEAL
+   * ============================================================
+   */
+
+  if (mapWrapper && mapSection) {
+    gsap.fromTo(
+      mapWrapper,
+      {
+        clipPath: "inset(0 100% 0 0)",
+        scale: 1.03,
+      },
+      {
+        clipPath: "inset(0 0% 0 0)",
+        scale: 1,
+        duration: 1.5,
+        ease: "power4.inOut",
+        scrollTrigger: {
+          trigger: mapSection,
+          start: "top 85%",
+          once: true,
+        },
+      }
+    );
+  }
+
+  /*
+   * ============================================================
+   * MAP PARALLAX
+   * ============================================================
+   */
+
+  if (mapWrapper && mapSection) {
+    gsap.to(mapWrapper, {
+      yPercent: -4,
+      ease: "none",
+      scrollTrigger: {
+        trigger: mapSection,
+        start: "top bottom",
+        end: "bottom top",
+        scrub: 1,
+      },
+    });
+  }
+
+  /*
+   * ============================================================
+   * SCROLLTRIGGER REFRESH
+   * ============================================================
+   *
+   * The iframe can change its dimensions after the page mounts.
+   * Refreshing on the next frame makes ScrollTrigger calculate
+   * positions correctly.
+   */
+
+  requestAnimationFrame(() => {
+    ScrollTrigger.refresh();
+  });
+
+  const handleLoad = () => {
+    ScrollTrigger.refresh();
+  };
+
+  window.addEventListener("load", handleLoad);
+
+  /*
+   * ============================================================
+   * CLEANUP
+   * ============================================================
+   */
+
+  return () => {
+    window.removeEventListener("load", handleLoad);
+  };
+}, pageRef);
+
+return () => {
+  ctx.revert();
+};
+
+
+}, [isLoading]);
+
+/*
+
+* ================================================================
+* IMPORTANT
+* ================================================================
+*
+* While the loader is active, don't render the page content.
+*
+* This prevents:
+*
+* 1. Navbar appearing before the loader finishes
+* 2. Content flashing in its normal state
+* 3. GSAP subsequently hiding the content
+* 4. The resulting "snap → disappear → animate" effect
+*
+* Once isLoading becomes false, the page mounts and GSAP's
+* fromTo() animations start cleanly.
+  */
+
+if (isLoading) {
+return null;
+}
+
+/*
+
+* ================================================================
+* JSX
+* ================================================================
+  */
+
+return ( <div ref={pageRef} className="contact-page">
+
+
+  {/* ============================================================
+      NAVBAR
+      Animation handled internally by SiteNavbar.
+      ============================================================ */}
+
+  <SiteNavbar />
+
+  {/* ============================================================
+      CONTACT FORM
+      ============================================================ */}
+
+  <section
+    ref={formRef}
+    className="contact-form-wrapper"
+  >
+    <ContactForm />
+  </section>
+
+  {/* ============================================================
+      MAP
+      ============================================================ */}
+
+  <section
+    ref={mapSectionRef}
+    className="contact-map-section"
+  >
+    <div
+      ref={mapWrapperRef}
+      className="contact-map-wrapper"
     >
-      {/* ================= NAVBAR ================= */}
-      <motion.div
-        variants={{
-          hidden: {
-            opacity: 0,
-            y: -40,
-          },
-          visible: {
-            opacity: 1,
-            y: 0,
-            transition: {
-              duration: 1.5,
-              ease: [0.22, 1, 0.36, 1],
-            },
-          },
-        }}
-      >
-        <SiteNavbar />
-      </motion.div>
+      <iframe
+        className="contact-map"
+        src="https://www.google.com/maps?q=Samastipur%2C%20Bihar%2C%20India&output=embed"
+        width="100%"
+        height="600"
+        style={{ border: 0 }}
+        allowFullScreen
+        loading="lazy"
+        referrerPolicy="no-referrer-when-downgrade"
+        title="Samastipur, Bihar, India"
+      />
+    </div>
+  </section>
 
-      {/* ================= CONTACT FORM ================= */}
-      <motion.section
-        variants={{
-          hidden: {
-            opacity: 0,
-            x: -100,
-            filter: "blur(8px)",
-          },
-          visible: {
-            opacity: 1,
-            x: 0,
-            filter: "blur(0px)",
-            transition: {
-              duration: 1.5,
-              ease: [0.22, 1, 0.36, 1],
-            },
-          },
-        }}
-      >
-        <ContactForm />
-      </motion.section>
+  {/* ============================================================
+      FOOTER
+      Animation handled internally by SiteFooter.
+      ============================================================ */}
 
-      {/* ================= MAP ================= */}
-      <motion.section
-        className="contact-map-section"
-        initial={{
-          opacity: 0,
-          y: 100,
-          scale: 0.96,
-        }}
-        whileInView={{
-          opacity: 1,
-          y: 0,
-          scale: 1,
-        }}
-        viewport={{
-          once: true,
-          amount: 0.2,
-        }}
-        transition={{
-          duration: 1.5,
-          ease: [0.22, 1, 0.36, 1],
-        }}
-      >
-        <motion.div
-          initial={{
-            clipPath: "inset(0 100% 0 0)",
-          }}
-          whileInView={{
-            clipPath: "inset(0 0% 0 0)",
-          }}
-          viewport={{
-            once: true,
-            amount: 0.2,
-          }}
-          transition={{
-            duration: 1.5,
-            ease: [0.77, 0, 0.175, 1],
-          }}
-        >
-          <iframe
-            className="contact-map"
-            src={`https://www.google.com/maps/embed/v1/place?key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}&q=Samastipur,Bihar,India`}
-            width="100%"
-            height="600"
-            style={{ border: 0 }}
-            allowFullScreen
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-            title="Samastipur, Bihar"
-          />
-        </motion.div>
-      </motion.section>
+  <SiteFooter />
 
-      {/* ================= FOOTER ================= */}
-      <motion.div
-        initial={{
-          opacity: 0,
-          y: 80,
-        }}
-        whileInView={{
-          opacity: 1,
-          y: 0,
-        }}
-        viewport={{
-          once: true,
-          amount: 0.15,
-        }}
-        transition={{
-          duration: 1.5,
-          ease: [0.22, 1, 0.36, 1],
-        }}
-      >
-        <SiteFooter />
-      </motion.div>
-    </motion.div>
-  );
+</div>
+
+
+);
 };
 
 export default Page;
-

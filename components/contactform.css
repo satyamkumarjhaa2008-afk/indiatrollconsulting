@@ -1,587 +1,332 @@
 /* ============================================================
-   CONTACT FORM
+   INDIA TROLL — CONTACT FORM
+   Gold Editorial Design System
+   Uses the global.css variables:
+   Black + Luminous Gold + Warm Yellow + Restrained Deep Navy
    ============================================================ */
 
-.contact-form-section {
-  width: 100%;
-  min-height: 100vh;
-  position: relative;
-  box-sizing: border-box;
-  padding: 30px 3.75% 70px;
-  background: #f7f7f7;
-  font-family: "Montserrat", sans-serif;
-  color: #080808;
+/* ==================== CONTACT FORM ==================== */
+
+.contact-form-section { width:100%;min-height:100vh;position:relative;box-sizing:border-box;padding:30px 3.75% 70px;background:var(--site-bg);font-family:"Montserrat",sans-serif;color:var(--text-primary);overflow:hidden; }
+.contact-form-section::before { content:"";position:absolute;top:-220px;left:50%;width:620px;height:620px;border-radius:50%;transform:translateX(-50%);background:radial-gradient(circle,rgb(255 184 23 / 9%),rgb(18 63 115 / 4%) 42%,transparent 72%);pointer-events:none; }
+.contact-form-section::after { content:"";position:absolute;right:-220px;bottom:-260px;width:540px;height:540px;border-radius:50%;background:radial-gradient(circle,rgb(255 184 23 / 6%),transparent 68%);pointer-events:none; }
+.contact-form-section * { box-sizing:border-box; }
+
+/* ==================== HEADING ==================== */
+
+.contact-form-heading { position:relative;z-index:1;width:100%;text-align:center;margin:0 auto 80px; }
+.contact-form-eyebrow { margin:0 0 8px;font-size:24px;line-height:1.35;font-weight:600;color:var(--brand-yellow);letter-spacing:.01em; }
+.contact-form-title { margin:0;font-size:46px;line-height:1.2;font-weight:700;letter-spacing:-1.3px;color:var(--text-primary); }
+.contact-form-heading-line { width:80px;height:3px;margin:22px auto 0;border-radius:2px;background:linear-gradient(90deg,var(--brand-gold),var(--brand-yellow),var(--brand-amber));box-shadow:0 0 18px var(--glow-yellow); }
+
+/* ==================== CARD ==================== */
+
+.contact-form-card { position:relative;z-index:1;width:100%;background:linear-gradient(145deg,var(--surface-2),var(--surface));border:1px solid var(--border);border-radius:12px;padding:70px 4.25% 48px;box-shadow:var(--shadow-dark);overflow:hidden; }
+.contact-form-card::before { content:"";position:absolute;top:0;left:0;width:100%;height:2px;background:linear-gradient(90deg,transparent,var(--brand-gold),var(--brand-yellow),transparent);opacity:.85; }
+.contact-form-card::after { content:"";position:absolute;top:-180px;right:-180px;width:360px;height:360px;border-radius:50%;background:radial-gradient(circle,rgb(0 217 255 / 5%),transparent 68%);pointer-events:none; }
+
+/* ==================== FORM GRID ==================== */
+
+.contact-form { position:relative;z-index:1;width:100%;display:grid;grid-template-columns:1fr 1fr;column-gap:2.7%;align-items:start; }
+.contact-form-left,.contact-form-right { width:100%;min-width:0; }
+
+/* ==================== FIELDS ==================== */
+
+.contact-form-field { width:100%;margin:0 0 42px; }
+.contact-form-label { display:flex;align-items:center;gap:12px;width:100%;margin:0 0 23px;font-size:22px;line-height:1.2;font-weight:600;color:var(--text-primary); }
+.contact-form-icon { width:23px;height:23px;flex:none;stroke-width:1.8;color:var(--brand-yellow);filter:drop-shadow(0 0 8px rgb(255 201 40 / 15%));transition:color var(--transition-fast),filter var(--transition-fast),transform var(--transition-fast); }
+.contact-form-field:focus-within .contact-form-icon { color:var(--brand-gold);filter:drop-shadow(0 0 9px var(--glow-gold));transform:scale(1.06); }
+
+/* ==================== INPUTS ==================== */
+
+.contact-form-input,.contact-form-textarea { display:block;width:100%;border:1px solid var(--border);border-radius:6px;outline:none;background:rgb(255 255 255 / 3%);font-family:"Montserrat",sans-serif;font-size:20px;font-weight:400;color:var(--text-primary);transition:border-color var(--transition-fast),box-shadow var(--transition-fast),background var(--transition-fast); }
+.contact-form-input { height:78px;padding:0 30px; }
+.contact-form-textarea { height:308px;padding:22px 30px;resize:none;line-height:1.5; }
+.contact-form-input::placeholder,.contact-form-textarea::placeholder { color:var(--text-muted);font-style:italic;opacity:1; }
+.contact-form-input:hover,.contact-form-textarea:hover { border-color:#3A3F4D;background:rgb(255 255 255 / 4%); }
+.contact-form-input:focus,.contact-form-textarea:focus { border-color:var(--brand-yellow);background:rgb(255 184 23 / 3%);box-shadow:0 0 0 1px rgb(255 184 23 / 12%),0 0 24px rgb(255 184 23 / 6%); }
+.contact-form-input:focus::placeholder,.contact-form-textarea:focus::placeholder { color:#8993A5; }
+
+/* ==================== MESSAGE FIELD ==================== */
+
+.contact-form-message-field { margin-bottom:37px; }
+
+/* ==================== SUBMIT BUTTON ==================== */
+
+.contact-form-submit { position:relative;isolation:isolate;display:flex;align-items:center;justify-content:center;width:100%;height:77px;padding:0 25px;border:0;border-radius:12px;background:linear-gradient(100deg,var(--brand-gold),var(--brand-yellow) 55%,var(--brand-amber));background-size:200% 100%;color:var(--white);font-family:"Montserrat",sans-serif;font-size:20px;font-weight:700;cursor:pointer;overflow:hidden;transition:background-position var(--transition-base),transform .15s ease,box-shadow var(--transition-base); }
+.contact-form-submit::before { content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgb(255 255 255 / 20%),transparent);transform:translateX(-110%);transition:transform .55s ease;z-index:-1; }
+.contact-form-submit:hover { background-position:100% 0;box-shadow:0 10px 32px rgb(255 184 23 / 18%),0 0 28px rgb(255 184 23 / 12%); }
+.contact-form-submit:hover::before { transform:translateX(110%); }
+.contact-form-submit:active { transform:scale(.995); }
+.contact-form-submit:disabled { cursor:not-allowed;opacity:.55;box-shadow:none; }
+
+/* ==================== SUCCESS / ERROR ==================== */
+
+.contact-form-success,.contact-form-error { margin:14px 0 0;text-align:center;font-family:"Montserrat",sans-serif;font-size:14px;font-weight:600; }
+.contact-form-success { color:#55E685; }
+.contact-form-error { color:var(--danger); }
+
+/* ==================== LARGE LAPTOP / DESKTOP ==================== */
+
+@media (max-width:1400px) {
+  .contact-form-section { padding-left:4%;padding-right:4%; }
+  .contact-form-card { padding-left:4.5%;padding-right:4.5%; }
+  .contact-form-eyebrow { font-size:21px; }
+  .contact-form-title { font-size:40px; }
+  .contact-form-label { font-size:19px; }
+  .contact-form-input,.contact-form-textarea { font-size:17px; }
+  .contact-form-input { height:68px; }
+  .contact-form-textarea { height:280px; }
+  .contact-form-submit { height:70px;font-size:18px; }
 }
 
-.contact-form-section * {
-  box-sizing: border-box;
+/* ==================== TABLET ==================== */
+
+@media (max-width:900px) {
+  .contact-form-section { padding:30px 4% 60px; }
+  .contact-form-heading { margin-bottom:55px; }
+  .contact-form-eyebrow { font-size:18px; }
+  .contact-form-title { font-size:34px; }
+  .contact-form-heading-line { margin-top:18px; }
+  .contact-form-card { padding:50px 5% 40px; }
+  .contact-form { grid-template-columns:1fr;row-gap:0; }
+  .contact-form-label { font-size:18px; }
+  .contact-form-input { height:62px; }
+  .contact-form-textarea { height:220px; }
+  .contact-form-submit { height:64px;border-radius:11px;font-size:17px; }
 }
 
+/* ==================== MOBILE ==================== */
+
+@media (max-width:600px) {
+  .contact-form-section { width:100%;min-height:auto;padding:35px 16px 50px; }
+  .contact-form-heading { width:100%;margin-bottom:30px; }
+  .contact-form-eyebrow { margin:0 0 8px;font-size:12px;line-height:1.5;font-weight:600; }
+  .contact-form-title { font-size:23px;line-height:1.3;letter-spacing:-.4px; }
+  .contact-form-heading-line { width:45px;height:2px;margin-top:13px; }
+  .contact-form-card { width:100%;padding:28px 20px 25px;border-radius:10px; }
+  .contact-form { display:flex;flex-direction:column;width:100%; }
+  .contact-form-left,.contact-form-right { width:100%; }
+  .contact-form-field { width:100%;margin-bottom:22px; }
+  .contact-form-label { gap:7px;margin-bottom:9px;font-size:13px;line-height:1.3;font-weight:600; }
+  .contact-form-icon { width:15px;height:15px;stroke-width:1.8; }
+  .contact-form-input,.contact-form-textarea { width:100%;font-size:13px;border-width:1px;border-radius:5px; }
+  .contact-form-input { height:48px;padding:0 13px; }
+  .contact-form-textarea { height:145px;min-height:145px;padding:12px 13px;line-height:1.5; }
+  .contact-form-input::placeholder,.contact-form-textarea::placeholder { font-size:12px; }
+  .contact-form-message-field { margin-bottom:18px; }
+  .contact-form-submit { width:100%;height:50px;min-height:50px;padding:0 15px;border-radius:9px;font-size:13px;font-weight:700; }
+  .contact-form-success,.contact-form-error { margin-top:10px;font-size:11px;line-height:1.4; }
+}
+
+/* ==================== SMALL MOBILE ==================== */
+
+@media (max-width:400px) {
+  .contact-form-section { padding:28px 12px 45px; }
+  .contact-form-heading { margin-bottom:25px; }
+  .contact-form-eyebrow { font-size:11px; }
+  .contact-form-title { font-size:20px; }
+  .contact-form-card { padding:24px 16px 22px; }
+  .contact-form-field { margin-bottom:19px; }
+  .contact-form-label { font-size:12px;margin-bottom:8px; }
+  .contact-form-icon { width:14px;height:14px; }
+  .contact-form-input,.contact-form-textarea { font-size:12px; }
+  .contact-form-input { height:45px;padding:0 11px; }
+  .contact-form-textarea { height:125px;min-height:125px;padding:10px 11px; }
+  .contact-form-submit { height:47px;min-height:47px;font-size:12px; }
+  .contact-form-success,.contact-form-error { font-size:10px; }
+}
+
+/* ==================== VERY SMALL PHONES ==================== */
+
+@media (max-width:350px) {
+  .contact-form-section { padding-left:10px;padding-right:10px; }
+  .contact-form-eyebrow { font-size:10px; }
+  .contact-form-title { font-size:18px; }
+  .contact-form-card { padding:22px 14px 20px; }
+  .contact-form-label { font-size:11px; }
+  .contact-form-input { height:43px; }
+  .contact-form-textarea { height:115px;min-height:115px; }
+  .contact-form-submit { height:45px;min-height:45px;font-size:11px; }
+}
+
+/* ==================== TOUCH DEVICES ==================== */
+
+@media (hover:none) {
+  .contact-form-submit:hover { background-position:0 0;box-shadow:none; }
+  .contact-form-submit:hover::before { transform:translateX(-110%); }
+}
+
+/* ==================== REDUCED MOTION ==================== */
+
+@media (prefers-reduced-motion:reduce) {
+  .contact-form-input,.contact-form-textarea,.contact-form-submit,.contact-form-submit::before,.contact-form-icon { transition:none; }
+}
 /* ============================================================
-   HEADING
-   ============================================================ */
+INDIA TROLL — CONTACT FORM
+Gold Editorial Design System
+Uses the global.css variables:
+Black + Luminous Gold + Warm Yellow + Restrained Deep Navy
+============================================================ */
 
-.contact-form-heading {
-  width: 100%;
-  text-align: center;
-  margin: 0 auto 80px;
+/* ==================== CONTACT FORM ==================== */
+
+.contact-form-section { width:100%;min-height:100vh;position:relative;box-sizing:border-box;padding:30px 3.75% 70px;background:var(--site-bg);font-family:"Montserrat",sans-serif;color:var(--text-primary);overflow:hidden; }
+.contact-form-section::before { content:"";position:absolute;top:-220px;left:50%;width:620px;height:620px;border-radius:50%;transform:translateX(-50%);background:radial-gradient(circle,rgb(255 184 23 / 9%),rgb(18 63 115 / 4%) 42%,transparent 72%);pointer-events:none; }
+.contact-form-section::after { content:"";position:absolute;right:-220px;bottom:-260px;width:540px;height:540px;border-radius:50%;background:radial-gradient(circle,rgb(255 184 23 / 6%),transparent 68%);pointer-events:none; }
+.contact-form-section * { box-sizing:border-box; }
+
+/* ==================== HEADING ==================== */
+
+.contact-form-heading { position:relative;z-index:1;width:100%;text-align:center;margin:0 auto 80px; }
+.contact-form-eyebrow { margin:0 0 8px;font-size:24px;line-height:1.35;font-weight:600;color:var(--brand-yellow);letter-spacing:.01em; }
+.contact-form-title { margin:0;font-size:46px;line-height:1.2;font-weight:700;letter-spacing:-1.3px;color:var(--text-primary); }
+.contact-form-heading-line { width:80px;height:3px;margin:22px auto 0;border-radius:2px;background:linear-gradient(90deg,var(--brand-gold),var(--brand-yellow),var(--brand-amber));box-shadow:0 0 18px var(--glow-yellow); }
+
+/* ==================== CARD ==================== */
+
+.contact-form-card { position:relative;z-index:1;width:100%;background:linear-gradient(145deg,var(--surface-2),var(--surface));border:1px solid var(--border);border-radius:12px;padding:70px 4.25% 48px;box-shadow:var(--shadow-dark);overflow:hidden; }
+.contact-form-card::before { content:"";position:absolute;top:0;left:0;width:100%;height:2px;background:linear-gradient(90deg,transparent,var(--brand-gold),var(--brand-yellow),transparent);opacity:.85; }
+.contact-form-card::after { content:"";position:absolute;top:-180px;right:-180px;width:360px;height:360px;border-radius:50%;background:radial-gradient(circle,rgb(0 217 255 / 5%),transparent 68%);pointer-events:none; }
+
+/* ==================== FORM GRID ==================== */
+
+.contact-form { position:relative;z-index:1;width:100%;display:grid;grid-template-columns:1fr 1fr;column-gap:2.7%;align-items:start; }
+.contact-form-left,.contact-form-right { width:100%;min-width:0; }
+
+/* ==================== FIELDS ==================== */
+
+.contact-form-field { width:100%;margin:0 0 42px; }
+.contact-form-label { display:flex;align-items:center;gap:12px;width:100%;margin:0 0 23px;font-size:22px;line-height:1.2;font-weight:600;color:var(--text-primary); }
+.contact-form-icon { width:23px;height:23px;flex:none;stroke-width:1.8;color:var(--brand-yellow);filter:drop-shadow(0 0 8px rgb(255 201 40 / 15%));transition:color var(--transition-fast),filter var(--transition-fast),transform var(--transition-fast); }
+.contact-form-field:focus-within .contact-form-icon { color:var(--brand-gold);filter:drop-shadow(0 0 9px var(--glow-gold));transform:scale(1.06); }
+
+/* ==================== INPUTS ==================== */
+
+.contact-form-input,.contact-form-textarea { display:block;width:100%;border:1px solid var(--border);border-radius:6px;outline:none;background:rgb(255 255 255 / 3%);font-family:"Montserrat",sans-serif;font-size:20px;font-weight:400;color:var(--text-primary);transition:border-color var(--transition-fast),box-shadow var(--transition-fast),background var(--transition-fast); }
+.contact-form-input { height:78px;padding:0 30px; }
+.contact-form-textarea { height:308px;padding:22px 30px;resize:none;line-height:1.5; }
+.contact-form-input::placeholder,.contact-form-textarea::placeholder { color:var(--text-muted);font-style:italic;opacity:1; }
+.contact-form-input:hover,.contact-form-textarea:hover { border-color:#3A3F4D;background:rgb(255 255 255 / 4%); }
+.contact-form-input:focus,.contact-form-textarea:focus { border-color:var(--brand-yellow);background:rgb(255 184 23 / 3%);box-shadow:0 0 0 1px rgb(255 184 23 / 12%),0 0 24px rgb(255 184 23 / 6%); }
+.contact-form-input:focus::placeholder,.contact-form-textarea:focus::placeholder { color:#8993A5; }
+
+/* ==================== MESSAGE FIELD ==================== */
+
+.contact-form-message-field { margin-bottom:37px; }
+
+/* ==================== SUBMIT BUTTON ==================== */
+
+.contact-form-submit { position:relative;isolation:isolate;display:flex;align-items:center;justify-content:center;width:100%;height:77px;padding:0 25px;border:0;border-radius:12px;background:linear-gradient(100deg,var(--brand-gold),var(--brand-yellow) 55%,var(--brand-amber));background-size:200% 100%;color:var(--white);font-family:"Montserrat",sans-serif;font-size:20px;font-weight:700;cursor:pointer;overflow:hidden;transition:background-position var(--transition-base),transform .15s ease,box-shadow var(--transition-base); }
+.contact-form-submit::before { content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgb(255 255 255 / 20%),transparent);transform:translateX(-110%);transition:transform .55s ease;z-index:-1; }
+.contact-form-submit:hover { background-position:100% 0;box-shadow:0 10px 32px rgb(255 184 23 / 18%),0 0 28px rgb(255 184 23 / 12%); }
+.contact-form-submit:hover::before { transform:translateX(110%); }
+.contact-form-submit:active { transform:scale(.995); }
+.contact-form-submit:disabled { cursor:not-allowed;opacity:.55;box-shadow:none; }
+
+/* ==================== SUCCESS / ERROR ==================== */
+
+.contact-form-success,.contact-form-error { margin:14px 0 0;text-align:center;font-family:"Montserrat",sans-serif;font-size:14px;font-weight:600; }
+.contact-form-success { color:#55E685; }
+.contact-form-error { color:var(--danger); }
+
+/* ==================== LARGE LAPTOP / DESKTOP ==================== */
+
+@media (max-width:1400px) {
+.contact-form-section { padding-left:4%;padding-right:4%; }
+.contact-form-card { padding-left:4.5%;padding-right:4.5%; }
+.contact-form-eyebrow { font-size:21px; }
+.contact-form-title { font-size:40px; }
+.contact-form-label { font-size:19px; }
+.contact-form-input,.contact-form-textarea { font-size:17px; }
+.contact-form-input { height:68px; }
+.contact-form-textarea { height:280px; }
+.contact-form-submit { height:70px;font-size:18px; }
 }
 
-.contact-form-eyebrow {
-  margin: 0 0 8px;
-  font-size: 24px;
-  line-height: 1.35;
-  font-weight: 600;
-  color: #ff6b51;
+/* ==================== TABLET ==================== */
+
+@media (max-width:900px) {
+.contact-form-section { padding:30px 4% 60px;font-family:"Montserrat",sans-serif; }
+.contact-form-section * { font-family:"Montserrat",sans-serif; }
+.contact-form-heading { margin-bottom:55px; }
+.contact-form-eyebrow { font-size:18px; }
+.contact-form-title { font-size:34px; }
+.contact-form-heading-line { margin-top:18px; }
+.contact-form-card { padding:50px 5% 40px; }
+.contact-form { grid-template-columns:1fr;row-gap:0; }
+.contact-form-label { font-size:18px; }
+.contact-form-input { height:62px; }
+.contact-form-textarea { height:220px; }
+.contact-form-submit { height:64px;border-radius:11px;font-size:17px; }
 }
 
-.contact-form-title {
-  margin: 0;
-  font-size: 46px;
-  line-height: 1.2;
-  font-weight: 700;
-  letter-spacing: -1.3px;
-  color: #050505;
+/* ==================== MOBILE ==================== */
+
+@media (max-width:600px) {
+.contact-form-section { width:100%;min-height:auto;padding:35px 16px 50px;font-family:"Montserrat",sans-serif; }
+.contact-form-section * { font-family:"Montserrat",sans-serif; }
+.contact-form-heading { width:100%;margin-bottom:30px; }
+.contact-form-eyebrow { margin:0 0 8px;font-size:12px;line-height:1.5;font-weight:600; }
+.contact-form-title { font-size:23px;line-height:1.3;letter-spacing:-.4px; }
+.contact-form-heading-line { width:45px;height:2px;margin-top:13px; }
+.contact-form-card { width:100%;padding:28px 20px 25px;border-radius:10px; }
+.contact-form { display:flex;flex-direction:column;width:100%; }
+.contact-form-left,.contact-form-right { width:100%; }
+.contact-form-field { width:100%;margin-bottom:22px; }
+.contact-form-label { gap:7px;margin-bottom:9px;font-size:13px;line-height:1.3;font-weight:600; }
+.contact-form-icon { width:15px;height:15px;stroke-width:1.8; }
+.contact-form-input,.contact-form-textarea { width:100%;font-size:13px;border-width:1px;border-radius:5px; }
+.contact-form-input { height:48px;padding:0 13px; }
+.contact-form-textarea { height:145px;min-height:145px;padding:12px 13px;line-height:1.5; }
+.contact-form-input::placeholder,.contact-form-textarea::placeholder { font-size:12px; }
+.contact-form-message-field { margin-bottom:18px; }
+.contact-form-submit { width:100%;height:50px;min-height:50px;padding:0 15px;border-radius:9px;font-size:13px;font-weight:700; }
+.contact-form-success,.contact-form-error { margin-top:10px;font-size:11px;line-height:1.4; }
 }
 
-.contact-form-heading-line {
-  width: 80px;
-  height: 3px;
-  margin: 22px auto 0;
-  background: #d8d8d8;
-  border-radius: 2px;
+/* ==================== SMALL MOBILE ==================== */
+
+@media (max-width:400px) {
+.contact-form-section { padding:28px 12px 45px;font-family:"Montserrat",sans-serif; }
+.contact-form-section * { font-family:"Montserrat",sans-serif; }
+.contact-form-heading { margin-bottom:25px; }
+.contact-form-eyebrow { font-size:11px; }
+.contact-form-title { font-size:20px; }
+.contact-form-card { padding:24px 16px 22px; }
+.contact-form-field { margin-bottom:19px; }
+.contact-form-label { font-size:12px;margin-bottom:8px; }
+.contact-form-icon { width:14px;height:14px; }
+.contact-form-input,.contact-form-textarea { font-size:12px; }
+.contact-form-input { height:45px;padding:0 11px; }
+.contact-form-textarea { height:125px;min-height:125px;padding:10px 11px; }
+.contact-form-submit { height:47px;min-height:47px;font-size:12px; }
+.contact-form-success,.contact-form-error { font-size:10px; }
 }
 
-/* ============================================================
-   CARD
-   ============================================================ */
+/* ==================== VERY SMALL PHONES ==================== */
 
-.contact-form-card {
-  width: 100%;
-  background: #fff;
-  border-radius: 6px;
-  padding: 70px 4.25% 48px;
+@media (max-width:350px) {
+.contact-form-section { padding-left:10px;padding-right:10px;font-family:"Montserrat",sans-serif; }
+.contact-form-section * { font-family:"Montserrat",sans-serif; }
+.contact-form-eyebrow { font-size:10px; }
+.contact-form-title { font-size:18px; }
+.contact-form-card { padding:22px 14px 20px; }
+.contact-form-label { font-size:11px; }
+.contact-form-input { height:43px; }
+.contact-form-textarea { height:115px;min-height:115px; }
+.contact-form-submit { height:45px;min-height:45px;font-size:11px; }
 }
 
-/* ============================================================
-   FORM GRID
-   ============================================================ */
+/* ==================== TOUCH DEVICES ==================== */
 
-.contact-form {
-  width: 100%;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  column-gap: 2.7%;
-  align-items: start;
+@media (hover:none) {
+.contact-form-submit:hover { background-position:0 0;box-shadow:none; }
+.contact-form-submit:hover::before { transform:translateX(-110%); }
 }
 
-.contact-form-left,
-.contact-form-right {
-  width: 100%;
-  min-width: 0;
-}
+/* ==================== REDUCED MOTION ==================== */
 
-/* ============================================================
-   FIELDS
-   ============================================================ */
-
-.contact-form-field {
-  width: 100%;
-  margin: 0 0 42px;
-}
-
-.contact-form-label {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  width: 100%;
-  margin: 0 0 23px;
-  font-size: 22px;
-  line-height: 1.2;
-  font-weight: 600;
-  color: #090909;
-}
-
-.contact-form-icon {
-  width: 23px;
-  height: 23px;
-  flex: none;
-  stroke-width: 1.8;
-  color: #777;
-}
-
-/* ============================================================
-   INPUTS
-   ============================================================ */
-
-.contact-form-input,
-.contact-form-textarea {
-  display: block;
-  width: 100%;
-  border: 1px solid #dedede;
-  border-radius: 4px;
-  outline: none;
-  background: #fff;
-  font-family: "Montserrat", sans-serif;
-  font-size: 20px;
-  font-weight: 400;
-  color: #111;
-  transition:
-    border-color 0.2s ease,
-    box-shadow 0.2s ease;
-}
-
-.contact-form-input {
-  height: 78px;
-  padding: 0 30px;
-}
-
-.contact-form-textarea {
-  height: 308px;
-  padding: 22px 30px;
-  resize: none;
-  line-height: 1.5;
-}
-
-.contact-form-input::placeholder,
-.contact-form-textarea::placeholder {
-  color: #777;
-  font-style: italic;
-  opacity: 1;
-}
-
-.contact-form-input:focus,
-.contact-form-textarea:focus {
-  border-color: #ff6b51;
-  box-shadow: 0 0 0 1px rgba(255, 107, 81, 0.08);
-}
-
-/* ============================================================
-   MESSAGE FIELD
-   ============================================================ */
-
-.contact-form-message-field {
-  margin-bottom: 37px;
-}
-
-/* ============================================================
-   SUBMIT BUTTON
-   ============================================================ */
-
-.contact-form-submit {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 77px;
-  padding: 0 25px;
-  border: 0;
-  border-radius: 16px;
-  background: #ff6b51;
-  color: #fff;
-  font-family: "Montserrat", sans-serif;
-  font-size: 20px;
-  font-weight: 700;
-  cursor: pointer;
-  transition:
-    background 0.2s ease,
-    transform 0.15s ease;
-}
-
-.contact-form-submit:hover {
-  background: #f96248;
-}
-
-.contact-form-submit:active {
-  transform: scale(0.995);
-}
-
-.contact-form-submit:disabled {
-  cursor: not-allowed;
-  opacity: 0.75;
-}
-
-/* ============================================================
-   SUCCESS / ERROR
-   ============================================================ */
-
-.contact-form-success,
-.contact-form-error {
-  margin: 14px 0 0;
-  text-align: center;
-  font-family: "Montserrat", sans-serif;
-  font-size: 14px;
-  font-weight: 600;
-}
-
-.contact-form-success {
-  color: #28a745;
-}
-
-.contact-form-error {
-  color: #dc3545;
-}
-
-/* ============================================================
-   LARGE LAPTOP / DESKTOP
-   ============================================================ */
-
-@media (max-width: 1400px) {
-  .contact-form-section {
-    padding-left: 4%;
-    padding-right: 4%;
-  }
-
-  .contact-form-card {
-    padding-left: 4.5%;
-    padding-right: 4.5%;
-  }
-
-  .contact-form-eyebrow {
-    font-size: 21px;
-  }
-
-  .contact-form-title {
-    font-size: 40px;
-  }
-
-  .contact-form-label {
-    font-size: 19px;
-  }
-
-  .contact-form-input,
-  .contact-form-textarea {
-    font-size: 17px;
-  }
-
-  .contact-form-input {
-    height: 68px;
-  }
-
-  .contact-form-textarea {
-    height: 280px;
-  }
-
-  .contact-form-submit {
-    height: 70px;
-    font-size: 18px;
-  }
-}
-
-/* ============================================================
-   TABLET
-   ============================================================ */
-
-@media (max-width: 900px) {
-  .contact-form-section {
-    padding: 30px 4% 60px;
-  }
-
-  .contact-form-heading {
-    margin-bottom: 55px;
-  }
-
-  .contact-form-eyebrow {
-    font-size: 18px;
-  }
-
-  .contact-form-title {
-    font-size: 34px;
-  }
-
-  .contact-form-heading-line {
-    margin-top: 18px;
-  }
-
-  .contact-form-card {
-    padding: 50px 5% 40px;
-  }
-
-  .contact-form {
-    grid-template-columns: 1fr;
-    row-gap: 0;
-  }
-
-  .contact-form-label {
-    font-size: 18px;
-  }
-
-  .contact-form-input {
-    height: 62px;
-  }
-
-  .contact-form-textarea {
-    height: 220px;
-  }
-
-  .contact-form-submit {
-    height: 64px;
-    border-radius: 13px;
-    font-size: 17px;
-  }
-}
-
-/* ============================================================
-   MOBILE
-   ============================================================ */
-
-@media (max-width: 600px) {
-  .contact-form-section {
-    width: 100%;
-    min-height: auto;
-    padding: 35px 16px 50px;
-  }
-
-  /* ---------- Heading ---------- */
-
-  .contact-form-heading {
-    width: 100%;
-    margin-bottom: 30px;
-  }
-
-  .contact-form-eyebrow {
-    margin: 0 0 8px;
-    font-size: 12px;
-    line-height: 1.5;
-    font-weight: 600;
-  }
-
-  .contact-form-title {
-    font-size: 23px;
-    line-height: 1.3;
-    letter-spacing: -0.4px;
-  }
-
-  .contact-form-heading-line {
-    width: 45px;
-    height: 2px;
-    margin-top: 13px;
-  }
-
-  /* ---------- Card ---------- */
-
-  .contact-form-card {
-    width: 100%;
-    padding: 28px 20px 25px;
-    border-radius: 6px;
-  }
-
-  /* ---------- Form ---------- */
-
-  .contact-form {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-  }
-
-  .contact-form-left,
-  .contact-form-right {
-    width: 100%;
-  }
-
-  /* ---------- Fields ---------- */
-
-  .contact-form-field {
-    width: 100%;
-    margin-bottom: 22px;
-  }
-
-  .contact-form-label {
-    gap: 7px;
-    margin-bottom: 9px;
-    font-size: 13px;
-    line-height: 1.3;
-    font-weight: 600;
-  }
-
-  .contact-form-icon {
-    width: 15px;
-    height: 15px;
-    stroke-width: 1.8;
-  }
-
-  /* ---------- Inputs ---------- */
-
-  .contact-form-input,
-  .contact-form-textarea {
-    width: 100%;
-    font-size: 13px;
-    border-width: 1px;
-    border-radius: 4px;
-  }
-
-  .contact-form-input {
-    height: 48px;
-    padding: 0 13px;
-  }
-
-  .contact-form-textarea {
-    height: 145px;
-    min-height: 145px;
-    padding: 12px 13px;
-    line-height: 1.5;
-  }
-
-  .contact-form-input::placeholder,
-  .contact-form-textarea::placeholder {
-    font-size: 12px;
-  }
-
-  /* ---------- Message ---------- */
-
-  .contact-form-message-field {
-    margin-bottom: 18px;
-  }
-
-  /* ---------- Button ---------- */
-
-  .contact-form-submit {
-    width: 100%;
-    height: 50px;
-    min-height: 50px;
-    padding: 0 15px;
-    border-radius: 9px;
-    font-size: 13px;
-    font-weight: 700;
-  }
-
-  /* ---------- Status ---------- */
-
-  .contact-form-success,
-  .contact-form-error {
-    margin-top: 10px;
-    font-size: 11px;
-    line-height: 1.4;
-  }
-}
-
-/* ============================================================
-   SMALL MOBILE
-   ============================================================ */
-
-@media (max-width: 400px) {
-  .contact-form-section {
-    padding: 28px 12px 45px;
-  }
-
-  .contact-form-heading {
-    margin-bottom: 25px;
-  }
-
-  .contact-form-eyebrow {
-    font-size: 11px;
-  }
-
-  .contact-form-title {
-    font-size: 20px;
-  }
-
-  .contact-form-card {
-    padding: 24px 16px 22px;
-  }
-
-  .contact-form-field {
-    margin-bottom: 19px;
-  }
-
-  .contact-form-label {
-    font-size: 12px;
-    margin-bottom: 8px;
-  }
-
-  .contact-form-icon {
-    width: 14px;
-    height: 14px;
-  }
-
-  .contact-form-input,
-  .contact-form-textarea {
-    font-size: 12px;
-  }
-
-  .contact-form-input {
-    height: 45px;
-    padding: 0 11px;
-  }
-
-  .contact-form-textarea {
-    height: 125px;
-    min-height: 125px;
-    padding: 10px 11px;
-  }
-
-  .contact-form-submit {
-    height: 47px;
-    min-height: 47px;
-    font-size: 12px;
-  }
-
-  .contact-form-success,
-  .contact-form-error {
-    font-size: 10px;
-  }
-}
-
-/* ============================================================
-   VERY SMALL PHONES
-   ============================================================ */
-
-@media (max-width: 350px) {
-  .contact-form-section {
-    padding-left: 10px;
-    padding-right: 10px;
-  }
-
-  .contact-form-eyebrow {
-    font-size: 10px;
-  }
-
-  .contact-form-title {
-    font-size: 18px;
-  }
-
-  .contact-form-card {
-    padding: 22px 14px 20px;
-  }
-
-  .contact-form-label {
-    font-size: 11px;
-  }
-
-  .contact-form-input {
-    height: 43px;
-  }
-
-  .contact-form-textarea {
-    height: 115px;
-    min-height: 115px;
-  }
-
-  .contact-form-submit {
-    height: 45px;
-    min-height: 45px;
-    font-size: 11px;
-  }
-}
-
-/* ============================================================
-   TOUCH DEVICES
-   ============================================================ */
-
-@media (hover: none) {
-  .contact-form-submit:hover {
-    background: #ff6b51;
-  }
-}
-
-/* ============================================================
-   REDUCED MOTION
-   ============================================================ */
-
-@media (prefers-reduced-motion: reduce) {
-  .contact-form-input,
-  .contact-form-textarea,
-  .contact-form-submit {
-    transition: none;
-  }
+@media (prefers-reduced-motion:reduce) {
+.contact-form-input,.contact-form-textarea,.contact-form-submit,.contact-form-submit::before,.contact-form-icon { transition:none; }
 }
