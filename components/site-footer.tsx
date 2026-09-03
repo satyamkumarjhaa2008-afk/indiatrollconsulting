@@ -1,7 +1,11 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useLayoutEffect, useRef } from 'react'
 import Link from 'next/link'
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+
+gsap.registerPlugin(ScrollTrigger)
 
 declare global {
   interface Window {
@@ -109,32 +113,68 @@ const socials = [
 export default function SiteFooter() {
   const footerRef = useRef<HTMLElement>(null)
 
-  const [isVisible, setIsVisible] = useState(false)
-
   /* =========================================================
-     FOOTER REVEAL ANIMATION
+     FOOTER REVEAL — GSAP ONLY
+     CSS does not control the reveal animation.
      ========================================================= */
 
-  useEffect(() => {
-    const node = footerRef.current
+  useLayoutEffect(() => {
+    const footer = footerRef.current
 
-    if (!node) return
+    if (!footer) return
 
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true)
-          observer.disconnect()
-        }
-      },
-      {
-        threshold: 0.1,
+    const ctx = gsap.context(() => {
+      const revealItems = footer.querySelectorAll('.footer-reveal')
+
+      if (!revealItems.length) return
+
+      const reduceMotion = window.matchMedia(
+        '(prefers-reduced-motion: reduce)'
+      ).matches
+
+      /*
+       * Respect the user's reduced-motion preference.
+       * No GSAP reveal animation is created in this case.
+       */
+      if (reduceMotion) {
+        gsap.set(revealItems, {
+          y: 0,
+          opacity: 1,
+          clearProps: 'transform,opacity',
+        })
+
+        return
       }
-    )
 
-    observer.observe(node)
+      gsap.fromTo(
+        revealItems,
+        {
+          y: 80,
+          opacity: 0,
+        },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 1.5,
+          stagger: 0.12,
+          ease: 'power3.out',
+          clearProps: 'transform,opacity',
+          scrollTrigger: {
+            trigger: footer,
+            start: 'top 50%',
+            once: true,
+          },
+        }
+      )
 
-    return () => observer.disconnect()
+      requestAnimationFrame(() => {
+        ScrollTrigger.refresh()
+      })
+    }, footer)
+
+    return () => {
+      ctx.revert()
+    }
   }, [])
 
   /* =========================================================
@@ -195,7 +235,7 @@ export default function SiteFooter() {
   return (
     <footer
       ref={footerRef}
-      className={`site-footer${isVisible ? ' is-visible' : ''}`}
+      className="site-footer"
     >
       {/* =====================================================
           FOOTER WATERMARK
@@ -221,7 +261,10 @@ export default function SiteFooter() {
               The original SVG colors will now remain visible.
               ================================================= */}
 
-          <Link href="/" className="footer-logo-link">
+          <Link
+            href="/"
+            className="footer-logo-link"
+          >
             <img
               className="footer-logo"
               src="/india-troll-logo-vector.svg"
@@ -230,7 +273,7 @@ export default function SiteFooter() {
           </Link>
 
           <p className="footer-description">
-          IndiaTroll Research & Analytics specialises in strategic research, ground-level intelligence, opinion analysis, market insights and data-driven solutions, helping organisations and decision-makers make smarter, evidence-based choices.
+            IndiaTroll Research & Analytics specialises in strategic research, ground-level intelligence, opinion analysis, market insights and data-driven solutions, helping organisations and decision-makers make smarter, evidence-based choices.
 
             {/* ===============================================
                 #4 — REAL CONTACT ROUTE
@@ -289,8 +332,8 @@ export default function SiteFooter() {
                 />
 
                 <span>
-                 Office No. 305, 3rd Floor, Orion Business Centre,
-Baner Road, Baner, Pune – 411045, Maharashtra, India
+                  Office No. 305, 3rd Floor, Orion Business Centre,
+                  Baner Road, Baner, Pune – 411045, Maharashtra, India
                 </span>
               </span>
             </li>
@@ -388,7 +431,6 @@ Baner Road, Baner, Pune – 411045, Maharashtra, India
           <ul>
             {quickLinks.map((link) => (
               <li key={link.name}>
-
                 <Link href={link.href}>
 
                   {/* =================================================
@@ -402,9 +444,7 @@ Baner Road, Baner, Pune – 411045, Maharashtra, India
                   />
 
                   <span>{link.name}</span>
-
                 </Link>
-
               </li>
             ))}
 

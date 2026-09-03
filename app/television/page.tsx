@@ -1,6 +1,7 @@
 import React from "react";
 import "./television.css";
-
+import SiteNavbar from "@/components/site-navbar";
+import SiteFooter from "@/components/site-footer";
 interface YouTubeVideo {
   id: string;
   url: string;
@@ -91,6 +92,8 @@ const Television: React.FC = () => {
 
   return (
     <main className="television-page">
+        <SiteNavbar/>
+
       {/* Page Header */}
       <section className="television-header">
         <div className="television-header-content">
@@ -194,6 +197,7 @@ const Television: React.FC = () => {
           </div>
         </section>
       )}
+      <SiteFooter/>
     </main>
   );
 };

@@ -1,71 +1,598 @@
-.service-carousel{width:100%;position:relative;padding:0 0 70px;overflow:hidden}
-.service-carousel__viewport{width:100%;overflow:hidden}
-.service-carousel__track{display:flex;width:100%;will-change:transform}
-.service-carousel__slide{box-sizing:border-box;flex:0 0 33.333333%;padding:0 26px}
-.service-card{width:100%;position:relative;background:#fff;border-radius:7px;overflow:hidden;box-shadow:0 8px 25px rgba(0,0,0,.08);transition:transform .3s ease,box-shadow .3s ease}
-.service-card__image-wrapper{width:100%;height:200px;overflow:hidden;position:relative;z-index:4;margin-top:15px}
-.service-card__image{width:100%;height:100%;display:block;object-fit:cover;object-position:center;transition:transform .6s ease}
-.service-card:hover .service-card__image{transform:scale(1.08)}
-.service-card__body{position:relative;min-height:120px;background:transparent;overflow:hidden;isolation:isolate}
-.service-card__content{position:relative;z-index:3;background:transparent;display:flex;flex-direction:column;align-items:center;text-align:center;transition:color .2s ease}
-.service-card__content h3{margin:0;max-width:95%;font-family:"Montserrat",sans-serif;font-size:20px;line-height:1.55;font-weight:700;color:#050505;transition:color .3s ease,transform .3s ease}
-.service-card__divider{width:100%;height:1px;margin-top:10px;background:#dedede;transition:background .3s ease,transform .3s ease}
-.service-card__read-more{display:inline-flex;align-items:center;justify-content:center;margin-top:10px;gap:2px;text-decoration:none;font-family:"Montserrat",sans-serif;font-size:15px;line-height:1.2;font-weight:700;color:#ff7058;transition:color .3s ease,transform .3s ease}
-.service-card__read-more span{font-size:20px;line-height:15px}
-.service-card::before{content:"";position:absolute;top:0;left:0;width:100%;height:0;background:#000;z-index:0}
-.service-card:hover::before{animation:fillBounce .8s ease-in-out forwards}
-@keyframes fillBounce{
-0%{height:0}
-50%{height:100%}
-75%{height:85%}
-100%{height:103%}
-}
-.service-card:hover .service-card__content h3{color:#fff}
-.service-card:hover .service-card__divider{background:rgba(67,9,9,.3)}
-.service-card:hover .service-card__read-more{color:#fff;transform:translateY(-2px)}
-.service-carousel__indicators{position:absolute;bottom:18px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:20px;z-index:20}
-.service-carousel__indicator{width:13px;height:13px;padding:0;border-radius:50%;border:2px solid #fff;background:#bdbdbd;cursor:pointer;transition:transform .25s ease,background .25s ease,box-shadow .25s ease}
-.service-carousel__indicator--active{background:#fff;transform:scale(1.1);box-shadow:0 0 0 2px rgba(0,0,0,.15)}
-.service-carousel__indicator:hover{transform:scale(1.25)}
+/* ============================================================
+   SERVICES CAROUSEL
+   IndiaTrolls — Global Theme
+   ============================================================ */
 
-@media (min-width:1500px){
-.service-carousel__slide{padding-left:40px;padding-right:40px}
-.service-card{min-height:350px}
-.service-card__image-wrapper{height:282px}
-.service-card__content h3{font-size:25px}
+.service-carousel {
+  width: 100%;
+  position: relative;
+  padding: 0 0 70px;
+  overflow: hidden;
+  background: transparent;
 }
 
-@media (min-width:768px) and (max-width:1199px){
-.service-carousel__slide{flex-basis:50%;padding-left:18px;padding-right:18px}
-.service-card{min-height:350px}
-.service-card__image-wrapper{height:250px}
-.service-card__content{padding:28px 28px 24px}
-.service-card__content h3{font-size:21px;line-height:1.45}
-.service-card__read-more{font-size:19px}
+.service-carousel__viewport {
+  width: 100%;
+  overflow: hidden;
 }
 
-@media (max-width:767px){
-.service-carousel{padding-bottom:60px}
-.service-carousel__slide{flex-basis:100%;padding-left:18px;padding-right:18px}
-.service-card{min-height:auto;border-radius:6px}
-.service-card__image-wrapper{height:auto;aspect-ratio:16/9}
-.service-card__content{min-height:205px;padding:27px 24px 24px}
-.service-card__content h3{max-width:100%;font-size:20px;line-height:1.45}
-.service-card__divider{margin-top:20px;margin-bottom:18px}
-.service-card__read-more{font-size:18px}
-.service-card__read-more span{font-size:25px}
-.service-carousel__indicators{bottom:12px;gap:12px}
-.service-carousel__indicator{width:10px;height:10px}
+.service-carousel__track {
+  display: flex;
+  width: 100%;
+  will-change: transform;
 }
 
-@media (max-width:420px){
-.service-carousel__slide{padding-left:12px;padding-right:12px}
-.service-card__content{padding-left:20px;padding-right:20px}
-.service-card__content h3{font-size:18px}
-.service-card__read-more{font-size:17px}
+/* ============================================================
+   SLIDE
+   ============================================================ */
+
+.service-carousel__slide {
+  box-sizing: border-box;
+  flex: 0 0 33.333333%;
+  padding: 0 26px;
 }
 
-@media (prefers-reduced-motion:reduce){
-.service-carousel__track,.service-card,.service-card__image,.service-card__content h3,.service-card__divider,.service-card__read-more,.service-carousel__indicator{transition:none}
-.service-card:hover::before{animation:none}
+/* ============================================================
+   SERVICE CARD
+   ============================================================ */
+
+.service-card {
+  width: 100%;
+  position: relative;
+
+  background: var(--surface, #0b0b0b);
+
+  border: 1px solid rgba(255, 184, 23, 0.2);
+  border-radius: 8px;
+
+  overflow: hidden;
+  isolation: isolate;
+
+  box-shadow:
+    0 8px 25px rgba(0, 0, 0, 0.25),
+    0 0 0 1px rgba(255, 255, 255, 0.02);
+
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    border-color 0.35s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+
+  border-color: var(--brand-gold, #ffb817);
+
+  box-shadow:
+    0 15px 40px rgba(0, 0, 0, 0.35),
+    0 0 25px rgba(255, 184, 23, 0.12);
+}
+
+/* ============================================================
+   YELLOW HOVER FILL
+   ============================================================ */
+
+.service-card::before {
+  content: "";
+
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 0;
+
+  background: var(--brand-gold, #ffb817);
+
+  /*
+    IMPORTANT:
+    Yellow stays BELOW the text/content.
+  */
+  z-index: 2;
+
+  pointer-events: none;
+
+  transform-origin: top center;
+}
+
+.service-card:hover::before {
+  animation: serviceFillBounce 0.8s ease-in-out forwards;
+}
+
+@keyframes serviceFillBounce {
+  0% {
+    height: 0%;
+  }
+
+  50% {
+    height: 100%;
+  }
+
+  75% {
+    height: 88%;
+  }
+
+  100% {
+    height: 103%;
+  }
+}
+
+/* ============================================================
+   IMAGE
+   ============================================================ */
+
+.service-card__image-wrapper {
+  width: 100%;
+  height: 200px;
+
+  overflow: hidden;
+
+  position: relative;
+
+  margin-top: 15px;
+
+  background: #050505;
+
+  /*
+    Image stays above yellow.
+  */
+  z-index: 4;
+}
+
+.service-card__image-wrapper::after {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0) 50%,
+      rgba(0, 0, 0, 0.2) 100%
+    );
+
+  pointer-events: none;
+
+  z-index: 2;
+}
+
+.service-card__image {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+  object-position: center;
+
+  transition:
+    transform 0.6s ease,
+    filter 0.4s ease;
+}
+
+.service-card:hover .service-card__image {
+  transform: scale(1.08);
+}
+
+/* ============================================================
+   CARD BODY
+   ============================================================ */
+
+/*
+   THIS IS THE IMPORTANT FIX.
+
+   Previously the body had:
+
+       z-index: 1;
+       isolation: isolate;
+
+   which trapped the content underneath the yellow overlay.
+
+   The body is now transparent and sits ABOVE the yellow.
+*/
+
+.service-card__body {
+  position: relative;
+
+  min-height: 120px;
+
+  background: transparent;
+
+  overflow: hidden;
+
+  /*
+    No isolation here.
+    No low stacking context.
+  */
+
+  z-index: 3;
+}
+
+/* ============================================================
+   CONTENT
+   ============================================================ */
+
+.service-card__content {
+  position: relative;
+
+  /*
+    Text must be ABOVE yellow.
+  */
+  z-index: 6;
+
+  background: transparent;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  text-align: center;
+
+  padding: 0 18px 20px;
+
+  transition:
+    color 0.25s ease,
+    transform 0.3s ease;
+}
+
+/* ============================================================
+   TITLE
+   ============================================================ */
+
+.service-card__content h3 {
+  margin: 0;
+
+  max-width: 95%;
+
+  font-family: "Montserrat", sans-serif;
+
+  font-size: 20px;
+  line-height: 1.55;
+  font-weight: 700;
+
+  /*
+    NORMAL STATE
+  */
+  color: var(--text-primary, #ffffff);
+
+  position: relative;
+  z-index: 7;
+
+  transition:
+    color 0.2s ease,
+    transform 0.3s ease;
+}
+
+/*
+   HOVER STATE
+   -------------------------
+   Yellow appears behind it.
+   Text becomes BLACK.
+*/
+
+.service-card:hover .service-card__content h3 {
+  color: #000000;
+
+  transform: translateY(-2px);
+}
+
+/* ============================================================
+   DIVIDER
+   ============================================================ */
+
+.service-card__divider {
+  width: 100%;
+  height: 1px;
+
+  margin-top: 10px;
+
+  position: relative;
+  z-index: 7;
+
+  background: rgba(255, 255, 255, 0.18);
+
+  transition:
+    background 0.2s ease,
+    transform 0.3s ease;
+}
+
+.service-card:hover .service-card__divider {
+  background: rgba(0, 0, 0, 0.5);
+
+  transform: scaleX(1.02);
+}
+
+/* ============================================================
+   READ MORE
+   ============================================================ */
+
+.service-card__read-more {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  margin-top: 10px;
+
+  gap: 2px;
+
+  position: relative;
+  z-index: 7;
+
+  text-decoration: none;
+
+  font-family: "Montserrat", sans-serif;
+
+  font-size: 15px;
+  line-height: 1.2;
+  font-weight: 700;
+
+  /*
+    NORMAL STATE
+  */
+  color: var(--brand-gold, #ffb817);
+
+  transition:
+    color 0.2s ease,
+    transform 0.3s ease;
+}
+
+/*
+   HOVER:
+   GOLD BACKGROUND + BLACK TEXT
+*/
+
+.service-card:hover .service-card__read-more {
+  color: #000000;
+
+  transform: translateY(-2px);
+}
+
+.service-card__read-more span {
+  font-size: 20px;
+  line-height: 15px;
+}
+
+.service-card__arrow {
+  transition: transform 0.3s ease;
+}
+
+.service-card:hover .service-card__arrow:first-child {
+  transform: translateX(-2px);
+}
+
+.service-card:hover .service-card__arrow:last-child {
+  transform: translateX(2px);
+}
+
+/* ============================================================
+   CAROUSEL INDICATORS
+   ============================================================ */
+
+.service-carousel__indicators {
+  position: absolute;
+
+  bottom: 18px;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  display: flex;
+  align-items: center;
+
+  gap: 20px;
+
+  z-index: 20;
+}
+
+.service-carousel__indicator {
+  width: 13px;
+  height: 13px;
+
+  padding: 0;
+
+  border-radius: 50%;
+
+  border: 2px solid #ffffff;
+
+  background: rgba(255, 255, 255, 0.25);
+
+  cursor: pointer;
+
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.service-carousel__indicator--active {
+  background: var(--brand-gold, #ffb817);
+
+  border-color: var(--brand-gold, #ffb817);
+
+  transform: scale(1.1);
+
+  box-shadow:
+    0 0 0 2px rgba(255, 184, 23, 0.15),
+    0 0 12px rgba(255, 184, 23, 0.3);
+}
+
+.service-carousel__indicator:hover {
+  transform: scale(1.25);
+
+  border-color: var(--brand-gold, #ffb817);
+}
+
+/* ============================================================
+   LARGE DESKTOP
+   ============================================================ */
+
+@media (min-width: 1500px) {
+  .service-carousel__slide {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  .service-card {
+    min-height: 350px;
+  }
+
+  .service-card__image-wrapper {
+    height: 282px;
+  }
+
+  .service-card__content h3 {
+    font-size: 25px;
+  }
+}
+
+/* ============================================================
+   TABLET
+   ============================================================ */
+
+@media (min-width: 768px) and (max-width: 1199px) {
+  .service-carousel__slide {
+    flex-basis: 50%;
+
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  .service-card {
+    min-height: 350px;
+  }
+
+  .service-card__image-wrapper {
+    height: 250px;
+  }
+
+  .service-card__content {
+    padding: 28px 28px 24px;
+  }
+
+  .service-card__content h3 {
+    font-size: 21px;
+    line-height: 1.45;
+  }
+
+  .service-card__read-more {
+    font-size: 19px;
+  }
+}
+
+/* ============================================================
+   MOBILE
+   ============================================================ */
+
+@media (max-width: 767px) {
+  .service-carousel {
+    padding-bottom: 60px;
+  }
+
+  .service-carousel__slide {
+    flex-basis: 100%;
+
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  .service-card {
+    min-height: auto;
+
+    border-radius: 7px;
+  }
+
+  .service-card__image-wrapper {
+    height: auto;
+
+    aspect-ratio: 16 / 9;
+  }
+
+  .service-card__content {
+    min-height: 205px;
+
+    padding: 27px 24px 24px;
+  }
+
+  .service-card__content h3 {
+    max-width: 100%;
+
+    font-size: 20px;
+    line-height: 1.45;
+  }
+
+  .service-card__divider {
+    margin-top: 20px;
+    margin-bottom: 18px;
+  }
+
+  .service-card__read-more {
+    font-size: 18px;
+  }
+
+  .service-card__read-more span {
+    font-size: 25px;
+  }
+
+  .service-carousel__indicators {
+    bottom: 12px;
+
+    gap: 12px;
+  }
+
+  .service-carousel__indicator {
+    width: 10px;
+    height: 10px;
+  }
+}
+
+/* ============================================================
+   SMALL MOBILE
+   ============================================================ */
+
+@media (max-width: 420px) {
+  .service-carousel__slide {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .service-card__content {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .service-card__content h3 {
+    font-size: 18px;
+  }
+
+  .service-card__read-more {
+    font-size: 17px;
+  }
+}
+
+/* ============================================================
+   REDUCED MOTION
+   ============================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  .service-carousel__track,
+  .service-card,
+  .service-card__image,
+  .service-card__content h3,
+  .service-card__divider,
+  .service-card__read-more,
+  .service-card__arrow,
+  .service-carousel__indicator {
+    transition: none;
+  }
+
+  .service-card:hover {
+    transform: none;
+  }
+
+  .service-card:hover::before {
+    animation: none;
+  }
 }

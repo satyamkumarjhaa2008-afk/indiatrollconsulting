@@ -12,15 +12,22 @@ import SiteFooter from "../../../components/site-footer";
 import ServiceCarousel from "../../../components/services-carousel";
 import SideNavbar from "../../../components/side-navbar";
 
+/* =========================================================
+   SERVICE DATA
+========================================================= */
+
 const serviceData = [
   {
     name: "Survey & Insights",
     image: "/assets/our-services/survey-insights.png",
     href: "/services/survey-insights",
+
     intro:
       "We track what is happening on the ground - issues, perception, and feedback- and convert it into actionable inputs for timely decisions.",
+
     "How We Work":
       "We begin by defining the research objectives and designing structured questionnaires with inputs from psychologists and subject experts. Our trained field teams collect responses through face-to-face interactions and our survey application. Depending on the study, we use appropriate sampling methods, followed by rigorous validation, data processing, analysis, and interpretation.",
+
     "Key Work Areas": [
       "Exit polls and opinion polls",
       "Political and non-political surveys",
@@ -29,6 +36,7 @@ const serviceData = [
       "Field data collection and monitoring",
       "Data validation and quality checks",
     ],
+
     Outcome:
       "Clear, reliable inputs for decision-making backed by verified ground data.",
   },
@@ -37,10 +45,13 @@ const serviceData = [
     name: "Ground Intelligence",
     image: "/assets/our-services/ground-intelligence.png",
     href: "/services/ground-intelligence",
+
     intro:
       "We track what is happening on the ground - issues, perception, and feedback- and convert it into actionable inputs for timely decisions.",
+
     "How We Work":
       "Our field teams maintain regular contact with local stakeholders, voters, party workers, and community networks to capture developments as they happen. Information is systematically recorded, cross-checked, and analyzed to identify changes in sentiment, emerging issues, local concerns, and competitor activity, helping clients respond before situations become critical.",
+
     "Key Work Areas": [
       "Perception mapping on leaders and issues",
       "Issue tracking and early warning signals",
@@ -51,6 +62,7 @@ const serviceData = [
       "Leadership and governance report cards",
       "Influencer and local network mapping",
     ],
+
     Outcome:
       "Early visibility of issues and clear direction for timely action.",
   },
@@ -59,10 +71,13 @@ const serviceData = [
     name: "Political Strategy & Consulting",
     image: "/assets/our-services/political-strategy-consulting.png",
     href: "/services/political-strategy-consulting",
+
     intro:
       "Political strategy and consulting services help parties and candidates navigate the complex landscape of modern politics.",
+
     "How We Work":
       "We first understand the political environment, client objectives, voter priorities, organizational strengths, and competitive landscape. Our strategy teams combine field intelligence, research, and data analysis to develop practical campaign plans. We then support execution, track performance, review emerging challenges, and refine the strategy based on real-time feedback.",
+
     "Key Work Areas": [
       "Strategic planning and execution",
       "Campaign management and optimization",
@@ -70,6 +85,7 @@ const serviceData = [
       "Policy development and advocacy",
       "Leadership and team building",
     ],
+
     Outcome:
       "Enhanced strategic positioning and improved electoral performance.",
   },
@@ -78,10 +94,13 @@ const serviceData = [
     name: "Communication & Image Management",
     image: "/assets/our-services/communication-image-management.png",
     href: "/services/communication-image-management",
+
     intro:
       "Communication and image management services help parties and candidates build and maintain a strong public presence.",
+
     "How We Work":
       "We begin by understanding the client's public image, communication objectives, audiences, and existing perception. Our teams develop consistent messaging across media, digital platforms, and public communication. We monitor reactions and media narratives, identify potential reputation risks, and adapt communication plans to maintain credibility and strengthen public engagement.",
+
     "Key Work Areas": [
       "Media relations and press management",
       "Social media strategy and execution",
@@ -89,6 +108,7 @@ const serviceData = [
       "Crisis communication and reputation management",
       "Internal communication and stakeholder engagement",
     ],
+
     Outcome:
       "Enhanced public perception and improved media coverage.",
   },
@@ -97,10 +117,13 @@ const serviceData = [
     name: "Market Research & Business Insights",
     image: "/assets/our-services/market-research-business-insights.png",
     href: "/services/market-research-business-insights",
+
     intro:
       "Market research and business insights services provide data-driven intelligence to inform strategic decision-making.",
+
     "How We Work":
       "We start by defining the business question and identifying the information required to address it. Our researchers combine primary surveys, consumer interactions, secondary research, and market data to understand customer behaviour and competition. The findings are validated, analyzed, and translated into practical insights that support business and growth decisions.",
+
     "Key Work Areas": [
       "Consumer behavior analysis",
       "Market segmentation and targeting",
@@ -108,6 +131,7 @@ const serviceData = [
       "Product and service evaluation",
       "Financial and operational performance analysis",
     ],
+
     Outcome:
       "Informed strategic decisions and improved business performance.",
   },
@@ -116,10 +140,13 @@ const serviceData = [
     name: "Governance & Project Monitoring (PMC)",
     image: "/assets/our-services/governance-project-monitoring.png",
     href: "/services/governance-project-monitoring",
+
     intro:
       "Governance and project monitoring services ensure effective oversight and performance evaluation of initiatives.",
+
     "How We Work":
       "We establish clear monitoring frameworks around project objectives, timelines, budgets, responsibilities, and measurable outcomes. Our teams regularly review progress through field visits, reports, stakeholder feedback, and performance data. Gaps and risks are identified early, with findings shared through structured reports and actionable recommendations to improve implementation and accountability.",
+
     "Key Work Areas": [
       "Project planning and execution",
       "Performance measurement and reporting",
@@ -127,21 +154,24 @@ const serviceData = [
       "Compliance and regulatory adherence",
       "Stakeholder communication and engagement",
     ],
+
     Outcome:
       "Improved project outcomes and enhanced organizational governance.",
   },
 ];
 
-/* ---------------------------------------------------------
+/* =========================================================
    MOTION VARIANTS
---------------------------------------------------------- */
+========================================================= */
 
 const pageVariants: Variants = {
   hidden: {
     opacity: 0,
   },
+
   visible: {
     opacity: 1,
+
     transition: {
       duration: 0.7,
       ease: "easeOut",
@@ -156,10 +186,12 @@ const contentVariants: Variants = {
     y: 70,
     rotateX: 8,
   },
+
   visible: {
     opacity: 1,
     y: 0,
     rotateX: 0,
+
     transition: {
       duration: 0.8,
       ease: [0.22, 1, 0.36, 1],
@@ -174,10 +206,12 @@ const headingVariants: Variants = {
     rotateX: 25,
     transformPerspective: 1000,
   },
+
   visible: {
     opacity: 1,
     y: 0,
     rotateX: 0,
+
     transition: {
       duration: 0.8,
       ease: [0.16, 1, 0.3, 1],
@@ -187,6 +221,7 @@ const headingVariants: Variants = {
 
 const listContainerVariants: Variants = {
   hidden: {},
+
   visible: {
     transition: {
       staggerChildren: 0.08,
@@ -202,11 +237,13 @@ const listItemVariants: Variants = {
     rotateY: -12,
     scale: 0.94,
   },
+
   visible: {
     opacity: 1,
     x: 0,
     rotateY: 0,
     scale: 1,
+
     transition: {
       duration: 0.55,
       ease: [0.22, 1, 0.36, 1],
@@ -220,10 +257,12 @@ const sidebarVariants: Variants = {
     x: 80,
     rotateY: -18,
   },
+
   visible: {
     opacity: 1,
     x: 0,
     rotateY: 0,
+
     transition: {
       duration: 0.9,
       delay: 0.25,
@@ -240,12 +279,14 @@ const imageVariants: Variants = {
     rotateY: -10,
     y: 80,
   },
+
   visible: {
     opacity: 1,
     scale: 1,
     rotateX: 0,
     rotateY: 0,
     y: 0,
+
     transition: {
       duration: 1.1,
       ease: [0.16, 1, 0.3, 1],
@@ -253,9 +294,9 @@ const imageVariants: Variants = {
   },
 };
 
-/* ---------------------------------------------------------
+/* =========================================================
    PAGE
---------------------------------------------------------- */
+========================================================= */
 
 export default async function Services({
   params,
@@ -276,9 +317,9 @@ export default async function Services({
 
   return (
     <>
-      {/* -------------------------------------------------
+      {/* =====================================================
           NAVBAR
-      ------------------------------------------------- */}
+      ===================================================== */}
 
       <motion.div
         initial={{
@@ -297,6 +338,10 @@ export default async function Services({
         <SiteNavbar />
       </motion.div>
 
+      {/* =====================================================
+          SERVICE PAGE
+      ===================================================== */}
+
       <motion.main
         className="service-page"
         id="service-top"
@@ -307,10 +352,14 @@ export default async function Services({
           perspective: 1400,
         }}
       >
+        {/* ===================================================
+            MAIN LAYOUT
+        =================================================== */}
+
         <div className="service-layout">
 
           {/* =================================================
-              LEFT SIDE
+              LEFT CONTENT
           ================================================= */}
 
           <motion.section
@@ -322,9 +371,9 @@ export default async function Services({
           >
             <div className="service-content-inner">
 
-              {/* -------------------------------------------------
+              {/* =================================================
                   INTRO
-              ------------------------------------------------- */}
+              ================================================= */}
 
               {service.intro && (
                 <motion.section
@@ -364,9 +413,9 @@ export default async function Services({
                 </motion.section>
               )}
 
-              {/* -------------------------------------------------
+              {/* =================================================
                   MAIN IMAGE
-              ------------------------------------------------- */}
+              ================================================= */}
 
               <motion.section
                 className="service-image-section"
@@ -388,6 +437,7 @@ export default async function Services({
                     rotateX: 2,
                     rotateY: -2,
                     z: 30,
+
                     transition: {
                       duration: 0.5,
                       ease: [0.22, 1, 0.36, 1],
@@ -420,19 +470,25 @@ export default async function Services({
                     }}
                   />
 
-                  {/* 3D shine layer */}
+                  {/* =================================================
+                      3D SHINE
+                  ================================================= */}
+
                   <motion.div
                     aria-hidden="true"
                     style={{
                       position: "absolute",
                       inset: 0,
                       pointerEvents: "none",
+
                       background:
                         "linear-gradient(115deg, transparent 20%, rgba(255,255,255,0.18) 45%, transparent 70%)",
+
                       transform: "translateX(-120%)",
                     }}
                     whileHover={{
                       x: "220%",
+
                       transition: {
                         duration: 1.1,
                         ease: "easeInOut",
@@ -442,9 +498,9 @@ export default async function Services({
                 </motion.div>
               </motion.section>
 
-              {/* -------------------------------------------------
+              {/* =================================================
                   HOW WE WORK
-              ------------------------------------------------- */}
+              ================================================= */}
 
               <motion.section
                 className="service-work service-section"
@@ -464,6 +520,7 @@ export default async function Services({
                   whileHover={{
                     x: 8,
                     rotateY: -4,
+
                     transition: {
                       duration: 0.3,
                     },
@@ -495,9 +552,9 @@ export default async function Services({
                 </motion.p>
               </motion.section>
 
-              {/* -------------------------------------------------
+              {/* =================================================
                   KEY WORK AREAS
-              ------------------------------------------------- */}
+              ================================================= */}
 
               <motion.section
                 className="service-key-areas service-section"
@@ -538,6 +595,7 @@ export default async function Services({
                         scale: 1.025,
                         rotateY: -3,
                         z: 20,
+
                         transition: {
                           duration: 0.25,
                           ease: "easeOut",
@@ -556,6 +614,7 @@ export default async function Services({
                         whileHover={{
                           rotate: 180,
                           scale: 1.15,
+
                           transition: {
                             duration: 0.45,
                             ease: "easeOut",
@@ -605,9 +664,9 @@ export default async function Services({
                 </motion.ul>
               </motion.section>
 
-              {/* -------------------------------------------------
+              {/* =================================================
                   OUTCOME
-              ------------------------------------------------- */}
+              ================================================= */}
 
               <motion.section
                 className="service-outcome service-section"
@@ -636,6 +695,7 @@ export default async function Services({
                   scale: 1.015,
                   rotateX: 2,
                   rotateY: -2,
+
                   transition: {
                     duration: 0.35,
                   },
@@ -666,7 +726,6 @@ export default async function Services({
                   {service.Outcome}
                 </motion.p>
               </motion.section>
-
             </div>
           </motion.section>
 
@@ -684,30 +743,14 @@ export default async function Services({
               once: true,
               amount: 0.2,
             }}
-            style={{
-              transformStyle: "preserve-3d",
-            }}
           >
-            <motion.div
-              whileHover={{
-                rotateY: -3,
-                x: -5,
-                transition: {
-                  duration: 0.35,
-                },
-              }}
-              style={{
-                transformStyle: "preserve-3d",
-              }}
-            >
-              <SideNavbar />
-            </motion.div>
+            <SideNavbar />
           </motion.aside>
         </div>
 
-        {/* =================================================
+        {/* =====================================================
             SERVICE CAROUSEL
-        ================================================= */}
+        ===================================================== */}
 
         <motion.section
           className="service-carousel-section"
@@ -748,6 +791,7 @@ export default async function Services({
             }}
             whileHover={{
               y: -6,
+
               transition: {
                 duration: 0.3,
               },
@@ -757,9 +801,9 @@ export default async function Services({
           </motion.div>
         </motion.section>
 
-        {/* =================================================
+        {/* =====================================================
             FOOTER
-        ================================================= */}
+        ===================================================== */}
 
         <motion.div
           initial={{

@@ -1,23 +1,35 @@
 
+/* ============================================================
+   INDIA TROLL — SERVICES SIDEBAR
+   BLACK → GOLD INTERACTION SYSTEM
+   ============================================================ */
 
 
-
+/* ============================================================
+   SERVICES SIDEBAR
+   ============================================================ */
 
 .services-sidebar {
+  position: relative;
+
   width: 470px;
   flex-shrink: 0;
 
-  background: #ffffff;
+  background: var(--surface);
 
-  box-shadow: 0 0 25px rgba(0, 0, 0, 0.04);
+  border: 1px solid var(--border);
 
-  font-family: 'Montserrat', sans-serif;
+  box-shadow: var(--shadow-dark);
+
+  font-family: "Montserrat", sans-serif;
+
+  overflow: hidden;
 }
 
 
-/* ================================
-   INDIVIDUAL ITEM
-================================ */
+/* ============================================================
+   INDIVIDUAL SERVICE ITEM
+   ============================================================ */
 
 .service-item {
   position: relative;
@@ -25,15 +37,21 @@
   width: 100%;
   min-height: 120px;
 
-  padding: 20px 70px 20px 30px;
+  padding: 20px 82px 20px 30px;
 
   display: flex;
   align-items: center;
 
   border: none;
-  border-bottom: 1px solid #e1e1e1;
+  border-bottom: 1px solid var(--border);
 
-  background: #ffffff;
+  /*
+     INACTIVE STATE
+     Black background + white text
+  */
+  background: #050505;
+
+  color: var(--white);
 
   cursor: pointer;
 
@@ -41,14 +59,25 @@
 
   overflow: hidden;
 
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
+
+  transition:
+    color 0.35s ease,
+    border-color 0.35s ease;
 }
 
 
-/* Orange animated background */
+.service-item:last-child {
+  border-bottom: none;
+}
+
+
+/* ============================================================
+   GOLD FILL
+   ============================================================ */
 
 .service-item::before {
-  content: '';
+  content: "";
 
   position: absolute;
 
@@ -58,67 +87,90 @@
   width: 0;
   height: 100%;
 
-  background: #ff7058;
+  /*
+     GOLD HOVER / ACTIVE FILL
+  */
+  background:
+    linear-gradient(
+      100deg,
+      var(--brand-gold) 0%,
+      var(--brand-yellow) 55%,
+      var(--brand-gold-soft) 100%
+    );
 
   z-index: 0;
 
-  transition: width 0.65s cubic-bezier(0.65, 0, 0.35, 1);
+  transition:
+    width 0.65s cubic-bezier(0.65, 0, 0.35, 1);
 }
 
 
-/* Hover animation */
+/* ============================================================
+   HOVER → GOLD
+   ============================================================ */
 
 .service-item:hover::before {
   width: 100%;
 }
 
 
-/* Active item stays orange */
+/* ============================================================
+   ACTIVE → GOLD
+   ============================================================ */
 
 .service-item.active::before {
   width: 100%;
 }
 
 
-/* ================================
+/* ============================================================
    SERVICE TITLE
-================================ */
+   ============================================================ */
 
 .service-title {
   position: relative;
+
   z-index: 2;
 
   font-size: 20px;
+
   line-height: 1.45;
 
   font-weight: 600;
 
-  color: #050505;
+  color: var(--white);
 
   transition:
     color 0.35s ease,
-    transform 0.35s ease;
+    transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 
-/* Active / hovered text */
-
-.service-item:hover .service-title,
-.service-item.active .service-title {
-  color: #ffffff;
-}
-
-
-/* Slight movement on hover */
+/* ============================================================
+   HOVER → BLACK TEXT
+   ============================================================ */
 
 .service-item:hover .service-title {
-  transform: translateX(3px);
+  color: var(--black);
+
+  transform: translateX(5px);
 }
 
 
-/* ================================
+/* ============================================================
+   ACTIVE → BLACK TEXT
+   ============================================================ */
+
+.service-item.active .service-title {
+  color: var(--black);
+
+  transform: translateX(5px);
+}
+
+
+/* ============================================================
    ARROW CIRCLE
-================================ */
+   ============================================================ */
 
 .service-arrow {
   position: absolute;
@@ -129,13 +181,20 @@
   width: 50px;
   height: 50px;
 
-  transform: translateY(-50%);
+  transform:
+    translateY(-50%)
+    scale(0.82);
 
   border-radius: 50%;
 
-  background: #ffffff;
+  /*
+     INACTIVE ARROW
+     Gold circle so it is visible on black.
+  */
+
 
   display: flex;
+
   align-items: center;
   justify-content: center;
 
@@ -144,90 +203,171 @@
   opacity: 0;
 
   transition:
-    opacity 1s ease,
-    transform 0.45s ease;
+    opacity 0.4s ease,
+    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    background 0.3s ease;
 }
 
 
-/* Arrow appears on hover */
+/* ============================================================
+   HOVER ARROW
+   ============================================================ */
 
 .service-item:hover .service-arrow {
   opacity: 1;
-  transform: translateY(-50%) scale(1);
+
+  transform:
+    translateY(-50%)
+    scale(1);
 }
 
 
-/* Arrow stays visible for active */
+/* ============================================================
+   ACTIVE ARROW
+   ============================================================ */
 
 .service-item.active .service-arrow {
   opacity: 1;
-  transform: translateY(-50%) scale(1);
+
+  transform:
+    translateY(-50%)
+    scale(1);
+
+  /*
+     GOLD BACKGROUND → BLACK ARROW
+  */
+
 }
 
 
-/* ================================
-   ARROW
-================================ */
+/* ============================================================
+   ARROW LINE
+   ============================================================ */
 
 .arrow-line {
   position: absolute;
 
+  left: 12px;
+
   width: 25px;
   height: 2px;
 
-  background: #00b85c;
+  border-radius: 999px;
 
-  left: 12px;
+  /*
+     BLACK ARROW
+  */
+  background: var(--black);
+
+  transition:
+    width 0.3s ease;
 }
+
+
+/* ============================================================
+   ARROW HEAD
+   ============================================================ */
 
 .arrow-head {
   position: absolute;
 
+  right: 15px;
+
   width: 12px;
   height: 12px;
 
-  border-top: 2px solid #00b85c;
-  border-right: 2px solid #00b85c;
+  border-top: 2px solid var(--black);
+  border-right: 2px solid var(--black);
 
   transform: rotate(45deg);
 
-  right: 15px;
+  transition:
+    transform 0.3s ease;
 }
 
 
-/* ================================
-   ARROW HOVER MOVEMENT
-================================ */
+/* ============================================================
+   ARROW MOVEMENT
+   ============================================================ */
+
+.service-item:hover .arrow-line {
+  width: 28px;
+}
+
+.service-item:hover .arrow-head {
+  transform:
+    rotate(45deg)
+    translate(1px, -1px);
+}
+
+
+/* ============================================================
+   ARROW ENTRANCE ANIMATION
+   ============================================================ */
 
 .service-item:hover .service-arrow {
-  animation: arrowFade 1s ease forwards;
+  animation: serviceArrowFade 0.7s ease forwards;
 }
 
-@keyframes arrowFade {
+
+@keyframes serviceArrowFade {
+
   0% {
     opacity: 0;
-    transform: translateY(-50%) translateX(-8px);
+
+    transform:
+      translateY(-50%)
+      translateX(-8px)
+      scale(0.82);
   }
 
   100% {
     opacity: 1;
-    transform: translateY(-50%) translateX(0);
+
+    transform:
+      translateY(-50%)
+      translateX(0)
+      scale(1);
   }
 }
 
 
-/* ================================
+/* ============================================================
    ACTIVE ITEM
-================================ */
+   ============================================================ */
 
 .service-item.active {
-  color: white;
+  color: var(--black);
 }
 
 
-/* ================================
-   RESPONSIVE
-================================ */
+/* ============================================================
+   SUBTLE GOLD SHINE
+   ============================================================ */
+
+.service-item.active::after,
+.service-item:hover::after {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 1px;
+
+
+
+  z-index: 4;
+
+  pointer-events: none;
+}
+
+
+/* ============================================================
+   RESPONSIVE — LARGE TABLET / SMALL DESKTOP
+   ============================================================ */
 
 @media (max-width: 1200px) {
 
@@ -242,11 +382,12 @@
   .service-title {
     font-size: 20px;
   }
-
 }
 
 
-/* Tablet */
+/* ============================================================
+   RESPONSIVE — TABLET
+   ============================================================ */
 
 @media (max-width: 900px) {
 
@@ -265,11 +406,12 @@
   .service-item {
     min-height: 100px;
   }
-
 }
 
 
-/* Mobile */
+/* ============================================================
+   RESPONSIVE — MOBILE
+   ============================================================ */
 
 @media (max-width: 600px) {
 
@@ -278,21 +420,30 @@
     gap: 25px;
   }
 
+
   .service-description {
     font-size: 16px;
     line-height: 1.7;
   }
 
+
   .service-item {
     min-height: 90px;
 
-    padding: 22px 85px 22px 24px;
+    padding:
+      22px
+      85px
+      22px
+      24px;
   }
+
 
   .service-title {
     font-size: 18px;
+
     line-height: 1.4;
   }
+
 
   .service-arrow {
     width: 50px;
@@ -301,13 +452,82 @@
     right: 16px;
   }
 
+
   .arrow-line {
     width: 20px;
+
     left: 14px;
   }
+
 
   .arrow-head {
     right: 13px;
   }
-
 }
+
+
+/* ============================================================
+   SMALL MOBILE
+   ============================================================ */
+
+@media (max-width: 400px) {
+
+  .service-item {
+    min-height: 84px;
+
+    padding:
+      20px
+      72px
+      20px
+      20px;
+  }
+
+
+  .service-title {
+    font-size: 16px;
+  }
+
+
+  .service-arrow {
+    width: 44px;
+    height: 44px;
+
+    right: 13px;
+  }
+
+
+  .arrow-line {
+    width: 18px;
+
+    left: 11px;
+  }
+
+
+  .arrow-head {
+    width: 10px;
+    height: 10px;
+
+    right: 11px;
+  }
+}
+
+
+/* ============================================================
+   ACCESSIBILITY
+   ============================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .service-item,
+  .service-item::before,
+  .service-item::after,
+  .service-title,
+  .service-arrow,
+  .arrow-line,
+  .arrow-head {
+    transition: none !important;
+
+    animation: none !important;
+  }
+}
+

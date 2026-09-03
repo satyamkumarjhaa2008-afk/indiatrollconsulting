@@ -6,10 +6,27 @@
 .service-page {
   width: 100%;
   min-height: 100vh;
-  overflow: hidden;
-  background: #fff;
-  color: #111;
+
+  /*
+    IMPORTANT:
+    Do not use overflow:hidden here.
+    The page contains 3D Motion transforms which can otherwise
+    expose/clamp the sidebar during animation.
+  */
+  overflow-x: clip;
+  overflow-y: visible;
+
+  background: var(--site-bg);
+  color: var(--text-primary);
   font-family: "Montserrat", sans-serif;
+
+  box-sizing: border-box;
+}
+
+.service-page *,
+.service-page *::before,
+.service-page *::after {
+  box-sizing: border-box;
 }
 
 
@@ -21,6 +38,12 @@
   width: 100%;
   display: flex;
   align-items: flex-start;
+
+  /*
+    Prevent children from creating unexpected horizontal
+    overflow during transforms.
+  */
+  min-width: 0;
 }
 
 
@@ -32,6 +55,8 @@
   width: 70%;
   height: auto;
   overflow: visible;
+
+  min-width: 0;
 }
 
 .service-content-inner {
@@ -52,7 +77,7 @@
 
 .service-intro p {
   margin: 0;
-  color: #666;
+  color: var(--text-secondary);
   font-size: 20px;
   font-weight: 400;
   line-height: 1.7;
@@ -72,7 +97,10 @@
   position: relative;
   width: 100%;
   overflow: hidden;
+  border: 1px solid var(--border);
   border-radius: 7px;
+  background: var(--surface);
+  box-shadow: var(--shadow-soft);
 }
 
 .service-main-image {
@@ -94,7 +122,7 @@
 
 .service-section h2 {
   margin: 0 0 14px;
-  color: #111;
+  color: var(--brand-gold);
   font-size: 27px;
   font-weight: 600;
   line-height: 1.2;
@@ -109,7 +137,7 @@
 .service-work p {
   max-width: 1100px;
   margin: 0;
-  color: #696969;
+  color: var(--text-secondary);
   font-size: 20px;
   line-height: 1.65;
 }
@@ -127,9 +155,12 @@
   display: flex;
   flex-direction: column;
   gap: 14px;
+
   margin: 0;
   padding: 0;
+
   list-style: none;
+
   perspective: 1000px;
 }
 
@@ -137,26 +168,33 @@
   display: flex;
   align-items: center;
   gap: 18px;
+
   min-height: 32px;
+
   transform-style: preserve-3d;
 }
 
 .service-list-icon {
   display: flex;
   flex: 0 0 20px;
+
   align-items: center;
   justify-content: center;
+
   width: 20px;
   height: 20px;
-  border: 2px solid #00c86b;
+
+  border: 2px solid var(--brand-gold);
   border-radius: 50%;
 }
 
 .service-list-icon::before {
   content: "";
+
   width: 10px;
   height: 10px;
-  border: 1.5px solid #00c86b;
+
+  border: 1.5px solid var(--brand-gold);
   border-radius: 50%;
 }
 
@@ -165,7 +203,7 @@
 }
 
 .service-list-text {
-  color: #696969;
+  color: var(--text-secondary);
   font-size: 20px;
   font-weight: 600;
   line-height: 1.5;
@@ -182,13 +220,13 @@
 
 .service-outcome p {
   margin: 0;
-  color: #696969;
+  color: var(--text-secondary);
   font-size: 21px;
   line-height: 1.7;
 }
 
 .service-outcome strong {
-  color: #666;
+  color: var(--brand-gold);
   font-weight: 700;
 }
 
@@ -198,28 +236,91 @@
 ========================================================= */
 
 .service-sidebar {
+  /*
+    Keep the sidebar at exactly 30% of the layout.
+    box-sizing prevents padding from increasing its
+    effective width.
+  */
   flex: 0 0 30%;
   width: 30%;
+
+  min-width: 0;
+
   padding: 28px 3.2% 20px 0;
-  background: #fff;
+
+  /*
+    Transparent is important.
+    The actual SideNavbar provides its own white surface.
+  */
+  background: transparent;
+
+  box-sizing: border-box;
+
+  /*
+    Prevent the 3D transform from creating an unexpected
+    visual strip outside the sidebar.
+  */
+  overflow: visible;
 }
+
+
+/*
+  IMPORTANT:
+  SideNavbar itself has a fixed width of 470px.
+  On this page it must obey the width of the parent.
+*/
+.service-sidebar .services-sidebar {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+
+  box-sizing: border-box;
+}
+
+
+/*
+  If SideNavbar contains an internal fixed-width surface,
+  force it to remain inside this page's sidebar.
+*/
+.service-sidebar .services-sidebar,
+.service-sidebar .services-sidebar * {
+  max-width: 100%;
+}
+
+
+/* =========================================================
+   SIDEBAR INNER
+========================================================= */
 
 .service-sidebar-inner {
   width: 100%;
   height: auto;
-  background: #fdfdfd;
-  box-shadow: 0 0 0 1px #eee;
+
+  background: var(--surface);
+
+  box-shadow: 0 0 0 1px var(--border);
+
+  overflow: hidden;
 }
+
+
+/* =========================================================
+   SIDEBAR HEADER
+========================================================= */
 
 .service-sidebar-header {
   padding: 36px 38px;
-  border-bottom: 1px solid #e5e5e5;
-  background: #fff;
+
+  border-bottom: 1px solid var(--border);
+
+  background: var(--site-bg);
 }
 
 .service-sidebar-header h2 {
   margin: 0;
-  color: #111;
+
+  color: var(--text-primary);
+
   font-size: 25px;
   font-weight: 600;
   line-height: 1.25;
@@ -232,22 +333,38 @@
 
 .service-navigation {
   width: 100%;
+
   display: flex;
   flex-direction: column;
 }
 
 .service-nav-item {
   position: relative;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
+
   gap: 20px;
+
   min-height: 115px;
+
   padding: 25px 72px 25px 38px;
-  border-bottom: 1px solid #e5e5e5;
-  background: #fff;
-  color: #111;
+
+  border-bottom: 1px solid var(--border);
+
+  background: var(--site-bg);
+
+  color: var(--text-primary);
+
   text-decoration: none;
+
+  overflow: hidden;
+
+  transition:
+    background var(--transition-base),
+    color var(--transition-fast),
+    border-color var(--transition-fast);
 }
 
 .service-nav-item:last-child {
@@ -258,33 +375,44 @@
   font-size: 22px;
   font-weight: 500;
   line-height: 1.35;
+
+  min-width: 0;
 }
 
 .service-nav-item:hover,
 .service-nav-item.active {
-  background: #ff6b52;
-  color: #fff;
+  background: var(--brand-gold);
+  color: var(--brand-deep);
 }
 
 .service-nav-arrow {
   position: absolute;
+
   top: 50%;
   right: 24px;
+
   display: flex;
   align-items: center;
   justify-content: center;
+
   width: 60px;
   height: 60px;
+
   border-radius: 50%;
-  background: #fff;
-  color: #00a85a;
+
+  background: var(--site-bg);
+  color: var(--brand-deep);
+
   transform: translateY(-50%);
+
+  flex-shrink: 0;
 }
 
 .service-nav-arrow span {
   font-size: 32px;
   font-weight: 400;
   line-height: 1;
+
   transform: translateY(-2px);
 }
 
@@ -305,8 +433,10 @@
 
 .service-scroll-top {
   position: fixed;
+
   right: 18px;
   bottom: 74px;
+
   z-index: 20;
 
   display: flex;
@@ -316,11 +446,12 @@
   width: 62px;
   height: 62px;
 
-  border: 1px solid #777;
+  border: 1px solid var(--border);
   border-radius: 6px;
 
-  background: #fff;
-  color: #bbb;
+  background: var(--site-bg);
+  color: var(--text-secondary);
+
   text-decoration: none;
 }
 
@@ -328,6 +459,7 @@
   font-size: 30px;
   font-weight: 600;
   line-height: 1;
+
   transform: translateY(5px);
 }
 
@@ -338,8 +470,10 @@
 
 .service-whatsapp {
   position: fixed;
+
   left: 30px;
   bottom: 38px;
+
   z-index: 30;
 
   display: flex;
@@ -350,14 +484,17 @@
   height: 66px;
 
   border-radius: 50%;
-  background: #42c95d;
+
+  background: var(--success);
+
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
 }
 
 .service-whatsapp svg {
   width: 38px;
   height: 38px;
-  fill: #fff;
+
+  fill: var(--white);
 }
 
 
@@ -366,12 +503,13 @@
 ========================================================= */
 
 @media (max-width: 1200px) {
+
   .service-content {
     width: 68%;
   }
 
   .service-sidebar {
-    flex-basis: 32%;
+    flex: 0 0 32%;
     width: 32%;
   }
 
@@ -397,6 +535,7 @@
 
   .service-nav-arrow {
     right: 18px;
+
     width: 52px;
     height: 52px;
   }
@@ -408,6 +547,7 @@
 ========================================================= */
 
 @media (max-width: 900px) {
+
   .service-layout {
     flex-direction: column;
   }
@@ -422,9 +562,16 @@
 
   .service-sidebar {
     order: 2;
+
     width: 100%;
     flex: 0 0 auto;
+
     padding: 0 6% 60px;
+  }
+
+  .service-sidebar .services-sidebar {
+    width: 100%;
+    max-width: 100%;
   }
 
   .service-sidebar-inner {
@@ -441,6 +588,7 @@
 
   .service-nav-item {
     min-height: 95px;
+
     padding: 22px 80px 22px 30px;
   }
 
@@ -456,6 +604,7 @@
   .service-scroll-top {
     right: 20px;
     bottom: 25px;
+
     width: 52px;
     height: 52px;
   }
@@ -463,6 +612,7 @@
   .service-whatsapp {
     left: 20px;
     bottom: 25px;
+
     width: 58px;
     height: 58px;
   }
@@ -474,6 +624,7 @@
 ========================================================= */
 
 @media (max-width: 600px) {
+
   .service-content-inner {
     padding: 35px 20px 55px;
   }
@@ -499,6 +650,7 @@
   .service-main-image {
     width: 100%;
     height: 100%;
+
     object-fit: cover;
   }
 
@@ -531,8 +683,10 @@
 
   .service-list-icon {
     flex-basis: 18px;
+
     width: 18px;
     height: 18px;
+
     margin-top: 4px;
   }
 
@@ -564,6 +718,11 @@
     padding: 0 20px 45px;
   }
 
+  .service-sidebar .services-sidebar {
+    width: 100%;
+    max-width: 100%;
+  }
+
   .service-sidebar-header {
     padding: 24px 22px;
   }
@@ -574,6 +733,7 @@
 
   .service-nav-item {
     min-height: 82px;
+
     padding: 19px 68px 19px 22px;
   }
 
@@ -584,6 +744,7 @@
 
   .service-nav-arrow {
     right: 15px;
+
     width: 45px;
     height: 45px;
   }
@@ -595,6 +756,7 @@
   .service-scroll-top {
     right: 15px;
     bottom: 20px;
+
     width: 46px;
     height: 46px;
   }
@@ -606,6 +768,7 @@
   .service-whatsapp {
     left: 15px;
     bottom: 20px;
+
     width: 52px;
     height: 52px;
   }
@@ -622,6 +785,7 @@
 ========================================================= */
 
 @media (max-width: 400px) {
+
   .service-content-inner {
     padding-right: 16px;
     padding-left: 16px;
@@ -650,6 +814,11 @@
     padding-left: 16px;
   }
 
+  .service-sidebar .services-sidebar {
+    width: 100%;
+    max-width: 100%;
+  }
+
   .service-nav-item {
     padding-right: 60px;
     padding-left: 18px;
@@ -666,6 +835,7 @@
 ========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
+
   .service-page *,
   .service-page *::before,
   .service-page *::after {
@@ -673,3 +843,47 @@
   }
 }
 
+
+
+/* =========================================================
+   GLOBAL THEME POLISH
+========================================================= */
+
+.service-nav-item:hover .service-nav-arrow,
+.service-nav-item.active .service-nav-arrow {
+  background: var(--brand-deep);
+  color: var(--brand-gold);
+}
+
+.service-scroll-top {
+  transition:
+    transform var(--transition-fast),
+    border-color var(--transition-fast),
+    color var(--transition-fast),
+    background var(--transition-fast);
+}
+
+.service-scroll-top:hover {
+  transform: translateY(-3px);
+  border-color: var(--brand-gold);
+  background: var(--surface-hover);
+  color: var(--brand-gold);
+}
+
+.service-whatsapp {
+  transition:
+    transform var(--transition-fast),
+    background var(--transition-fast),
+    box-shadow var(--transition-fast);
+}
+
+.service-whatsapp:hover {
+  transform: translateY(-2px) scale(1.04);
+  background: var(--success-hover);
+  box-shadow: 0 8px 24px rgb(0 0 0 / 24%);
+}
+
+.service-page a:focus-visible {
+  outline: 2px solid var(--brand-gold);
+  outline-offset: 3px;
+}

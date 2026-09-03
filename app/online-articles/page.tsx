@@ -10,7 +10,8 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import "./online-articles.css";
-
+import SiteNavbar from "@/components/site-navbar";
+import SiteFooter from "@/components/site-footer";
 import data from "@/components/newsdata";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -642,11 +643,12 @@ const OnlineArticles = () => {
 
 
   return (
+   
     <section
       className="online-articles-section"
       aria-label="Online Articles"
     >
-
+ <SiteNavbar/>
       <div className="online-articles-container">
 
 
@@ -765,7 +767,7 @@ const OnlineArticles = () => {
         )}
 
       </div>
-
+<SiteFooter/>
     </section>
   );
 };
