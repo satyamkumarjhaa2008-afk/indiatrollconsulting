@@ -1,28 +1,27 @@
 import { Analytics } from "@vercel/analytics/next";
-import { Geist, Geist_Mono } from "next/font/google";
+import localFont from "next/font/local";
 import type { Metadata, Viewport } from "next";
 
 import "./globals.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 
-import Loader from "@/components/loader";
 import { LoaderProvider } from "@/components/LoaderProvider";
 
-const geistSans = Geist({
-  subsets: ["latin"],
-  variable: "--font-geist-sans",
-});
-
-const geistMono = Geist_Mono({
-  subsets: ["latin"],
-  variable: "--font-geist-mono",
+const montserrat = localFont({
+  src: "./fonts/Montserrat-VariableFont_wght.woff2",
+  variable: "--font-montserrat",
+  weight: "100 900",
+  style: "normal",
+  display: "swap",
+  preload: true,
+  fallback: ["Arial", "sans-serif"],
 });
 
 export const metadata: Metadata = {
   title: "IndiaTroll | Political Intelligence & Strategy",
+
   description:
     "Political intelligence, strategy, and communication for a changing India.",
-  generator: "v0.app",
 
   icons: {
     icon: "/india-troll-logo-vector.svg",
@@ -53,16 +52,16 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} bg-background`}
+      className={`${montserrat.variable} bg-background`}
     >
       <body className="antialiased font-sans">
         <LoaderProvider>
-          <Loader />
-
           {children}
         </LoaderProvider>
 
-        {process.env.NODE_ENV === "production" && <Analytics />}
+        {process.env.NODE_ENV === "production" && (
+          <Analytics />
+        )}
       </body>
     </html>
   );

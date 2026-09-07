@@ -8,12 +8,12 @@ import "./contact.css";
 import ContactForm from "@/components/contactform";
 import SiteNavbar from "@/components/site-navbar";
 import SiteFooter from "@/components/site-footer";
-import { useLoader } from "@/components/LoaderProvider";
+
 
 gsap.registerPlugin(ScrollTrigger);
 
 const Page = () => {
-const { isLoading } = useLoader();
+
 
 const pageRef = useRef<HTMLDivElement>(null);
 const formRef = useRef<HTMLElement>(null);
@@ -22,7 +22,7 @@ const mapWrapperRef = useRef<HTMLDivElement>(null);
 
 useLayoutEffect(() => {
 // Do absolutely nothing while the global loader is active.
-if (isLoading) return;
+
 
 
 const ctx = gsap.context(() => {
@@ -167,7 +167,7 @@ return () => {
 };
 
 
-}, [isLoading]);
+}, []);
 
 /*
 
@@ -188,9 +188,7 @@ return () => {
 * fromTo() animations start cleanly.
   */
 
-if (isLoading) {
-return null;
-}
+
 
 /*
 

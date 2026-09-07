@@ -61,15 +61,15 @@ const services = [
 const quickLinks = [
   {
     name: 'About Us',
-    href: '/about-us',
+    href: '/about',
   },
   {
     name: 'Our Team',
-    href: '/our-team',
+    href: '/team',
   },
   {
     name: 'Television',
-    href: '/media/television',
+    href: '/television',
   },
   {
     name: 'Careers',
@@ -77,7 +77,7 @@ const quickLinks = [
   },
   {
     name: 'Contact',
-    href: '/contact-us',
+    href: '/contact',
   },
 ]
 
@@ -91,22 +91,22 @@ const socials = [
   {
     label: 'Facebook',
     icon: 'fab fa-facebook-f',
-    href: 'https://www.facebook.com/',
+    href: 'https://www.facebook.com/indiatrollconsulting',
   },
   {
     label: 'LinkedIn',
     icon: 'fab fa-linkedin-in',
-    href: 'https://www.linkedin.com/',
+    href: 'https://www.linkedin.com/indiatrollconsulting',
   },
   {
     label: 'Instagram',
     icon: 'fab fa-instagram',
-    href: 'https://www.instagram.com/',
+    href: 'https://www.instagram.com/indiatrollconsulting',
   },
   {
     label: 'Twitter',
     icon: 'fab fa-twitter',
-    href: 'https://twitter.com/',
+    href: 'https://twitter.com/indiatrollconsulting',
   },
 ]
 
@@ -281,7 +281,7 @@ export default function SiteFooter() {
 
             <Link
               className="footer-read-more"
-              href="/contact-us"
+              href="/about"
             >
               Read More &gt;&gt;
             </Link>

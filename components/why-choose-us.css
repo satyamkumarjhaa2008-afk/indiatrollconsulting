@@ -1,0 +1,1315 @@
+/* ============================================================
+   WHY CHOOSE US
+   INDIA TROLL — BLACK + LUMINOUS GOLD DESIGN
+   Uses Global Variables From global.css
+   GSAP-SAFE / RESPONSIVE / PERFORMANCE FRIENDLY
+   ============================================================ */
+
+.why-choose-us,
+.why-choose-us * {
+  box-sizing: border-box;
+}
+
+
+/* ============================================================
+   SECTION
+   ============================================================ */
+
+.why-choose-us {
+  position: relative;
+  isolation: isolate;
+
+  width: 100%;
+  overflow: hidden;
+
+  padding:
+    clamp(72px, 8vw, 120px) 0
+    clamp(82px, 9vw, 135px);
+
+  color: var(--text-primary);
+
+  font-family: "Montserrat", sans-serif;
+
+  background:
+    radial-gradient(
+      circle at 50% 0%,
+      rgb(255 184 23 / 14%),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 8% 36%,
+      rgb(245 158 11 / 8%),
+      transparent 27%
+    ),
+    radial-gradient(
+      circle at 94% 72%,
+      rgb(255 201 40 / 7%),
+      transparent 27%
+    ),
+    linear-gradient(
+      180deg,
+      var(--site-bg) 0%,
+      var(--surface) 48%,
+      var(--site-bg) 100%
+    );
+}
+
+
+/* ============================================================
+   AMBIENT GOLD BACKGROUND
+   ============================================================ */
+
+.why-choose-us::before {
+  content: "";
+
+  position: absolute;
+  z-index: -2;
+
+  top: -300px;
+  left: 50%;
+
+  width: min(900px, 90vw);
+  height: min(900px, 90vw);
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      var(--glow-gold) 0%,
+      rgb(255 184 23 / 10%) 25%,
+      transparent 68%
+    );
+
+  translate: -50% 0;
+
+  filter: blur(12px);
+
+  pointer-events: none;
+
+  animation: wcuAmbientGlow 7s ease-in-out infinite alternate;
+}
+
+
+.why-choose-us::after {
+  content: "";
+
+  position: absolute;
+  z-index: -1;
+
+  inset: 0;
+
+  pointer-events: none;
+
+  opacity: 0.7;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent 0%,
+      rgb(255 184 23 / 3%) 48%,
+      rgb(255 201 40 / 5%) 50%,
+      rgb(255 184 23 / 3%) 52%,
+      transparent 100%
+    );
+
+  background-size: 220% 100%;
+
+  animation: wcuBackgroundSweep 12s linear infinite;
+}
+
+
+@keyframes wcuAmbientGlow {
+  0% {
+    opacity: 0.5;
+    filter: blur(12px);
+  }
+
+  100% {
+    opacity: 0.95;
+    filter: blur(24px);
+  }
+}
+
+
+@keyframes wcuBackgroundSweep {
+  0% {
+    background-position: 120% 0;
+  }
+
+  100% {
+    background-position: -120% 0;
+  }
+}
+
+
+/* ============================================================
+   CONTAINER
+   ============================================================ */
+
+.wcu-container {
+  position: relative;
+  z-index: 2;
+
+  width: min(100% - 80px, 1740px);
+  margin: 0 auto;
+}
+
+
+/* ============================================================
+   HEADER
+   ============================================================ */
+
+.wcu-header {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  margin-bottom: clamp(58px, 7vw, 92px);
+
+  text-align: center;
+}
+
+
+/* ============================================================
+   EYEBROW
+   ============================================================ */
+
+.wcu-eyebrow {
+  position: relative;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  margin: 0 0 14px;
+  padding: 8px 17px;
+
+  border: 1px solid var(--border-brand);
+  border-radius: 999px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgb(255 184 23 / 10%),
+      rgb(255 201 40 / 4%)
+    );
+
+  box-shadow:
+    inset 0 0 20px rgb(255 184 23 / 4%),
+    0 0 20px rgb(255 184 23 / 7%);
+
+  color: var(--brand-gold-soft);
+
+  font-family: "Montserrat", sans-serif;
+  font-size: clamp(10px, 0.8vw, 13px);
+  font-weight: 800;
+  line-height: 1.2;
+
+  letter-spacing: 0.19em;
+  text-transform: uppercase;
+}
+
+
+/* ============================================================
+   TITLE
+   ============================================================ */
+
+.wcu-title {
+  margin: 0;
+
+  color: var(--text-primary);
+
+  font-family: "Montserrat", sans-serif;
+  font-size: clamp(34px, 4vw, 58px);
+  font-weight: 750;
+
+  line-height: 1.08;
+  letter-spacing: -1.8px;
+
+  text-wrap: balance;
+
+  text-shadow:
+    0 0 28px rgb(255 184 23 / 5%);
+}
+
+
+/* ============================================================
+   TITLE LINE
+   ============================================================ */
+
+.wcu-title-line {
+  position: relative;
+
+  display: block;
+
+  width: clamp(64px, 5.5vw, 96px);
+  height: 3px;
+
+  margin-top: 23px;
+
+  overflow: hidden;
+
+  border-radius: 999px;
+
+  background:
+    linear-gradient(
+      90deg,
+      var(--brand-amber),
+      var(--brand-gold),
+      var(--brand-yellow),
+      var(--brand-gold-soft),
+      var(--brand-gold)
+    );
+
+  background-size: 220% 100%;
+
+  box-shadow:
+    0 0 10px var(--glow-gold),
+    0 0 24px var(--glow-yellow);
+
+  animation: wcuGoldFlow 4.5s linear infinite;
+}
+
+
+.wcu-title-line::after {
+  content: "";
+
+  position: absolute;
+
+  top: -2px;
+  left: 0;
+
+  width: 28%;
+  height: 7px;
+
+  border-radius: inherit;
+
+  background: var(--white);
+
+  opacity: 0.55;
+
+  filter: blur(4px);
+
+  animation: wcuLineShimmer 3.2s ease-in-out infinite;
+}
+
+
+@keyframes wcuGoldFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  100% {
+    background-position: 220% 50%;
+  }
+}
+
+
+@keyframes wcuLineShimmer {
+  0%,
+  15% {
+    left: -35%;
+    opacity: 0;
+  }
+
+  45% {
+    opacity: 0.6;
+  }
+
+  75%,
+  100% {
+    left: 125%;
+    opacity: 0;
+  }
+}
+
+
+/* ============================================================
+   LIST
+   ============================================================ */
+
+.wcu-list {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+}
+
+
+/* ============================================================
+   ITEM / CARD
+   ============================================================ */
+
+.wcu-item {
+  position: relative;
+
+  width: 100%;
+
+  margin: 0 0 clamp(28px, 3vw, 44px);
+  padding:
+    clamp(28px, 3vw, 46px)
+    clamp(28px, 3.5vw, 58px);
+
+  overflow: hidden;
+
+  border: 1px solid var(--border-soft);
+  border-radius: clamp(18px, 2vw, 28px);
+
+  background:
+    radial-gradient(
+      circle at 0% 0%,
+      rgb(255 184 23 / 7%),
+      transparent 30%
+    ),
+    linear-gradient(
+      135deg,
+      rgb(255 255 255 / 3.8%),
+      rgb(255 255 255 / 1.2%) 48%,
+      rgb(255 184 23 / 2.5%) 100%
+    ),
+    var(--surface);
+
+  box-shadow:
+    0 20px 55px rgb(0 0 0 / 22%),
+    inset 0 1px 0 rgb(255 255 255 / 3%);
+
+  transition:
+    border-color var(--transition-base),
+    background-color var(--transition-base),
+    box-shadow var(--transition-base);
+}
+
+
+/* ============================================================
+   DIFFERENT GOLD TONES PER ROW
+   ============================================================ */
+
+.wcu-item:nth-child(3n + 1) {
+  --wcu-row-accent: var(--brand-gold);
+  --wcu-row-soft: var(--brand-gold-soft);
+  --wcu-row-glow: var(--glow-gold);
+}
+
+
+.wcu-item:nth-child(3n + 2) {
+  --wcu-row-accent: var(--brand-yellow);
+  --wcu-row-soft: var(--brand-gold);
+  --wcu-row-glow: var(--glow-yellow);
+}
+
+
+.wcu-item:nth-child(3n + 3) {
+  --wcu-row-accent: var(--brand-amber);
+  --wcu-row-soft: var(--brand-yellow);
+  --wcu-row-glow: var(--glow-gold);
+}
+
+
+/* ============================================================
+   CARD HOVER BORDER
+   ============================================================ */
+
+.wcu-item:hover {
+  border-color: var(--border-brand);
+
+  box-shadow:
+    0 24px 65px rgb(0 0 0 / 32%),
+    0 0 26px rgb(255 184 23 / 5%),
+    inset 0 1px 0 rgb(255 255 255 / 5%);
+}
+
+
+/* ============================================================
+   CARD GLOW
+   ============================================================ */
+
+.wcu-item::before {
+  content: "";
+
+  position: absolute;
+
+  top: -90px;
+  left: -90px;
+
+  width: 230px;
+  height: 230px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      var(--wcu-row-glow) 0%,
+      transparent 68%
+    );
+
+  opacity: 0.28;
+
+  filter: blur(6px);
+
+  pointer-events: none;
+
+  transition:
+    opacity var(--transition-base),
+    filter var(--transition-base);
+}
+
+
+.wcu-item:hover::before {
+  opacity: 0.72;
+  filter: blur(12px);
+}
+
+
+/* ============================================================
+   CARD TOP ACCENT
+   ============================================================ */
+
+.wcu-item::after {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: clamp(28px, 3.5vw, 58px);
+
+  width: clamp(60px, 6vw, 100px);
+  height: 2px;
+
+  border-radius: 0 0 999px 999px;
+
+  background:
+    linear-gradient(
+      90deg,
+      var(--wcu-row-accent),
+      var(--wcu-row-soft)
+    );
+
+  box-shadow:
+    0 0 14px var(--wcu-row-glow);
+
+  pointer-events: none;
+}
+
+
+/* ============================================================
+   LAST ITEM
+   ============================================================ */
+
+.wcu-item:last-child {
+  margin-bottom: 0;
+}
+
+
+/* ============================================================
+   ITEM HEADING
+   ============================================================ */
+
+.wcu-item-heading {
+  position: relative;
+
+  width: 100%;
+
+  margin-bottom: clamp(24px, 2.5vw, 34px);
+}
+
+
+.wcu-item-heading h3 {
+  margin: 0;
+
+  color: var(--text-primary);
+
+  font-family: "Montserrat", sans-serif;
+  font-size: clamp(22px, 2vw, 31px);
+  font-weight: 750;
+
+  line-height: 1.22;
+  letter-spacing: -0.65px;
+
+  text-shadow:
+    0 0 20px rgb(255 255 255 / 2%);
+}
+
+
+/* ============================================================
+   ITEM UNDERLINE
+   ============================================================ */
+
+.wcu-item-line {
+  position: relative;
+
+  display: block;
+
+  width: 82px;
+  height: 2px;
+
+  margin-top: 15px;
+
+  overflow: hidden;
+
+  border-radius: 999px;
+
+  background:
+    linear-gradient(
+      90deg,
+      var(--wcu-row-accent),
+      var(--wcu-row-soft),
+      var(--brand-gold-soft)
+    );
+
+  background-size: 200% 100%;
+
+  transform-origin: left center;
+
+  box-shadow:
+    0 0 11px var(--wcu-row-glow);
+
+  animation: wcuItemLineFlow 5s linear infinite;
+}
+
+
+@keyframes wcuItemLineFlow {
+  from {
+    background-position: 0% 50%;
+  }
+
+  to {
+    background-position: 200% 50%;
+  }
+}
+
+
+/* ============================================================
+   ITEM BODY
+   ============================================================ */
+
+.wcu-item-body {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+
+  width: 100%;
+
+  gap: clamp(25px, 3vw, 44px);
+}
+
+
+/* ============================================================
+   ICON AREA
+   ============================================================ */
+
+.wcu-icon-wrap {
+  position: relative;
+  flex: 0 0 auto;
+
+  width: clamp(88px, 6.2vw, 116px);
+  height: clamp(88px, 6.2vw, 116px);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid var(--border-brand);
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle at 35% 28%,
+      rgb(255 255 255 / 10%),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at center,
+      rgb(255 184 23 / 11%),
+      transparent 68%
+    ),
+    linear-gradient(
+      145deg,
+      var(--surface-hover),
+      var(--surface)
+    );
+
+  box-shadow:
+    0 0 0 6px rgb(255 184 23 / 2%),
+    0 0 28px rgb(255 184 23 / 8%),
+    inset 0 0 28px rgb(255 184 23 / 5%);
+
+  overflow: visible;
+
+  transition:
+    border-color var(--transition-base),
+    box-shadow var(--transition-base),
+    background var(--transition-base);
+}
+
+
+.wcu-item:hover .wcu-icon-wrap {
+  border-color: var(--wcu-row-accent);
+
+  box-shadow:
+    0 0 0 6px rgb(255 184 23 / 4%),
+    0 0 35px var(--wcu-row-glow),
+    inset 0 0 32px rgb(255 184 23 / 8%);
+}
+
+
+/* ============================================================
+   ICON OUTER RING
+   ============================================================ */
+
+.wcu-icon-wrap::before {
+  content: "";
+
+  position: absolute;
+
+  inset: -7px;
+
+  border: 1px solid rgb(255 184 23 / 11%);
+  border-radius: 50%;
+
+  pointer-events: none;
+
+  animation: wcuRingPulse 3.8s ease-in-out infinite;
+}
+
+
+.wcu-icon-wrap::after {
+  content: "";
+
+  position: absolute;
+
+  top: 7%;
+  right: 9%;
+
+  width: 8px;
+  height: 8px;
+
+  border-radius: 50%;
+
+  background: var(--wcu-row-accent);
+
+  box-shadow:
+    0 0 8px var(--wcu-row-accent),
+    0 0 16px var(--wcu-row-glow);
+
+  pointer-events: none;
+
+  animation: wcuDotGlow 2.6s ease-in-out infinite;
+}
+
+
+@keyframes wcuRingPulse {
+  0%,
+  100% {
+    opacity: 0.35;
+    border-color: rgb(255 184 23 / 10%);
+  }
+
+  50% {
+    opacity: 0.85;
+    border-color: var(--border-brand);
+  }
+}
+
+
+@keyframes wcuDotGlow {
+  0%,
+  100% {
+    opacity: 0.45;
+    box-shadow:
+      0 0 5px var(--wcu-row-accent),
+      0 0 10px var(--wcu-row-glow);
+  }
+
+  50% {
+    opacity: 1;
+    box-shadow:
+      0 0 10px var(--wcu-row-accent),
+      0 0 22px var(--wcu-row-glow);
+  }
+}
+
+
+/* ============================================================
+   ICON GLOW
+   ============================================================ */
+
+.wcu-icon-glow {
+  position: absolute;
+
+  inset: -14px;
+
+  z-index: -1;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      var(--wcu-row-glow) 0%,
+      rgb(255 184 23 / 7%) 30%,
+      transparent 70%
+    );
+
+  opacity: 0.7;
+
+  filter: blur(8px);
+
+  pointer-events: none;
+
+  animation: wcuIconGlow 4s ease-in-out infinite;
+}
+
+
+@keyframes wcuIconGlow {
+  0%,
+  100% {
+    opacity: 0.42;
+    filter: blur(8px);
+  }
+
+  50% {
+    opacity: 0.88;
+    filter: blur(13px);
+  }
+}
+
+
+/* ============================================================
+   ICON
+   GSAP CAN SAFELY CONTROL TRANSFORM HERE
+   ============================================================ */
+
+.wcu-icon {
+  position: relative;
+
+  z-index: 2;
+
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transform-origin: center center;
+
+  will-change: transform;
+}
+
+
+.wcu-icon img {
+  display: block;
+
+  width: 72%;
+  height: 72%;
+
+  object-fit: contain;
+
+  user-select: none;
+  pointer-events: none;
+
+  filter:
+    drop-shadow(
+      0 0 8px rgb(255 184 23 / 14%)
+    )
+    drop-shadow(
+      0 0 18px rgb(255 201 40 / 5%)
+    );
+
+  transition:
+    filter var(--transition-base);
+}
+
+
+.wcu-item:hover .wcu-icon img {
+  filter:
+    drop-shadow(
+      0 0 10px rgb(255 184 23 / 25%)
+    )
+    drop-shadow(
+      0 0 24px rgb(255 201 40 / 10%)
+    );
+}
+
+
+/* ============================================================
+   CONTENT
+   ============================================================ */
+
+.wcu-content {
+  position: relative;
+
+  flex: 1 1 auto;
+
+  min-width: 0;
+
+  will-change: transform;
+}
+
+
+.wcu-content p {
+  max-width: 1450px;
+
+  margin: 0;
+
+  color: var(--text-secondary);
+
+  font-family: "Montserrat", sans-serif;
+  font-size: clamp(16px, 1.3vw, 22px);
+  font-weight: 400;
+
+  line-height: 1.72;
+  letter-spacing: -0.12px;
+
+  transition:
+    color var(--transition-base);
+}
+
+
+.wcu-item:hover .wcu-content p {
+  color: var(--text-primary);
+}
+
+
+/* ============================================================
+   DESKTOP DECORATIVE EDGE
+   ============================================================ */
+
+@media (min-width: 901px) {
+  .wcu-list::before {
+    content: "";
+
+    position: absolute;
+
+    top: 30px;
+    bottom: 30px;
+    left: -25px;
+
+    width: 1px;
+
+    background:
+      linear-gradient(
+        180deg,
+        transparent,
+        var(--brand-gold),
+        rgb(255 201 40 / 20%),
+        transparent
+      );
+
+    opacity: 0.24;
+
+    box-shadow:
+      0 0 12px var(--glow-gold);
+
+    pointer-events: none;
+  }
+}
+
+
+/* ============================================================
+   LARGE SCREENS
+   ============================================================ */
+
+@media (min-width: 1500px) {
+  .wcu-container {
+    width: min(100% - 110px, 1740px);
+  }
+
+  .wcu-item {
+    padding-left: 60px;
+    padding-right: 60px;
+  }
+
+  .wcu-content p {
+    max-width: 1500px;
+  }
+}
+
+
+/* ============================================================
+   TABLET
+   ============================================================ */
+
+@media (max-width: 900px) {
+  .why-choose-us {
+    padding-top: 76px;
+    padding-bottom: 90px;
+
+    background:
+      radial-gradient(
+        circle at 50% 0%,
+        rgb(255 184 23 / 12%),
+        transparent 28%
+      ),
+      radial-gradient(
+        circle at 100% 70%,
+        rgb(255 201 40 / 5%),
+        transparent 28%
+      ),
+      linear-gradient(
+        180deg,
+        var(--site-bg),
+        var(--surface),
+        var(--site-bg)
+      );
+  }
+
+
+  .wcu-container {
+    width: min(100% - 48px, 760px);
+  }
+
+
+  .wcu-header {
+    margin-bottom: 60px;
+  }
+
+
+  .wcu-item {
+    margin-bottom: 28px;
+
+    padding:
+      32px
+      30px;
+
+    border-radius: 22px;
+  }
+
+
+  .wcu-item-body {
+    gap: 25px;
+  }
+
+
+  .wcu-icon-wrap {
+    width: 88px;
+    height: 88px;
+  }
+
+
+  .wcu-content p {
+    font-size: 17px;
+    line-height: 1.68;
+  }
+}
+
+
+/* ============================================================
+   MOBILE
+   ============================================================ */
+
+@media (max-width: 600px) {
+  .why-choose-us {
+    padding:
+      60px 0
+      70px;
+  }
+
+
+  .why-choose-us::before {
+    top: -160px;
+
+    width: 480px;
+    height: 480px;
+
+    opacity: 0.6;
+  }
+
+
+  .why-choose-us::after {
+    opacity: 0.35;
+  }
+
+
+  .wcu-container {
+    width: calc(100% - 30px);
+  }
+
+
+  .wcu-header {
+    margin-bottom: 46px;
+  }
+
+
+  .wcu-eyebrow {
+    margin-bottom: 10px;
+
+    padding: 6px 12px;
+
+    font-size: 9px;
+    letter-spacing: 0.15em;
+  }
+
+
+  .wcu-title {
+    font-size: clamp(28px, 8.5vw, 38px);
+
+    line-height: 1.12;
+    letter-spacing: -1.15px;
+  }
+
+
+  .wcu-title-line {
+    width: 64px;
+    height: 2px;
+
+    margin-top: 16px;
+  }
+
+
+  .wcu-item {
+    margin-bottom: 20px;
+
+    padding:
+      25px
+      20px;
+
+    border-radius: 18px;
+
+    background:
+      radial-gradient(
+        circle at 0% 0%,
+        rgb(255 184 23 / 7%),
+        transparent 34%
+      ),
+      linear-gradient(
+        145deg,
+        rgb(255 255 255 / 3.5%),
+        rgb(255 255 255 / 1%)
+      ),
+      var(--surface);
+  }
+
+
+  .wcu-item::before {
+    top: -60px;
+    left: -60px;
+
+    width: 160px;
+    height: 160px;
+  }
+
+
+  .wcu-item::after {
+    left: 20px;
+
+    width: 55px;
+  }
+
+
+  .wcu-item-heading {
+    margin-bottom: 20px;
+  }
+
+
+  .wcu-item-heading h3 {
+    font-size: clamp(20px, 5.8vw, 25px);
+
+    line-height: 1.25;
+    letter-spacing: -0.4px;
+  }
+
+
+  .wcu-item-line {
+    width: 58px;
+    height: 2px;
+
+    margin-top: 11px;
+  }
+
+
+  .wcu-item-body {
+    align-items: flex-start;
+
+    gap: 17px;
+  }
+
+
+  .wcu-icon-wrap {
+    width: 69px;
+    height: 69px;
+
+    box-shadow:
+      0 0 0 4px rgb(255 184 23 / 2%),
+      0 0 20px rgb(255 184 23 / 6%),
+      inset 0 0 20px rgb(255 184 23 / 4%);
+  }
+
+
+  .wcu-icon-wrap::before {
+    inset: -5px;
+  }
+
+
+  .wcu-icon-wrap::after {
+    width: 6px;
+    height: 6px;
+  }
+
+
+  .wcu-icon-glow {
+    inset: -9px;
+
+    filter: blur(6px);
+  }
+
+
+  .wcu-icon img {
+    width: 69%;
+    height: 69%;
+  }
+
+
+  .wcu-content {
+    padding-top: 0;
+  }
+
+
+  .wcu-content p {
+    font-size: 13.7px;
+
+    line-height: 1.7;
+    letter-spacing: 0;
+  }
+}
+
+
+/* ============================================================
+   SMALL MOBILE
+   ============================================================ */
+
+@media (max-width: 400px) {
+  .why-choose-us {
+    padding-top: 52px;
+    padding-bottom: 62px;
+  }
+
+
+  .wcu-container {
+    width: calc(100% - 24px);
+  }
+
+
+  .wcu-header {
+    margin-bottom: 40px;
+  }
+
+
+  .wcu-eyebrow {
+    font-size: 8.5px;
+  }
+
+
+  .wcu-title {
+    font-size: 28px;
+  }
+
+
+  .wcu-item {
+    padding:
+      22px
+      17px;
+
+    margin-bottom: 17px;
+
+    border-radius: 16px;
+  }
+
+
+  .wcu-item::after {
+    left: 17px;
+  }
+
+
+  .wcu-item-heading h3 {
+    font-size: 19px;
+  }
+
+
+  .wcu-item-body {
+    gap: 14px;
+  }
+
+
+  .wcu-icon-wrap {
+    width: 61px;
+    height: 61px;
+  }
+
+
+  .wcu-content p {
+    font-size: 13px;
+    line-height: 1.66;
+  }
+}
+
+
+/* ============================================================
+   TOUCH DEVICES
+   Avoid unnecessary hover work
+   ============================================================ */
+
+@media (hover: none) {
+  .wcu-item:hover {
+    border-color: var(--border-soft);
+
+    box-shadow:
+      0 20px 55px rgb(0 0 0 / 22%),
+      inset 0 1px 0 rgb(255 255 255 / 3%);
+  }
+
+
+  .wcu-item:hover::before {
+    opacity: 0.28;
+    filter: blur(6px);
+  }
+
+
+  .wcu-item:hover .wcu-content p {
+    color: var(--text-secondary);
+  }
+}
+
+
+/* ============================================================
+   ACCESSIBILITY / REDUCED MOTION
+   ============================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  .why-choose-us::before,
+  .why-choose-us::after,
+  .wcu-title-line,
+  .wcu-title-line::after,
+  .wcu-item-line,
+  .wcu-icon-wrap::before,
+  .wcu-icon-wrap::after,
+  .wcu-icon-glow {
+    animation: none !important;
+  }
+
+
+  .why-choose-us *,
+  .why-choose-us *::before,
+  .why-choose-us *::after {
+    scroll-behavior: auto !important;
+  }
+
+
+  .wcu-eyebrow,
+  .wcu-title,
+  .wcu-title-line,
+  .wcu-item,
+  .wcu-icon,
+  .wcu-content,
+  .wcu-item-line {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}

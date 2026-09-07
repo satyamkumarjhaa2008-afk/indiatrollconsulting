@@ -12,25 +12,25 @@ interface ImpactItem {
 const impactData: ImpactItem[] = [
   {
     icon: "/assets/icons/icons1/a.svg",
-    value: 175,
+    value: 150,
     suffix: "+",
     label: "Campaign & Research Projects",
   },
   {
     icon: "/assets/icons/icons1/b.svg",
-    value: 5,
+    value: 8,
     suffix: "+",
     label: "States Covered",
   },
   {
     icon: "/assets/icons/icons1/c.svg",
-    value: 518,
+    value: 718,
     suffix: "+",
     label: "Assembly Constituencies Analysed",
   },
   {
     icon: "/assets/icons/icons1/d.svg",
-    value: 3.4,
+    value: 4.6,
     suffix: "M+",
     label: "Voter Interactions",
   },

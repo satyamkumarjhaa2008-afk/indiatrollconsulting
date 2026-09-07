@@ -1,5 +1,4 @@
-/* ============================================================
-   ABOUT PAGE
+   /*ABOUT PAGE
    CLEAN / DEDUPLICATED / RESPONSIVE CSS
    Font: Montserrat
 
@@ -14,10 +13,369 @@
    GLOBAL ABOUT-PAGE FONT
    ============================================================ */
 
+.about-who-we-are-section,
 .about-app-section,
 .strategic-approach-section,
 .life-rudra-section {
   font-family: "Montserrat", sans-serif;
+}
+
+/* ============================================================
+   ============================================================
+   ABOUT — WHO WE ARE / INDIA ANALYTICS
+   ============================================================
+   ============================================================ */
+
+.about-who-we-are-section {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  box-sizing: border-box;
+  background: var(--site-bg);
+  color: var(--text-primary);
+  font-family: "Montserrat", sans-serif;
+}
+
+.about-who-we-are-container {
+  display: grid;
+  width: min(100%, 1580px);
+  min-height: 720px;
+  grid-template-columns: minmax(430px, 0.82fr) minmax(0, 1.45fr);
+  align-items: center;
+  column-gap: clamp(45px, 5vw, 105px);
+  box-sizing: border-box;
+  margin: 0 auto;
+  padding: 70px 42px 78px;
+}
+
+.about-who-we-are-visual {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  perspective: 1200px;
+  perspective-origin: center;
+}
+
+.about-who-we-are-map-wrap {
+  position: relative;
+  display: flex;
+  width: min(100%, 600px);
+  align-items: center;
+  justify-content: center;
+  transform-style: preserve-3d;
+  will-change: transform;
+  cursor: pointer;
+}
+
+
+.about-who-we-are-map-wrap::before {
+  position: absolute;
+  inset: 8%;
+  z-index: -1;
+  content: "";
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    var(--glow-gold) 0%,
+    rgb(255 184 23 / 8%) 35%,
+    transparent 72%
+  );
+  filter: blur(24px);
+  pointer-events: none;
+}
+
+.about-who-we-are-map-wrap::after {
+  position: absolute;
+  right: 12%;
+  bottom: 5%;
+  left: 12%;
+  height: 30px;
+  z-index: -1;
+  content: "";
+  border-radius: 50%;
+  background: rgb(0 0 0 / 12%);
+  filter: blur(18px);
+  transform: translateZ(-25px);
+  pointer-events: none;
+}
+
+.about-who-we-are-map {
+  display: block;
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  object-fit: contain;
+  transform-style: preserve-3d;
+  user-select: none;
+  -webkit-user-drag: none;
+  will-change: transform;
+}
+
+.about-who-we-are-content {
+  width: 100%;
+  max-width: 900px;
+  box-sizing: border-box;
+}
+
+.about-who-we-are-label {
+  margin: 0 0 10px;
+  color: var(--brand-amber);
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: 0.01em;
+}
+
+.about-who-we-are-content h1 {
+  margin: 0;
+  color: var(--text-primary);
+  font-size: clamp(42px, 3.2vw, 58px);
+  font-weight: 800;
+  line-height: 1.02;
+  letter-spacing: -0.025em;
+}
+
+.about-who-we-are-line {
+  width: 80px;
+  height: 3px;
+  margin: 23px 0 32px;
+  background: var(--brand-gold);
+  transform-origin: left center;
+}
+
+.about-who-we-are-copy {
+  width: 100%;
+}
+
+.about-who-we-are-copy p {
+  margin: 0 0 34px;
+  color: var(--text-secondary);
+  font-size: clamp(16px, 1.25vw, 22px);
+  font-weight: 500;
+  line-height: 1.72;
+  letter-spacing: 0;
+}
+
+.about-who-we-are-copy p:last-child {
+  margin-bottom: 0;
+}
+
+/* ============================================================
+   WHO WE ARE — LARGE DESKTOP
+   ============================================================ */
+
+@media (min-width: 1440px) {
+  .about-who-we-are-container {
+    min-height: 780px;
+    grid-template-columns: minmax(520px, 0.84fr) minmax(0, 1.42fr);
+    padding-top: 62px;
+    padding-bottom: 70px;
+  }
+
+  .about-who-we-are-map-wrap {
+    width: min(100%, 650px);
+  }
+
+  .about-who-we-are-map {
+    max-width: 650px;
+  }
+
+  .about-who-we-are-label {
+    font-size: 22px;
+  }
+
+  .about-who-we-are-content h1 {
+    font-size: 58px;
+  }
+
+  .about-who-we-are-copy p {
+    font-size: 22px;
+    line-height: 1.68;
+    margin-bottom: 35px;
+  }
+}
+
+/* ============================================================
+   WHO WE ARE — LAPTOP
+   ============================================================ */
+
+@media (min-width: 1024px) and (max-width: 1439px) {
+  .about-who-we-are-container {
+    min-height: 650px;
+    grid-template-columns: minmax(360px, 0.78fr) minmax(0, 1.45fr);
+    column-gap: 55px;
+    padding: 52px 35px 62px;
+  }
+
+  .about-who-we-are-map-wrap {
+    width: min(100%, 520px);
+  }
+
+  .about-who-we-are-map {
+    max-width: 520px;
+  }
+
+  .about-who-we-are-label {
+    font-size: 19px;
+  }
+
+  .about-who-we-are-content h1 {
+    font-size: clamp(40px, 4vw, 50px);
+  }
+
+  .about-who-we-are-line {
+    margin: 19px 0 27px;
+  }
+
+  .about-who-we-are-copy p {
+    font-size: 17px;
+    line-height: 1.68;
+    margin-bottom: 28px;
+  }
+}
+
+/* ============================================================
+   WHO WE ARE — TABLET
+   ============================================================ */
+
+@media (min-width: 601px) and (max-width: 1023px) {
+  .about-who-we-are-container {
+    min-height: auto;
+    grid-template-columns: minmax(280px, 0.9fr) minmax(0, 1.3fr);
+    column-gap: 32px;
+    padding: 45px 28px 55px;
+  }
+
+  .about-who-we-are-map-wrap {
+    width: min(100%, 430px);
+  }
+
+  .about-who-we-are-label {
+    margin-bottom: 7px;
+    font-size: 16px;
+  }
+
+  .about-who-we-are-content h1 {
+    font-size: clamp(32px, 4.8vw, 43px);
+  }
+
+  .about-who-we-are-line {
+    width: 65px;
+    height: 2px;
+    margin: 16px 0 22px;
+  }
+
+  .about-who-we-are-copy p {
+    font-size: 14px;
+    line-height: 1.62;
+    margin-bottom: 22px;
+  }
+}
+
+/* ============================================================
+   WHO WE ARE — MOBILE
+   ============================================================ */
+
+@media (max-width: 600px) {
+  .about-who-we-are-container {
+    display: flex;
+    width: 100%;
+    min-height: auto;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: 14px 15px 34px;
+  }
+
+  .about-who-we-are-visual {
+    width: 100%;
+    min-height: 0;
+    margin: 0 auto;
+    justify-content: center;
+  }
+
+  .about-who-we-are-map-wrap {
+    width: min(100%, 235px);
+    margin: 0 auto;
+  }
+
+  .about-who-we-are-map {
+    width: 100%;
+    max-width: 235px;
+  }
+
+  .about-who-we-are-content {
+    width: 100%;
+    max-width: none;
+    margin-top: 3px;
+  }
+
+  .about-who-we-are-label {
+    margin-bottom: 3px;
+    font-size: 10px;
+    font-weight: 700;
+  }
+
+  .about-who-we-are-content h1 {
+    font-size: 25px;
+    line-height: 1.02;
+    letter-spacing: -0.02em;
+  }
+
+  .about-who-we-are-line {
+    width: 43px;
+    height: 2px;
+    margin: 10px 0 14px;
+  }
+
+  .about-who-we-are-copy p {
+    margin-bottom: 17px;
+    color: var(--text-secondary);
+    font-size: 10px;
+    font-weight: 500;
+    line-height: 1.62;
+  }
+
+  .about-who-we-are-map-wrap::after {
+    right: 18%;
+    bottom: 4%;
+    left: 18%;
+    height: 14px;
+    filter: blur(9px);
+  }
+}
+
+/* ============================================================
+   WHO WE ARE — VERY SMALL PHONES
+   ============================================================ */
+
+@media (max-width: 380px) {
+  .about-who-we-are-container {
+    padding-right: 12px;
+    padding-left: 12px;
+  }
+
+  .about-who-we-are-map-wrap {
+    width: min(100%, 205px);
+  }
+
+  .about-who-we-are-map {
+    max-width: 205px;
+  }
+
+  .about-who-we-are-label {
+    font-size: 9px;
+  }
+
+  .about-who-we-are-content h1 {
+    font-size: 22px;
+  }
+
+  .about-who-we-are-copy p {
+    font-size: 9px;
+    line-height: 1.6;
+  }
 }
 
 /* ============================================================
@@ -30,7 +388,7 @@
   position: relative;
   width: 100%;
   overflow: hidden;
-  background: #000;
+  background: var(--black);
 }
 
 .about-app-container {
@@ -92,7 +450,7 @@
 
 .about-app-text p {
   margin: 0;
-  color: #f5f5f5;
+  color: var(--text-primary);
   font-family: "Montserrat", sans-serif;
   font-size: clamp(30px, 3.05vw, 58px);
   font-weight: 300;
@@ -105,7 +463,7 @@
 }
 
 .about-app-text span {
-  color: #ff7048;
+  color: var(--brand-gold);
   font-family: "Montserrat", sans-serif;
   font-weight: 700;
   white-space: nowrap;
@@ -229,19 +587,19 @@
    ============================================================ */
 
 .strategic-approach-section {
-  --strategic-coral: #ff7058;
-  --strategic-green: #00b86b;
-  --strategic-blue: #1265d8;
-  --strategic-text: #111111;
-  --strategic-muted: #6c6c6c;
-  --strategic-bg: #f7f8f8;
+  --strategic-coral: var(--brand-gold);
+  --strategic-green: var(--brand-gold);
+  --strategic-blue: var(--brand-amber);
+  --strategic-text: var(--text-primary);
+  --strategic-muted: var(--text-secondary);
+  --strategic-bg: var(--site-bg);
 
   position: relative;
   width: 100%;
   overflow: hidden;
   padding: 105px 0 130px;
   background:
-    linear-gradient(rgba(248, 250, 250, 0.93), rgba(248, 250, 250, 0.93)),
+    linear-gradient(rgb(5 5 5 / 94%), rgb(5 5 5 / 94%)),
     url("/assets/hero/bg.png");
   background-position: center;
   background-size: cover;
@@ -257,13 +615,13 @@
   background:
     radial-gradient(
       circle at 8% 25%,
-      rgba(218, 224, 228, 0.25) 0,
-      rgba(218, 224, 228, 0) 28%
+      rgb(255 184 23 / 7%) 0,
+      rgb(255 184 23 / 0%) 28%
     ),
     radial-gradient(
       circle at 85% 75%,
-      rgba(218, 224, 228, 0.2) 0,
-      rgba(218, 224, 228, 0) 30%
+      rgb(255 201 40 / 6%) 0,
+      rgb(255 201 40 / 0%) 30%
     );
 }
 
@@ -296,7 +654,7 @@
 
 .strategic-heading h2 {
   margin: 0;
-  color: #0c2c69;
+  color: var(--text-primary);
   font-size: clamp(38px, 3vw, 52px);
   font-weight: 800;
   line-height: 1.05;
@@ -307,13 +665,13 @@
   width: 77px;
   height: 3px;
   margin: 22px auto 12px;
-  background: #d9d9d9;
+  background: var(--brand-gold);
 }
 
 .strategic-heading p {
   max-width: 1580px;
   margin: 0 auto;
-  color: #5f6870;
+  color: var(--text-secondary);
   font-size: 21px;
   font-weight: 500;
   line-height: 1.55;
@@ -347,9 +705,26 @@
    HORIZONTAL DOTTED LINE
    ------------------------------------------------------------ */
 
+/*
+   IMPORTANT:
+   The timeline line and its end dots must use the SAME
+   coordinate system.
+
+   Previously the line used top: 220px while the dots used
+   top: 50%, which positioned the dots relative to the entire
+   timeline row rather than the line itself.
+
+   --timeline-line-y is defined on the timeline row so both
+   the line and dots reference exactly the same position.
+*/
+
+.strategic-timeline-row {
+  --timeline-line-y: 220px;
+}
+
 .strategic-horizontal-line {
   position: absolute;
-  top: 222px;
+  top: var(--timeline-line-y);
   left: 0;
   z-index: 0;
   width: 100%;
@@ -372,41 +747,38 @@
   height: 4px;
   content: "";
   opacity: 0.85;
-  background-image: repeating-linear-gradient(
-    to right,
-    transparent 0,
-    transparent 8px,
-    var(--strategic-blue) 8px,
-    var(--strategic-blue) 12px,
-    transparent 12px,
-    transparent 22px
-  );
+  background: transparent;
 }
 
+/*
+   The line is 4px tall.
+   Its exact center is therefore:
+       line top + 2px
+
+   The 14px dot is translated upward by 50%, so its CENTER
+   lands exactly on the center of the horizontal line.
+*/
 .line-dot {
   position: absolute;
-  top: 50%;
-  z-index: 3;
+  top: calc(var(--timeline-line-y) + 2px);
+  z-index: 5;
   width: 14px;
   height: 14px;
   border-radius: 50%;
-  background: linear-gradient(
-    135deg,
-    var(--strategic-green),
-    var(--strategic-blue)
-  );
+  background: var(--brand-gold);
   transform: translateY(-50%);
 }
 
 .line-dot-left {
   left: -7px;
-  top: -5px
-
+  top: calc(var(--timeline-line-y) + 2px);
+  transform: translateY(-50%);
 }
 
 .line-dot-right {
   right: -7px;
-    top: -5px
+  top: calc(var(--timeline-line-y) + 2px);
+  transform: translateY(-50%);
 }
 
 /* ------------------------------------------------------------
@@ -430,25 +802,37 @@
   top: 0;
   left: 50%;
   z-index: 5;
+  display: flex;
   width: 136px;
   height: 136px;
+  align-items: flex-start;
+  justify-content: center;
   transform: translateX(-50%);
 }
 
 .strategic-icon-circle {
   display: flex;
-  width: 136px;
-  height: 136px;
+  width: 100px;
+  height: 100px;
+  flex: 0 0 100px;
   align-items: center;
   justify-content: center;
+  box-sizing: border-box;
+  margin: 0 auto;
   border-radius: 50%;
-  background: var(--strategic-coral);
+  background: var(--strategic-coral) !important;
 }
 
 .strategic-icon {
-  width: 88px;
-  height: 88px;
+  display: block;
+  width: 76px;
+  height: 76px;
+  flex: 0 0 76px;
+  align-self: center;
+  margin: 0 auto;
   object-fit: contain;
+  object-position: 50% 50%;
+  transform-origin: 50% 50%;
 }
 
 /* ------------------------------------------------------------
@@ -482,15 +866,7 @@
 }
 
 .strategic-icon-wrapper::before {
-  background-image: repeating-linear-gradient(
-    to bottom,
-    transparent 0,
-    transparent 8px,
-    var(--strategic-blue) 8px,
-    var(--strategic-blue) 12px,
-    transparent 12px,
-    transparent 22px
-  );
+  background: transparent;
 }
 
 /* ------------------------------------------------------------
@@ -510,7 +886,7 @@
   box-sizing: border-box;
   border: 2px solid var(--strategic-coral);
   border-radius: 50%;
-  background: #fff;
+  background: var(--surface);
   transform: translateX(-50%);
 }
 
@@ -520,13 +896,13 @@
   height: 58px;
   content: "";
   border-radius: 50%;
-  background: var(--strategic-green);
+  background: var(--brand-yellow);
 }
 
 .strategic-number span {
   position: relative;
   z-index: 2;
-  color: #fff;
+  color: var(--white);
   font-size: 19px;
   font-weight: 800;
   line-height: 1;
@@ -539,12 +915,12 @@
 .strategic-card {
   position: relative;
   width: 100%;
-  min-height: 425px;
+  min-height: 285px;
   box-sizing: border-box;
   margin-top: 300px;
-  padding: 72px 45px 50px;
+  padding: 28px 31px 20px;
   border-radius: 15px;
-  background: #fff;
+  background: var(--surface-2);
   box-shadow: 0 18px 38px rgba(0, 0, 0, 0.09);
   text-align: center;
 }
@@ -557,7 +933,7 @@
   height: 0;
   content: "";
   border-right: 37px solid transparent;
-  border-bottom: 36px solid #fff;
+  border-bottom: 36px solid var(--surface);
   border-left: 37px solid transparent;
   transform: translateX(-50%);
 }
@@ -566,7 +942,7 @@
   max-width: 530px;
   margin: 0 auto 22px;
   color: var(--strategic-text);
-  font-size: 29px;
+  font-size: 25px;
   font-weight: 750;
   line-height: 1.48;
 }
@@ -575,7 +951,7 @@
   max-width: 570px;
   margin: 0 auto;
   color: var(--strategic-muted);
-  font-size: 22px;
+  font-size: 15px;
   font-weight: 500;
   line-height: 1.72;
 }
@@ -587,9 +963,9 @@
 .strategic-arrow {
   position: absolute;
   z-index: 1;
-  width: 190px;
-  height: 100px;
-  color: #b8c5ce;
+  width: 230px;
+  height: 115px;
+  color: var(--brand-gold);
   pointer-events: none;
 }
 
@@ -597,16 +973,17 @@
   display: block;
   width: 100%;
   height: 100%;
+  overflow: visible;
 }
 
 .strategic-arrow-one {
-  top: 25px;
-  left: calc(33.333% - 95px);
+  top: -7px;
+  left: calc(33.333% - 110px);
 }
 
 .strategic-arrow-two {
-  top: 25px;
-  left: calc(66.666% - 95px);
+  top: -7px;
+  left: calc(66.666% - 110px);
 }
 
 .strategic-arrow-three {
@@ -616,18 +993,11 @@
 
 /* ------------------------------------------------------------
    SECOND ROW
+   Keep cards identical to the first row.
    ------------------------------------------------------------ */
 
 .strategic-row-two .strategic-card {
-  min-height: 280px;
-}
-
-.strategic-row-two .strategic-card h3 {
-  font-size: 29px;
-}
-
-.strategic-row-two .strategic-card p {
-  font-size: 21px;
+  min-height: 285px;
 }
 
 /* ------------------------------------------------------------
@@ -704,15 +1074,21 @@
     font-size: 18px;
   }
 
-  .strategic-icon-wrapper,
+  .strategic-icon-wrapper {
+    width: 120px;
+    height: 120px;
+  }
+
   .strategic-icon-circle {
     width: 120px;
     height: 120px;
+    flex-basis: 120px;
   }
 
   .strategic-icon {
     width: 78px;
     height: 78px;
+    flex-basis: 78px;
   }
 
   .strategic-icon-wrapper::before,
@@ -720,8 +1096,12 @@
     top: 120px;
   }
 
+  .strategic-timeline-row {
+    --timeline-line-y: 203px;
+  }
+
   .strategic-horizontal-line {
-    top: 205px;
+    top: var(--timeline-line-y);
   }
 
   .strategic-number {
@@ -838,10 +1218,7 @@
 @media (max-width: 600px) {
   .strategic-approach-section {
     padding: 50px 0 70px;
-    background: linear-gradient(
-      rgba(248, 250, 250, 0.95),
-      rgba(248, 250, 250, 0.95)
-    );
+    background: var(--site-bg);
   }
 
   .strategic-approach-container {
@@ -868,6 +1245,7 @@
     width: 45px;
     height: 2px;
     margin: 12px auto 10px;
+    background: var(--brand-gold);
   }
 
   .strategic-heading p {
@@ -941,20 +1319,30 @@
     position: relative;
     top: auto;
     left: auto;
+    display: flex;
     width: 72px;
     height: 72px;
     margin: 0 auto;
+    align-items: center;
+    justify-content: center;
     transform: none;
   }
 
   .strategic-icon-circle {
     width: 72px;
     height: 72px;
+    flex-basis: 72px;
   }
 
   .strategic-icon {
     width: 49px;
     height: 49px;
+    flex-basis: 49px;
+    align-self: center;
+    margin: 0 auto;
+    object-fit: contain;
+    object-position: 50% 50%;
+    transform-origin: 50% 50%;
   }
 
   .strategic-icon-wrapper::before,
@@ -987,9 +1375,9 @@
   /* Mobile cards */
   .strategic-card {
     width: calc(100% - 20px);
-    min-height: 245px;
+    min-height: 0;
     margin: 57px auto 0;
-    padding: 40px 20px 25px;
+    padding: 30px 20px 28px;
     border-radius: 8px;
     box-shadow: 0 9px 25px rgba(0, 0, 0, 0.08);
   }
@@ -1003,16 +1391,16 @@
 
   .strategic-card h3,
   .strategic-row-two .strategic-card h3 {
-    max-width: 300px;
-    margin-bottom: 12px;
-    font-size: 14px;
+    max-width: 310px;
+    margin-bottom: 13px;
+    font-size: 16px;
     line-height: 1.4;
   }
 
   .strategic-card p,
   .strategic-row-two .strategic-card p {
-    max-width: 310px;
-    font-size: 10px;
+    max-width: 320px;
+    font-size: 12px;
     line-height: 1.65;
   }
 
@@ -1021,7 +1409,8 @@
   }
 
   .strategic-row-two .strategic-card {
-    min-height: 245px;
+    min-height: 0;
+    padding: 30px 20px 28px;
   }
 
   .strategic-arrow {
@@ -1054,15 +1443,26 @@
     font-size: 9px;
   }
 
-  .strategic-icon-wrapper,
+  .strategic-icon-wrapper {
+    width: 66px;
+    height: 66px;
+  }
+
   .strategic-icon-circle {
     width: 66px;
     height: 66px;
+    flex-basis: 66px;
   }
 
   .strategic-icon {
     width: 45px;
     height: 45px;
+    flex-basis: 45px;
+    align-self: center;
+    margin: 0 auto;
+    object-fit: contain;
+    object-position: 50% 50%;
+    transform-origin: 50% 50%;
   }
 
   .strategic-icon-wrapper::before,
@@ -1083,17 +1483,19 @@
 
   .strategic-card {
     width: calc(100% - 12px);
-    min-height: 220px;
+    min-height: 0;
     margin-top: 52px;
-    padding: 35px 17px 22px;
+    padding: 28px 17px 24px;
   }
 
   .strategic-card h3 {
-    font-size: 13px;
+    font-size: 15px;
+    line-height: 1.4;
   }
 
   .strategic-card p {
-    font-size: 9px;
+    font-size: 11px;
+    line-height: 1.65;
   }
 }
 
@@ -1112,7 +1514,7 @@
 
    When the real background image is ready, simply replace:
 
-       background: #101010;
+       background: var(--site-bg);
 
    with:
 
@@ -1130,8 +1532,8 @@
   min-height: 100vh;
   overflow: hidden;
   isolation: isolate;
-  background: #101010;
-  color: #fff;
+  background: var(--site-bg);
+  color: var(--white);
 }
 
 .life-rudra-container {
@@ -1155,7 +1557,7 @@
 
 .life-rudra-label {
   margin: 0 0 8px;
-  color: #ff6b4a;
+  color: var(--brand-gold);
   font-family: "Montserrat", sans-serif;
   font-size: 23px;
   font-weight: 600;
@@ -1165,7 +1567,7 @@
 
 .life-rudra-header h2 {
   margin: 0;
-  color: #fff;
+  color: var(--white);
   font-family: "Montserrat", sans-serif;
   font-size: clamp(38px, 3.15vw, 66px);
   font-weight: 700;
@@ -1177,7 +1579,7 @@
   width: 80px;
   height: 3px;
   margin-top: 23px;
-  background: #fff;
+  background: var(--brand-gold);
 }
 
 /* ------------------------------------------------------------
@@ -1192,7 +1594,7 @@
 
 .life-rudra-description p {
   margin: 0;
-  color: #fff;
+  color: var(--white);
   font-family: "Montserrat", sans-serif;
   font-size: clamp(17px, 1.25vw, 26px);
   font-weight: 600;
@@ -1233,7 +1635,7 @@
   justify-content: center;
   box-sizing: border-box;
   border-radius: 7px;
-  background: #181818;
+  background: var(--surface-hover);
   cursor: zoom-in;
 }
 
@@ -1298,7 +1700,7 @@
 
 .life-rudra-cta h3 {
   margin: 0 0 40px;
-  color: #fff;
+  color: var(--white);
   font-family: "Montserrat", sans-serif;
   font-size: clamp(34px, 2.55vw, 54px);
   font-weight: 600;
@@ -1320,11 +1722,11 @@
   justify-content: center;
   gap: 12px;
   padding: 18px 28px;
-  border: 2px solid #00c875;
+  border: 2px solid var(--brand-gold);
   border-radius: 14px;
   outline: none;
-  background: #fff;
-  color: #050505;
+  background: var(--brand-gold);
+  color: var(--site-bg);
   font-family: "Montserrat", sans-serif;
   font-size: 24px;
   font-weight: 700;
@@ -1356,7 +1758,7 @@
    ------------------------------------------------------------ */
 
 .life-rudra-touch-button:focus-visible {
-  outline: 2px solid #fff;
+  outline: 2px solid var(--brand-gold);
   outline-offset: 5px;
 }
 
@@ -1774,7 +2176,7 @@
 
   padding: 30px;
 
-  background: rgba(0, 0, 0, 0.72);
+  background: rgb(0 0 0 / 78%);
 }
 
 .about-contact-modal {
@@ -1786,10 +2188,11 @@
   overflow-y: auto;
   overflow-x: hidden;
 
-  background: #fff;
+  background: var(--surface);
+  border: 1px solid var(--border);
   border-radius: 10px;
 
-  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.35);
+  box-shadow: var(--shadow-dark);
 }
 
 /* =========================================================
@@ -1815,7 +2218,7 @@
   border: 0;
   border-radius: 50%;
 
-  background: #111;
+  background: var(--surface-2);
   cursor: pointer;
 }
 
@@ -1825,7 +2228,7 @@
   width: 19px;
   height: 2px;
 
-  background: #fff;
+  background: var(--white);
   border-radius: 2px;
 }
 
@@ -1857,7 +2260,7 @@
 
   padding: 38px 38px 42px;
 
-  background: #f7f7f7;
+  background: var(--site-bg);
 }
 
 /* Heading */
@@ -1924,6 +2327,67 @@
   display: none;
 }
 
+
+/* =========================================================
+   ABOUT CONTACT MODAL — GLOBAL GOLD/DARK OVERRIDES
+   ========================================================= */
+
+.about-contact-modal-content .contact-form-section {
+  background: var(--site-bg);
+  color: var(--text-primary);
+}
+
+.about-contact-modal-content .contact-form-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-dark);
+}
+
+.about-contact-modal-content .contact-form-eyebrow,
+.about-contact-modal-content .contact-form-title,
+.about-contact-modal-content .contact-form-label {
+  color: var(--text-primary);
+}
+
+.about-contact-modal-content .contact-form-heading-line {
+  background: var(--brand-gold);
+}
+
+.about-contact-modal-content .contact-form-input,
+.about-contact-modal-content .contact-form-textarea {
+  background: var(--surface-2);
+  border-color: var(--border);
+  color: var(--text-primary);
+}
+
+.about-contact-modal-content .contact-form-input::placeholder,
+.about-contact-modal-content .contact-form-textarea::placeholder {
+  color: var(--text-muted);
+}
+
+.about-contact-modal-content .contact-form-input:focus,
+.about-contact-modal-content .contact-form-textarea:focus {
+  border-color: var(--brand-gold);
+  box-shadow: 0 0 0 2px var(--glow-gold);
+  outline: none;
+}
+
+.about-contact-modal-content .contact-form-icon {
+  color: var(--brand-gold);
+}
+
+.about-contact-modal-content .contact-form-submit {
+  background: var(--brand-gold);
+  border-color: var(--brand-gold);
+  color: var(--black);
+}
+
+.about-contact-modal-content .contact-form-submit:hover {
+  background: var(--brand-yellow);
+  border-color: var(--brand-yellow);
+  color: var(--black);
+}
+
 /* =========================================================
    TABLET
    ========================================================= */
@@ -1972,6 +2436,84 @@
 
     width: 36px;
     height: 36px;
+  }
+}
+
+/* =========================================================
+   MODAL OVERFLOW SAFETY
+   Prevent ContactForm internals from creating a horizontal
+   scrollbar on phones.
+   ========================================================= */
+
+.about-contact-modal-overlay,
+.about-contact-modal,
+.about-contact-modal-content,
+.about-contact-modal-content .contact-form-section,
+.about-contact-modal-content .contact-form-card,
+.about-contact-modal-content .contact-form {
+  box-sizing: border-box;
+  min-width: 0;
+  max-width: 100%;
+}
+
+.about-contact-modal-overlay {
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+.about-contact-modal {
+  width: min(1100px, calc(100vw - 60px));
+}
+
+.about-contact-modal-content .contact-form-section,
+.about-contact-modal-content .contact-form-card,
+.about-contact-modal-content .contact-form-input,
+.about-contact-modal-content .contact-form-textarea,
+.about-contact-modal-content .contact-form-submit {
+  box-sizing: border-box;
+  max-width: 100%;
+}
+
+.about-contact-modal-content .contact-form-input,
+.about-contact-modal-content .contact-form-textarea {
+  width: 100%;
+  min-width: 0;
+}
+
+@media (max-width: 600px) {
+  html,
+  body {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  .about-contact-modal-overlay {
+    width: 100%;
+    max-width: 100vw;
+    padding: 10px;
+    overflow-x: hidden;
+  }
+
+  .about-contact-modal {
+    width: calc(100vw - 20px);
+    max-width: calc(100vw - 20px);
+    margin: 0;
+    overflow-x: hidden;
+  }
+
+  .about-contact-modal-content,
+  .about-contact-modal-content .contact-form-section,
+  .about-contact-modal-content .contact-form-card {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .about-contact-modal-content .contact-form {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
   }
 }
 
@@ -2088,4 +2630,42 @@
   .about-contact-modal-close span {
     width: 14px;
   }
+}
+
+/* =========================================================
+   CONTACT MODAL — BRAND GOLD CLOSE BUTTON
+   ========================================================= */
+
+.about-contact-modal-close {
+  background: var(--surface-2) !important;
+  border: 0 !important;
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.about-contact-modal-close:hover {
+  background: var(--brand-gold) !important;
+  color: var(--black) !important;
+  box-shadow: 0 0 0 4px var(--glow-gold);
+}
+
+.about-contact-modal-close:active {
+  background: var(--brand-yellow) !important;
+  transform: scale(0.95);
+}
+
+.about-contact-modal-close:focus-visible {
+  outline: 2px solid var(--brand-gold) !important;
+  outline-offset: 4px;
+}
+
+.about-contact-modal-close span {
+  background: var(--white) !important;
+  transition: background-color 0.2s ease;
+}
+
+.about-contact-modal-close:hover span {
+  background: var(--black) !important;
 }

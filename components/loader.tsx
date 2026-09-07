@@ -43,14 +43,18 @@ const Loader = () => {
         if (cancelled) return;
 
         /*
-         * Insert SVG into DOM
+         * ============================================================
+         * INSERT SVG INTO DOM
+         * ============================================================
          */
 
         container.innerHTML = svgText;
 
         const svg = container.querySelector("svg");
 
-        if (!svg) return;
+        if (!svg) {
+          throw new Error("Logo SVG element not found");
+        }
 
         svg.classList.add("india-troll-svg");
 
@@ -62,9 +66,9 @@ const Loader = () => {
 
         animationContext = gsap.context(() => {
           /*
-           * ============================================================
+           * ==========================================================
            * GET SVG GROUPS
-           * ============================================================
+           * ==========================================================
            */
 
           const logoMark = svg.querySelector("#logo-mark");
@@ -74,35 +78,45 @@ const Loader = () => {
           const logoOther = svg.querySelector("#logo-other");
 
           /*
-           * ============================================================
+           * ==========================================================
            * GET INDIVIDUAL PATHS
-           * ============================================================
+           * ==========================================================
            */
 
           const markPaths = logoMark
-            ? Array.from(logoMark.querySelectorAll("path"))
+            ? Array.from(
+                logoMark.querySelectorAll("path")
+              )
             : [];
 
           const indiaPaths = logoIndia
-            ? Array.from(logoIndia.querySelectorAll("path"))
+            ? Array.from(
+                logoIndia.querySelectorAll("path")
+              )
             : [];
 
           const trollPaths = logoTroll
-            ? Array.from(logoTroll.querySelectorAll("path"))
+            ? Array.from(
+                logoTroll.querySelectorAll("path")
+              )
             : [];
 
           const taglinePaths = logoTagline
-            ? Array.from(logoTagline.querySelectorAll("path"))
+            ? Array.from(
+                logoTagline.querySelectorAll("path")
+              )
             : [];
 
           const otherPaths = logoOther
-            ? Array.from(logoOther.querySelectorAll("path"))
+            ? Array.from(
+                logoOther.querySelectorAll("path")
+              )
             : [];
 
           /*
-           * ============================================================
+           * ==========================================================
            * INITIAL STATE
-           * ============================================================
+           * ==========================================================
            */
 
           gsap.set(svg, {
@@ -144,9 +158,9 @@ const Loader = () => {
           });
 
           /*
-           * ============================================================
+           * ==========================================================
            * LOADER TIMELINE
-           * ============================================================
+           * ==========================================================
            */
 
           const tl = gsap.timeline({
@@ -156,10 +170,19 @@ const Loader = () => {
 
             /*
              * ========================================================
-             * IMPORTANT:
-             * Loader has completely finished.
-             * Tell the entire application.
+             * LOADER COMPLETE
              * ========================================================
+             *
+             * IMPORTANT:
+             *
+             * We don't reveal the page immediately.
+             * First the loader fades away.
+             * Only AFTER that do we call setIsLoading(false).
+             *
+             * That causes the page to mount.
+             *
+             * Therefore the page's own GSAP useEffect()
+             * starts AFTER the loader has disappeared.
              */
 
             onComplete: () => {
@@ -169,12 +192,7 @@ const Loader = () => {
                 ease: "power2.inOut",
 
                 onComplete: () => {
-                  /*
-                   * Loader is now completely gone.
-                   *
-                   * This allows every page's GSAP
-                   * animation to start.
-                   */
+                  if (cancelled) return;
 
                   setIsLoading(false);
                 },
@@ -183,9 +201,9 @@ const Loader = () => {
           });
 
           /*
-           * ============================================================
+           * ==========================================================
            * 0. INITIAL LOGO SCALE
-           * ============================================================
+           * ==========================================================
            */
 
           tl.to(svg, {
@@ -195,9 +213,9 @@ const Loader = () => {
           });
 
           /*
-           * ============================================================
+           * ==========================================================
            * 1. IT / CIRCULAR MARK
-           * ============================================================
+           * ==========================================================
            */
 
           tl.to(
@@ -216,14 +234,16 @@ const Loader = () => {
           );
 
           /*
-           * ============================================================
+           * ==========================================================
            * 2. GOLD ELEMENTS OF MARK
-           * ============================================================
+           * ==========================================================
            */
 
           const markGold = logoMark
             ? Array.from(
-                logoMark.querySelectorAll("#logo-mark-gold path")
+                logoMark.querySelectorAll(
+                  "#logo-mark-gold path"
+                )
               )
             : [];
 
@@ -242,9 +262,9 @@ const Loader = () => {
           }
 
           /*
-           * ============================================================
+           * ==========================================================
            * 3. INDIA
-           * ============================================================
+           * ==========================================================
            */
 
           tl.to(
@@ -263,14 +283,16 @@ const Loader = () => {
           );
 
           /*
-           * ============================================================
+           * ==========================================================
            * GOLD INDIA ELEMENTS
-           * ============================================================
+           * ==========================================================
            */
 
           const indiaGold = logoIndia
             ? Array.from(
-                logoIndia.querySelectorAll("#logo-india-gold path")
+                logoIndia.querySelectorAll(
+                  "#logo-india-gold path"
+                )
               )
             : [];
 
@@ -293,9 +315,9 @@ const Loader = () => {
           }
 
           /*
-           * ============================================================
+           * ==========================================================
            * 4. TROLL
-           * ============================================================
+           * ==========================================================
            */
 
           tl.to(
@@ -314,14 +336,16 @@ const Loader = () => {
           );
 
           /*
-           * ============================================================
+           * ==========================================================
            * 5. TROLL GOLD
-           * ============================================================
+           * ==========================================================
            */
 
           const trollGold = logoTroll
             ? Array.from(
-                logoTroll.querySelectorAll("#logo-troll-gold path")
+                logoTroll.querySelectorAll(
+                  "#logo-troll-gold path"
+                )
               )
             : [];
 
@@ -344,9 +368,9 @@ const Loader = () => {
           }
 
           /*
-           * ============================================================
+           * ==========================================================
            * 6. TAGLINE
-           * ============================================================
+           * ==========================================================
            */
 
           tl.to(
@@ -362,9 +386,9 @@ const Loader = () => {
           );
 
           /*
-           * ============================================================
+           * ==========================================================
            * 7. OTHER DETAILS
-           * ============================================================
+           * ==========================================================
            */
 
           if (otherPaths.length) {
@@ -381,9 +405,9 @@ const Loader = () => {
           }
 
           /*
-           * ============================================================
+           * ==========================================================
            * 8. FINAL LOGO SCALE
-           * ============================================================
+           * ==========================================================
            */
 
           tl.to(
@@ -403,9 +427,9 @@ const Loader = () => {
           });
 
           /*
-           * ============================================================
+           * ==========================================================
            * 9. PROGRESS BAR
-           * ============================================================
+           * ==========================================================
            */
 
           if (progressRef.current) {
@@ -456,24 +480,32 @@ const Loader = () => {
           }
         }, loader);
       } catch (error) {
-        console.error("India Troll loader error:", error);
+        console.error(
+          "India Troll loader error:",
+          error
+        );
 
         /*
          * ============================================================
          * FAILSAFE
          * ============================================================
          *
-         * If the SVG fails to load, don't keep the website stuck.
+         * Never leave the website stuck behind the loader.
          */
 
-        gsap.to(loader, {
-          opacity: 0,
-          duration: 0.4,
+        if (!cancelled) {
+          gsap.to(loader, {
+            opacity: 0,
+            duration: 0.4,
+            ease: "power2.inOut",
 
-          onComplete: () => {
-            setIsLoading(false);
-          },
-        });
+            onComplete: () => {
+              if (cancelled) return;
+
+              setIsLoading(false);
+            },
+          });
+        }
       }
     };
 
