@@ -3,6 +3,7 @@
 
 import "./services.css";
 
+import { use } from "react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { motion, type Variants } from "motion/react";
@@ -298,12 +299,12 @@ const imageVariants: Variants = {
    PAGE
 ========================================================= */
 
-export default async function Services({
+export default function Services({
   params,
 }: {
   params: Promise<{ slug: string }>;
 }) {
-  const { slug } = await params;
+  const { slug } = use(params);
 
   const service = serviceData.find((item) => {
     const serviceSlug = item.href.split("/").filter(Boolean).pop();
