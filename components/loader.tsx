@@ -101,9 +101,12 @@ const Loader = () => {
               )
             : [];
 
+          // The updated tagline contains text as well as the gold detail.
+          // Animate both so "RESEARCH & CONSULTING" stays hidden until
+          // its dedicated final reveal step.
           const taglinePaths = logoTagline
             ? Array.from(
-                logoTagline.querySelectorAll("path")
+                logoTagline.querySelectorAll("path, text")
               )
             : [];
 
