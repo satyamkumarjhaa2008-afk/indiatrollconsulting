@@ -588,6 +588,7 @@ export function SiteNavbar() {
             width={152}
             height={48}
             priority
+            loading="eager"
           />
         </Link>
 
