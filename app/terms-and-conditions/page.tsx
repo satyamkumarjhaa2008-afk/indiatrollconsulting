@@ -2,9 +2,9 @@ import Link from 'next/link'
 import '../legal-pages.css'
 
 export const metadata = {
-  title: 'Terms & Conditions | Rudra Research & Analytics',
+  title: 'Terms & Conditions | IndiaTroll Research & Consulting',
   description:
-    'Terms and Conditions of Rudra Research & Analytics.',
+    'Terms and Conditions of IndiaTroll Research & Consulting.',
 }
 
 export default function TermsAndConditionsPage() {
@@ -15,7 +15,7 @@ export default function TermsAndConditionsPage() {
         <div className="legal-container">
 
           <span className="legal-eyebrow">
-            RUDRA RESEARCH & ANALYTICS
+            INDIA RESEARCH & CONSULTING
           </span>
 
           <h1>Terms &amp; Conditions</h1>
@@ -24,7 +24,7 @@ export default function TermsAndConditionsPage() {
 
           <p>
             These Terms &amp; Conditions govern your access to
-            and use of the Rudra Research &amp; Analytics website.
+            and use of the IndiaTroll Research &amp; Consulting website.
           </p>
 
           <span className="legal-date">
@@ -53,7 +53,7 @@ export default function TermsAndConditionsPage() {
             <h2>2. About Our Services</h2>
 
             <p>
-              Rudra Research &amp; Analytics provides research,
+              IndiaTroll Research &amp; Consulting provides research,
               analytics, survey, ground intelligence, market
               research, strategic consulting, communication and
               project monitoring related services.
@@ -103,7 +103,7 @@ export default function TermsAndConditionsPage() {
               Unless otherwise stated, the content of this website,
               including text, graphics, logos, designs, photographs,
               software, layouts and other materials, is owned by
-              or licensed to Rudra Research &amp; Analytics.
+              or licensed to IndiaTroll Research &amp; Consulting.
             </p>
 
             <p>
@@ -135,7 +135,7 @@ export default function TermsAndConditionsPage() {
               This website may contain links to websites and
               services operated by third parties. Such links are
               provided for convenience or informational purposes.
-              Rudra Research &amp; Analytics does not control and
+              IndiaTroll Research &amp; Consulting does not control and
               is not responsible for third-party websites,
               content, availability or privacy practices.
             </p>
@@ -145,7 +145,7 @@ export default function TermsAndConditionsPage() {
 
             <p>
               To the maximum extent permitted by applicable law,
-              Rudra Research &amp; Analytics shall not be liable
+              IndiaTroll Research &amp; Consulting shall not be liable
               for indirect, incidental, consequential or special
               losses arising from the use of, or inability to use,
               this website or information available through it.
@@ -207,7 +207,7 @@ export default function TermsAndConditionsPage() {
             <div className="legal-contact">
 
               <strong>
-                Rudra Research &amp; Analytics
+                IndiaTroll Research &amp; Consulting;
               </strong>
 
               <span>
@@ -215,8 +215,8 @@ export default function TermsAndConditionsPage() {
                 Balewadi High Street, Baner, Pune – 411045
               </span>
 
-              <a href="mailto:info@rudraresearch.in">
-                info@rudraresearch.in
+              <a href="mailto:info@indiatrollconsulting.in">
+                info@indiatrollconsulting.in
               </a>
 
               <a href="tel:+912045219327">

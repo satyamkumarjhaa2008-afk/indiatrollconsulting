@@ -2,9 +2,9 @@ import Link from 'next/link'
 import '../legal-pages.css'
 
 export const metadata = {
-  title: 'Privacy Policy | Rudra Research & Analytics',
+  title: 'Privacy Policy | IndiaTroll Research & Consulting',
   description:
-    'Privacy Policy of Rudra Research & Analytics.',
+    'Privacy Policy of IndiaTroll Research & Consulting.',
 }
 
 export default function PrivacyPolicyPage() {
@@ -15,7 +15,7 @@ export default function PrivacyPolicyPage() {
         <div className="legal-container">
 
           <span className="legal-eyebrow">
-            RUDRA RESEARCH & ANALYTICS
+            INDIATROLL RESEARCH & CONSULTING
           </span>
 
           <h1>Privacy Policy</h1>
@@ -208,23 +208,23 @@ export default function PrivacyPolicyPage() {
             </p>
 
             <div className="legal-contact">
-              <strong>Rudra Research &amp; Analytics</strong>
+              <strong>India Research &amp; Consulting</strong>
 
               <span>
                 Office No. 22, 4th Floor, Solitaire Business Hub,
                 Balewadi High Street, Baner, Pune – 411045
               </span>
 
-              <a href="mailto:info@rudraresearch.in">
-                info@rudraresearch.in
+              <a href="mailto:info@indiatrollconsulting.in">
+                info@indiatrollconsulting.in
               </a>
 
               <a href="tel:+912045219327">
                 020-45219327
               </a>
 
-              <a href="https://www.rudraresearch.in">
-                www.rudraresearch.in
+              <a href="https://www.indiatrollconsulting.in">
+                www.indiatrollconsulting.in
               </a>
             </div>
 
