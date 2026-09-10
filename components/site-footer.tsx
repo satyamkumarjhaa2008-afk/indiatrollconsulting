@@ -332,29 +332,28 @@ export default function SiteFooter() {
                 />
 
                 <span>
-                  Office No. 305, 3rd Floor, Orion Business Centre,
-                  Baner Road, Baner, Pune – 411045, Maharashtra, India
+                  Trident Tower Baner,Pune,Maharashtra
                 </span>
               </span>
             </li>
 
             <li>
-              <a href="tel:+912045219327">
+              <a href="tel:+917775832855">
                 <i
                   className="fa fa-phone"
                   aria-hidden="true"
                 />
-                <span>020-45219327</span>
+                <span>+91 7775832855</span>
               </a>
             </li>
 
             <li>
-              <a href="tel:+918805757772">
+              <a href="tel:+916204535975">
                 <i
                   className="fa fa-mobile-alt"
                   aria-hidden="true"
                 />
-                <span>+91-8805757772</span>
+                <span>+91-6204535975</span>
               </a>
             </li>
 

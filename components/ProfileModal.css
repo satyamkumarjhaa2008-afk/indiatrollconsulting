@@ -825,25 +825,29 @@
 
   background: rgba(255, 184, 23, 0.08);
 
+  .profile-contact-icon {
+  color: #ffb817;
+
+}
   color: #ffb817;
 }
 
 .profile-contact-icon {
-  color: #ffb817;
-
-  font-size: 0.95rem;
+  color: #ffffff;
+font-weight: 100;
+  font-size: 1.3rem;
 }
 
 .profile-linkedin-icon {
-  width: 18px;
-  height: 18px;
+  width: 20px;
+  height: 20px;
 
   display: inline-flex;
 
   align-items: center;
   justify-content: center;
 
-  border: 1px solid currentColor;
+  border: 1.5px solid currentColor;
 
   border-radius: 3px;
 

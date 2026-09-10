@@ -230,17 +230,17 @@ return ( <div ref={pageRef} className="contact-page">
       ref={mapWrapperRef}
       className="contact-map-wrapper"
     >
-      <iframe
-        className="contact-map"
-        src="https://www.google.com/maps?q=Samastipur%2C%20Bihar%2C%20India&output=embed"
-        width="100%"
-        height="600"
-        style={{ border: 0 }}
-        allowFullScreen
-        loading="lazy"
-        referrerPolicy="no-referrer-when-downgrade"
-        title="Samastipur, Bihar, India"
-      />
+ <iframe
+  className="contact-map"
+  src="https://www.google.com/maps?q=Trident%20Towers%2C%20Baner%2C%20Pune%2C%20Maharashtra&output=embed"
+  width="100%"
+  height="600"
+  style={{ border: 0 }}
+  allowFullScreen
+  loading="lazy"
+  referrerPolicy="no-referrer-when-downgrade"
+  title="Trident Towers, Baner, Pune, Maharashtra"
+/>
     </div>
   </section>
 

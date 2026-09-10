@@ -839,12 +839,17 @@
   background: rgba(255, 184, 23, 0.08);
 
   color: var(--team-gold);
+
+.social-icon{
+color : var(--team-gold)
+}
+
 }
 
 .social-icon {
-  color: var(--team-gold);
-
-  font-size: 1rem;
+  color: white;
+font-weight: 100;
+  font-size: 1.35rem;
 }
 
 .linkedin-icon {
@@ -855,7 +860,7 @@
   align-items: center;
   justify-content: center;
 
-  border: 1px solid currentColor;
+  border: 1.5px solid currentColor;
   border-radius: 3px;
 
   font-size: 0.63rem;

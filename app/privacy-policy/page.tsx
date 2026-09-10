@@ -211,16 +211,15 @@ export default function PrivacyPolicyPage() {
               <strong>IndiaTroll Research &amp; Consulting</strong>
 
               <span>
-                Office No. 22, 4th Floor, Solitaire Business Hub,
-                Balewadi High Street, Baner, Pune – 411045
+                Trident Tower, Baner, Pune,Maharashtra – 411057
               </span>
 
               <a href="mailto:info@indiatrollconsulting.com">
                 info@indiatrollconsulting.com
               </a>
 
-              <a href="tel:+918805757772">
-                8805757772
+              <a href="tel:+917775832855">
+               +91 7775832855
               </a>
 
               <a href="https://www.indiatrollconsulting.com">

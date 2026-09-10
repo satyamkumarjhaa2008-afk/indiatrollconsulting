@@ -933,9 +933,9 @@ export function SiteNavbar() {
           <span>Contact Info</span>
 
           <p>
-            Pune, Maharashtra
+            Trident Tower Baner,Pune Maharashtra
             <br />
-            +91 88057 57772
+            +91 7775832855
             <br />
             info@indiatrollconsulting.com
           </p>
