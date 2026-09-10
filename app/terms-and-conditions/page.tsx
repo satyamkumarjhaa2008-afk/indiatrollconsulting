@@ -15,7 +15,7 @@ export default function TermsAndConditionsPage() {
         <div className="legal-container">
 
           <span className="legal-eyebrow">
-            INDIA RESEARCH & CONSULTING
+            INDIATROLL RESEARCH & CONSULTING
           </span>
 
           <h1>Terms &amp; Conditions</h1>
@@ -215,16 +215,16 @@ export default function TermsAndConditionsPage() {
                 Balewadi High Street, Baner, Pune – 411045
               </span>
 
-              <a href="mailto:info@indiatrollconsulting.in">
-                info@indiatrollconsulting.in
+              <a href="mailto:info@indiatrollconsulting.com">
+                info@indiatrollconsulting.com
               </a>
 
-              <a href="tel:+912045219327">
-                020-45219327
+              <a href="tel:+918805757772">
+                8805757772
               </a>
 
-              <a href="https://www.rudraresearch.in">
-                www.rudraresearch.in
+              <a href="https://www.indiatrollconsulting.com">
+                www.indiatrollconsulting.com
               </a>
 
             </div>

@@ -208,23 +208,23 @@ export default function PrivacyPolicyPage() {
             </p>
 
             <div className="legal-contact">
-              <strong>India Research &amp; Consulting</strong>
+              <strong>IndiaTroll Research &amp; Consulting</strong>
 
               <span>
                 Office No. 22, 4th Floor, Solitaire Business Hub,
                 Balewadi High Street, Baner, Pune – 411045
               </span>
 
-              <a href="mailto:info@indiatrollconsulting.in">
-                info@indiatrollconsulting.in
+              <a href="mailto:info@indiatrollconsulting.com">
+                info@indiatrollconsulting.com
               </a>
 
-              <a href="tel:+912045219327">
-                020-45219327
+              <a href="tel:+918805757772">
+                8805757772
               </a>
 
-              <a href="https://www.indiatrollconsulting.in">
-                www.indiatrollconsulting.in
+              <a href="https://www.indiatrollconsulting.com">
+                www.indiatrollconsulting.com
               </a>
             </div>
 

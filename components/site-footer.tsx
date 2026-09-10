@@ -359,18 +359,18 @@ export default function SiteFooter() {
             </li>
 
             <li>
-              <a href="mailto:info@indiatroll.in">
+              <a href="mailto:info@indiatrollconsulting.com">
                 <i
                   className="fa fa-envelope"
                   aria-hidden="true"
                 />
-                <span>info@indiatroll.in</span>
+                <span>info@indiatrollconsulting.com</span>
               </a>
             </li>
 
             <li>
               <a
-                href="https://indiatroll.in"
+                href="https://indiatrollconsulting.com"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -378,7 +378,7 @@ export default function SiteFooter() {
                   className="fa fa-globe"
                   aria-hidden="true"
                 />
-                <span>www.indiatroll.in</span>
+                <span>www.indiatrollconsulting.com</span>
               </a>
             </li>
 

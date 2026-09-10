@@ -643,12 +643,14 @@ const OnlineArticles = () => {
 
 
   return (
-   
+
     <section
       className="online-articles-section"
       aria-label="Online Articles"
     >
- <SiteNavbar/>
+
+      <SiteNavbar />
+
       <div className="online-articles-container">
 
 
@@ -767,7 +769,9 @@ const OnlineArticles = () => {
         )}
 
       </div>
-<SiteFooter/>
+
+      <SiteFooter />
+
     </section>
   );
 };

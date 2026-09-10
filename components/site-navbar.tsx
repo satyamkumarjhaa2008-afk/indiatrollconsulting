@@ -937,7 +937,7 @@ export function SiteNavbar() {
             <br />
             +91 88057 57772
             <br />
-            info@indiatroll.in
+            info@indiatrollconsulting.com
           </p>
 
           <div
