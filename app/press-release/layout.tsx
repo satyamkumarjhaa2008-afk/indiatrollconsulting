@@ -10,6 +10,7 @@ export const metadata: Metadata = {
     description:
       "Press releases and public updates from IndiaTroll Research & Consulting.",
     url: "/press-release",
+    images: ["/opengraph-image"],
   },
 };
 
