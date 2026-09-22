@@ -1,10 +1,17 @@
 import Link from 'next/link'
+import type { Metadata } from 'next'
 import '../legal-pages.css'
 
-export const metadata = {
-  title: 'Terms & Conditions | IndiaTroll Research & Consulting',
+export const metadata: Metadata = {
+  title: 'Terms & Conditions',
   description:
     'Terms and Conditions of IndiaTroll Research & Consulting.',
+  alternates: { canonical: "/terms-and-conditions" },
+  openGraph: {
+    title: "Terms & Conditions | IndiaTroll Research & Consulting",
+    description: "Terms and Conditions of IndiaTroll Research & Consulting.",
+    url: "/terms-and-conditions",
+  },
 }
 
 export default function TermsAndConditionsPage() {

@@ -371,6 +371,15 @@ export default async function Services({
           >
             <div className="service-content-inner">
 
+              <motion.h1
+                className="service-page-title"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+              >
+                {service.name}
+              </motion.h1>
+
               {/* =================================================
                   INTRO
               ================================================= */}

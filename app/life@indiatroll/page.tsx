@@ -33,28 +33,28 @@ interface LifeImage {
 const fieldWorkImages: LifeImage[] = [
   {
     id: 1,
-    src: "/assets/life@rudra/fieldwork/img1.jpeg",
-    alt: "Rudra team conducting field work",
+    src: "/assets/life@indiatroll/fieldwork/img1.jpeg",
+    alt: "IndiaTroll team conducting field work",
   },
   {
     id: 2,
-    src: "/assets/life@rudra/fieldwork/img2.jpeg",
-    alt: "Rudra team conducting field work",
+    src: "/assets/life@indiatroll/fieldwork/img2.jpeg",
+    alt: "IndiaTroll team conducting field work",
   },
   {
     id: 3,
-    src: "/assets/life@rudra/fieldwork/img3.jpeg",
-    alt: "Rudra team conducting field work",
+    src: "/assets/life@indiatroll/fieldwork/img3.jpeg",
+    alt: "IndiaTroll team conducting field work",
   },
   {
     id: 4,
-    src: "/assets/life@rudra/fieldwork/img4.jpeg",
-    alt: "Rudra team conducting field work",
+    src: "/assets/life@indiatroll/fieldwork/img4.jpeg",
+    alt: "IndiaTroll team conducting field work",
   },
   {
     id: 5,
-    src: "/assets/life@rudra/fieldwork/img5.jpeg",
-    alt: "Rudra team conducting field work",
+    src: "/assets/life@indiatroll/fieldwork/img5.jpeg",
+    alt: "IndiaTroll team conducting field work",
   },
 ];
 
@@ -65,23 +65,23 @@ const fieldWorkImages: LifeImage[] = [
 const officeWorkImages: LifeImage[] = [
   {
     id: 1,
-    src: "/assets/life@rudra/officework/img1.jpeg",
-    alt: "Rudra office team at work",
+    src: "/assets/life@indiatroll/officework/img1.jpeg",
+    alt: "IndiaTroll office team at work",
   },
   {
     id: 2,
-    src: "/assets/life@rudra/officework/img2.jpeg",
-    alt: "Rudra office team working together",
+    src: "/assets/life@indiatroll/officework/img2.jpeg",
+    alt: "IndiaTroll office team working together",
   },
   {
     id: 3,
-    src: "/assets/life@rudra/officework/img3.jpeg",
-    alt: "Rudra office workspace",
+    src: "/assets/life@indiatroll/officework/img3.jpeg",
+    alt: "IndiaTroll office workspace",
   },
   {
     id: 4,
-    src: "/assets/life@rudra/officework/img4.jpeg",
-    alt: "Rudra team meeting in office",
+    src: "/assets/life@indiatroll/officework/img4.jpeg",
+    alt: "IndiaTroll team meeting in office",
   },
 ];
 
@@ -92,33 +92,33 @@ const officeWorkImages: LifeImage[] = [
 const teamCultureImages: LifeImage[] = [
   {
     id: 1,
-    src: "/assets/life@rudra/teamculture/img1.jpeg",
-    alt: "Rudra team and culture",
+    src: "/assets/life@indiatroll/teamculture/img1.jpeg",
+    alt: "IndiaTroll team and culture",
   },
   {
     id: 2,
-    src: "/assets/life@rudra/teamculture/img2.jpeg",
-    alt: "Rudra team and culture",
+    src: "/assets/life@indiatroll/teamculture/img2.jpeg",
+    alt: "IndiaTroll team and culture",
   },
   {
     id: 3,
-    src: "/assets/life@rudra/teamculture/img3.jpeg",
-    alt: "Rudra team and culture",
+    src: "/assets/life@indiatroll/teamculture/img3.jpeg",
+    alt: "IndiaTroll team and culture",
   },
   {
     id: 4,
-    src: "/assets/life@rudra/teamculture/img4.jpeg",
-    alt: "Rudra team and culture",
+    src: "/assets/life@indiatroll/teamculture/img4.jpeg",
+    alt: "IndiaTroll team and culture",
   },
   {
     id: 5,
-    src: "/assets/life@rudra/teamculture/img5.jpeg",
-    alt: "Rudra team and culture",
+    src: "/assets/life@indiatroll/teamculture/img5.jpeg",
+    alt: "IndiaTroll team and culture",
   },
   {
     id: 6,
-    src: "/assets/life@rudra/teamculture/img6.jpeg",
-    alt: "Rudra team and culture",
+    src: "/assets/life@indiatroll/teamculture/img6.jpeg",
+    alt: "IndiaTroll team and culture",
   },
 ];
 
@@ -548,7 +548,7 @@ const AnimatedBanner = () => {
   return (
     <motion.section
       ref={bannerRef}
-      className="life-rudra-banner-section"
+      className="life-indiatroll-banner-section"
       initial={{
         opacity: 0,
         y: 80,
@@ -567,7 +567,7 @@ const AnimatedBanner = () => {
       }}
     >
       <motion.div
-        className="life-rudra-banner"
+        className="life-indiatroll-banner"
         initial={{
           scale: 0.96,
         }}
@@ -592,11 +592,11 @@ const AnimatedBanner = () => {
           }}
         >
           <Image
-            src="/assets/life@rudra/mainbanner/img1.jpeg"
-            alt="Rudra team"
+            src="/assets/life@indiatroll/mainbanner/img1.jpeg"
+            alt="IndiaTroll team"
             fill
             sizes="100vw"
-            className="life-rudra-banner-image"
+            className="life-indiatroll-banner-image"
             priority
           />
         </motion.div>
@@ -636,12 +636,12 @@ const AnimatedBanner = () => {
    MAIN PAGE
    ========================================================= */
 
-const LifeAtRudra = () => {
+const LifeAtIndiaTroll = () => {
   const shouldReduceMotion = useReducedMotion();
 
   return (
     <>
-      <main className="life-rudra-page">
+      <main className="life-indiatroll-page">
         {/* =================================================
             NAVBAR
             ================================================= */}
@@ -672,7 +672,20 @@ const LifeAtRudra = () => {
             ================================================= */}
 
         <motion.section
-          className="life-rudra-introduction"
+          className="life-indiatroll-page-heading"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, ease: smoothEase }}
+        >
+          <h1>Life at IndiaTroll</h1>
+          <p>
+            Explore the people, culture, field work, and everyday life
+            behind IndiaTroll Research &amp; Consulting.
+          </p>
+        </motion.section>
+
+        <motion.section
+          className="life-indiatroll-introduction"
           initial="hidden"
           whileInView="visible"
           viewport={{
@@ -681,7 +694,7 @@ const LifeAtRudra = () => {
           }}
         >
           <motion.div
-            className="life-rudra-introduction-content"
+            className="life-indiatroll-introduction-content"
             variants={introContainerVariants}
           >
             <motion.p variants={introTextVariants}>
@@ -774,4 +787,4 @@ const LifeAtRudra = () => {
   );
 };
 
-export default LifeAtRudra;
+export default LifeAtIndiaTroll;

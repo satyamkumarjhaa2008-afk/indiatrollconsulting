@@ -207,6 +207,14 @@ return ( <div ref={pageRef} className="contact-page">
 
   <SiteNavbar />
 
+  <header className="contact-page-heading">
+    <h1>Contact IndiaTroll Research &amp; Consulting</h1>
+    <p>
+      Contact us for political research, ground intelligence, strategic
+      consulting, market research, communication, and project monitoring.
+    </p>
+  </header>
+
   {/* ============================================================
       CONTACT FORM
       ============================================================ */}

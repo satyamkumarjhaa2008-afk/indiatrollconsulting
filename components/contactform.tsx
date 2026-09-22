@@ -60,7 +60,7 @@ export default function ContactForm() {
 
           subject: `New Contact Message from ${formData.name}`,
 
-          from_name: "India Troll | Research & Analytics",
+          from_name: "IndiaTroll | Research & Analytics",
 
           // Honeypot spam protection
           botcheck: "",

@@ -1200,3 +1200,19 @@ body:has(.service-page) {
   outline: 2px solid var(--brand-gold);
   outline-offset: 3px;
 }
+
+.service-page-title {
+  margin: 0 0 24px;
+  max-width: 1050px;
+  color: var(--text-primary);
+  font-size: clamp(32px, 4vw, 56px);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -1.5px;
+}
+
+@media (max-width: 767px) {
+  .service-page-title {
+    font-size: clamp(30px, 9vw, 42px);
+  }
+}

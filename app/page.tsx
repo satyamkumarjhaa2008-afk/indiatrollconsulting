@@ -91,51 +91,51 @@ function WinningThroneSection() {
 function IndiaTrollResultsSection() {
   return (
     <section
-      className="rudra-results-section"
-      aria-labelledby="rudra-results-title"
+      className="indiatroll-results-section"
+      aria-labelledby="indiatroll-results-title"
     >
-      <div className="rudra-results-container">
+      <div className="indiatroll-results-container">
 
-        <div className="rudra-results-header">
-          <p className="rudra-results-eyebrow">
+        <div className="indiatroll-results-header">
+          <p className="indiatroll-results-eyebrow">
             Proven Track Record
           </p>
 
-          <h2
-            id="rudra-results-title"
-            className="rudra-results-title"
+          <h1
+            id="indiatroll-results-title"
+            className="indiatroll-results-title"
           >
-            India Troll Research &amp; Proven Insights
-          </h2>
+            IndiaTroll Research &amp; Consulting
+          </h1>
 
           <span
-            className="rudra-results-line"
+            className="indiatroll-results-line"
             aria-hidden="true"
           />
         </div>
 
-        <div className="rudra-results-grid">
+        <div className="indiatroll-results-grid">
           {results.map((result, index) => (
             <article
               key={`${result.title}-${index}`}
-              className="rudra-result-card"
+              className="indiatroll-result-card"
               tabIndex={0}
             >
-              <div className="rudra-result-card-content">
-                <h3 className="rudra-result-title">
+              <div className="indiatroll-result-card-content">
+                <h3 className="indiatroll-result-title">
                   {result.title}
                 </h3>
 
-                <p className="rudra-result-description">
+                <p className="indiatroll-result-description">
                   {result.description}
                 </p>
               </div>
 
-              <div className="rudra-result-category">
+              <div className="indiatroll-result-category">
                 <span>{result.category}</span>
 
                 <span
-                  className="rudra-result-arrow"
+                  className="indiatroll-result-arrow"
                   aria-hidden="true"
                 >
                   →
@@ -182,7 +182,7 @@ function AboutWhatWeDoSection() {
           />
 
           <p className="about-wedo-description">
-            India Troll delivers election research, ground intelligence,
+            IndiaTroll delivers election research, ground intelligence,
             voter sentiment studies, and data-backed insights that help
             organisations understand public opinion, constituencies,
             issues, and emerging political trends across India.
