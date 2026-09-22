@@ -71,13 +71,13 @@ export const metadata: Metadata = {
     locale: "en_IN",
     url: SITE_URL,
     siteName: SITE_NAME,
-    title: SITE_NAME,
+    title: "Political Research, Ground Intelligence & Strategy | IndiaTroll",
     description: SITE_DESCRIPTION,
   },
 
   twitter: {
     card: "summary",
-    title: SITE_NAME,
+    title: "Political Research, Ground Intelligence & Strategy | IndiaTroll",
     description: SITE_DESCRIPTION,
   },
 };
