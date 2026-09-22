@@ -10,6 +10,7 @@ export const metadata: Metadata = {
     description:
       "Articles and research perspectives from IndiaTroll Research & Consulting.",
     url: "/online-articles",
+    images: ["/opengraph-image"],
   },
 };
 
