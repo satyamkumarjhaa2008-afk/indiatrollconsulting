@@ -25,20 +25,13 @@ const montserrat = localFont({
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-
   title: {
     default: "Political Research, Ground Intelligence & Strategy | IndiaTroll",
     template: "%s | IndiaTroll Research & Consulting",
   },
-
   description: SITE_DESCRIPTION,
-
   applicationName: SITE_NAME,
-
-  alternates: {
-    canonical: "/",
-  },
-
+  alternates: { canonical: "/" },
   robots: {
     index: true,
     follow: true,
@@ -50,7 +43,6 @@ export const metadata: Metadata = {
       "max-video-preview": -1,
     },
   },
-
   keywords: [
     "political research India",
     "political consulting India",
@@ -61,12 +53,10 @@ export const metadata: Metadata = {
     "strategic communication",
     "governance project monitoring",
   ],
-
   icons: {
     icon: "/india-troll-logo-vector.svg",
     apple: "/india-troll-logo-vector.svg",
   },
-
   openGraph: {
     type: "website",
     locale: "en_IN",
@@ -74,41 +64,40 @@ export const metadata: Metadata = {
     siteName: SITE_NAME,
     title: "Political Research, Ground Intelligence & Strategy | IndiaTroll",
     description: SITE_DESCRIPTION,
+    images: [
+      {
+        url: "/opengraph-image",
+        width: 1200,
+        height: 630,
+        alt: "IndiaTroll Research & Consulting",
+      },
+    ],
   },
-
   twitter: {
-    card: "summary",
+    card: "summary_large_image",
     title: "Political Research, Ground Intelligence & Strategy | IndiaTroll",
     description: SITE_DESCRIPTION,
+    images: ["/opengraph-image"],
   },
 };
 
 export const viewport: Viewport = {
   colorScheme: "light dark",
   themeColor: [
-    {
-      media: "(prefers-color-scheme: light)",
-      color: "white",
-    },
-    {
-      media: "(prefers-color-scheme: dark)",
-      color: "black",
-    },
+    { media: "(prefers-color-scheme: light)", color: "white" },
+    { media: "(prefers-color-scheme: dark)", color: "black" },
   ],
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className={`${montserrat.variable} bg-background`}>
       <body className="antialiased font-sans">
         <OrganizationJsonLd />
         <WebSiteJsonLd />
         <LoaderProvider>{children}</LoaderProvider>
-
         {process.env.NODE_ENV === "production" && <Analytics />}
       </body>
     </html>
