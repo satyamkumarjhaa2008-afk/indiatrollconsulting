@@ -54,6 +54,7 @@ export async function generateMetadata({
       title: `${service.title} | IndiaTroll Research & Consulting`,
       description: service.description,
       url: `${SITE_URL}/services/${slug}`,
+      images: ["/opengraph-image"],
     },
   };
 }
