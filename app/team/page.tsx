@@ -785,7 +785,7 @@ export default function TeamPage() {
               <span>OUR TEAM.</span>
 
               <span className="gold-text">
-                INDIA TROLL.
+                INDIATROLL.
               </span>
 
               <span>EXPERIENCE.</span>
