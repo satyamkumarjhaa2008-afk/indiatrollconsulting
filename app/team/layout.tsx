@@ -10,6 +10,7 @@ export const metadata: Metadata = {
     description:
       "Meet the team behind IndiaTroll Research & Consulting.",
     url: "/team",
+    images: ["/opengraph-image"],
   },
 };
 
