@@ -101,12 +101,12 @@ function IndiaTrollResultsSection() {
             Proven Track Record
           </p>
 
-          <h2
+          <h1
             id="indiatroll-results-title"
             className="indiatroll-results-title"
           >
-            IndiaTroll Research &amp; Proven Insights
-          </h2>
+            IndiaTroll Research &amp; Consulting
+          </h1>
 
           <span
             className="indiatroll-results-line"
