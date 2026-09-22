@@ -3,6 +3,11 @@ import nodemailer from "nodemailer";
 
 export const runtime = "nodejs";
 
+const BRAND_NAME = "IndiaTroll Consulting";
+const BRAND_TAGLINE = "Research, Intelligence & Strategic Consulting";
+const SITE_URL = "https://www.indiatrollconsulting.com";
+const LOGO_URL = `${SITE_URL}/india-troll-logo-vector.svg`;
+
 function escapeHtml(value: string) {
   return value
     .replace(/&/g, "&amp;")
@@ -14,6 +19,166 @@ function escapeHtml(value: string) {
 
 function cleanSingleLine(value: string) {
   return value.replace(/[\r\n]/g, " ").trim();
+}
+
+function buildEmailHtml({
+  name,
+  email,
+  mobile,
+  message,
+}: {
+  name: string;
+  email: string;
+  mobile: string;
+  message: string;
+}) {
+  const safeName = escapeHtml(name);
+  const safeEmail = escapeHtml(email);
+  const safeMobile = escapeHtml(mobile);
+  const safeMessage = escapeHtml(message);
+  const replyHref = `mailto:${encodeURIComponent(email)}`;
+
+  return `
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>New Contact Inquiry</title>
+</head>
+
+<body style="margin:0;padding:0;background:#f3f4f6;font-family:Arial,Helvetica,sans-serif;color:#202124;">
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"
+    style="width:100%;background:#f3f4f6;margin:0;padding:28px 12px;">
+    <tr>
+      <td align="center">
+
+        <table role="presentation" width="620" cellpadding="0" cellspacing="0" border="0"
+          style="width:100%;max-width:620px;background:#ffffff;border-radius:14px;overflow:hidden;border:1px solid #e7e7e7;">
+
+          <!-- Brand header -->
+          <tr>
+            <td style="background:#4f1f17;padding:24px 28px;">
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                <tr>
+                  <td align="left" valign="middle">
+                    <img
+                      src="${LOGO_URL}"
+                      alt="${BRAND_NAME}"
+                      width="150"
+                      style="display:block;width:150px;height:auto;max-width:100%;border:0;outline:none;text-decoration:none;"
+                    />
+                  </td>
+                  <td align="right" valign="middle"
+                    style="font-size:11px;line-height:16px;color:#f5e9e5;text-transform:uppercase;letter-spacing:1.2px;">
+                    Website Inquiry
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- Main content -->
+          <tr>
+            <td style="padding:30px 28px 26px;">
+              <div style="font-size:12px;line-height:18px;font-weight:700;color:#9a7b73;text-transform:uppercase;letter-spacing:1.3px;">
+                New contact form submission
+              </div>
+
+              <h1 style="margin:7px 0 22px;font-size:25px;line-height:32px;font-weight:700;color:#241b19;">
+                New inquiry from ${safeName}
+              </h1>
+
+              <!-- Contact details -->
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"
+                style="border:1px solid #ece8e6;border-radius:10px;overflow:hidden;">
+                <tr>
+                  <td style="padding:15px 16px;border-bottom:1px solid #ece8e6;width:34%;font-size:12px;font-weight:700;color:#8a7a76;text-transform:uppercase;letter-spacing:.7px;">
+                    Name
+                  </td>
+                  <td style="padding:15px 16px;border-bottom:1px solid #ece8e6;font-size:15px;font-weight:600;color:#25201e;">
+                    ${safeName}
+                  </td>
+                </tr>
+                <tr>
+                  <td style="padding:15px 16px;border-bottom:1px solid #ece8e6;width:34%;font-size:12px;font-weight:700;color:#8a7a76;text-transform:uppercase;letter-spacing:.7px;">
+                    Email
+                  </td>
+                  <td style="padding:15px 16px;border-bottom:1px solid #ece8e6;font-size:15px;color:#25201e;word-break:break-word;">
+                    ${safeEmail}
+                  </td>
+                </tr>
+                <tr>
+                  <td style="padding:15px 16px;width:34%;font-size:12px;font-weight:700;color:#8a7a76;text-transform:uppercase;letter-spacing:.7px;">
+                    Mobile
+                  </td>
+                  <td style="padding:15px 16px;font-size:15px;color:#25201e;">
+                    ${safeMobile}
+                  </td>
+                </tr>
+              </table>
+
+              <!-- Message -->
+              <div style="margin-top:24px;">
+                <div style="margin-bottom:9px;font-size:12px;font-weight:700;color:#8a7a76;text-transform:uppercase;letter-spacing:.8px;">
+                  Message
+                </div>
+
+                <div style="background:#faf8f7;border:1px solid #eee7e4;border-left:4px solid #4f1f17;border-radius:9px;padding:16px 17px;font-size:15px;line-height:1.65;color:#302a28;white-space:pre-wrap;word-break:break-word;">
+                  ${safeMessage}
+                </div>
+              </div>
+
+              <!-- Reply CTA -->
+              <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="margin:26px 0 4px;">
+                <tr>
+                  <td align="center" style="border-radius:7px;background:#4f1f17;">
+                    <a
+                      href="${replyHref}"
+                      style="display:inline-block;padding:13px 22px;font-size:14px;font-weight:700;line-height:18px;color:#ffffff;text-decoration:none;border-radius:7px;"
+                    >
+                      Reply to Customer
+                    </a>
+                  </td>
+                </tr>
+              </table>
+
+              <div style="margin-top:18px;font-size:12px;line-height:18px;color:#8a817e;">
+                Replying to this email will address the customer directly.
+              </div>
+            </td>
+          </tr>
+
+          <!-- Footer -->
+          <tr>
+            <td style="background:#fafafa;border-top:1px solid #eeeeee;padding:19px 28px;text-align:center;">
+              <div style="font-size:13px;font-weight:700;color:#4f1f17;">
+                ${BRAND_NAME}
+              </div>
+              <div style="margin-top:4px;font-size:11px;line-height:17px;color:#8b8582;">
+                ${BRAND_TAGLINE}
+              </div>
+              <a
+                href="${SITE_URL}"
+                style="display:inline-block;margin-top:5px;font-size:11px;line-height:17px;color:#4f1f17;text-decoration:none;"
+              >
+                www.indiatrollconsulting.com
+              </a>
+            </td>
+          </tr>
+
+        </table>
+
+        <div style="max-width:620px;padding:14px 10px 0;font-size:10px;line-height:15px;color:#aaa;text-align:center;">
+          This notification was generated from the IndiaTroll Consulting website contact form.
+        </div>
+
+      </td>
+    </tr>
+  </table>
+</body>
+</html>
+`;
 }
 
 export async function POST(request: Request) {
@@ -32,7 +197,12 @@ export async function POST(request: Request) {
       );
     }
 
-    if (name.length > 100 || email.length > 254 || mobile.length > 30 || message.length > 5000) {
+    if (
+      name.length > 100 ||
+      email.length > 254 ||
+      mobile.length > 30 ||
+      message.length > 5000
+    ) {
       return NextResponse.json(
         { success: false, message: "One or more fields are too long." },
         { status: 400 }
@@ -74,11 +244,11 @@ export async function POST(request: Request) {
     });
 
     await transporter.sendMail({
-      from: `"IndiaTroll Website" <${smtpUser}>`,
+      from: `"${BRAND_NAME}" <${smtpUser}>`,
       to: contactReceiver,
       replyTo: email,
-      subject: `New Contact Message from ${name}`,
-      text: `New contact form submission
+      subject: `New Contact Inquiry — ${name}`,
+      text: `New contact form inquiry
 
 Name: ${name}
 Email: ${email}
@@ -86,24 +256,11 @@ Mobile: ${mobile}
 
 Message:
 ${message}
+
+Reply to the customer: ${email}
+Website: ${SITE_URL}
 `,
-      html: `
-        <div style="font-family: Arial, sans-serif; line-height: 1.6; color: #222;">
-          <h2 style="color: #4f1f17;">New Contact Form Submission</h2>
-          <hr />
-          <p><strong>Name:</strong> ${escapeHtml(name)}</p>
-          <p><strong>Email:</strong> ${escapeHtml(email)}</p>
-          <p><strong>Mobile:</strong> ${escapeHtml(mobile)}</p>
-          <p><strong>Message:</strong></p>
-          <div style="background:#f7f7f7;padding:15px;border-radius:8px;white-space:pre-wrap;">
-            ${escapeHtml(message)}
-          </div>
-          <hr />
-          <p style="font-size:13px;color:#777;">
-            Submitted through the IndiaTroll Research & Consulting website.
-          </p>
-        </div>
-      `,
+      html: buildEmailHtml({ name, email, mobile, message }),
     });
 
     return NextResponse.json({
