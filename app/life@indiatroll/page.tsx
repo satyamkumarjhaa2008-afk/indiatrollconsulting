@@ -672,6 +672,19 @@ const LifeAtIndiaTroll = () => {
             ================================================= */}
 
         <motion.section
+          className="life-indiatroll-page-heading"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, ease: smoothEase }}
+        >
+          <h1>Life at IndiaTroll</h1>
+          <p>
+            Explore the people, culture, field work, and everyday life
+            behind IndiaTroll Research &amp; Consulting.
+          </p>
+        </motion.section>
+
+        <motion.section
           className="life-indiatroll-introduction"
           initial="hidden"
           whileInView="visible"
