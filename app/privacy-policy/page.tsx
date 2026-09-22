@@ -5,6 +5,7 @@ export const metadata = {
   title: 'Privacy Policy | IndiaTroll Research & Consulting',
   description:
     'Privacy Policy of IndiaTroll Research & Consulting.',
+    alternates: { canonical: "/privacy-policy" },
 }
 
 export default function PrivacyPolicyPage() {
