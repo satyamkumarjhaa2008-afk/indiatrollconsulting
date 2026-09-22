@@ -653,6 +653,13 @@ const OnlineArticles = () => {
 
       <div className="online-articles-container">
 
+        <header className="online-articles-page-heading">
+          <h1>IndiaTroll Online Articles &amp; Research</h1>
+          <p>
+            Articles and research perspectives on public opinion, political
+            research, ground intelligence, and emerging trends in India.
+          </p>
+        </header>
 
         {/* ====================================================
             FILTERS
