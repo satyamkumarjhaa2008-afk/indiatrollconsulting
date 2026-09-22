@@ -369,7 +369,7 @@ export default function SiteFooter() {
 
             <li>
               <a
-                href="https://indiatrollconsulting.com"
+                href="https://www.indiatrollconsulting.com"
                 target="_blank"
                 rel="noopener noreferrer"
               >
