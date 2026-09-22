@@ -429,7 +429,7 @@ const ArticleCard = ({
 
           <img
             src={INDIA_TROLL_LOGO}
-            alt="India Troll"
+            alt="IndiaTroll"
             className="online-article-logo-image"
             loading="lazy"
             decoding="async"
