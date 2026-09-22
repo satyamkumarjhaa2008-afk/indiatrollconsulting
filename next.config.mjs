@@ -6,6 +6,15 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-}
+  async redirects() {
+    return [
+      {
+        source: "/explore",
+        destination: "/",
+        permanent: true,
+      },
+    ];
+  },
+};
 
-export default nextConfig
+export default nextConfig;

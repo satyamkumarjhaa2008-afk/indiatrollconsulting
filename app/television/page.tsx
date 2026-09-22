@@ -89,7 +89,7 @@ const Television: React.FC = () => {
           <span className="television-eyebrow">VIDEO NEWS</span>
 
           <h1 className="television-title">
-            Television
+            IndiaTroll on Television
           </h1>
 
           <p className="television-description">

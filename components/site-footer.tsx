@@ -268,7 +268,7 @@ export default function SiteFooter() {
             <img
               className="footer-logo"
               src="/india-troll-logo-vector.svg"
-              alt="Rudra Research & Analytics"
+              alt="IndiaTroll Research & Consulting"
             />
           </Link>
 
@@ -369,7 +369,7 @@ export default function SiteFooter() {
 
             <li>
               <a
-                href="https://indiatrollconsulting.com"
+                href="https://www.indiatrollconsulting.com"
                 target="_blank"
                 rel="noopener noreferrer"
               >

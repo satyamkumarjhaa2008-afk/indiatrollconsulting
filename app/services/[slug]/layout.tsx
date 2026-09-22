@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { BreadcrumbJsonLd, ServiceJsonLd } from "@/components/seo-json-ld";
 
 const serviceMetadata: Record<
   string,
@@ -67,5 +68,28 @@ export default function ServiceLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return children;
+  const service = serviceMetadata[slug];
+
+  if (!service) {
+    return children;
+  }
+
+  const url = `https://www.indiatrollconsulting.com/services/${slug}`;
+
+  return (
+    <>
+      <ServiceJsonLd
+        name={service.title}
+        description={service.description}
+        url={url}
+      />
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Home", url: "https://www.indiatrollconsulting.com/" },
+          { name: service.title, url },
+        ]}
+      />
+      {children}
+    </>
+  );
 }

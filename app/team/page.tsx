@@ -782,13 +782,13 @@ export default function TeamPage() {
             </div>
 
             <h1 className="team-hero-title">
-              <span>PEOPLE.</span>
+              <span>OUR TEAM.</span>
 
               <span className="gold-text">
-                EXPERIENCE.
+                INDIATROLL.
               </span>
 
-              <span>IMPACT.</span>
+              <span>EXPERIENCE.</span>
             </h1>
 
             <div className="team-hero-bottom">

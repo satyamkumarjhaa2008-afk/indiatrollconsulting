@@ -7,6 +7,11 @@ export const metadata: Metadata = {
   description:
     'Privacy Policy of IndiaTroll Research & Consulting.',
   alternates: { canonical: "/privacy-policy" },
+  openGraph: {
+    title: "Privacy Policy | IndiaTroll Research & Consulting",
+    description: "Privacy Policy of IndiaTroll Research & Consulting.",
+    url: "/privacy-policy",
+  },
 }
 
 export default function PrivacyPolicyPage() {

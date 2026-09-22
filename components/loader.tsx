@@ -484,7 +484,7 @@ const Loader = () => {
         }, loader);
       } catch (error) {
         console.error(
-          "India Troll loader error:",
+          "IndiaTroll loader error:",
           error
         );
 
@@ -528,7 +528,7 @@ const Loader = () => {
       ref={loaderRef}
       className="logo-loader"
       role="status"
-      aria-label="Loading India Troll"
+      aria-label="Loading IndiaTroll"
     >
       {/* Background glow */}
       <div className="logo-loader__ambient" />

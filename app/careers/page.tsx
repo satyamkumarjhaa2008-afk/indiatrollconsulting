@@ -542,9 +542,9 @@ const CareersPage = () => {
           </div>
 
           <h1 ref={heroTitleRef}>
-            Build What
+            Careers at IndiaTroll
             <br />
-            <span>Matters.</span>
+            <span>Build What Matters.</span>
           </h1>
 
           <p ref={heroCopyRef}>
