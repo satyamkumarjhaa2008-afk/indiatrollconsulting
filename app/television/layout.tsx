@@ -10,6 +10,7 @@ export const metadata: Metadata = {
     description:
       "Television and video content from IndiaTroll Research & Consulting.",
     url: "/television",
+    images: ["/opengraph-image"],
   },
 };
 
