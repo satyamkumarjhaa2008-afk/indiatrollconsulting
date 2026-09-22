@@ -315,7 +315,7 @@ const AboutIntroSection = () => {
 
           <div className="about-who-we-are-copy">
             <p>
-              India Troll is a research, strategy, and execution-focused organisation
+              IndiaTroll is a research, strategy, and execution-focused organisation
               working across India with a strong focus on understanding public
               opinion, political environments, and changing ground realities.
             </p>
@@ -327,7 +327,7 @@ const AboutIntroSection = () => {
               those observations into clear, practical inputs that support
               planning, communication, decision-making, and execution. Through
               election research, public opinion studies, and strategic assignments,
-              India Troll brings structured research and grounded insights together
+              IndiaTroll brings structured research and grounded insights together
               to help teams make informed decisions in complex environments.
             </p>
 
@@ -567,7 +567,7 @@ const LifeImage = ({
 }: LifeImageProps) => {
   return (
     <motion.div
-      className={`life-rudra-image-card ${className}`}
+      className={`life-indiatroll-image-card ${className}`}
       variants={imageReveal}
       whileHover={{
         y: -8,
@@ -581,7 +581,7 @@ const LifeImage = ({
       <motion.img
         src={src}
         alt={alt}
-        className="life-rudra-image"
+        className="life-indiatroll-image"
         initial={{
           scale: 1.08,
         }}
@@ -1049,7 +1049,7 @@ const Page = () => {
           ===================================================== */}
 
       <motion.section
-        className="life-rudra-section"
+        className="life-indiatroll-section"
         initial="hidden"
         whileInView="visible"
         viewport={{
@@ -1059,17 +1059,17 @@ const Page = () => {
         }}
       >
         <motion.div
-          className="life-rudra-container"
+          className="life-indiatroll-container"
           variants={lifeContainer}
         >
           {/* HEADER */}
 
           <motion.div
-            className="life-rudra-header life-rudra-reveal"
+            className="life-indiatroll-header life-indiatroll-reveal"
             variants={fadeUp}
           >
             <motion.div
-              className="life-rudra-label"
+              className="life-indiatroll-label"
               initial={{
                 opacity: 0,
                 x: -25,
@@ -1085,7 +1085,7 @@ const Page = () => {
                 duration: 0.6,
               }}
             >
-              Life@India Troll
+              Life@IndiaTroll
             </motion.div>
 
             <motion.h2
@@ -1110,7 +1110,7 @@ const Page = () => {
             </motion.h2>
 
             <motion.div
-              className="life-rudra-heading-line"
+              className="life-indiatroll-heading-line"
               initial={{
                 scaleX: 0,
                 transformOrigin: "left",
@@ -1131,7 +1131,7 @@ const Page = () => {
           {/* DESCRIPTION */}
 
           <motion.div
-            className="life-rudra-description life-rudra-reveal"
+            className="life-indiatroll-description life-indiatroll-reveal"
             variants={fadeUpSoft}
           >
             <p>
@@ -1141,7 +1141,7 @@ const Page = () => {
               We stay focused on the purpose behind what we do,
               while creating space to learn, grow, celebrate progress,
               recognise contributions, and build genuine human connections
-              across the people who make India Troll what it is.
+              across the people who make IndiaTroll what it is.
             </p>
           </motion.div>
 
@@ -1149,25 +1149,25 @@ const Page = () => {
 
           <ImaggeViewer>
             <motion.div
-              className="life-rudra-gallery"
+              className="life-indiatroll-gallery"
               variants={lifeContainer}
             >
               <LifeImage
                 src="/assets/ImgForAbout/Img1.jpeg"
-                alt="India Troll team gathering"
-                className="life-rudra-image-card-1"
+                alt="IndiaTroll team gathering"
+                className="life-indiatroll-image-card-1"
               />
 
               <LifeImage
                 src="/assets/ImgForAbout/Img2.jpeg"
-                alt="India Troll team activity"
-                className="life-rudra-image-card-2"
+                alt="IndiaTroll team activity"
+                className="life-indiatroll-image-card-2"
               />
 
               <LifeImage
                 src="/assets/ImgForAbout/Img3.jpeg"
-                alt="India Troll team celebration"
-                className="life-rudra-image-card-3"
+                alt="IndiaTroll team celebration"
+                className="life-indiatroll-image-card-3"
               />
             </motion.div>
           </ImaggeViewer>
@@ -1175,13 +1175,13 @@ const Page = () => {
           {/* CTA */}
 
           <motion.div
-            className="life-rudra-cta-area"
+            className="life-indiatroll-cta-area"
             variants={lifeContainer}
           >
             {/* PARTNER */}
 
             <motion.div
-              className="life-rudra-cta life-rudra-cta-left"
+              className="life-indiatroll-cta life-indiatroll-cta-left"
               variants={fadeUp}
             >
               <motion.h3 variants={fadeUpSoft}>
@@ -1190,7 +1190,7 @@ const Page = () => {
 
               <motion.button
                 type="button"
-                className="life-rudra-touch-button"
+                className="life-indiatroll-touch-button"
                 aria-label="Get in touch for partnership"
                 onClick={openContactModal}
                 whileHover={{
@@ -1210,7 +1210,7 @@ const Page = () => {
                 }}
               >
                 <motion.span
-                  className="life-rudra-button-arrow"
+                  className="life-indiatroll-button-arrow"
                   whileHover={{
                     x: 6,
                   }}
@@ -1225,7 +1225,7 @@ const Page = () => {
             {/* JOIN */}
 
             <motion.div
-              className="life-rudra-cta life-rudra-cta-right"
+              className="life-indiatroll-cta life-indiatroll-cta-right"
               variants={fadeUp}
             >
               <motion.h3 variants={fadeUpSoft}>
@@ -1234,7 +1234,7 @@ const Page = () => {
 
               <motion.button
                 type="button"
-                className="life-rudra-touch-button"
+                className="life-indiatroll-touch-button"
                 aria-label="Start a conversation to explore opportunities"
                 onClick={openContactModal}
                 whileHover={{
@@ -1254,7 +1254,7 @@ const Page = () => {
                 }}
               >
                 <motion.span
-                  className="life-rudra-button-arrow"
+                  className="life-indiatroll-button-arrow"
                   whileHover={{
                     x: 6,
                   }}
