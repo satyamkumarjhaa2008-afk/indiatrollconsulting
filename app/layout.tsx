@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
 
   title: {
-    default: "IndiaTroll Research & Consulting",
+    default: "Political Research, Ground Intelligence & Strategy | IndiaTroll",
     template: "%s | IndiaTroll Research & Consulting",
   },
 
