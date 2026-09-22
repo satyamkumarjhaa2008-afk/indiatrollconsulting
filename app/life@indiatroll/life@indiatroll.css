@@ -858,3 +858,24 @@
     pointer-events: none;
   }
 }
+
+.life-indiatroll-page-heading {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 72px 24px 30px;
+}
+
+.life-indiatroll-page-heading h1 {
+  margin: 0;
+  font-size: clamp(32px, 5vw, 58px);
+  line-height: 1.08;
+  font-weight: 700;
+}
+
+.life-indiatroll-page-heading p {
+  max-width: 760px;
+  margin: 16px 0 0;
+  color: var(--text-secondary);
+  font-size: 18px;
+  line-height: 1.6;
+}
