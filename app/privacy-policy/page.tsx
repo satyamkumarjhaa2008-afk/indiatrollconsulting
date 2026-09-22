@@ -1,11 +1,12 @@
 import Link from 'next/link'
+import type { Metadata } from 'next'
 import '../legal-pages.css'
 
-export const metadata = {
-  title: 'Privacy Policy | IndiaTroll Research & Consulting',
+export const metadata: Metadata = {
+  title: 'Privacy Policy',
   description:
     'Privacy Policy of IndiaTroll Research & Consulting.',
-    alternates: { canonical: "/privacy-policy" },
+  alternates: { canonical: "/privacy-policy" },
 }
 
 export default function PrivacyPolicyPage() {
