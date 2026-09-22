@@ -10,6 +10,7 @@ export const metadata: Metadata = {
     description:
       "Learn about IndiaTroll's research, strategy, ground intelligence, and data-led approach.",
     url: "/about",
+    images: ["/opengraph-image"],
   },
 };
 
