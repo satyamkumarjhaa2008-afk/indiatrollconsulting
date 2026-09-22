@@ -86,7 +86,6 @@ export default function ServiceLayout({
       <BreadcrumbJsonLd
         items={[
           { name: "Home", url: "https://www.indiatrollconsulting.com/" },
-          { name: "Services", url: "https://www.indiatrollconsulting.com/" },
           { name: service.title, url },
         ]}
       />
