@@ -10,6 +10,7 @@ export const metadata: Metadata = {
     description:
       "Explore career opportunities at IndiaTroll Research & Consulting.",
     url: "/careers",
+    images: ["/opengraph-image"],
   },
 };
 
