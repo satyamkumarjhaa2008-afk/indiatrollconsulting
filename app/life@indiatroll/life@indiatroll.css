@@ -6,12 +6,12 @@
    INDIA TROLL — GLOBAL DESIGN SYSTEM
    ============================================================ */
 
-.life-rudra-page,
-.life-rudra-page * {
+.life-indiatroll-page,
+.life-indiatroll-page * {
   font-family: "Montserrat", sans-serif;
 }
 
-.life-rudra-page {
+.life-indiatroll-page {
   width: 100%;
   min-height: 100vh;
   background: var(--site-bg);
@@ -24,19 +24,19 @@
    INTRODUCTION
    ============================================================ */
 
-.life-rudra-introduction {
+.life-indiatroll-introduction {
   width: 100%;
   padding: 105px 3.8% 55px;
   background: var(--site-bg);
 }
 
-.life-rudra-introduction-content {
+.life-indiatroll-introduction-content {
   width: 100%;
   max-width: 1700px;
   margin: 0 auto;
 }
 
-.life-rudra-introduction-content p {
+.life-indiatroll-introduction-content p {
   margin: 0 0 34px;
   color: var(--text-secondary);
   font-size: 23px;
@@ -45,7 +45,7 @@
   letter-spacing: 0.1px;
 }
 
-.life-rudra-introduction-content p:last-child {
+.life-indiatroll-introduction-content p:last-child {
   margin-bottom: 0;
 }
 
@@ -480,13 +480,13 @@
    MAIN BANNER
    ============================================================ */
 
-.life-rudra-banner-section {
+.life-indiatroll-banner-section {
   width: 100%;
   padding: 20px 3.7% 90px;
   background: var(--site-bg);
 }
 
-.life-rudra-banner {
+.life-indiatroll-banner {
   position: relative;
 
   width: 100%;
@@ -508,7 +508,7 @@
   box-shadow: var(--shadow-dark);
 }
 
-.life-rudra-banner-image {
+.life-indiatroll-banner-image {
   width: 100%;
   height: 100%;
 
@@ -549,7 +549,7 @@
    ============================================================ */
 
 @media (min-width: 1600px) {
-  .life-rudra-introduction {
+  .life-indiatroll-introduction {
     padding-left: 4%;
     padding-right: 4%;
   }
@@ -559,7 +559,7 @@
     padding-right: 4%;
   }
 
-  .life-rudra-banner-section {
+  .life-indiatroll-banner-section {
     padding-left: 4%;
     padding-right: 4%;
   }
@@ -568,7 +568,7 @@
     font-size: 32px;
   }
 
-  .life-rudra-introduction-content p {
+  .life-indiatroll-introduction-content p {
     font-size: 24px;
   }
 }
@@ -579,11 +579,11 @@
    ============================================================ */
 
 @media (max-width: 1300px) {
-  .life-rudra-introduction {
+  .life-indiatroll-introduction {
     padding: 95px 4% 50px;
   }
 
-  .life-rudra-introduction-content p {
+  .life-indiatroll-introduction-content p {
     font-size: 20px;
     margin-bottom: 30px;
   }
@@ -602,12 +602,12 @@
     gap: 35px 30px;
   }
 
-  .life-rudra-banner-section {
+  .life-indiatroll-banner-section {
     padding-left: 4%;
     padding-right: 4%;
   }
 
-  .life-rudra-banner {
+  .life-indiatroll-banner {
     min-height: 420px;
   }
 }
@@ -618,11 +618,11 @@
    ============================================================ */
 
 @media (max-width: 1000px) {
-  .life-rudra-introduction {
+  .life-indiatroll-introduction {
     padding: 90px 5% 45px;
   }
 
-  .life-rudra-introduction-content p {
+  .life-indiatroll-introduction-content p {
     font-size: 18px;
     line-height: 1.6;
     margin-bottom: 28px;
@@ -649,11 +649,11 @@
     aspect-ratio: 1.6 / 1;
   }
 
-  .life-rudra-banner-section {
+  .life-indiatroll-banner-section {
     padding: 15px 5% 70px;
   }
 
-  .life-rudra-banner {
+  .life-indiatroll-banner {
     height: 55vw;
     min-height: 350px;
   }
@@ -665,11 +665,11 @@
    ============================================================ */
 
 @media (max-width: 700px) {
-  .life-rudra-introduction {
+  .life-indiatroll-introduction {
     padding: 75px 20px 35px;
   }
 
-  .life-rudra-introduction-content p {
+  .life-indiatroll-introduction-content p {
     font-size: 16px;
     line-height: 1.65;
     margin-bottom: 24px;
@@ -713,11 +713,11 @@
     height: 34px;
   }
 
-  .life-rudra-banner-section {
+  .life-indiatroll-banner-section {
     padding: 10px 20px 60px;
   }
 
-  .life-rudra-banner {
+  .life-indiatroll-banner {
     height: 58vw;
     min-height: 230px;
     border-radius: var(--radius-sm);
@@ -734,11 +734,11 @@
    ============================================================ */
 
 @media (max-width: 480px) {
-  .life-rudra-introduction {
+  .life-indiatroll-introduction {
     padding: 65px 18px 30px;
   }
 
-  .life-rudra-introduction-content p {
+  .life-indiatroll-introduction-content p {
     font-size: 15px;
     line-height: 1.7;
     margin-bottom: 22px;
@@ -774,11 +774,11 @@
     height: 31px;
   }
 
-  .life-rudra-banner-section {
+  .life-indiatroll-banner-section {
     padding: 5px 18px 45px;
   }
 
-  .life-rudra-banner {
+  .life-indiatroll-banner {
     min-height: 200px;
   }
 }
@@ -789,11 +789,11 @@
    ============================================================ */
 
 @media (max-width: 360px) {
-  .life-rudra-introduction {
+  .life-indiatroll-introduction {
     padding-top: 55px;
   }
 
-  .life-rudra-introduction-content p {
+  .life-indiatroll-introduction-content p {
     font-size: 14px;
   }
 
@@ -822,9 +822,9 @@
    ============================================================ */
 
 @media (prefers-reduced-motion: reduce) {
-  .life-rudra-page *,
-  .life-rudra-page *::before,
-  .life-rudra-page *::after {
+  .life-indiatroll-page *,
+  .life-indiatroll-page *::before,
+  .life-indiatroll-page *::after {
     scroll-behavior: auto !important;
   }
 
