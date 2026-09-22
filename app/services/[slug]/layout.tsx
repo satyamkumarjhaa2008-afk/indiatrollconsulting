@@ -1,10 +1,9 @@
 import type { Metadata } from "next";
 import { BreadcrumbJsonLd, ServiceJsonLd } from "@/components/seo-json-ld";
 
-const serviceMetadata: Record<
-  string,
-  { title: string; description: string }
-> = {
+const SITE_URL = "https://www.indiatrollconsulting.com";
+
+const serviceMetadata: Record<string, { title: string; description: string }> = {
   "survey-insights": {
     title: "Survey & Insights",
     description:
@@ -45,47 +44,40 @@ export async function generateMetadata({
   const { slug } = await params;
   const service = serviceMetadata[slug];
 
-  if (!service) {
-    return {};
-  }
+  if (!service) return {};
 
   return {
     title: service.title,
     description: service.description,
-    alternates: {
-      canonical: `/services/${slug}`,
-    },
+    alternates: { canonical: `/services/${slug}` },
     openGraph: {
       title: `${service.title} | IndiaTroll Research & Consulting`,
       description: service.description,
-      url: `/services/${slug}`,
+      url: `${SITE_URL}/services/${slug}`,
     },
   };
 }
 
-export default function ServiceLayout({
+export default async function ServiceLayout({
   children,
+  params,
 }: {
   children: React.ReactNode;
+  params: Promise<{ slug: string }>;
 }) {
+  const { slug } = await params;
   const service = serviceMetadata[slug];
 
-  if (!service) {
-    return children;
-  }
+  if (!service) return children;
 
-  const url = `https://www.indiatrollconsulting.com/services/${slug}`;
+  const url = `${SITE_URL}/services/${slug}`;
 
   return (
     <>
-      <ServiceJsonLd
-        name={service.title}
-        description={service.description}
-        url={url}
-      />
+      <ServiceJsonLd name={service.title} description={service.description} url={url} />
       <BreadcrumbJsonLd
         items={[
-          { name: "Home", url: "https://www.indiatrollconsulting.com/" },
+          { name: "Home", url: `${SITE_URL}/` },
           { name: service.title, url },
         ]}
       />
