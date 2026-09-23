@@ -114,10 +114,23 @@ export const LoaderProvider = ({
   const [loadedPath, setLoadedPath] = useState<string | null>(null);
 
   /*
-   * Start browser-level resource loading as soon as the provider mounts.
-   * Nothing is rendered and no page animation is started by this step.
+   * Every route gets its own loader cycle.
+   *
+   * The root layout stays mounted during client-side navigation, so this
+   * provider does not remount automatically when pathname changes. Reset
+   * the loader explicitly here instead.
+   *
+   * IMPORTANT:
+   * We reset the page before the loader starts so the destination page is
+   * never mounted behind the loader. Its GSAP effects therefore start only
+   * after the loader has actually finished.
    */
   useEffect(() => {
+    setLoadedPath(null);
+    setIsLoading(true);
+
+    // Start warming the destination route's resources immediately.
+    // This is deliberately fire-and-forget; the loader does not wait for it.
     preloadRouteResources(pathname);
   }, [pathname]);
 
@@ -125,17 +138,21 @@ export const LoaderProvider = ({
    * The loader remains the authority for when the page becomes visible.
    * We intentionally do NOT wait for all resources here.
    *
-   * This means:
-   *   loader finishes -> page mounts -> GSAP starts visibly
+   * loader finishes -> isLoading becomes false -> destination page mounts
+   * -> the destination page's GSAP effects initialize visibly.
    *
    * If an image is still downloading, the browser continues loading it
    * normally in parallel.
+   *
+   * pathname is intentionally NOT a dependency here. On navigation, the
+   * pathname effect above resets the loader first; this effect should only
+   * run again when the loader actually completes.
    */
   useEffect(() => {
     if (!isLoading) {
       setLoadedPath(pathname);
     }
-  }, [isLoading, pathname]);
+  }, [isLoading]);
 
   const pageReady = loadedPath === pathname && !isLoading;
 
