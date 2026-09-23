@@ -692,24 +692,22 @@ const LifeAtIndiaTroll = () => {
           <div className="life-at-indiatroll-hero-overlay" aria-hidden="true" />
           <div className="life-at-indiatroll-hero-grid" aria-hidden="true" />
 
-          <motion.div
-            className="life-at-indiatroll-hero-orb"
-            aria-hidden="true"
-            animate={
-              shouldReduceMotion
-                ? undefined
-                : {
-                    x: [0, 28, -12, 0],
-                    y: [0, -14, 12, 0],
-                    scale: [1, 1.08, 0.98, 1],
-                  }
-            }
-            transition={{
-              duration: 9,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
-          />
+          {!shouldReduceMotion && (
+            <motion.div
+              className="life-at-indiatroll-hero-orb"
+              aria-hidden="true"
+              animate={{
+                x: [0, 28, -12, 0],
+                y: [0, -14, 12, 0],
+                scale: [1, 1.08, 0.98, 1],
+              }}
+              transition={{
+                duration: 9,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+            />
+          )}
 
           <div className="life-at-indiatroll-hero-content">
             <motion.p
