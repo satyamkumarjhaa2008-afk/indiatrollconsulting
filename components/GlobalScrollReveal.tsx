@@ -25,6 +25,8 @@ const REVEAL_SELECTOR = [
   "main .eyebrow",
   "main .label",
   "main [data-reveal]",
+  "main a:not(nav a)",
+  "main span:not([aria-hidden=\"true\"])",
 ].join(",");
 
 const SKIP_SELECTOR = [
