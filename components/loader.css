@@ -54,7 +54,8 @@
 
 @media (max-width:600px) {
   .logo-loader { min-height:100svh; }
-  .logo-loader__svg-container { width:96vw;max-width:none; }
+  .logo-loader__svg-container { width:100vw;max-width:none; }
+  .logo-loader__svg-container svg { width:82%; }
   .logo-loader__ambient { width:100vw;height:100vw;filter:blur(25px); }
   .logo-loader__progress { width:180px;bottom:10vh;height:2px; }
   .logo-loader__text { bottom:calc(10vh - 21px);font-size:7px;letter-spacing:2.5px; }
@@ -64,6 +65,7 @@
 
 @media (max-width:380px) {
   .logo-loader__svg-container { width:100vw; }
+  .logo-loader__svg-container svg { width:88%; }
   .logo-loader__progress { width:160px; }
   .logo-loader__text { font-size:6px;letter-spacing:2px; }
 }
