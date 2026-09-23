@@ -27,52 +27,8 @@ to { opacity: 1; }
 
 @media (max-width: 820px) {
 /* Mobile hero sizing: use a dedicated viewport-height frame so the carousel remains visually large on phones. */
-.hero-slide-frame {
-  position: relative;
-  width: 100%;
-  height: clamp(220px, 72vw, 390px);
-  min-height: 220px;
-  overflow: hidden;
-  background: #050505;
-}
-
-.hero-slide-frame::before {
-  content: "";
-  position: absolute;
-  inset: -14%;
-  z-index: 0;
-  background-image: var(--hero-bg);
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  filter: blur(22px);
-  transform: scale(1.08);
-  opacity: .72;
-}
-
-.hero-slide-frame::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  background: rgb(0 0 0 / 20%);
-}
-
-.hero-slide {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  width: 100%;
-  height: 100%;
-  max-width: none;
-  object-fit: contain;
-  object-position: center;
-}
-
-.hero-slide.is-active {
-  display: block;
-  animation: hero-fade .7s ease both;
-}
+.hero-slide-frame { width: 100%; height: clamp(165px, 51vw, 300px); min-height: 165px; background: #050505; }
+.hero-slide { width: 100%; height: 100%; max-width: none; object-fit: fill; object-position: center center; }
 .carousel-arrow { width: 34px; height: 34px; }
 .carousel-arrow svg { width: 17px; height: 17px; }
 .carousel-indicators { bottom: 12px; gap: 6px; }
