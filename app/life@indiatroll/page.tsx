@@ -668,20 +668,89 @@ const LifeAtIndiaTroll = () => {
         </motion.div>
 
         {/* =================================================
-            INTRODUCTION
+            HERO
             ================================================= */}
 
         <motion.section
-          className="life-indiatroll-page-heading"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, ease: smoothEase }}
+          className="life-at-indiatroll-hero"
+          initial={{
+            opacity: 0,
+            y: 45,
+            scale: 0.985,
+          }}
+          animate={{
+            opacity: 1,
+            y: 0,
+            scale: 1,
+          }}
+          transition={{
+            duration: 1,
+            ease: smoothEase,
+          }}
         >
-          <h1>Life at IndiaTroll</h1>
-          <p>
-            Explore the people, culture, field work, and everyday life
-            behind IndiaTroll Research &amp; Consulting.
-          </p>
+          <div className="life-at-indiatroll-hero-image" aria-hidden="true" />
+          <div className="life-at-indiatroll-hero-overlay" aria-hidden="true" />
+          <div className="life-at-indiatroll-hero-grid" aria-hidden="true" />
+
+          <motion.div
+            className="life-at-indiatroll-hero-orb"
+            aria-hidden="true"
+            animate={
+              shouldReduceMotion
+                ? undefined
+                : {
+                    x: [0, 28, -12, 0],
+                    y: [0, -14, 12, 0],
+                    scale: [1, 1.08, 0.98, 1],
+                  }
+            }
+            transition={{
+              duration: 9,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+          />
+
+          <div className="life-at-indiatroll-hero-content">
+            <motion.p
+              className="life-at-indiatroll-hero-eyebrow"
+              initial={shouldReduceMotion ? undefined : { opacity: 0, y: 18 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.65, delay: 0.2, ease: smoothEase }}
+            >
+              PEOPLE · CULTURE · INDIA TROLL
+            </motion.p>
+
+            <motion.h1
+              initial={shouldReduceMotion ? undefined : { opacity: 0, y: 35 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.3, ease: smoothEase }}
+            >
+              Life at <span>IndiaTroll.</span>
+            </motion.h1>
+
+            <motion.p
+              className="life-at-indiatroll-hero-description"
+              initial={shouldReduceMotion ? undefined : { opacity: 0, y: 25, filter: "blur(8px)" }}
+              animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+              transition={{ duration: 0.8, delay: 0.45, ease: smoothEase }}
+            >
+              Meet the people, culture, field work, and everyday moments behind IndiaTroll Research &amp; Consulting.
+            </motion.p>
+
+            <motion.div
+              className="life-at-indiatroll-hero-line"
+              initial={shouldReduceMotion ? undefined : { scaleX: 0 }}
+              animate={{ scaleX: 1 }}
+              transition={{ duration: 0.8, delay: 0.65, ease: smoothEase }}
+            />
+
+            <div className="life-at-indiatroll-hero-scroll" aria-hidden="true">
+              <span />
+              <small>SCROLL TO EXPLORE</small>
+              <i />
+            </div>
+          </div>
         </motion.section>
 
         <motion.section
