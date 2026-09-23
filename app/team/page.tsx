@@ -397,7 +397,7 @@ function FounderSection() {
       gsap.from(".founder-content > *", {
         scrollTrigger: {
           trigger: sectionRef.current,
-          start: "top 75%",
+          start: "top 72%",
         },
         y: 35,
         opacity: 0,
