@@ -226,10 +226,14 @@ export default function TermsAndConditionsPage() {
               </a>
 
               <a href="tel:+917775832855">
-                +91 7775832855
+                +91-7775832855
               </a>
 
-              <a href="https://www.indiatrollconsulting.com">
+              <a href="tel:+918856013088">
+                 +91-8856013088
+               </a>
+
+               <a href="https://www.indiatrollconsulting.com">
                 www.indiatrollconsulting.com
               </a>
 
