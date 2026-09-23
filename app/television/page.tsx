@@ -3,6 +3,7 @@ import React from "react";
 import "./television.css";
 
 import SiteNavbar from "@/components/site-navbar";
+import EditorialPageHero from "@/components/editorial-page-hero";
 
 import SiteFooter from "@/components/site-footer";
 
@@ -84,20 +85,12 @@ const Television: React.FC = () => {
       <SiteNavbar />
 
       {/* Page Header */}
-      <section className="television-header">
-        <div className="television-header-content">
-          <span className="television-eyebrow">VIDEO NEWS</span>
-
-          <h1 className="television-title">
-            IndiaTroll on Television
-          </h1>
-
-          <p className="television-description">
-            Watch the latest news, political updates, interviews,
-            and important stories from across India.
-          </p>
-        </div>
-      </section>
+      <EditorialPageHero
+        eyebrow="VIDEO NEWS"
+        title="IndiaTroll on Television"
+        accentWord="Television"
+        description="Watch the latest news, political updates, interviews, and important stories from across India."
+      />
 
       {/* Latest Videos */}
       <section className="television-section">
