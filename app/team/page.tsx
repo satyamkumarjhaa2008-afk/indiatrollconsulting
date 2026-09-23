@@ -409,7 +409,7 @@ function FounderSection() {
       gsap.from(".founder-highlight-item", {
         scrollTrigger: {
           trigger: ".founder-highlights",
-          start: "top 85%",
+          start: "top 78%",
         },
         x: -30,
         opacity: 0,
