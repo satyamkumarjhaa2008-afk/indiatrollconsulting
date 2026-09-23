@@ -36,10 +36,10 @@ const teamMembers: TeamMember[] = [
     linkedin: "https://www.linkedin.com/in/tejas-ingle",
 
     statement:
-      "At Indiatroll Consultancy, we believe that meaningful change begins with the right information, deep understanding, technology and a clear strategy. I founded Indiatroll Consultancy with the vision of bringing research, technology, data-driven analysis, strategic consulting and innovative solutions together to support better decision-making and create meaningful impact.",
+      "At IndiaTroll Consulting, we believe that meaningful change begins with the right information, deep understanding, technology and a clear strategy. I founded IndiaTroll Consulting with the vision of bringing research, technology, data-driven analysis, strategic consulting and innovative solutions together to support better decision-making and create meaningful impact.",
 
     highlights: [
-      "Founder of Indiatroll Consultancy",
+      "Founder of IndiaTroll Consulting",
       "Research-led & impact-oriented consulting",
       "Strategic thinking and institutional development",
       "Technology, data and research driven approach",
@@ -124,8 +124,8 @@ const teamMembers: TeamMember[] = [
     id: "subodh-waghmare",
     name: "Subodh Waghmare",
     shortName: "SW",
-    role: "Co-Founder — Indiatroll Research & Analytics",
-    category: "RESEARCH & ANALYTICS",
+    role: "Co-Founder — IndiaTroll Consulting",
+    category: "CONSULTING",
     image: "/assets/team/SubodhWaghmare.jpeg",
 
     email: "subodh.waghmare@indiatrollconsultancy.com",
@@ -452,7 +452,7 @@ function FounderSection() {
         </div>
 
         <div className="founder-image-caption">
-          <span>INDIATROLL CONSULTANCY</span>
+          <span>INDIATROLL CONSULTING</span>
           <span>FOUNDING LEADERSHIP</span>
         </div>
       </div>
