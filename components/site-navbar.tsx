@@ -77,7 +77,7 @@ const socials = [
   {
     label: "LinkedIn",
     icon: "fab fa-linkedin-in",
-    href: "https://www.linkedin.com/company/indiatrollconsulting",
+    href: "https://www.linkedin.com/indiatrollconsulting",
   },
   {
     label: "Twitter",
