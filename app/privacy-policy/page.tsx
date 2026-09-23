@@ -5,11 +5,11 @@ import '../legal-pages.css'
 export const metadata: Metadata = {
   title: 'Privacy Policy',
   description:
-    'Privacy Policy of IndiaTroll Research & Consulting.',
+    'Privacy Policy of IndiaTroll Consulting.',
   alternates: { canonical: "/privacy-policy" },
   openGraph: {
-    title: "Privacy Policy | IndiaTroll Research & Consulting",
-    description: "Privacy Policy of IndiaTroll Research & Consulting.",
+    title: "Privacy Policy | IndiaTroll Consulting",
+    description: "Privacy Policy of IndiaTroll Consulting.",
     url: "/privacy-policy",
   },
 }
@@ -22,7 +22,7 @@ export default function PrivacyPolicyPage() {
         <div className="legal-container">
 
           <span className="legal-eyebrow">
-            INDIATROLL RESEARCH & CONSULTING
+            INDIATROLL CONSULTING
           </span>
 
           <h1>Privacy Policy</h1>
@@ -215,7 +215,7 @@ export default function PrivacyPolicyPage() {
             </p>
 
             <div className="legal-contact">
-              <strong>IndiaTroll Research &amp; Consulting</strong>
+              <strong>IndiaTroll Consulting</strong>
 
               <span>
                 Near Jannat Baker's, South Patel Nagar, New Delhi - 110008
