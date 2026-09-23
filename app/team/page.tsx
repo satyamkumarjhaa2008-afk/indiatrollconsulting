@@ -554,7 +554,7 @@ function MemberCard({
       gsap.from(cardRef.current, {
         scrollTrigger: {
           trigger: cardRef.current,
-          start: "top 88%",
+          start: "top 80%",
         },
         y: 70,
         opacity: 0,
