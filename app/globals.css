@@ -654,3 +654,39 @@ html, body {
     overscroll-behavior: contain !important;
   }
 }
+
+
+/* ============================================================
+   DESKTOP HERO — FILL THE ENTIRE REMAINING VIEWPORT
+   ============================================================ */
+@media (min-width: 821px) {
+  .hero-carousel,
+  .hero-slide-frame {
+    width: 100%;
+    height: calc(100dvh - 79px);
+    min-height: 420px;
+  }
+
+  .hero-slide-frame {
+    position: relative;
+    overflow: hidden;
+    line-height: 0;
+  }
+
+  .hero-slide-frame .hero-slide {
+    display: none;
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    object-fit: fill;
+    object-position: center;
+  }
+
+  .hero-slide-frame .hero-slide.is-active {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+}
