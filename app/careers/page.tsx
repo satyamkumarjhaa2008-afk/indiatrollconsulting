@@ -336,7 +336,7 @@ const CareersPage = () => {
                 clearProps: "transform",
                 scrollTrigger: {
                   trigger: countRef.current,
-                  start: "top 90%",
+                  start: "top 84%",
                   once: true,
                 },
               }
