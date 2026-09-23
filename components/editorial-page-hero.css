@@ -85,7 +85,7 @@
 @media (max-width: 700px) {
   .editorial-page-hero { min-height: 510px; }
   .editorial-page-hero-inner { width: min(100% - 40px, 1500px); padding-top: 72px; padding-bottom: 72px; }
-  .editorial-hero-title { font-size: clamp(47px, 15vw, 82px); line-height: .93; letter-spacing: -.065em; }
+  .editorial-hero-title { font-size: clamp(42px, 13.5vw, 82px); line-height: .98; letter-spacing: -.045em; max-width: 100%; overflow: visible; }
   .editorial-hero-word-wrap { margin-right: .16em; }
   .editorial-hero-description { max-width: 100%; font-size: 14px; line-height: 1.7; }
   .editorial-hero-index { display: none; }
@@ -93,4 +93,15 @@
 }
 @media (prefers-reduced-motion: reduce) {
   .editorial-page-hero * { animation: none !important; transition: none !important; }
+}
+
+
+/* Final overflow protection for long editorial page titles. */
+.editorial-hero-title,
+.editorial-hero-word-wrap,
+.editorial-hero-word {
+  max-width: 100%;
+}
+.editorial-hero-word-wrap {
+  overflow: visible;
 }
