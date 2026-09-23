@@ -3,9 +3,9 @@
 @layer base {
 * { @apply border-border outline-ring/50; }
 
-html { background: var(--site-bg); }
+html { background: var(--site-bg); width: 100%; max-width: 100%; overflow-x: clip; }
 
-body { @apply text-foreground font-sans; background: var(--site-bg); color: var(--text-primary); font-family: var(--font-montserrat), Arial, Helvetica, sans-serif; }
+body { @apply text-foreground font-sans; background: var(--site-bg); color: var(--text-primary); font-family: var(--font-montserrat), Arial, Helvetica, sans-serif; width: 100%; max-width: 100%; overflow-x: clip; }
 
 ::selection { background: rgb(255 184 23 / 28%); color: var(--white); }
 }
@@ -587,4 +587,27 @@ to { opacity: 1; transform: translateY(0); }
 .footer-reveal { opacity: 1; transform: none; transition: none; }
 
 .footer-section a, .footer-section a i, .footer-intro-socials a, .footer-intro-socials a i, .footer-intro-socials a::before { transition: none; }
+}
+
+
+/* ============================================================
+   DOCUMENT SCROLL SAFETY
+   Keep page-level overflow on the root document only. Individual
+   components may still opt into their own intentional scrolling.
+   ============================================================ */
+html, body {
+  min-width: 0;
+  max-width: 100%;
+  overflow-x: clip;
+}
+
+@media (max-width: 820px) {
+  .mobile-drawer[aria-hidden="true"] {
+    overflow: hidden !important;
+  }
+
+  .mobile-drawer[aria-hidden="false"] {
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+  }
 }
