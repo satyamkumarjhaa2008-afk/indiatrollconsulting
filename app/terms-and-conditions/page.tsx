@@ -218,7 +218,7 @@ export default function TermsAndConditionsPage() {
               </strong>
 
               <span>
-                Trident Tower, Baner, Pune,Maharashtra – 411057
+                Near Jannat Baker's, South Patel Nagar, New Delhi - 110008
               </span>
 
               <a href="mailto:info@indiatrollconsulting.com">
