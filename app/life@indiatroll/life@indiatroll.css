@@ -879,3 +879,160 @@
   font-size: 18px;
   line-height: 1.6;
 }
+
+
+/* ============================================================
+   LIFE @ INDIATROLL — PREMIUM HERO
+   ============================================================ */
+.life-at-indiatroll-hero {
+  position: relative;
+  width: 100%;
+  min-height: clamp(520px, 72vh, 820px);
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  isolation: isolate;
+  background: #050505;
+  border-bottom: 1px solid var(--border);
+}
+
+.life-at-indiatroll-hero-image,
+.life-at-indiatroll-hero-overlay,
+.life-at-indiatroll-hero-grid {
+  position: absolute;
+  inset: 0;
+}
+
+.life-at-indiatroll-hero-image {
+  z-index: -3;
+  background-image: url("/assets/life@indiatroll/mainbanner/img1.jpeg");
+  background-size: cover;
+  background-position: center;
+  transform: scale(1.04);
+  filter: saturate(.88) contrast(1.04);
+}
+
+.life-at-indiatroll-hero-overlay {
+  z-index: -2;
+  background:
+    linear-gradient(90deg, rgb(0 0 0 / 86%) 0%, rgb(0 0 0 / 60%) 42%, rgb(0 0 0 / 18%) 72%, rgb(0 0 0 / 36%) 100%),
+    linear-gradient(180deg, rgb(0 0 0 / 18%), rgb(0 0 0 / 42%));
+}
+
+.life-at-indiatroll-hero-grid {
+  z-index: -1;
+  opacity: .34;
+  background-image:
+    linear-gradient(rgb(255 255 255 / 2.2%) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(255 255 255 / 2.2%) 1px, transparent 1px);
+  background-size: 72px 72px;
+  mask-image: linear-gradient(to bottom, black, transparent 88%);
+}
+
+.life-at-indiatroll-hero-orb {
+  position: absolute;
+  right: 6%;
+  top: 8%;
+  width: min(42vw, 600px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgb(255 184 23 / 18%), rgb(255 184 23 / 6%) 32%, transparent 68%);
+  filter: blur(16px);
+  pointer-events: none;
+  z-index: -1;
+}
+
+.life-at-indiatroll-hero-content {
+  width: min(calc(100% - 12vw), 1450px);
+  margin: 0 auto;
+  padding: clamp(88px, 10vw, 135px) 0;
+}
+
+.life-at-indiatroll-hero-eyebrow {
+  margin: 0 0 20px;
+  color: var(--brand-gold);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .24em;
+  text-transform: uppercase;
+}
+
+.life-at-indiatroll-hero-content h1 {
+  max-width: 900px;
+  margin: 0;
+  color: var(--text-primary);
+  font-size: clamp(62px, 9vw, 136px);
+  font-weight: 750;
+  line-height: .92;
+  letter-spacing: -.07em;
+}
+
+.life-at-indiatroll-hero-content h1 span {
+  color: var(--brand-gold);
+  text-shadow: 0 0 40px var(--glow-gold);
+}
+
+.life-at-indiatroll-hero-description {
+  max-width: 720px;
+  margin: 30px 0 0;
+  color: var(--text-secondary);
+  font-size: clamp(16px, 1.45vw, 21px);
+  line-height: 1.72;
+}
+
+.life-at-indiatroll-hero-line {
+  display: block;
+  width: clamp(70px, 8vw, 120px);
+  height: 3px;
+  margin-top: 30px;
+  transform-origin: left center;
+  background: linear-gradient(90deg, var(--brand-gold), var(--brand-yellow));
+  box-shadow: 0 0 20px var(--glow-gold);
+}
+
+.life-at-indiatroll-hero-scroll {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 48px;
+  color: var(--text-muted);
+}
+
+.life-at-indiatroll-hero-scroll span {
+  width: 46px;
+  height: 1px;
+  background: var(--border-brand);
+}
+
+.life-at-indiatroll-hero-scroll small {
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: .24em;
+}
+
+.life-at-indiatroll-hero-scroll i {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--brand-gold);
+  box-shadow: 0 0 12px var(--glow-gold);
+  animation: lifeHeroPulse 1.8s ease-in-out infinite;
+}
+
+@keyframes lifeHeroPulse {
+  0%,100% { transform: scale(.75); opacity: .5; }
+  50% { transform: scale(1.35); opacity: 1; }
+}
+
+@media (max-width: 700px) {
+  .life-at-indiatroll-hero { min-height: 530px; }
+  .life-at-indiatroll-hero-content { width: calc(100% - 36px); padding: 76px 0; }
+  .life-at-indiatroll-hero-content h1 { font-size: clamp(48px, 14vw, 78px); line-height: .96; letter-spacing: -.055em; }
+  .life-at-indiatroll-hero-description { font-size: 14px; line-height: 1.7; }
+  .life-at-indiatroll-hero-image { background-position: 62% center; }
+  .life-at-indiatroll-hero-orb { width: 76vw; right: -25%; top: 4%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .life-at-indiatroll-hero-scroll i { animation: none; }
+}
