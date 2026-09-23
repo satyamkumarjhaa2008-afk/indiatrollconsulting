@@ -6,7 +6,6 @@ import "./globals.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 
 import { LoaderProvider } from "@/components/LoaderProvider";
-import GlobalScrollReveal from "@/components/GlobalScrollReveal";
 import { OrganizationJsonLd, WebSiteJsonLd } from "@/components/seo-json-ld";
 
 const SITE_URL = "https://www.indiatrollconsulting.com";
@@ -99,7 +98,6 @@ export default function RootLayout({
         <OrganizationJsonLd />
         <WebSiteJsonLd />
         <LoaderProvider>{children}</LoaderProvider>
-        <GlobalScrollReveal />
         {process.env.NODE_ENV === "production" && <Analytics />}
       </body>
     </html>
