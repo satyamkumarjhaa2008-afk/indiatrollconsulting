@@ -105,7 +105,7 @@ function IndiaTrollResultsSection() {
             id="indiatroll-results-title"
             className="indiatroll-results-title"
           >
-            IndiaTroll Research &amp; Consulting
+            IndiaTroll Consulting
           </h1>
 
           <span
