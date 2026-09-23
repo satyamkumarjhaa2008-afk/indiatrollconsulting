@@ -332,7 +332,7 @@ export default function SiteFooter() {
                 />
 
                 <span>
-                  Trident Tower Baner,Pune,Maharashtra
+                 Near Jannat Baker's , South Patel Nagar , New Delhi - 110008
                 </span>
               </span>
             </li>
@@ -343,17 +343,17 @@ export default function SiteFooter() {
                   className="fa fa-phone"
                   aria-hidden="true"
                 />
-                <span>+91 7775832855</span>
+                <span>+91-7775832855</span>
               </a>
             </li>
 
             <li>
-              <a href="tel:+916204535975">
+              <a href="tel:+918856013088">
                 <i
                   className="fa fa-mobile-alt"
                   aria-hidden="true"
                 />
-                <span>+91-6204535975</span>
+                <span>+91-8856013088</span>
               </a>
             </li>
 
@@ -520,13 +520,15 @@ export default function SiteFooter() {
           WHATSAPP
           ===================================================== */}
 
-      <a
-        className="footer-whatsapp"
-        href="https://wa.me/916204535975"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Chat on WhatsApp"
-      >
+<a
+  className="footer-whatsapp"
+  href={`https://wa.me/918856013088?text=${encodeURIComponent(
+    "Hi IndiaTroll Consulting, I came across your website and would like to know more about your services."
+  )}`}
+  target="_blank"
+  rel="noopener noreferrer"
+  aria-label="Chat on WhatsApp"
+>
         <i
           className="fab fa-whatsapp"
           aria-hidden="true"
