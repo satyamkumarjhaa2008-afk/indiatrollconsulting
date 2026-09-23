@@ -298,7 +298,7 @@ const AboutIntroSection = () => {
               ease: [0.22, 1, 0.36, 1],
             }}
           >
-            About IndiaTroll Research &amp; Consulting
+            About IndiaTroll Consulting
           </motion.h1>
 
           <motion.div
