@@ -606,8 +606,18 @@ html, body {
     overflow: hidden !important;
   }
 
-  .mobile-drawer[aria-hidden="false"] {
+  /* The drawer is a viewport shell. Only .mobile-links may scroll. */
+  .mobile-drawer,
+  .mobile-drawer[aria-hidden="false"],
+  .mobile-drawer[aria-hidden="true"] {
+    overflow-x: hidden !important;
+    overflow-y: hidden !important;
+    overscroll-behavior: none !important;
+  }
+
+  .mobile-drawer .mobile-links {
     overflow-x: hidden !important;
     overflow-y: auto !important;
+    overscroll-behavior: contain !important;
   }
 }
