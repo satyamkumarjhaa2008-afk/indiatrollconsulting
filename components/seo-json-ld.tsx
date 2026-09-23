@@ -25,13 +25,13 @@ export function OrganizationJsonLd(): ReactNode {
         url: SITE_URL,
         logo: LOGO_URL,
         email: "info@indiatrollconsulting.com",
-        telephone: "+91 7775832855",
+        telephone: ["+91-7775832855", "+91-8856013088"],
         address: {
           "@type": "PostalAddress",
-          streetAddress: "Trident Tower, Baner",
-          addressLocality: "Pune",
-          addressRegion: "Maharashtra",
-          postalCode: "411057",
+          streetAddress: "Near Jannat Baker's, South Patel Nagar",
+          addressLocality: "New Delhi",
+          addressRegion: "Delhi",
+          postalCode: "110008",
           addressCountry: "IN",
         },
       }}
