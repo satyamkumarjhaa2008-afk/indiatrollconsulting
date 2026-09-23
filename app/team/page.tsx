@@ -386,7 +386,7 @@ function FounderSection() {
       gsap.from(".founder-image-wrap", {
         scrollTrigger: {
           trigger: sectionRef.current,
-          start: "top 78%",
+          start: "top 72%",
         },
         y: 80,
         opacity: 0,
