@@ -88,7 +88,6 @@
   .editorial-hero-title { font-size: clamp(42px, 13.5vw, 82px); line-height: .98; letter-spacing: -.045em; max-width: 100%; overflow: visible; }
   .editorial-hero-word-wrap { margin-right: .16em; }
   .editorial-hero-description { max-width: 100%; font-size: 14px; line-height: 1.7; }
-  .editorial-hero-index { display: none; }
   .editorial-hero-orb { top: 5%; right: -18%; width: 78vw; }
 }
 @media (prefers-reduced-motion: reduce) {
