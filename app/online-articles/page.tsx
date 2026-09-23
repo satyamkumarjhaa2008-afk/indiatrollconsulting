@@ -11,6 +11,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import "./online-articles.css";
 import SiteNavbar from "@/components/site-navbar";
+import EditorialPageHero from "@/components/editorial-page-hero";
 import SiteFooter from "@/components/site-footer";
 import data from "@/components/newsdata";
 
@@ -653,13 +654,12 @@ const OnlineArticles = () => {
 
       <div className="online-articles-container">
 
-        <header className="online-articles-page-heading">
-          <h1>IndiaTroll Online Articles &amp; Research</h1>
-          <p>
-            Articles and research perspectives on public opinion, political
-            research, ground intelligence, and emerging trends in India.
-          </p>
-        </header>
+        <EditorialPageHero
+          eyebrow="RESEARCH & INSIGHTS"
+          title="IndiaTroll Online Articles & Research"
+          accentWord="Research"
+          description="Articles and research perspectives on public opinion, political research, ground intelligence, and emerging trends in India."
+        />
 
         {/* ====================================================
             FILTERS
