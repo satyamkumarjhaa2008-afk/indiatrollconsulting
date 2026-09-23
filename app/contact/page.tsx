@@ -246,14 +246,14 @@ return ( <div ref={pageRef} className="contact-page">
     >
  <iframe
   className="contact-map"
-  src="https://www.google.com/maps?q=Trident%20Towers%2C%20Baner%2C%20Pune%2C%20Maharashtra&output=embed"
+  src="https://www.google.com/maps?q=Near%20Jannat%20Baker%27s%2C%20South%20Patel%20Nagar%2C%20New%20Delhi%20-%20110008&output=embed"
   width="100%"
   height="600"
   style={{ border: 0 }}
   allowFullScreen
   loading="lazy"
   referrerPolicy="no-referrer-when-downgrade"
-  title="Trident Towers, Baner, Pune, Maharashtra"
+  title="Near Jannat Baker's, South Patel Nagar, New Delhi - 110008"
 />
     </div>
   </section>
