@@ -338,7 +338,7 @@ export default function ProfileModal({
             ===================================================== */}
 
         <div className="profile-modal-footer">
-          <span>INDIATROLL CONSULTANCY</span>
+          <span>INDIATROLL CONSULTING</span>
         </div>
       </div>
     </div>
