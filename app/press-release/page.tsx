@@ -2,6 +2,7 @@
 
 import React, { useEffect, useRef } from "react";
 import SiteNavbar from "@/components/site-navbar";
+import EditorialPageHero from "@/components/editorial-page-hero";
 import SiteFooter from "@/components/site-footer";
 import { motion, type Variants } from "motion/react";
 import { gsap } from "gsap";
@@ -998,48 +999,12 @@ const PressRelease = () => {
           <SiteNavbar />
         </motion.div>
 
-        <motion.section
-          className="press-release-header"
-          variants={headerContainer}
-          initial="hidden"
-          animate="visible"
-        >
-          <motion.div
-            className="press-release-header-content"
-            variants={headerContainer}
-          >
-            <motion.span
-              className="press-release-small-title"
-              variants={headerItem}
-            >
-              MEDIA
-            </motion.span>
-
-            <motion.h1
-              className="press-release-title"
-              variants={headerItem}
-            >
-              Press Release
-            </motion.h1>
-
-            <motion.p
-              className="press-release-description"
-              variants={headerItem}
-            >
-              Our latest insights, research and
-              media coverage across leading
-              newspapers and publications.
-            </motion.p>
-
-            <motion.div
-              className="press-release-scroll"
-              variants={headerItem}
-            >
-              <span />
-              SCROLL TO EXPLORE
-            </motion.div>
-          </motion.div>
-        </motion.section>
+        <EditorialPageHero
+          eyebrow="MEDIA"
+          title="Press Release"
+          accentWord="Release"
+          description="Our latest insights, research, and media coverage across leading newspapers and publications."
+        />
 
         <section
           ref={newspaperSectionRef}
