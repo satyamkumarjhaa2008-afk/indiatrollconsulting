@@ -1216,3 +1216,31 @@ body:has(.service-page) {
     font-size: clamp(30px, 9vw, 42px);
   }
 }
+
+/* =========================================================
+   FINAL DOCUMENT SCROLL GUARD
+   The service page owns layout flow; no service child should
+   become a second vertical page-scrolling surface.
+========================================================= */
+html:has(.service-page),
+body:has(.service-page) {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip !important;
+  overflow-y: visible !important;
+}
+
+.service-page,
+.service-page .service-layout,
+.service-page .service-content,
+.service-page .service-sidebar {
+  min-height: 0;
+}
+
+.service-page .service-content,
+.service-page .service-content-inner,
+.service-page .service-sidebar,
+.service-page .services-sidebar,
+.service-page .services-section {
+  overflow-y: visible;
+}
