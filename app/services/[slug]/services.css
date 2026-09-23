@@ -1244,3 +1244,37 @@ body:has(.service-page) {
 .service-page .services-section {
   overflow-y: visible;
 }
+
+/* =========================================================
+   SERVICE PAGE — SINGLE DOCUMENT SCROLLER
+   ========================================================= */
+html:has(.service-page) {
+  overflow-x: clip !important;
+  overflow-y: auto !important;
+  height: auto !important;
+  min-height: 100% !important;
+}
+
+body:has(.service-page) {
+  overflow-x: clip !important;
+  overflow-y: visible !important;
+  height: auto !important;
+  min-height: 0 !important;
+  overscroll-behavior-y: auto !important;
+}
+
+body:has(.service-page) .service-page {
+  width: 100%;
+  max-width: 100%;
+  overflow: visible !important;
+}
+
+body:has(.service-page) .service-layout,
+body:has(.service-page) .service-content,
+body:has(.service-page) .service-content-inner,
+body:has(.service-page) .service-sidebar,
+body:has(.service-page) .service-sidebar-inner,
+body:has(.service-page) .service-navigation,
+body:has(.service-page) .service-carousel-section {
+  overflow-y: visible !important;
+}
