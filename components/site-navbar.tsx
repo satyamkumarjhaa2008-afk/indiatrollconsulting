@@ -933,9 +933,11 @@ export function SiteNavbar() {
           <span>Contact Info</span>
 
           <p>
-            Trident Tower Baner,Pune Maharashtra
+            Near Jannat Baker's, South Patel Nagar, New Delhi - 110008
             <br />
-            +91 7775832855
+            +91-7775832855
+            <br />
+            +91-8856013088
             <br />
             info@indiatrollconsulting.com
           </p>
