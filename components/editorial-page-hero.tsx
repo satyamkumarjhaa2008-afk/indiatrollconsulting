@@ -80,7 +80,7 @@ export function EditorialPageHero({
         <div className="editorial-hero-eyebrow">
           <span className="editorial-hero-eyebrow-line" aria-hidden="true" />
           <span>{eyebrow}</span>
-          <span className="editorial-hero-index" aria-hidden="true">/ 01</span>
+
         </div>
 
         <h1 id="editorial-page-hero-title" className="editorial-hero-title" aria-label={title}>
