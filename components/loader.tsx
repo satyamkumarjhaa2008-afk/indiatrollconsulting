@@ -7,7 +7,7 @@ import "./loader.css";
 import { useLoader } from "@/components/LoaderProvider";
 
 const Loader = () => {
-  const { setIsLoading } = useLoader();
+  const { finishLoader } = useLoader();
 
   const loaderRef = useRef<HTMLDivElement>(null);
   const svgContainerRef = useRef<HTMLDivElement>(null);
@@ -197,7 +197,7 @@ const Loader = () => {
                 onComplete: () => {
                   if (cancelled) return;
 
-                  setIsLoading(false);
+                  finishLoader();
                 },
               });
             },
@@ -505,7 +505,7 @@ const Loader = () => {
             onComplete: () => {
               if (cancelled) return;
 
-              setIsLoading(false);
+              finishLoader();
             },
           });
         }
