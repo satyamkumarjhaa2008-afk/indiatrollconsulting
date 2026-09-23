@@ -268,12 +268,12 @@ export default function SiteFooter() {
             <img
               className="footer-logo"
               src="/india-troll-logo-vector.svg"
-              alt="IndiaTroll Research & Consulting"
+              alt="IndiaTroll Consulting"
             />
           </Link>
 
           <p className="footer-description">
-            IndiaTroll Research & Analytics specialises in strategic research, ground-level intelligence, opinion analysis, market insights and data-driven solutions, helping organisations and decision-makers make smarter, evidence-based choices.
+            IndiaTroll Consulting specialises in strategic research, ground-level intelligence, opinion analysis, market insights and data-driven solutions, helping organisations and decision-makers make smarter, evidence-based choices.
 
             {/* ===============================================
                 #4 — REAL CONTACT ROUTE
@@ -498,7 +498,7 @@ export default function SiteFooter() {
       <div className="footer-bottom footer-reveal footer-reveal-4">
 
         <p>
-          © {new Date().getFullYear()} IndiaTroll Research &amp; Analytics.
+          © {new Date().getFullYear()} IndiaTroll Consulting.
           All Rights Reserved.
         </p>
 
