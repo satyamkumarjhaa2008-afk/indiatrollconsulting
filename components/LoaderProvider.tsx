@@ -2,6 +2,7 @@
 
 import React, {
   createContext,
+  useCallback,
   useContext,
   useEffect,
   useState,
@@ -11,10 +12,51 @@ import Loader from "@/components/loader";
 
 interface LoaderContextValue {
   isLoading: boolean;
-  setIsLoading: React.Dispatch<React.SetStateAction<boolean>>;
+  finishLoader: () => void;
 }
 
 const LoaderContext = createContext<LoaderContextValue | null>(null);
+
+const CRITICAL_IMAGES = [
+  "/assets/hero/s1.jpeg",
+  "/assets/hero/s2.jpeg",
+  "/assets/hero/s3.jpeg",
+  "/assets/hero/s4.jpeg",
+  "/assets/hero/s5.jpeg",
+];
+
+const waitForImage = (src: string) =>
+  new Promise<void>((resolve) => {
+    const image = new Image();
+
+    const done = () => {
+      image.onload = null;
+      image.onerror = null;
+      resolve();
+    };
+
+    image.onload = done;
+    image.onerror = done;
+    image.src = src;
+
+    if (image.complete) done();
+  });
+
+const waitForCriticalAssets = async () => {
+  await Promise.all(CRITICAL_IMAGES.map(waitForImage));
+
+  if (document.fonts?.ready) {
+    try {
+      await document.fonts.ready;
+    } catch {
+      // Font readiness is a progressive enhancement, never a hard blocker.
+    }
+  }
+
+  await new Promise<void>((resolve) => {
+    requestAnimationFrame(() => resolve());
+  });
+};
 
 export const LoaderProvider = ({
   children,
@@ -22,43 +64,38 @@ export const LoaderProvider = ({
   children: React.ReactNode;
 }) => {
   const pathname = usePathname();
-
   const [isLoading, setIsLoading] = useState(true);
-  const [loadedPath, setLoadedPath] = useState<string | null>(null);
 
-  /*
-   * Every time the route changes, start the loader again.
-   */
+  const finishLoader = useCallback(() => {
+    setIsLoading(false);
+  }, []);
+
   useEffect(() => {
+    let cancelled = false;
     setIsLoading(true);
+
+    const prepare = async () => {
+      try {
+        await waitForCriticalAssets();
+      } finally {
+        if (!cancelled) {
+          // The Loader component owns the visual exit.
+          // Assets are prepared in parallel underneath it.
+        }
+      }
+    };
+
+    void prepare();
+
+    return () => {
+      cancelled = true;
+    };
   }, [pathname]);
 
-  /*
-   * The loader has finished.
-   * Mark the current route as ready so its page can mount.
-   */
-  useEffect(() => {
-    if (!isLoading) {
-      setLoadedPath(pathname);
-    }
-  }, [isLoading, pathname]);
-
-  /*
-   * The page is allowed to mount ONLY after
-   * the loader has completely finished.
-   */
-  const pageReady = loadedPath === pathname && !isLoading;
-
   return (
-    <LoaderContext.Provider
-      value={{
-        isLoading,
-        setIsLoading,
-      }}
-    >
+    <LoaderContext.Provider value={{ isLoading, finishLoader }}>
+      {children}
       {isLoading && <Loader key={pathname} />}
-
-      {pageReady && children}
     </LoaderContext.Provider>
   );
 };
