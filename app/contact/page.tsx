@@ -79,7 +79,7 @@ const ctx = gsap.context(() => {
         ease: "power3.out",
         scrollTrigger: {
           trigger: mapSection,
-          start: "top 85%",
+          start: "top 78%",
           once: true,
         },
       }
