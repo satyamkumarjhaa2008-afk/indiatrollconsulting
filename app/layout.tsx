@@ -54,7 +54,7 @@ export const metadata: Metadata = {
     "governance project monitoring",
   ],
   icons: {
-    icon: "/india-troll-logo-vector.svg",
+    icon: "/favicon.ico",
     apple: "/india-troll-logo-vector.svg",
   },
   openGraph: {
