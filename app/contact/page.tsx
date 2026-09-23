@@ -2,6 +2,7 @@
 
 import React, { useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
+import EditorialPageHero from "@/components/editorial-page-hero";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import "./contact.css";
@@ -207,13 +208,12 @@ return ( <div ref={pageRef} className="contact-page">
 
   <SiteNavbar />
 
-  <header className="contact-page-heading">
-    <h1>Contact IndiaTroll Research &amp; Consulting</h1>
-    <p>
-      Contact us for political research, ground intelligence, strategic
-      consulting, market research, communication, and project monitoring.
-    </p>
-  </header>
+  <EditorialPageHero
+      eyebrow="GET IN TOUCH"
+      title="Contact IndiaTroll Research & Consulting"
+      accentWord="Contact"
+      description="Connect with our team for research, ground intelligence, strategic consulting, market research, communication, and project monitoring."
+    />
 
   {/* ============================================================
       CONTACT FORM
