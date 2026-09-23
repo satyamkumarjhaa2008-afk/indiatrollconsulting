@@ -125,7 +125,7 @@ const ArticleCard = ({
           scrollTrigger: {
             trigger: card,
 
-            start: "top 88%",
+            start: "top 82%",
 
             once: true,
 
