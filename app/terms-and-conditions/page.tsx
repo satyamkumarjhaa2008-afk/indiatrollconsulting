@@ -5,11 +5,11 @@ import '../legal-pages.css'
 export const metadata: Metadata = {
   title: 'Terms & Conditions',
   description:
-    'Terms and Conditions of IndiaTroll Research & Consulting.',
+    'Terms and Conditions of IndiaTroll Consulting.',
   alternates: { canonical: "/terms-and-conditions" },
   openGraph: {
-    title: "Terms & Conditions | IndiaTroll Research & Consulting",
-    description: "Terms and Conditions of IndiaTroll Research & Consulting.",
+    title: "Terms & Conditions | IndiaTroll Consulting",
+    description: "Terms and Conditions of IndiaTroll Consulting.",
     url: "/terms-and-conditions",
   },
 }
@@ -22,7 +22,7 @@ export default function TermsAndConditionsPage() {
         <div className="legal-container">
 
           <span className="legal-eyebrow">
-            INDIATROLL RESEARCH & CONSULTING
+            INDIATROLL CONSULTING
           </span>
 
           <h1>Terms &amp; Conditions</h1>
@@ -31,7 +31,7 @@ export default function TermsAndConditionsPage() {
 
           <p>
             These Terms &amp; Conditions govern your access to
-            and use of the IndiaTroll Research &amp; Consulting website.
+            and use of the IndiaTroll Consulting website.
           </p>
 
           <span className="legal-date">
@@ -60,7 +60,7 @@ export default function TermsAndConditionsPage() {
             <h2>2. About Our Services</h2>
 
             <p>
-              IndiaTroll Research &amp; Consulting provides research,
+              IndiaTroll Consulting provides research,
               analytics, survey, ground intelligence, market
               research, strategic consulting, communication and
               project monitoring related services.
@@ -110,7 +110,7 @@ export default function TermsAndConditionsPage() {
               Unless otherwise stated, the content of this website,
               including text, graphics, logos, designs, photographs,
               software, layouts and other materials, is owned by
-              or licensed to IndiaTroll Research &amp; Consulting.
+              or licensed to IndiaTroll Consulting.
             </p>
 
             <p>
@@ -142,7 +142,7 @@ export default function TermsAndConditionsPage() {
               This website may contain links to websites and
               services operated by third parties. Such links are
               provided for convenience or informational purposes.
-              IndiaTroll Research &amp; Consulting does not control and
+              IndiaTroll Consulting does not control and
               is not responsible for third-party websites,
               content, availability or privacy practices.
             </p>
@@ -152,7 +152,7 @@ export default function TermsAndConditionsPage() {
 
             <p>
               To the maximum extent permitted by applicable law,
-              IndiaTroll Research &amp; Consulting shall not be liable
+              IndiaTroll Consulting shall not be liable
               for indirect, incidental, consequential or special
               losses arising from the use of, or inability to use,
               this website or information available through it.
@@ -214,7 +214,7 @@ export default function TermsAndConditionsPage() {
             <div className="legal-contact">
 
               <strong>
-                IndiaTroll Research &amp; Consulting;
+                IndiaTroll Consulting;
               </strong>
 
               <span>
