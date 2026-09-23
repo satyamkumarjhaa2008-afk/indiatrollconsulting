@@ -7,13 +7,15 @@ import "./loader.css";
 import { useLoader } from "@/components/LoaderProvider";
 
 const Loader = () => {
-  const { finishLoader } = useLoader();
+  const { assetsReady, finishLoader } = useLoader();
 
   const loaderRef = useRef<HTMLDivElement>(null);
   const svgContainerRef = useRef<HTMLDivElement>(null);
   const progressRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    if (!assetsReady) return;
+
     let cancelled = false;
     let animationContext: gsap.Context | null = null;
 
@@ -521,7 +523,7 @@ const Loader = () => {
         animationContext.revert();
       }
     };
-  }, [setIsLoading]);
+  }, [assetsReady, finishLoader]);
 
   return (
     <div
