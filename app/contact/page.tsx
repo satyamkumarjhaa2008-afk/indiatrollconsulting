@@ -55,6 +55,12 @@ const ctx = gsap.context(() => {
         duration: 1.15,
         ease: "power3.out",
         clearProps: "filter",
+        scrollTrigger: {
+          trigger: form,
+          start: "top 78%",
+          once: true,
+          toggleActions: "play none none none",
+        },
       }
     );
   }
