@@ -12,6 +12,7 @@ import Loader from "@/components/loader";
 
 interface LoaderContextValue {
   isLoading: boolean;
+  assetsReady: boolean;
   finishLoader: () => void;
 }
 
@@ -65,6 +66,7 @@ export const LoaderProvider = ({
 }) => {
   const pathname = usePathname();
   const [isLoading, setIsLoading] = useState(true);
+  const [assetsReady, setAssetsReady] = useState(false);
 
   const finishLoader = useCallback(() => {
     setIsLoading(false);
@@ -73,14 +75,14 @@ export const LoaderProvider = ({
   useEffect(() => {
     let cancelled = false;
     setIsLoading(true);
+    setAssetsReady(false);
 
     const prepare = async () => {
       try {
         await waitForCriticalAssets();
       } finally {
         if (!cancelled) {
-          // The Loader component owns the visual exit.
-          // Assets are prepared in parallel underneath it.
+          setAssetsReady(true);
         }
       }
     };
@@ -93,7 +95,7 @@ export const LoaderProvider = ({
   }, [pathname]);
 
   return (
-    <LoaderContext.Provider value={{ isLoading, finishLoader }}>
+    <LoaderContext.Provider value={{ isLoading, assetsReady, finishLoader }}>
       {children}
       {isLoading && <Loader key={pathname} />}
     </LoaderContext.Provider>
