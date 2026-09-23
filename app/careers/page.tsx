@@ -296,7 +296,7 @@ const CareersPage = () => {
                 clearProps: "transform",
                 scrollTrigger: {
                   trigger: headingRef.current,
-                  start: "top 82%",
+                  start: "top 78%",
                   once: true,
                 },
               }
