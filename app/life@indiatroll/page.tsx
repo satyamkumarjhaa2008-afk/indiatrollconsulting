@@ -688,7 +688,6 @@ const LifeAtIndiaTroll = () => {
             ease: smoothEase,
           }}
         >
-          <div className="life-at-indiatroll-hero-image" aria-hidden="true" />
           <div className="life-at-indiatroll-hero-overlay" aria-hidden="true" />
           <div className="life-at-indiatroll-hero-grid" aria-hidden="true" />
 
