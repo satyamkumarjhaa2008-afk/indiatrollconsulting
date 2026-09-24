@@ -165,7 +165,6 @@ export default function WhyChooseUs() {
         .to(
           items,
           {
-            opacity: 1,
             y: 0,
             duration: 0.55,
             stagger: 0.09,
