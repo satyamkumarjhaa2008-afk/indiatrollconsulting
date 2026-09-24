@@ -111,9 +111,13 @@ export default function WhyChooseUs() {
         transformOrigin: "center center",
       });
 
+      // Keep the cards themselves visible at all times.
+      // Only translate them during the entrance animation so a
+      // delayed ScrollTrigger/refresh can never hide an icon or
+      // description on mobile.
       gsap.set(items, {
-        opacity: 0,
         y: 34,
+        clearProps: "opacity",
       });
 
       /*
@@ -176,14 +180,15 @@ export default function WhyChooseUs() {
        * These are created once and don't run continuously.
        * GSAP owns the transform so it won't fight CSS transitions.
        */
-      items.forEach((item) => {
-        const icon = item.querySelector<HTMLElement>(".wcu-icon");
-        const content = item.querySelector<HTMLElement>(".wcu-content");
-        const line = item.querySelector<HTMLElement>(".wcu-item-line");
+      if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
+        items.forEach((item) => {
+          const icon = item.querySelector<HTMLElement>(".wcu-icon");
+          const content = item.querySelector<HTMLElement>(".wcu-content");
+          const line = item.querySelector<HTMLElement>(".wcu-item-line");
 
-        if (!icon || !content || !line) return;
+          if (!icon || !content || !line) return;
 
-        const enter = () => {
+          const enter = () => {
           gsap.to(icon, {
             y: -4,
             scale: 1.035,
@@ -231,14 +236,17 @@ export default function WhyChooseUs() {
           });
         };
 
-        item.addEventListener("mouseenter", enter);
-        item.addEventListener("mouseleave", leave);
+          item.addEventListener("mouseenter", enter);
+          item.addEventListener("mouseleave", leave);
 
-        return () => {
-          item.removeEventListener("mouseenter", enter);
-          item.removeEventListener("mouseleave", leave);
-        };
-      });
+          // GSAP context handles animation cleanup; explicitly remove
+          // the native listeners when the component is unmounted.
+          return () => {
+            item.removeEventListener("mouseenter", enter);
+            item.removeEventListener("mouseleave", leave);
+          };
+        });
+      }
     }, section);
 
     return () => {
