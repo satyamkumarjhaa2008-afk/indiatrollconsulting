@@ -1343,3 +1343,50 @@
     width: 100%;
   }
 }
+
+/* ============================================================
+   MOBILE LAYOUT STABILITY
+   Keep icon and description in deterministic columns so
+   flex sizing/animation cannot collapse the text area.
+   ============================================================ */
+
+@media (max-width: 600px) {
+  .wcu-item-body {
+    display: grid;
+    grid-template-columns: 69px minmax(0, 1fr);
+    align-items: start;
+    column-gap: 17px;
+    width: 100%;
+  }
+
+  .wcu-icon-wrap {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .wcu-content {
+    grid-column: 2;
+    grid-row: 1;
+    width: 100%;
+    min-width: 0;
+    transform: none;
+  }
+
+  .wcu-content p,
+  .wcu-item .wcu-description {
+    display: block !important;
+    width: 100%;
+    max-width: none;
+    min-width: 0;
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none;
+  }
+}
+
+@media (max-width: 400px) {
+  .wcu-item-body {
+    grid-template-columns: 61px minmax(0, 1fr);
+    column-gap: 14px;
+  }
+}
