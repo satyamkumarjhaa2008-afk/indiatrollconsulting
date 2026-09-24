@@ -1390,3 +1390,22 @@
     column-gap: 14px;
   }
 }
+
+
+/* ============================================================
+   HARD VISIBILITY GUARANTEE
+   Cards and their content are not scroll-animated. Keep them
+   visible even if another animation/refresh runs elsewhere.
+   ============================================================ */
+
+.wcu-item,
+.wcu-icon,
+.wcu-content,
+.wcu-item .wcu-description {
+  opacity: 1;
+  visibility: visible;
+}
+
+.wcu-item .wcu-description {
+  display: block;
+}
