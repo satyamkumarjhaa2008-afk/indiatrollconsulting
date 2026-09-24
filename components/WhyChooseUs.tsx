@@ -71,181 +71,34 @@ export default function WhyChooseUs() {
       "(prefers-reduced-motion: reduce)"
     ).matches;
 
-    if (prefersReducedMotion) {
-      gsap.set(
-        section.querySelectorAll(
-          ".wcu-eyebrow, .wcu-title, .wcu-title-line, .wcu-item"
-        ),
-        {
-          clearProps: "all",
-        }
-      );
-
-      return;
-    }
+    if (prefersReducedMotion) return;
 
     const ctx = gsap.context(() => {
       const eyebrow = section.querySelector(".wcu-eyebrow");
       const title = section.querySelector(".wcu-title");
       const titleLine = section.querySelector(".wcu-title-line");
-      const items = gsap.utils.toArray<HTMLElement>(".wcu-item");
 
-      /*
-       * Initial states
-       * Only opacity + transform are animated.
-       * This avoids expensive layout/reflow animations.
-       */
-      gsap.set(eyebrow, {
-        opacity: 0,
-        y: 16,
-      });
+      if (!eyebrow || !title || !titleLine) return;
 
-      gsap.set(title, {
-        opacity: 0,
-        y: 28,
-      });
-
-      gsap.set(titleLine, {
-        opacity: 0,
-        scaleX: 0,
-        transformOrigin: "center center",
-      });
-
-      // Keep the cards themselves visible at all times.
-      // Only translate them during the entrance animation so a
-      // delayed ScrollTrigger/refresh can never hide an icon or
-      // description on mobile.
-      gsap.set(items, {
-        y: 34,
-        clearProps: "opacity",
-      });
-
-      /*
-       * Section entrance
-       *
-       * once:true prevents ScrollTrigger from repeatedly
-       * creating animations every time the user scrolls past
-       * the section.
-       */
-      const introTimeline = gsap.timeline({
-        scrollTrigger: {
-          trigger: section,
-          start: "top 78%",
-          once: true,
+      // Animate only the section heading. The cards are intentionally
+      // NOT controlled by GSAP/ScrollTrigger. This prevents mobile
+      // scrolling and ScrollTrigger refreshes from ever hiding or
+      // shifting an icon/description.
+      gsap.fromTo(
+        [eyebrow, title, titleLine],
+        {
+          opacity: 0,
+          y: 20,
         },
-      });
-
-      introTimeline
-        .to(eyebrow, {
+        {
           opacity: 1,
           y: 0,
-          duration: 0.45,
-          ease: "power2.out",
-        })
-        .to(
-          title,
-          {
-            opacity: 1,
-            y: 0,
-            duration: 0.55,
-            ease: "power3.out",
-          },
-          "-=0.25"
-        )
-        .to(
-          titleLine,
-          {
-            opacity: 1,
-            scaleX: 1,
-            duration: 0.45,
-            ease: "power2.out",
-          },
-          "-=0.22"
-        )
-        .to(
-          items,
-          {
-            y: 0,
-            duration: 0.55,
-            stagger: 0.09,
-            ease: "power3.out",
-          },
-          "-=0.08"
-        );
-
-      /*
-       * Lightweight item hover.
-       *
-       * These are created once and don't run continuously.
-       * GSAP owns the transform so it won't fight CSS transitions.
-       */
-      if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
-        items.forEach((item) => {
-          const icon = item.querySelector<HTMLElement>(".wcu-icon");
-          const content = item.querySelector<HTMLElement>(".wcu-content");
-          const line = item.querySelector<HTMLElement>(".wcu-item-line");
-
-          if (!icon || !content || !line) return;
-
-          const enter = () => {
-          gsap.to(icon, {
-            y: -4,
-            scale: 1.035,
-            duration: 0.28,
-            ease: "power2.out",
-            overwrite: true,
-          });
-
-          gsap.to(content, {
-            x: 5,
-            duration: 0.28,
-            ease: "power2.out",
-            overwrite: true,
-          });
-
-          gsap.to(line, {
-            scaleX: 1.18,
-            duration: 0.28,
-            ease: "power2.out",
-            overwrite: true,
-          });
-        };
-
-        const leave = () => {
-          gsap.to(icon, {
-            y: 0,
-            scale: 1,
-            duration: 0.3,
-            ease: "power2.out",
-            overwrite: true,
-          });
-
-          gsap.to(content, {
-            x: 0,
-            duration: 0.3,
-            ease: "power2.out",
-            overwrite: true,
-          });
-
-          gsap.to(line, {
-            scaleX: 1,
-            duration: 0.3,
-            ease: "power2.out",
-            overwrite: true,
-          });
-        };
-
-          item.addEventListener("mouseenter", enter);
-          item.addEventListener("mouseleave", leave);
-
-          // GSAP context handles animation cleanup; explicitly remove
-          // the native listeners when the component is unmounted.
-          return () => {
-            item.removeEventListener("mouseenter", enter);
-            item.removeEventListener("mouseleave", leave);
-          };
-        });
-      }
+          duration: 0.65,
+          stagger: 0.1,
+          ease: "power3.out",
+          clearProps: "transform,opacity",
+        }
+      );
     }, section);
 
     return () => {
