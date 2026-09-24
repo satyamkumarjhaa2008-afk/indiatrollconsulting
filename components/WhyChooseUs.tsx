@@ -308,7 +308,7 @@ export default function WhyChooseUs() {
                 </div>
 
                 <div className="wcu-content">
-                  <p>{reason.description}</p>
+                  <p className="wcu-description">{reason.description}</p>
                 </div>
               </div>
             </article>
