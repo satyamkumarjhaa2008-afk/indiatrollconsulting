@@ -227,7 +227,7 @@ export default function PrivacyPolicyPage() {
                 +91-7775832855
               </a>
 
-              <a href="tel:+918856013088">
+              <a href="tel:+919545467875">
                 +91-9545467875
               </a>
 
