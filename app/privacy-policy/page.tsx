@@ -228,7 +228,7 @@ export default function PrivacyPolicyPage() {
               </a>
 
               <a href="tel:+918856013088">
-                +91-8856013088
+                +91-9545467875
               </a>
 
               <a href="https://www.indiatrollconsulting.com">
