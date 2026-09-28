@@ -690,3 +690,10 @@ html, body {
     height: 100%;
   }
 }
+
+
+/* Footer branch addresses */
+.footer-addresses{display:flex;flex-direction:column;gap:14px;min-width:0}
+.footer-address{display:block;line-height:1.65;overflow-wrap:anywhere}
+.footer-address strong{display:block;margin-bottom:2px}
+@media (max-width: 900px){.footer-addresses{gap:12px}.footer-address{line-height:1.55}}
