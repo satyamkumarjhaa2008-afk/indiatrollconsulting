@@ -28,10 +28,10 @@ export function OrganizationJsonLd(): ReactNode {
         telephone: ["+91-7775832855", "+91-8856013088"],
         address: {
           "@type": "PostalAddress",
-          streetAddress: "Near Jannat Baker's, South Patel Nagar",
-          addressLocality: "New Delhi",
-          addressRegion: "Delhi",
-          postalCode: "110008",
+          streetAddress: "4, Plot C, Vibgyor Towers, 62, Floor 8, Bandra Kurla Complex Rd, G Block, Bandra Kurla Complex, Bandra East",
+          addressLocality: "Mumbai",
+          addressRegion: "Maharashtra",
+          postalCode: "400098",
           addressCountry: "IN",
         },
       }}
