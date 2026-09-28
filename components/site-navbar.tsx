@@ -949,7 +949,8 @@ export function SiteNavbar() {
           <span>Contact Info</span>
 
           <p>
-            Near Jannat Baker's, South Patel Nagar, New Delhi - 110008
+            4, Plot C, Vibgyor Towers, 62, Floor 8, Bandra Kurla Complex Rd,
+            G Block, Bandra Kurla Complex, Bandra East, Mumbai, Maharashtra 400098
             <br />
             +91-7775832855
             <br />
