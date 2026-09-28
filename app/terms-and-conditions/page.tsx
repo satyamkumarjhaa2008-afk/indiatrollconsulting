@@ -217,9 +217,7 @@ export default function TermsAndConditionsPage() {
                 IndiaTroll Consulting;
               </strong>
 
-              <span>
-                Near Jannat Baker's, South Patel Nagar, New Delhi - 110008
-              </span>
+              <span>4, Plot C, Vibgyor Towers, 62, Floor 8, Bandra Kurla Complex Rd, G Block, Bandra Kurla Complex, Bandra East, Mumbai, Maharashtra 400098</span>
 
               <a href="mailto:info@indiatrollconsulting.com">
                 info@indiatrollconsulting.com
