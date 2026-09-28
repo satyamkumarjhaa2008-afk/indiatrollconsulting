@@ -216,7 +216,7 @@ return ( <div ref={pageRef} className="contact-page">
 
   <EditorialPageHero
       eyebrow="GET IN TOUCH"
-      title="Contact IndiaTroll Research & Consulting"
+      title="IndiaTroll Consulting, Bandra East, Mumbai - 400098"
       accentWord="Contact"
       description="Connect with our team for research, ground intelligence, strategic consulting, market research, communication, and project monitoring."
     />
@@ -246,7 +246,7 @@ return ( <div ref={pageRef} className="contact-page">
     >
  <iframe
   className="contact-map"
-  src="https://www.google.com/maps?q=Near%20Jannat%20Baker%27s%2C%20South%20Patel%20Nagar%2C%20New%20Delhi%20-%20110008&output=embed"
+  src="https://www.google.com/maps?q=4%2C%20Plot%20C%2C%20Vibgyor%20Towers%2C%2062%2C%20Floor%208%2C%20Bandra%20Kurla%20Complex%20Rd%2C%20G%20Block%2C%20Bandra%20Kurla%20Complex%2C%20Bandra%20East%2C%20Mumbai%2C%20Maharashtra%20400098%26output=embed"
   width="100%"
   height="600"
   style={{ border: 0 }}
