@@ -954,7 +954,7 @@ export function SiteNavbar() {
             <br />
             +91-7775832855
             <br />
-            +91-8856013088
+            +91-9545467875
             <br />
             info@indiatrollconsulting.com
           </p>
