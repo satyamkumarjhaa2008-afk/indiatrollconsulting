@@ -67,6 +67,10 @@ const services = [
     name: 'Branding & Image Building',
     href: '/services/branding-and-image-building',
   },
+  {
+    name: 'Brochures & Catalogue Designing',
+    href: '/services/brochures-and-catalogue-designing',
+  },
 
 ]
 
