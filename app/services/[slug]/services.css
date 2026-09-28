@@ -652,6 +652,7 @@
     min-width: 0;
 
     padding: 35px 20px 55px;
+    padding-bottom: 0px;
   }
 
   .service-intro {
@@ -1204,7 +1205,7 @@ body:has(.service-page) {
 .service-page-title {
   margin: 0 0 24px;
   max-width: 1050px;
-  color: var(--text-primary);
+  color: var(--brand-gold);
   font-size: clamp(32px, 4vw, 56px);
   font-weight: 700;
   line-height: 1.08;

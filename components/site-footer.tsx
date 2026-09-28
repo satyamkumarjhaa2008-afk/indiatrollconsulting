@@ -364,12 +364,12 @@ export default function SiteFooter() {
             </li>
 
             <li>
-              <a href="tel:+918856013088">
+              <a href="tel:+919545467875">
                 <i
                   className="fa fa-mobile-alt"
                   aria-hidden="true"
                 />
-                <span>+91-8856013088</span>
+                <span>+91-9545467875</span>
               </a>
             </li>
 
@@ -538,7 +538,7 @@ export default function SiteFooter() {
 
 <a
   className="footer-whatsapp"
-  href={`https://wa.me/918856013088?text=${encodeURIComponent(
+  href={`https://wa.me/917775832855?text=${encodeURIComponent(
     "Hi IndiaTroll Consulting, I came across your website and would like to know more about your services."
   )}`}
   target="_blank"

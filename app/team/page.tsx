@@ -153,7 +153,6 @@ const teamMembers: TeamMember[] = [
       "Ex. IPAC",
       "Ex. Jansuraj Consultancy",
       "Ex. Prime Agency",
-      "Ex. Chakravyuh Analytics",
       "Ex. Edumyze Etech",
       "General Assembly Elections — 2019 & 2024",
       "Lok Sabha Elections — 2019 & 2024",
