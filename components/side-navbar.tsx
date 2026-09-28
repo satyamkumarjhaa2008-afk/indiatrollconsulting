@@ -35,7 +35,27 @@ const services = [
     id: 'governance',
     title: 'Governance & Project Monitoring (PMC)',
     href: '/services/governance-project-monitoring',
+  },  {
+    id: 'graphic',
+    title: 'Graphic Designing',
+    href: '/services/graphic-design',
   },
+  {
+    id: 'social',
+    title: 'Social Media Management',
+    href: '/services/social-media-management',
+  },
+  {
+    id: 'branding',
+    title: 'Branding & Image Building',
+    href: '/services/branding-and-image-building',
+  },
+  {
+    id: 'brochures',
+    title: 'Brochures & Catalogue Designing',
+    href: '/services/brochures-and-catalogue-designing',
+  },
+
 ]
 
 function ArrowIcon() {
