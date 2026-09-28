@@ -347,8 +347,17 @@ export default function SiteFooter() {
                   aria-hidden="true"
                 />
 
-                <span>
-                 Near Jannat Baker's , South Patel Nagar , New Delhi - 110008
+                <span className="footer-addresses">
+                  <span className="footer-address">
+                    <strong>1st Branch</strong>
+                    C9XM+6JC, Floor No 6, Hitech City Rd, Silicon Valley, Madhapur,<br />
+                    Hyderabad, Telangana 500081
+                  </span>
+                  <span className="footer-address">
+                    <strong>2nd Branch</strong>
+                    4, Plot C, Vibgyor Towers, 62, Floor 8, Bandra Kurla Complex Rd,<br />
+                    G Block, Bandra Kurla Complex, Bandra East, Mumbai, Maharashtra 400098
+                  </span>
                 </span>
               </span>
             </li>
