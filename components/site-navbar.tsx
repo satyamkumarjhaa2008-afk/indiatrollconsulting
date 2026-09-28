@@ -35,7 +35,23 @@ const services = [
   {
     name: "Governance & Project Monitoring (PMC)",
     href: "/services/governance-project-monitoring",
+  },  {
+    name: "Graphic Designing",
+    href: "/services/graphic-design",
   },
+  {
+    name: "Social Media Management",
+    href: "/services/social-media-management",
+  },
+  {
+    name: "Branding & Image Building",
+    href: "/services/branding-and-image-building",
+  },
+  {
+    name: "Brochures & Catalogue Designing",
+    href: "/services/brochures-and-catalogue-designing",
+  },
+
 ];
 
 const menus = {
