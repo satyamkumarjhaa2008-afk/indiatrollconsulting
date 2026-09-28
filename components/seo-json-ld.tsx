@@ -25,7 +25,7 @@ export function OrganizationJsonLd(): ReactNode {
         url: SITE_URL,
         logo: LOGO_URL,
         email: "info@indiatrollconsulting.com",
-        telephone: ["+91-7775832855", "+91-8856013088"],
+        telephone: ["+91-7775832855", "+91-9545467875"],
         address: {
           "@type": "PostalAddress",
           streetAddress: "4, Plot C, Vibgyor Towers, 62, Floor 8, Bandra Kurla Complex Rd, G Block, Bandra Kurla Complex, Bandra East",
