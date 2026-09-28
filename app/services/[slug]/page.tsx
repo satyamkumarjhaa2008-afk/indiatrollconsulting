@@ -158,6 +158,95 @@ const serviceData = [
     Outcome:
       "Improved project outcomes and enhanced organizational governance.",
   },
+  {
+    name: "Graphic Designing",
+    image: "/assets/our-services/graphic-design.png",
+    href: "/services/graphic-design",
+
+    intro:
+      "Graphic designing services create clear, engaging visual communication that strengthens how a brand, organization, or campaign is presented across platforms.",
+
+    "How We Work":
+      "We begin by understanding the communication objective, audience, brand language, and intended use of each visual. Our designers develop concepts and layouts that balance hierarchy, readability, consistency, and visual impact, then refine the selected direction across the required formats and applications.",
+
+    "Key Work Areas": [
+      "Brand and campaign creatives",
+      "Digital and social media graphics",
+      "Presentation and corporate collateral design",
+      "Infographics and visual explainers",
+      "Event, promotional, and communication materials",
+    ],
+
+    Outcome:
+      "Consistent, purposeful visual communication that improves brand presentation and audience engagement.",
+  },
+  {
+    name: "Social Media Management",
+    image: "/assets/our-services/social-media-management.png",
+    href: "/services/social-media-management",
+
+    intro:
+      "Social media management services help organizations maintain a consistent digital presence through planned content, platform management, audience engagement, and performance tracking.",
+
+    "How We Work":
+      "We start with the brand's objectives, audience, platforms, and communication priorities. Our team develops content calendars, coordinates creative production, schedules approved content, monitors audience interactions, and reviews platform performance to continuously improve the content mix and publishing approach.",
+
+    "Key Work Areas": [
+      "Content planning and calendar management",
+      "Platform-specific content creation and publishing",
+      "Community management and audience engagement",
+      "Social media monitoring and trend tracking",
+      "Performance reporting and content optimization",
+    ],
+
+    Outcome:
+      "A consistent and responsive social presence supported by structured content and measurable performance insights.",
+  },
+  {
+    name: "Branding & Image Building",
+    image: "/assets/our-services/branding-and-image-building.png",
+    href: "/services/branding-and-image-building",
+
+    intro:
+      "Branding and image building services shape a consistent identity and public-facing presence across communication channels, helping organizations present themselves with clarity and coherence.",
+
+    "How We Work":
+      "We assess the existing identity, audience, positioning, and communication requirements before developing a cohesive visual and messaging direction. The work is then translated into practical brand assets and communication guidelines so that the identity remains consistent across digital, print, media, and stakeholder touchpoints.",
+
+    "Key Work Areas": [
+      "Brand identity and visual direction",
+      "Brand positioning and communication themes",
+      "Identity systems and brand guidelines",
+      "Public image and reputation-supporting communication",
+      "Consistent application across digital and offline touchpoints",
+    ],
+
+    Outcome:
+      "A clearer, more consistent brand identity and stronger public-facing presentation.",
+  },
+  {
+    name: "Brochures & Catalogue Designing",
+    image: "/assets/our-services/brochures-and-catalogue-designing.png",
+    href: "/services/brochures-and-catalogue-designing",
+
+    intro:
+      "Brochure and catalogue designing services turn products, services, capabilities, and key information into structured, professional print and digital collateral.",
+
+    "How We Work":
+      "We organize the available information around the intended audience and communication goal, establish a clear page structure, and develop layouts that combine strong visual hierarchy with easy navigation. Content, imagery, typography, and brand elements are refined together to create polished collateral ready for print or digital distribution.",
+
+    "Key Work Areas": [
+      "Corporate and capability brochures",
+      "Product and service catalogues",
+      "Company profiles and informational booklets",
+      "Event and promotional collateral",
+      "Print-ready and digital brochure layouts",
+    ],
+
+    Outcome:
+      "Professional, easy-to-navigate collateral that communicates offerings clearly and supports business presentation.",
+  },
+
 ];
 
 /* =========================================================
