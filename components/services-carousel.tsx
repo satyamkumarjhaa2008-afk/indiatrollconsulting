@@ -41,7 +41,27 @@ const services: Service[] = [
     title: "Governance & Project Monitoring (PMC)",
     image: "/assets/our-services/governance-project-monitoring.png",
     href: "/services/governance-project-monitoring",
+  },  {
+    title: "Graphic Designing",
+    image: "/assets/our-services/graphic-design.png",
+    href: "/services/graphic-design",
   },
+  {
+    title: "Social Media Management",
+    image: "/assets/our-services/social-media-management.png",
+    href: "/services/social-media-management",
+  },
+  {
+    title: "Branding & Image Building",
+    image: "/assets/our-services/branding-and-image-building.png",
+    href: "/services/branding-and-image-building",
+  },
+  {
+    title: "Brochures & Catalogue Designing",
+    image: "/assets/our-services/brochures-and-catalogue-designing.png",
+    href: "/services/brochures-and-catalogue-designing",
+  },
+
 ];
 
 function getVisibleCards(): number {
