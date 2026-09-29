@@ -1279,3 +1279,20 @@ body:has(.service-page) .service-navigation,
 body:has(.service-page) .service-carousel-section {
   overflow-y: visible !important;
 }
+
+
+/* Keep the site WhatsApp action viewport-fixed on every service route. */
+.service-page .footer-whatsapp {
+  position: fixed !important;
+  right: auto !important;
+  bottom: 54px !important;
+  left: 30px !important;
+  z-index: 9999 !important;
+}
+
+@media (max-width: 520px) {
+  .service-page .footer-whatsapp {
+    bottom: 66px !important;
+    left: 18px !important;
+  }
+}
