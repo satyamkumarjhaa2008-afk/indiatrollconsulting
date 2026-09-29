@@ -899,31 +899,14 @@ export default async function Services({
           </motion.div>
         </motion.section>
 
-        {/* =====================================================
-            FOOTER
-        ===================================================== */}
-
-        <motion.div
-          initial={{
-            opacity: 0,
-            y: 80,
-          }}
-          whileInView={{
-            opacity: 1,
-            y: 0,
-          }}
-          viewport={{
-            once: true,
-            amount: 0.1,
-          }}
-          transition={{
-            duration: 0.9,
-            ease: [0.22, 1, 0.36, 1],
-          }}
-        >
-          <SiteFooter />
-        </motion.div>
       </motion.main>
+
+      {/* =====================================================
+          FOOTER
+          Keep the footer outside the transformed Motion main so
+          its viewport-fixed WhatsApp button remains truly fixed.
+      ===================================================== */}
+      <SiteFooter />
     </>
   );
 }
