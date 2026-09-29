@@ -547,7 +547,7 @@ export default function SiteFooter() {
 
 <a
   className="footer-whatsapp"
-  href={`https://wa.me/917775832855?text=${encodeURIComponent(
+  href={`https://wa.me/919545467875?text=${encodeURIComponent(
     "Hi IndiaTroll Consulting, I came across your website and would like to know more about your services."
   )}`}
   target="_blank"
